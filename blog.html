@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Gochi+Hand&amp;family=Inter:wght@400;700&amp;display=swap" rel="stylesheet"/><script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#BEFF72",
+                        "secondary": "#8B60C3",
+                        "accent": "#0098B3",
+                        "background-light": "#ffffff",
+                        "background-dark": "#121212",
+                    },
+                    fontFamily: {
+                        "display": ["Gochi Hand", "cursive"],
+                        "sans": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0px", "lg": "0px", "xl": "0px", "full": "0px"},
+                },
+            },
+        }
+    </script><style>
+    * { border-color: black !important; }
+    .btn-sharp { border: 2px solid black; box-shadow: 4px 4px 0px 0px black; }
+    .card-sharp { border: 2px solid black; box-shadow: none !important; }
+    h1, h2, h3, h4 { font-family: 'Gochi Hand', cursive !important; }
+    body { font-family: 'Inter', sans-serif !important; }
+</style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-sans text-black dark:text-white antialiased">
+<div class="relative flex min-h-screen w-full flex-col">
+<!-- Top Navigation Bar -->
+<header class="sticky top-0 z-50 bg-white dark:bg-black border-b-2 border-black px-6 lg:px-20 py-4">
+<div class="max-w-7xl mx-auto flex items-center justify-between gap-8">
+<div class="flex items-center gap-8">
+<div class="flex items-center gap-3">
+<div class="bg-primary p-2 border-2 border-black">
+<span class="material-symbols-outlined text-background-dark">style</span>
+</div>
+<h2 class="text-xl font-bold tracking-tight">Nairobi Fashion Hub</h2>
+</div>
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-sm font-bold border-b-2 border-transparent hover:border-black transition-colors" href="#">Home</a>
+<a class="text-sm font-bold border-b-2 border-transparent hover:border-black transition-colors" href="#">Features</a>
+<a class="text-sm font-bold border-b-2 border-transparent hover:border-black transition-colors" href="#">How It Works</a>
+<a class="text-sm font-bold border-b-2 border-transparent hover:border-black transition-colors" href="#">Join</a>
+<a class="text-sm font-bold border-b-2 border-transparent hover:border-black transition-colors" href="#">Support</a>
+<a class="text-sm font-bold border-b-2 border-transparent hover:border-black transition-colors" href="#">Blog</a>
+</nav>
+</div>
+<div class="flex flex-1 justify-end items-center gap-4">
+<div class="hidden sm:flex flex-1 max-w-xs relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-accent text-lg">search</span>
+<input class="w-full bg-white dark:bg-slate-800 border-2 border-black rounded-none pl-10 pr-4 py-2 text-sm focus:ring-0" placeholder="Search trends..." type="text"/>
+</div>
+<div class="flex gap-2">
+<button class="p-2.5 border-2 border-black bg-white dark:bg-slate-800 hover:bg-primary transition-colors">
+<span class="material-symbols-outlined">person</span>
+</button>
+</div>
+</div>
+</div>
+</header>
+<main class="max-w-7xl mx-auto px-6 lg:px-20 py-10">
+<!-- Hero Section -->
+<div class="mb-12">
+<h1 class="text-6xl font-black tracking-tight mb-4">The Fashion Edit</h1>
+<p class="text-accent dark:text-primary text-2xl max-w-2xl font-bold">Exploring the pulse of Kenyan style, vintage treasures, and the rise of sustainable culture in the Green City in the Sun.</p>
+</div>
+<!-- Category Tabs -->
+<div class="flex border-b-2 border-black mb-10 overflow-x-auto no-scrollbar">
+<a class="border-b-4 border-primary px-6 py-4 text-sm font-bold whitespace-nowrap" href="#">All Posts</a>
+<a class="border-b-4 border-transparent hover:border-accent/30 px-6 py-4 text-sm font-bold text-slate-500 dark:text-slate-400 whitespace-nowrap" href="#">Streetwear</a>
+<a class="border-b-4 border-transparent hover:border-accent/30 px-6 py-4 text-sm font-bold text-slate-500 dark:text-slate-400 whitespace-nowrap" href="#">Vintage</a>
+<a class="border-b-4 border-transparent hover:border-accent/30 px-6 py-4 text-sm font-bold text-slate-500 dark:text-slate-400 whitespace-nowrap" href="#">Sustainable</a>
+<a class="border-b-4 border-transparent hover:border-accent/30 px-6 py-4 text-sm font-bold text-slate-500 dark:text-slate-400 whitespace-nowrap" href="#">Local Labels</a>
+</div>
+<!-- Featured Article -->
+<section class="mb-16">
+<div class="grid md:grid-cols-2 gap-0 items-center bg-white dark:bg-slate-900 border-2 border-black overflow-hidden">
+<div class="aspect-[16/10] bg-cover bg-center overflow-hidden" data-alt="Modern Kenyan streetwear model in Nairobi urban setting" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDoYBiRzrotXyoGqnzmkWO5mJSkvsVeV1wbmZk79_x8gLvxKyUjxG0BZYbsTcJUCP-sVPhklqmr309M0e6ZxzGeS5n52mS8yHAKzos1SkYfRww5aMCkw9COILddSNT4vkQBpFahkjKj5kuhjeq5m3i0euUL5ydL9fD15k6Alf9zTn4eToJ2xAjJIEOpdtVGT47HzKj1l1jhZ0Y1jaXmVHLU5zXKuC2hvnkYvqDOQynmkvGveD69G0N-dWQzL53Am4h5w3L2Eb9HMc8");'>
+</div>
+<div class="p-8 lg:p-12">
+<span class="inline-block px-3 py-1 rounded-full bg-primary/20 text-accent dark:text-primary text-xs font-bold uppercase tracking-wider mb-4">Streetwear</span>
+<h2 class="text-3xl lg:text-4xl font-extrabold leading-tight mb-6">Kenyan Streetwear Trends: Beyond the Aesthetic</h2>
+<p class="text-slate-600 dark:text-slate-400 text-lg mb-8">From oversized silhouettes to tribal print fusions, see how Nairobi's youth are redefining modern identity through bold style choices.</p>
+<div class="flex items-center gap-4">
+<img class="w-10 h-10 rounded-full object-cover" data-alt="Author portrait" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC5wXOCetqdmOBEih_TefJmWL4-nD-1vJQ5HMYiWOW82hV2jkemL2FtY8k8wCMQPwD8bz6NT44p_fWgLY4phqM9j5_6bz4PkfaoAGKdQh0aT0opqzb-htKqA8sv--Q2CMNU2o7l5LqvCcAixzGCY-CwC7dzM4kuJOjotFHFWRNcCaYnJPf0x72subEuJTiTKmwZuVEHKQ50W8H8WPlUbuw5NehOKx9SK2iK6josAeoWHucx7sl7cYbuz7RtujV1af1038hvllJb0Gg"/>
+<div>
+<p class="font-bold text-sm">Wanjiku Kamau</p>
+<p class="text-xs text-slate-500">5 min read • Oct 12, 2023</p>
+</div>
+<button class="ml-auto flex items-center gap-2 bg-secondary text-white px-8 py-4 border-2 border-black font-bold text-lg hover:translate-x-1 hover:-translate-y-1 transition-transform btn-sharp">
+                            Read More
+                            <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Magazine Grid -->
+<h2 class="text-2xl font-bold mb-8 flex items-center gap-3">
+<span class="material-symbols-outlined text-accent">auto_awesome</span>
+            Latest Stories
+        </h2>
+<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+<!-- Article Card 1 -->
+<article class="flex flex-col border-2 border-black p-4 bg-white dark:bg-slate-900">
+<div class="relative aspect-square border-2 border-black overflow-hidden mb-5">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110" data-alt="Vibrant market scene with colorful second-hand clothing" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDuFfF6kCtk0imm5wS2u1kkKrw7okew5LyYZQMIL3netV50EKxsdcTIbZDy3VTq_9EHW8z0nGqhmtXVSbUnaDuQZ913afYbbKlPiRx6XYKOTgiCfwGBy-ZDZuNj-uKrtSnvzB3VzmpgtRPii89n4hsJPlYPkxjkUNLPMTM_4wa7rvfwFMPul5dEdsTSeeOHWscOIlu2AtG70lKHXyoT6CoZlODevQrpG23G81fZc5UGiRvnekIJBe-53hLe1bXSUH2BfxyYtcR8uuw");'></div>
+<div class="absolute top-4 left-4 bg-primary border-2 border-black px-3 py-1 text-xs font-bold">Vintage</div>
+</div>
+<h3 class="text-xl font-bold mb-3 group-hover:text-accent transition-colors">How to Spot Vintage Gems in Gikomba</h3>
+<p class="text-slate-600 dark:text-slate-400 text-sm mb-6 line-clamp-3">The ultimate guide to navigating East Africa's largest open-air market for high-end labels and unique 90s finds.</p>
+<div class="mt-auto flex items-center justify-between">
+<span class="text-xs font-semibold text-slate-400">Oct 10, 2023</span>
+<button class="text-primary hover:text-accent font-bold text-sm flex items-center gap-1">
+                        Read story <span class="material-symbols-outlined text-base">north_east</span>
+</button>
+</div>
+</article>
+<!-- Article Card 2 -->
+<article class="flex flex-col border-2 border-black p-4 bg-white dark:bg-slate-900">
+<div class="relative aspect-square border-2 border-black overflow-hidden mb-5">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110" data-alt="Eco-friendly workshop with sustainable fabrics and designs" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDkk77Cd7sm6GaxfJBrehekp7H7wQFIRMfGgtt9lAu2Le4TYBOBDEdGK29jXEgw4zDgL0xC83FjoomwuYiwlhxFmm5TzSmKdNM9zpjYZMfWGXwNzBujHP-Sey2X7RTmEkGTeLq8BUiXgxxUsheBU-9rv9QMBsRkPHLO6v3X4tHReoaoDvVoT1YSDhuJnDXwL-GQvo3Cwj7oGSwfRdV40RKa_ov2YeSyVLnnnzJgKXCXYyRNnxslrCS9e3wSZCpiBuiSncnT-gVsMuo");'></div>
+<div class="absolute top-4 left-4 bg-primary border-2 border-black px-3 py-1 text-xs font-bold">Sustainability</div>
+</div>
+<h3 class="text-xl font-bold mb-3 group-hover:text-accent transition-colors">Sustainable Fashion in Nairobi</h3>
+<p class="text-slate-600 dark:text-slate-400 text-sm mb-6 line-clamp-3">Meet the local designers transforming recycled materials into runway-ready couture, leading the slow fashion movement.</p>
+<div class="mt-auto flex items-center justify-between">
+<span class="text-xs font-semibold text-slate-400">Oct 08, 2023</span>
+<button class="text-primary hover:text-accent font-bold text-sm flex items-center gap-1">
+                        Read story <span class="material-symbols-outlined text-base">north_east</span>
+</button>
+</div>
+</article>
+<!-- Article Card 3 -->
+<article class="flex flex-col border-2 border-black p-4 bg-white dark:bg-slate-900">
+<div class="relative aspect-square border-2 border-black overflow-hidden mb-5">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110" data-alt="Dapper gentleman in tailored African print suit" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuD-Yxup1LA46Tbqgcxq4luOkaSjTtvgNRN9-Qzqf-NZ4x8JNBPt-IQc7xj5XyjpguBzkiAAV0Qawlv4BniC6LAPfjqwUqLs5J2_2VW6vY0MCz_iuEJALfe-jGSnJqSjyYjEHIRMaY8vA8UXele0jBI9Tl8Swp4a5I-FtEt5iuB6TU9D5HHOGCaAeEPf2WFyOcsHha4s1IZYr0BIgGWJ-RnlbEj6CUCrYMeDyyvSa1krnQFIO2aAAVzpbhZzcK1n0U_yonSdyabZ1-o");'></div>
+<div class="absolute top-4 left-4 bg-primary border-2 border-black px-3 py-1 text-xs font-bold">Local Labels</div>
+</div>
+<h3 class="text-xl font-bold mb-3 group-hover:text-accent transition-colors">The Modern Maasai: Reimagined Patterns</h3>
+<p class="text-slate-600 dark:text-slate-400 text-sm mb-6 line-clamp-3">How traditional shuka patterns are finding their way into high-fashion menswear and luxury accessories.</p>
+<div class="mt-auto flex items-center justify-between">
+<span class="text-xs font-semibold text-slate-400">Oct 05, 2023</span>
+<button class="text-primary hover:text-accent font-bold text-sm flex items-center gap-1">
+                        Read story <span class="material-symbols-outlined text-base">north_east</span>
+</button>
+</div>
+</article>
+</div>
+<!-- Newsletter Subscription -->
+<section class="mt-20 bg-accent border-4 border-black p-12 text-center text-white">
+<div class="max-w-xl mx-auto">
+<h2 class="text-3xl font-extrabold mb-4">Stay Ahead of the Curve</h2>
+<p class="text-slate-600 dark:text-slate-400 mb-8">Join 5,000+ fashion insiders and get the weekly edit of Nairobi's best style directly in your inbox.</p>
+<form class="flex flex-col sm:flex-row gap-3">
+<input class="flex-1 border-2 border-black bg-white text-black px-6 py-4 focus:ring-0" placeholder="Your email address" type="email"/>
+<button class="bg-primary text-black border-2 border-black font-bold px-10 py-4 hover:translate-x-1 hover:-translate-y-1 transition-all btn-sharp whitespace-nowrap">Subscribe Now</button>
+</form>
+<p class="text-[10px] text-slate-500 mt-4 uppercase tracking-widest font-bold">No spam. Only curated inspiration.</p>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="mt-20 border-t-4 border-black py-12 px-6 lg:px-20 bg-white">
+<div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
+<div class="flex items-center gap-3">
+<div class="bg-secondary p-2 border-2 border-black">
+<span class="material-symbols-outlined text-slate-900 dark:text-white">style</span>
+</div>
+<span class="font-bold text-lg">Nairobi Fashion Hub</span>
+</div>
+<div class="flex gap-8">
+<a class="text-slate-500 hover:text-primary transition-colors" href="#"><span class="material-symbols-outlined">brand_family</span></a>
+<a class="text-slate-500 hover:text-primary transition-colors" href="#"><span class="material-symbols-outlined">hub</span></a>
+</div>
+<p class="text-slate-500 text-sm">© 2023 Nairobi Fashion Hub. All rights reserved.</p>
+</div>
+</footer>
+</div>
+</body></html>

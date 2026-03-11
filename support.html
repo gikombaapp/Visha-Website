@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Support Center | Help &amp; Resources</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Gochi+Hand&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Gochi+Hand&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#BEFF72",
+                        "secondary": "#8B60C3",
+                        "accent": "#0098B3",
+                        "background-light": "#ffffff",
+                        "background-dark": "#121212",
+                    },
+                    fontFamily: {
+                        "display": ["Gochi Hand", "cursive"],
+                        "sans": ["Plus Jakarta Sans", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0px", "lg": "0px", "xl": "0px", "full": "0px"},
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; }
+        h1, h2, h3, h4 { font-family: 'Gochi Hand', cursive; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .brutalist-card { border: 2px solid #000000; box-shadow: 4px 4px 0px #000000; }
+        .brutalist-button { border: 2px solid #000000; box-shadow: 2px 2px 0px #000000; }
+        .brutalist-button:active { transform: translate(1px, 1px); box-shadow: 1px 1px 0px #000000; }
+        .brutalist-input { border: 2px solid #000000 !important; border-radius: 0px !important; }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 antialiased">
+<div class="relative flex min-h-screen w-full flex-col overflow-x-hidden">
+<!-- Navigation -->
+<header class="sticky top-0 z-50 w-full border-b border-slate-200/50 bg-white/80 backdrop-blur-md dark:border-slate-800/50 dark:bg-background-dark/80 rounded-none border-b-2 border-black">
+<div class="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
+<div class="flex items-center gap-8">
+<div class="flex items-center gap-3">
+<div class="flex h-10 w-10 items-center justify-center rounded-xl bg-primary text-slate-900 rounded-none brutalist-card">
+<span class="material-symbols-outlined">help_center</span>
+</div>
+<h2 class="text-xl font-extrabold tracking-tight">Support</h2>
+</div>
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-sm font-bold hover:text-secondary transition-colors" href="#">Home</a>
+<a class="text-sm font-bold hover:text-secondary transition-colors" href="#">Features</a>
+<a class="text-sm font-bold hover:text-secondary transition-colors" href="#">How It Works</a>
+<a class="text-sm font-bold hover:text-secondary transition-colors" href="#">Join</a>
+<a class="text-sm font-bold hover:text-secondary transition-colors" href="#faq">Support</a>
+<a class="text-sm font-bold hover:text-secondary transition-colors" href="#">Blog</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<div class="hidden sm:block">
+<label class="relative flex items-center">
+<span class="material-symbols-outlined absolute left-3 text-slate-400">search</span>
+<input class="h-10 w-64 rounded-xl border-none bg-slate-100 pl-10 text-sm focus:ring-2 focus:ring-secondary dark:bg-slate-800 rounded-none brutalist-card brutalist-input" placeholder="Search knowledge base..." type="text"/>
+</label>
+</div>
+<button class="flex h-10 w-10 items-center justify-center rounded-full bg-slate-100 dark:bg-slate-800 rounded-none brutalist-button">
+<span class="material-symbols-outlined text-slate-600 dark:text-slate-300">person</span>
+</button>
+</div>
+</div>
+</header>
+<main class="flex-1">
+<!-- Hero Section -->
+<section class="mx-auto max-w-7xl px-6 py-12 @container">
+<div class="flex flex-col gap-8 bg-[#8B60C3] p-8 @[864px]:flex-row @[864px]:items-center border-2 border-black">
+<div class="flex flex-1 flex-col gap-6">
+<div class="space-y-4">
+<span class="inline-block rounded-full bg-secondary/20 px-4 py-1 text-sm font-bold text-secondary uppercase tracking-wider">Help Center</span>
+<h1 class="text-4xl font-black leading-tight tracking-tight text-slate-900 dark:text-white sm:text-5xl lg:text-6xl">Habari! How can we <span class="text-secondary">help you</span> in Kenya today?</h1>
+<p class="text-lg text-slate-600 dark:text-slate-400 max-w-xl">Find quick answers for local services, browse detailed Kenyan business guides, or get in touch with our Nairobi-based support team.</p>
+</div>
+<div class="flex max-w-md gap-2">
+<div class="relative flex-1">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-slate-400">search</span>
+<input class="h-14 w-full rounded-xl border-none bg-white pl-12 text-base shadow-sm focus:ring-2 focus:ring-secondary dark:bg-slate-900 rounded-none brutalist-card brutalist-input" placeholder="Search for help..." type="text"/>
+</div>
+<button class="h-14 rounded-none bg-[#BEFF72] px-8 text-base font-bold text-slate-900 brutalist-button transition-all">
+                            Search
+                        </button>
+</div>
+</div>
+<div class="hidden @[864px]:block flex-1">
+<div class="aspect-square w-full rounded-3xl bg-cover bg-center shadow-2xl rounded-none brutalist-card" data-alt="Friendly support team working together in a bright office environment" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAbfwi8xSfGswgQXaen-QI3y71VpxE502RfORlAjXcW-fHMiQEBCMznPRYoWUmDUO0fUiPv2hP6yzLvjCzVV146whOzHeVGW5jhxZTIgXpI_m6SwD8qaIw6P6LDNjjil4iN340tzCwsLWs3nE7_nFrrGJn7RoKXjbWJQSJfGRtov7RVVHxhFh09cDi4za38k6jc0xxBl4-5tKV1vXbaPXkGKJNrgcrfsEBtHBTwjwZT2LoDeREKCGLbZ186i-mZBUPPxf81DwNawOA");'></div>
+</div>
+</div>
+</section>
+<!-- Help Guides Grid -->
+<section class="mx-auto max-w-7xl px-6 py-12">
+<h2 class="mb-8 text-2xl font-extrabold tracking-tight">Browse Topics</h2>
+<div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+<!-- Guide Card 1 -->
+<div class="group flex flex-col gap-4 rounded-2xl border border-slate-200 bg-white p-6 transition-all hover:shadow-xl dark:border-slate-800 dark:bg-slate-900/50 rounded-none brutalist-card">
+<div class="flex h-12 w-12 items-center justify-center rounded-xl bg-accent/10 text-accent rounded-none brutalist-card">
+<span class="material-symbols-outlined">rocket_launch</span>
+</div>
+<div>
+<h3 class="text-lg font-bold">Getting Started</h3>
+<p class="mt-2 text-sm text-slate-600 dark:text-slate-400">Everything you need to know to set up and start using your account in minutes.</p>
+</div>
+<a class="mt-2 flex items-center gap-2 text-sm font-bold text-accent group-hover:underline" href="#">
+                        View 12 articles <span class="material-symbols-outlined text-xs">arrow_forward</span>
+</a>
+</div>
+<!-- Guide Card 2 -->
+<div class="group flex flex-col gap-4 rounded-2xl border border-slate-200 bg-white p-6 transition-all hover:shadow-xl dark:border-slate-800 dark:bg-slate-900/50 rounded-none brutalist-card">
+<div class="flex flex-col gap-8 bg-[#8B60C3] p-8 @[864px]:flex-row @[864px]:items-center border-2 border-black">
+<span class="material-symbols-outlined">payments</span>
+</div>
+<div>
+<h3 class="text-lg font-bold">Billing &amp; Invoices</h3>
+<p class="mt-2 text-sm text-slate-600 dark:text-slate-400">Understand your billing cycle, manage payment methods, and download invoices.</p>
+</div>
+<a class="mt-2 flex items-center gap-2 text-sm font-bold text-secondary group-hover:underline" href="#">
+                        View 8 articles <span class="material-symbols-outlined text-xs">arrow_forward</span>
+</a>
+</div>
+<!-- Guide Card 3 -->
+<div class="group flex flex-col gap-4 rounded-2xl border border-slate-200 bg-white p-6 transition-all hover:shadow-xl dark:border-slate-800 dark:bg-slate-900/50 rounded-none brutalist-card">
+<div class="flex h-12 w-12 items-center justify-center rounded-xl bg-primary/20 text-slate-700 rounded-none brutalist-card">
+<span class="material-symbols-outlined">settings_suggest</span>
+</div>
+<div>
+<h3 class="text-lg font-bold">Account Settings</h3>
+<p class="mt-2 text-sm text-slate-600 dark:text-slate-400">Configure your profile, notification preferences, and security settings.</p>
+</div>
+<a class="mt-2 flex items-center gap-2 text-sm font-bold text-slate-700 dark:text-primary group-hover:underline" href="#">
+                        View 15 articles <span class="material-symbols-outlined text-xs">arrow_forward</span>
+</a>
+</div>
+</div>
+</section>
+<!-- FAQ Section -->
+<section class="py-20 dark:bg-slate-900/30 border-y-2 border-black" id="faq" style="background-color: #BEFF72;">
+<div class="mx-auto max-w-3xl px-6">
+<div class="mb-12 text-center">
+<h2 class="text-3xl font-black">Frequently Asked Questions</h2>
+<p class="mt-4 text-slate-600 dark:text-slate-400">Quick answers to the most common questions from our community.</p>
+</div>
+<div class="space-y-4">
+<details class="group rounded-2xl border border-slate-200 bg-white dark:border-slate-800 dark:bg-slate-900 rounded-none brutalist-card" open="">
+<summary class="flex cursor-pointer items-center justify-between p-6 list-none">
+<span class="text-base font-bold">How do I reset my password?</span>
+<span class="material-symbols-outlined transition-transform group-open:rotate-180">expand_more</span>
+</summary>
+<div class="px-6 pb-6 pt-0 text-slate-600 dark:text-slate-400">
+                            You can reset your password by clicking on 'Forgot Password' at the login screen. We will send an email with instructions to your registered address within a few minutes.
+                        </div>
+</details>
+<details class="group rounded-2xl border border-slate-200 bg-white dark:border-slate-800 dark:bg-slate-900 rounded-none brutalist-card">
+<summary class="flex cursor-pointer items-center justify-between p-6 list-none">
+<span class="text-base font-bold">Can I change my subscription plan at any time?</span>
+<span class="material-symbols-outlined transition-transform group-open:rotate-180">expand_more</span>
+</summary>
+<div class="px-6 pb-6 pt-0 text-slate-600 dark:text-slate-400">
+                            Yes! You can upgrade or downgrade your plan at any time from your Account Settings. If you upgrade, the new features will be available immediately.
+                        </div>
+</details>
+<details class="group rounded-2xl border border-slate-200 bg-white dark:border-slate-800 dark:bg-slate-900 rounded-none brutalist-card">
+<summary class="flex cursor-pointer items-center justify-between p-6 list-none">
+<span class="text-base font-bold">What is your refund policy?</span>
+<span class="material-symbols-outlined transition-transform group-open:rotate-180">expand_more</span>
+</summary>
+<div class="px-6 pb-6 pt-0 text-slate-600 dark:text-slate-400">
+                            We offer a 30-day money-back guarantee for all our premium plans. If you're not satisfied, just contact our support team and we'll process your refund, no questions asked.
+                        </div>
+</details>
+<details class="group rounded-2xl border border-slate-200 bg-white dark:border-slate-800 dark:bg-slate-900 rounded-none brutalist-card">
+<summary class="flex cursor-pointer items-center justify-between p-6 list-none">
+<span class="text-base font-bold">Is my data secure?</span>
+<span class="material-symbols-outlined transition-transform group-open:rotate-180">expand_more</span>
+</summary>
+<div class="px-6 pb-6 pt-0 text-slate-600 dark:text-slate-400">
+                            Security is our top priority. We use industry-standard encryption and follow best practices to ensure your data is always protected and never shared with third parties.
+                        </div>
+</details>
+</div>
+</div>
+</section>
+<!-- Contact Form Section -->
+<section class="mx-auto max-w-7xl px-6 py-24" id="contact">
+<div class="grid gap-16 lg:grid-cols-2">
+<div class="space-y-8">
+<div>
+<h2 class="text-3xl font-black">Still need help?</h2>
+<p class="mt-4 text-lg text-slate-600 dark:text-slate-400">Our friendly team is here to help. Send us a message and we'll get back to you within 24 hours.</p>
+</div>
+<div class="space-y-6">
+<div class="flex items-start gap-4">
+<div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-accent/10 text-accent rounded-none brutalist-card">
+<span class="material-symbols-outlined">mail</span>
+</div>
+<div>
+<h4 class="font-bold">Email us</h4>
+<p class="text-slate-600 dark:text-slate-400">support@friendlysupport.com</p>
+</div>
+</div>
+<div class="flex items-start gap-4">
+<div class="flex flex-col gap-8 bg-[#8B60C3] p-8 @[864px]:flex-row @[864px]:items-center border-2 border-black">
+<span class="material-symbols-outlined">forum</span>
+</div>
+<div>
+<h4 class="font-bold">Live Chat</h4>
+<p class="text-slate-600 dark:text-slate-400">Available Mon-Fri, 9am-5pm EST</p>
+</div>
+</div>
+<div class="flex items-start gap-4">
+<div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-primary/20 text-slate-700 rounded-none brutalist-card">
+<span class="material-symbols-outlined">location_on</span>
+</div>
+<div>
+<h4 class="font-bold">Headquarters</h4>
+<p class="text-slate-600 dark:text-slate-400">Westlands Commercial Centre, Ring Rd Parklands, Nairobi, Kenya</p>
+</div>
+</div>
+</div>
+</div>
+<div class="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm dark:border-slate-800 dark:bg-slate-900/50 rounded-none brutalist-card">
+<form class="space-y-6">
+<div class="grid gap-6 sm:grid-cols-2">
+<div class="space-y-2">
+<label class="text-sm font-bold">Full Name</label>
+<input class="w-full rounded-xl border-slate-200 bg-slate-50 px-4 py-3 focus:border-secondary focus:ring-secondary dark:border-slate-800 dark:bg-slate-900 rounded-none brutalist-card brutalist-input" placeholder="John Doe" type="text"/>
+</div>
+<div class="space-y-2">
+<label class="text-sm font-bold">Email Address</label>
+<input class="w-full rounded-xl border-slate-200 bg-slate-50 px-4 py-3 focus:border-secondary focus:ring-secondary dark:border-slate-800 dark:bg-slate-900 rounded-none brutalist-card brutalist-input" placeholder="john@example.com" type="email"/>
+</div>
+</div>
+<div class="space-y-2">
+<label class="text-sm font-bold">Subject</label>
+<select class="w-full rounded-xl border-slate-200 bg-slate-50 px-4 py-3 focus:border-secondary focus:ring-secondary dark:border-slate-800 dark:bg-slate-900 rounded-none brutalist-card brutalist-input">
+<option>Technical Issue</option>
+<option>Billing Question</option>
+<option>Feature Request</option>
+<option>Other</option>
+</select>
+</div>
+<div class="space-y-2">
+<label class="text-sm font-bold">Message</label>
+<textarea class="w-full rounded-xl border-slate-200 bg-slate-50 px-4 py-3 focus:border-secondary focus:ring-secondary dark:border-slate-800 dark:bg-slate-900 rounded-none brutalist-card brutalist-input" placeholder="How can we help you?" rows="4"></textarea>
+</div>
+<button class="w-full rounded-none bg-[#8B60C3] py-4 text-center text-base font-bold text-white brutalist-button transition-all">
+                            Send Message
+                        </button>
+</form>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="border-t border-slate-200 py-12 dark:border-slate-800">
+<div class="mx-auto max-w-7xl px-6">
+<div class="flex flex-col items-center justify-between gap-6 sm:flex-row">
+<div class="flex items-center gap-3">
+<div class="flex h-8 w-8 items-center justify-center rounded-lg bg-primary text-slate-900">
+<span class="material-symbols-outlined text-sm">help_center</span>
+</div>
+<span class="text-lg font-bold tracking-tight">Support Center</span>
+</div>
+<div class="flex gap-8 text-sm text-slate-500 dark:text-slate-400">
+<a class="hover:text-slate-900 dark:hover:text-white" href="#">Privacy Policy</a>
+<a class="hover:text-slate-900 dark:hover:text-white" href="#">Terms of Service</a>
+<a class="hover:text-slate-900 dark:hover:text-white" href="#">Status</a>
+</div>
+<p class="text-sm text-slate-400">© 2024 Support Center. All rights reserved.</p>
+</div>
+</div>
+</footer>
+</div>
+</body></html>

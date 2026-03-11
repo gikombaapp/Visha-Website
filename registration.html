@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Early Access - Inner Circle</title><link href="https://fonts.googleapis.com/css2?family=Gochi+Hand&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "purple-main": "#8B60C3",
+                        "teal-main": "#0098B3",
+                        "lime-main": "#BEFF72",
+                        "dark-text": "#1A1A1A"
+                    },
+                    fontFamily: {
+                        "display": ["Gochi Hand", "cursive"],
+                        "sans": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "4px",
+                        "lg": "4px",
+                        "xl": "4px",
+                        "full": "4px"
+                    },
+                },
+            },
+        }</script>
+<style>body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f7f8f5;
+        }
+        h1, h2, h3 {
+            font-family: 'Gochi Hand', cursive;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .brutal-border {
+            border: 2px solid #1A1A1A;
+        }
+        .brutal-shadow {
+            box-shadow: 4px 4px 0px 0px #1A1A1A;
+        }</style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 min-h-screen flex flex-col"><nav class="w-full border-b-2 border-dark-text bg-white px-6 py-4 flex items-center justify-between">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 bg-purple-main brutal-border"></div>
+<span class="font-display text-2xl font-bold">KE_Vibe</span>
+</div>
+<div class="hidden md:flex items-center gap-8 font-bold">
+<a class="hover:text-purple-main transition-colors" href="#">Home</a>
+<a class="hover:text-purple-main transition-colors" href="#">Features</a>
+<a class="hover:text-purple-main transition-colors" href="#">How It Works</a>
+<a class="hover:text-purple-main transition-colors" href="#">Join</a>
+<a class="hover:text-purple-main transition-colors" href="#">Support</a>
+<a class="hover:text-purple-main transition-colors" href="#">Blog</a>
+</div>
+</nav>
+<!-- Main Container -->
+<div class="flex-1 flex flex-col items-center justify-center px-4 py-12">
+<div class="w-full max-w-[520px] bg-white brutal-border brutal-shadow overflow-hidden">
+<!-- Header Section -->
+<header class="flex items-center justify-between border-b-2 border-dark-text px-8 py-6 bg-purple-main/10">
+<div class="flex items-center gap-3">
+<div class="bg-purple-main p-2 brutal-border">
+<span class="material-symbols-outlined text-background-dark">auto_awesome</span>
+</div>
+<h2 class="text-2xl font-bold tracking-tight text-dark-text">Early Access</h2>
+</div>
+<button class="flex items-center justify-center brutal-border size-10 bg-white hover:bg-lime-main text-dark-text transition-colors">
+<span class="material-symbols-outlined">close</span>
+</button>
+</header>
+<div class="p-8 space-y-8">
+<!-- Headline -->
+<div class="space-y-2">
+<h1 class="text-5xl font-bold leading-tight text-dark-text">Join the Inner Circle</h1>
+<p class="text-slate-500 dark:text-slate-400 text-lg">The ultimate collective for Kenyan creators. Get on the list for M-Pesa enabled drops and local meetups.</p>
+</div>
+<!-- Form Section -->
+<form class="space-y-6">
+<!-- Full Name -->
+<div class="flex flex-col gap-2">
+<label class="text-sm font-black uppercase tracking-widest text-dark-text">Full Name</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-slate-400">person</span>
+<input class="w-full rounded-none brutal-border bg-white py-4 pl-12 pr-4 text-dark-text focus:ring-0 focus:border-teal-main outline-none transition-all placeholder:text-slate-400" placeholder="Enter your full name" required="" type="text"/>
+</div>
+</div>
+<!-- Phone Number -->
+<div class="flex flex-col gap-2">
+<label class="text-sm font-black uppercase tracking-widest text-dark-text">Phone Number (M-Pesa)</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-slate-400">phone_iphone</span>
+<input class="w-full rounded-none brutal-border bg-white py-4 pl-12 pr-4 text-dark-text focus:ring-0 focus:border-teal-main outline-none transition-all placeholder:text-slate-400" placeholder="e.g. 0712345678" required="" type="tel"/>
+</div>
+</div>
+<!-- Email Address -->
+<div class="flex flex-col gap-2">
+<label class="text-sm font-black uppercase tracking-widest text-dark-text">Email Address</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-slate-400">alternate_email</span>
+<input class="w-full rounded-none brutal-border bg-white py-4 pl-12 pr-4 text-dark-text focus:ring-0 focus:border-teal-main outline-none transition-all placeholder:text-slate-400" placeholder="email@example.com" required="" type="email"/>
+</div>
+</div>
+<!-- Favorite Style -->
+<div class="flex flex-col gap-2">
+<label class="text-sm font-black uppercase tracking-widest text-dark-text">Favorite Style</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-slate-400">style</span>
+<select class="w-full rounded-none brutal-border bg-white py-4 pl-12 pr-4 text-dark-text focus:ring-0 focus:border-teal-main outline-none transition-all placeholder:text-slate-400">
+<option disabled="" selected="" value="">Select your vibe</option>
+<option value="minimal">Minimalist &amp; Clean</option>
+<option value="streetwear">Streetwear &amp; Bold</option>
+<option value="luxury">Luxury &amp; Classic</option>
+<option value="vibrant">Vibrant &amp; Artistic</option>
+</select>
+<span class="material-symbols-outlined absolute right-4 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none">expand_more</span>
+</div>
+</div>
+<!-- Submit Button -->
+<button class="w-full bg-lime-main brutal-border brutal-shadow text-dark-text font-black text-xl py-5 rounded-none hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none transition-all flex items-center justify-center gap-2 group" type="submit">
+                        Secure Your Spot
+                        <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</button>
+</form>
+<!-- Footer Note -->
+<p class="text-center text-sm text-slate-500 dark:text-slate-400">
+                    By registering, you agree to our 
+                    <a class="text-slate-900 dark:text-primary font-bold hover:underline" href="#">Terms of Service</a> 
+                    and 
+                    <a class="text-slate-900 dark:text-primary font-bold hover:underline" href="#">Privacy Policy</a>.
+                </p>
+</div>
+</div>
+<!-- Decorative Background Element -->
+</div>
+</body></html>
