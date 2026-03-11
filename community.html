@@ -3,149 +3,116 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <!-- SEO -->
   <title>Community — gikomba.app | Join Kenya's Thrift Movement</title>
-  <meta name="description" content="Join Kenya's most vibrant sustainable fashion community. From Gikomba gems to high-end vintage, connect with curators across Nairobi." />
-  <meta name="keywords" content="Nairobi thrift community, Kenya sustainable fashion, thrift events Nairobi, vintage community Kenya" />
+  <meta name="description" content="Join the gikomba.app community. Connect with curators, attend Nairobi events, and be part of Kenya's sustainable fashion movement." />
   <meta property="og:title" content="Community — gikomba.app" />
-  <meta property="og:description" content="More than a marketplace. A movement. Join Kenya's thrift community." />
   <meta property="og:type" content="website" />
   <link rel="canonical" href="https://gikomba.app/community.html" />
-
-  <!-- Styles -->
-  <link rel="stylesheet" href="src/input.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap" rel="stylesheet" />
-
-  <!-- Tailwind CDN fallback -->
+  <link rel="stylesheet" href="styles.css" />
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
       darkMode: "class",
-      theme: {
-        extend: {
-          colors: {
-            primary: "#B5F03A", secondary: "#7B4FC4", accent: "#007A91",
-            surface: "#FFFFFF", "surface-dark": "#0F0F0F",
-            ink: "#111111", "ink-muted": "#555555",
-            "ink-dark": "#E8E8E8", "ink-muted-dark": "#9CA3AF",
-          },
-          fontFamily: { display: ["'Syne'", "sans-serif"], body: ["'DM Sans'", "sans-serif"] },
-          borderRadius: { DEFAULT: "0px", none: "0px", sm: "0px", md: "0px", lg: "0px", xl: "0px", "2xl": "0px", full: "0px" },
-        },
-      },
+      theme: { extend: { colors: { primary:"#B5F03A", secondary:"#7B4FC4", accent:"#007A91", ink:"#111111", "ink-muted":"#555555", "ink-dark":"#E8E8E8", "ink-muted-dark":"#9CA3AF" }, fontFamily: { display:["'Syne'","sans-serif"], body:["'DM Sans'","sans-serif"] }, borderRadius: { DEFAULT:"0px", none:"0px", sm:"0px", md:"0px", lg:"0px", xl:"0px", "2xl":"0px", full:"0px" } } }
     };
   </script>
+  <style>
+    body { font-family: 'DM Sans', sans-serif; }
+    h1, h2, h3, h4 { font-family: 'Syne', sans-serif; }
+    .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; vertical-align: middle; }
+  </style>
 </head>
 
-<body class="bg-white dark:bg-[#0F0F0F] text-ink dark:text-ink-dark font-body antialiased transition-colors duration-200">
+<body class="bg-white dark:bg-[#0F0F0F] text-ink dark:text-ink-dark antialiased transition-colors duration-200">
 
   <div id="site-nav"></div>
 
   <main>
 
-    <!-- ═══ Hero ════════════════════════════════════════════════ -->
-    <section class="max-w-7xl mx-auto px-6 lg:px-16 py-20 grid lg:grid-cols-2 gap-16 items-center" aria-labelledby="community-heading">
+    <!-- ═══ HERO ═══════════════════════════════════════════════ -->
+    <section class="max-w-7xl mx-auto px-5 sm:px-8 lg:px-16 pt-14 pb-10 lg:pt-20 grid lg:grid-cols-2 gap-12 lg:gap-20 items-center" aria-labelledby="community-heading">
 
-      <div class="flex flex-col gap-8">
-        <span class="inline-block border-2 border-ink bg-secondary text-white text-xs font-bold uppercase tracking-widest px-4 py-1.5 w-fit">
-          Community Exclusive
+      <div class="flex flex-col gap-6">
+        <span class="inline-block border-2 border-ink dark:border-[#444] bg-secondary text-white text-xs font-bold uppercase tracking-widest px-3 py-1.5 w-fit">
+          Community
         </span>
-
-        <h1 id="community-heading" class="font-display text-5xl md:text-6xl font-extrabold leading-[1.05] text-ink dark:text-ink-dark">
-          More than a Marketplace.<br />
-          <span class="bg-primary px-2 text-ink">A Movement.</span>
+        <h1 id="community-heading" class="font-display text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-[1.05] text-ink dark:text-ink-dark">
+          More than an app.<br />
+          <span class="bg-primary px-2 text-ink">A movement.</span>
         </h1>
-
-        <p class="text-ink-muted dark:text-ink-muted-dark text-lg leading-relaxed max-w-xl">
-          Join Kenya's most vibrant ecosystem of sustainable fashion lovers. From Gikomba gems to high-end vintage, connect with curators and represent the future of thrifting in Nairobi.
+        <p class="text-base sm:text-lg text-ink-muted dark:text-ink-muted-dark max-w-lg leading-relaxed">
+          gikomba.app is home to Kenya's most vibrant community of sustainable fashion lovers. Whether you're a Gikomba vendor, a vintage hunter, or just getting started — you belong here.
         </p>
-
-        <div class="flex flex-wrap gap-4">
-          <a href="registration.html" class="bg-primary text-ink border-2 border-ink font-bold text-lg px-8 py-4 hover:translate-x-[2px] hover:translate-y-[2px] hover:[box-shadow:none] transition-all uppercase" style="box-shadow: 6px 6px 0 #111">
+        <div class="flex flex-col sm:flex-row gap-3">
+          <a href="registration.html" class="inline-flex items-center justify-center gap-2 bg-primary text-ink border-2 border-ink font-bold text-base px-7 py-4 hover:translate-x-[2px] hover:translate-y-[2px] hover:[box-shadow:none] transition-all uppercase" style="box-shadow:5px 5px 0 #111">
             Become a Member
           </a>
-          <button class="bg-white dark:bg-[#1A1A1A] text-ink dark:text-ink-dark border-2 border-ink dark:border-[#444] font-bold text-lg px-8 py-4 hover:translate-x-[2px] hover:translate-y-[2px] hover:[box-shadow:none] transition-all uppercase" style="box-shadow: 6px 6px 0 #111">
-            Learn More
-          </button>
+          <a href="how.html" class="inline-flex items-center justify-center gap-2 bg-white dark:bg-[#1A1A1A] text-ink dark:text-ink-dark border-2 border-ink dark:border-[#444] font-bold text-base px-7 py-4 hover:translate-x-[2px] hover:translate-y-[2px] hover:[box-shadow:none] transition-all uppercase" style="box-shadow:5px 5px 0 #111">
+            See How It Works
+          </a>
         </div>
       </div>
 
-      <!-- Hero image with decorative offset -->
+      <!-- Image with offset decoration -->
       <div class="relative">
-        <div class="absolute -inset-2 bg-accent border-2 border-ink dark:border-[#444]"></div>
-        <div
-          class="relative w-full aspect-[4/3] bg-cover bg-center border-2 border-ink dark:border-[#444]"
-          style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuACVm0M3bynGdI2VYO9pmoYqJGrkCH-UrJoChYBqUtT8I_78Bo2yrvh9r0SmNy788EH89qKtdd1mp6wL-A81LeQRt49UiNteQnZAxtOJK5yHjc9xxhLwBm-xoYUwbCr_zwLxs3CPx1hnHv6xBgo8p6wsdlVuGyhFqXWgo1dXYAikb-4EcmQHdBJ-YlHAODFbdCyAch2FMTR4pDciSsEgVsjRtCg_2QiexMkJxqxR-3u1E9jg1hUQV-OBkmDRiaCcxLlPNHJHR55UpI"); box-shadow: 10px 10px 0 #111'
-          role="img"
-          aria-label="Vibrant community of Nairobi thrifters at an event"
-        ></div>
+        <div class="absolute -inset-3 bg-accent border-2 border-ink dark:border-[#444]" aria-hidden="true"></div>
+        <div class="relative w-full aspect-[4/3] bg-cover bg-center border-2 border-ink dark:border-[#444]"
+          style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuACVm0M3bynGdI2VYO9pmoYqJGrkCH-UrJoChYBqUtT8I_78Bo2yrvh9r0SmNy788EH89qKtdd1mp6wL-A81LeQRt49UiNteQnZAxtOJK5yHjc9xxhLwBm-xoYUwbCr_zwLxs3CPx1hnHv6xBgo8p6wsdlVuGyhFqXWgo1dXYAikb-4EcmQHdBJ-YlHAODFbdCyAch2FMTR4pDciSsEgVsjRtCg_2QiexMkJxqxR-3u1E9jg1hUQV-OBkmDRiaCcxLlPNHJHR55UpI"); box-shadow:10px 10px 0 #111'
+          role="img" aria-label="Nairobi thrift community event"></div>
       </div>
     </section>
 
-    <!-- ═══ Why Join Us ═════════════════════════════════════════ -->
-    <section class="border-y-2 border-ink dark:border-[#444] py-24 bg-primary/10 dark:bg-primary/5" aria-labelledby="why-heading">
-      <div class="max-w-7xl mx-auto px-6 lg:px-16">
-        <header class="text-center mb-16">
-          <h2 id="why-heading" class="font-display text-4xl md:text-5xl font-extrabold text-ink dark:text-ink-dark mb-4">Why join us?</h2>
-          <p class="text-ink-muted dark:text-ink-muted-dark max-w-2xl mx-auto">
-            We're building Kenya's most engaged community for conscious consumers. Karibu gikomba.app!
+    <!-- ═══ APP COMMUNITY FEATURES ══════════════════════════════ -->
+    <section class="border-y-2 border-ink dark:border-[#444] py-16 sm:py-24 bg-primary/10 dark:bg-primary/5" aria-labelledby="why-heading">
+      <div class="max-w-7xl mx-auto px-5 sm:px-8 lg:px-16">
+        <header class="text-center mb-12 sm:mb-16">
+          <h2 id="why-heading" class="font-display text-3xl sm:text-5xl font-extrabold text-ink dark:text-ink-dark mb-3">Why join the community?</h2>
+          <p class="text-ink-muted dark:text-ink-muted-dark max-w-xl mx-auto">
+            Inside the gikomba.app, community is built in — not bolted on.
           </p>
         </header>
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
 
-        <div class="grid md:grid-cols-3 gap-8">
-
-          <!-- Benefit 1 -->
-          <article class="bg-white dark:bg-[#1A1A1A] border-2 border-ink dark:border-[#444] p-4" style="box-shadow: 6px 6px 0 #111">
-            <div
-              class="w-full aspect-video border-2 border-ink dark:border-[#444] bg-cover bg-center mb-6"
-              style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCqjNi7Ikfex46jD91fezFlzGJRetYARJAF00W5ewHs1Mjx5r7jImeqnTvINP-CKnfD3CK9UBa8gtMtv5sfHRDvkOEC6aNKnJiKzd5_Uek5qd2h3HVy_NgUQyVahAEUEHQPeaCW4bTWCJMyTb7lA3zqm09cWVS10bY4ND3cT5aEpAhbts0I3mTpgEw-lyXLvyw947Do9zbbgFK6uwc7J6SL-zrQm1x4-ZrvAMmUlvPDYReyzlSIMtFXoJ6Si8Cd1tnJ5VIBITSyxNk");'
-              role="img"
-              aria-label="Nairobi sip-and-swap event in Westlands"
-            ></div>
-            <div class="flex items-center gap-2 mb-3">
+          <article class="bg-white dark:bg-[#1A1A1A] border-2 border-ink dark:border-[#444] p-5" style="box-shadow:5px 5px 0 #111">
+            <div class="w-full aspect-video border-2 border-ink dark:border-[#444] bg-cover bg-center mb-5"
+              style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCqjNi7Ikfex46jD91fezFlzGJRetYARJAF00W5ewHs1Mjx5r7jImeqnTvINP-CKnfD3CK9UBa8gtMtv5sfHRDvkOEC6aNKnJiKzd5_Uek5qd2h3HVy_NgUQyVahAEUEHQPeaCW4bTWCJMyTb7lA3zqm09cWVS10bY4ND3cT5aEpAhbts0I3mTpgEw-lyXLvyw947Do9zbbgFK6uwc7J6SL-zrQm1x4-ZrvAMmUlvPDYReyzlSIMtFXoJ6Si8Cd1tnJ5VIBITSyxNk")'
+              role="img" aria-label="Nairobi community swap event"></div>
+            <div class="flex items-center gap-2 mb-2">
               <span class="material-symbols-outlined text-secondary">event_available</span>
-              <h3 class="font-display text-2xl font-bold text-ink dark:text-ink-dark">Nairobi Events</h3>
+              <h3 class="font-display text-xl font-bold text-ink dark:text-ink-dark">In-App Events</h3>
             </div>
             <p class="text-ink-muted dark:text-ink-muted-dark text-sm leading-relaxed">
-              From local sip-and-swaps in Westlands to DIY workshops, our events bridge the gap between digital discovery and real-world connection.
+              Discover and RSVP to sip-and-swaps, Gikomba tours, and DIY upcycling workshops — all organised through the app.
             </p>
           </article>
 
-          <!-- Benefit 2 -->
-          <article class="bg-white dark:bg-[#1A1A1A] border-2 border-ink dark:border-[#444] p-4" style="box-shadow: 6px 6px 0 #111">
-            <div
-              class="w-full aspect-video border-2 border-ink dark:border-[#444] bg-cover bg-center mb-6"
-              style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBBGyQ4q5vH6clH9W0UFBJxBvMMJTOCQkSI5ILtCDY48E-FsBLPZIbCvwtCOHSTMXK_aGx3JFFWqYFA65JW__6TvD40gD8aMK4rmvKaJ-LxE7IbJmKVNmXs6OsylPkZhajHC25lqflImbFy6kOj-DCEKPhcuh5ufKuMm55ppLzIcqvcub8yq5yADO_TV-BOsokH7_avVA3NsU1o6eGho2T7JIIvg4FUB1MSMRRBImIubVvB-qhp318UtZ0VAAP8Tn19o0sW1o3dmzc");'
-              role="img"
-              aria-label="Featured thrifter spotlight showcase"
-            ></div>
-            <div class="flex items-center gap-2 mb-3">
+          <article class="bg-white dark:bg-[#1A1A1A] border-2 border-ink dark:border-[#444] p-5" style="box-shadow:5px 5px 0 #111">
+            <div class="w-full aspect-video border-2 border-ink dark:border-[#444] bg-cover bg-center mb-5"
+              style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBBGyQ4q5vH6clH9W0UFBJxBvMMJTOCQkSI5ILtCDY48E-FsBLPZIbCvwtCOHSTMXK_aGx3JFFWqYFA65JW__6TvD40gD8aMK4rmvKaJ-LxE7IbJmKVNmXs6OsylPkZhajHC25lqflImbFy6kOj-DCEKPhcuh5ufKuMm55ppLzIcqvcub8yq5yADO_TV-BOsokH7_avVA3NsU1o6eGho2T7JIIvg4FUB1MSMRRBImIubVvB-qhp318UtZ0VAAP8Tn19o0sW1o3dmzc")'
+              role="img" aria-label="Thrifter spotlight feature"></div>
+            <div class="flex items-center gap-2 mb-2">
               <span class="material-symbols-outlined text-secondary">campaign</span>
-              <h3 class="font-display text-2xl font-bold text-ink dark:text-ink-dark">Thrifters Spotlight</h3>
+              <h3 class="font-display text-xl font-bold text-ink dark:text-ink-dark">Seller Spotlights</h3>
             </div>
             <p class="text-ink-muted dark:text-ink-muted-dark text-sm leading-relaxed">
-              Get featured in our weekly spotlight. We celebrate the most creative curators and sustainable stylists in our growing Kenyan network.
+              Get featured on the app's discover feed. We celebrate the most creative curators and sustainable stylists in our network every week.
             </p>
           </article>
 
-          <!-- Benefit 3 -->
-          <article class="bg-white dark:bg-[#1A1A1A] border-2 border-ink dark:border-[#444] p-4" style="box-shadow: 6px 6px 0 #111">
-            <div
-              class="w-full aspect-video border-2 border-ink dark:border-[#444] bg-cover bg-center mb-6"
-              style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuA6SzHP979-2PGP49rNAovVMsPUcUyiuu2g4KeVs_H047DI3R-H6XHk0jYkAWwWMU9y9I_BjR59zC_D1XPgqFt5IE2Rs-TUM0bRPRAsENR6uJmgcz9WEX0lxQ5qdz_JZcVKIE4OK7uuOyXmcXBSZAR6IUjc907BrMq0laq5fpzigHZx14SkcEI6CwCFCQspme-98WLO488oQyC02-Po9DkfFKxG3iEsKwptBBrNQAc6ytMOx19Z5afdLZKS8R-XUB3zh9WpSu1ZL2Q");'
-              role="img"
-              aria-label="Ambassador networking event"
-            ></div>
-            <div class="flex items-center gap-2 mb-3">
+          <article class="bg-white dark:bg-[#1A1A1A] border-2 border-ink dark:border-[#444] p-5 sm:col-span-2 lg:col-span-1" style="box-shadow:5px 5px 0 #111">
+            <div class="w-full aspect-video border-2 border-ink dark:border-[#444] bg-cover bg-center mb-5"
+              style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuA6SzHP979-2PGP49rNAovVMsPUcUyiuu2g4KeVs_H047DI3R-H6XHk0jYkAWwWMU9y9I_BjR59zC_D1XPgqFt5IE2Rs-TUM0bRPRAsENR6uJmgcz9WEX0lxQ5qdz_JZcVKIE4OK7uuOyXmcXBSZAR6IUjc907BrMq0laq5fpzigHZx14SkcEI6CwCFCQspme-98WLO488oQyC02-Po9DkfFKxG3iEsKwptBBrNQAc6ytMOx19Z5afdLZKS8R-XUB3zh9WpSu1ZL2Q")'
+              role="img" aria-label="Ambassador program networking"></div>
+            <div class="flex items-center gap-2 mb-2">
               <span class="material-symbols-outlined text-secondary">badge</span>
-              <h3 class="font-display text-2xl font-bold text-ink dark:text-ink-dark">Ambassador Program</h3>
+              <h3 class="font-display text-xl font-bold text-ink dark:text-ink-dark">Ambassador Program</h3>
             </div>
             <p class="text-ink-muted dark:text-ink-muted-dark text-sm leading-relaxed">
-              Level up your influence. Kenyan Ambassadors get early access to features, exclusive merch, and professional networking opportunities.
+              Top sellers earn Ambassador status — with exclusive app badges, early access to new features, and professional networking opportunities.
             </p>
           </article>
 
@@ -153,102 +120,80 @@
       </div>
     </section>
 
-    <!-- ═══ Featured Curator ════════════════════════════════════ -->
-    <section class="max-w-7xl mx-auto px-6 lg:px-16 py-24" aria-labelledby="curator-heading">
-      <div class="flex flex-col md:flex-row gap-12 items-center">
+    <!-- ═══ FEATURED CURATOR ════════════════════════════════════ -->
+    <section class="max-w-7xl mx-auto px-5 sm:px-8 lg:px-16 py-16 sm:py-24" aria-labelledby="curator-heading">
+      <div class="flex flex-col md:flex-row gap-10 lg:gap-16 items-center">
 
         <div class="w-full md:w-1/2">
-          <h2 id="curator-heading" class="font-display text-4xl md:text-5xl font-extrabold mb-6 text-ink dark:text-ink-dark">
-            This Month's<br />
-            <span class="bg-primary px-2 text-ink">Featured Curator</span>
+          <h2 id="curator-heading" class="font-display text-3xl sm:text-5xl font-extrabold mb-6 text-ink dark:text-ink-dark">
+            This month's<br /><span class="bg-primary px-2 text-ink">featured curator</span>
           </h2>
-
-          <blockquote
-            class="bg-white dark:bg-[#1A1A1A] p-6 border-2 border-ink dark:border-[#444]"
-            style="box-shadow: 8px 8px 0 #111"
-          >
-            <p class="font-display text-xl font-bold italic text-secondary dark:text-primary leading-tight mb-6">
-              "Thrifting in Nairobi isn't just about finding cheap clothes; it's about preserving stories and reducing our footprint on the planet. gikomba.app made it easy to find my tribe."
+          <blockquote class="bg-white dark:bg-[#1A1A1A] p-6 border-2 border-ink dark:border-[#444]" style="box-shadow:7px 7px 0 #111">
+            <p class="font-display text-xl font-bold italic text-secondary dark:text-primary leading-tight mb-5">
+              "Thrifting in Nairobi isn't just about cheap clothes — it's about preserving stories. gikomba.app made it easy to find my tribe."
             </p>
             <footer class="flex items-center gap-4">
               <div class="w-12 h-12 border-2 border-ink dark:border-[#444] overflow-hidden shrink-0">
-                <img
-                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuD06cWdWySFrPMQGciraQ7pbJ9bm5EFWDzSEwrMxoBBVE_A9v4Y7OiHUGvLtQoUykm5aijXsmiWhWWg5rXTWxuER3pPGNjbJE9rC7MJEg1JEOI0N-2r70PCrXTl-gR5KNAqEnlW89d_MHWAmPozFfy1edfF481buJIfQMwhBz-1KUnnQuek_s3bVFAw_FitGREqX74hQWsRcF3_QKFiLqr_mFPRSKfy8YJwZ1vdGrxQwOMLj3Gixc0_JRDQ8QzAxxjxisf6tBLLJIA"
-                  alt="Sarah Jenkins, vintage collector"
-                  class="w-full h-full object-cover"
-                />
+                <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuD06cWdWySFrPMQGciraQ7pbJ9bm5EFWDzSEwrMxoBBVE_A9v4Y7OiHUGvLtQoUykm5aijXsmiWhWWg5rXTWxuER3pPGNjbJE9rC7MJEg1JEOI0N-2r70PCrXTl-gR5KNAqEnlW89d_MHWAmPozFfy1edfF481buJIfQMwhBz-1KUnnQuek_s3bVFAw_FitGREqX74hQWsRcF3_QKFiLqr_mFPRSKfy8YJwZ1vdGrxQwOMLj3Gixc0_JRDQ8QzAxxjxisf6tBLLJIA"
+                  alt="Sarah Jenkins, vintage collector on gikomba.app" class="w-full h-full object-cover" />
               </div>
               <div>
-                <p class="font-bold uppercase text-sm tracking-widest text-ink dark:text-ink-dark">Sarah Jenkins</p>
-                <p class="text-xs text-ink-muted dark:text-ink-muted-dark font-semibold">Vintage Collector since 2018</p>
+                <cite class="not-italic font-bold uppercase text-sm tracking-widest text-ink dark:text-ink-dark">Sarah Jenkins</cite>
+                <p class="text-xs text-ink-muted dark:text-ink-muted-dark font-semibold">Vintage Collector · on gikomba.app since 2023</p>
               </div>
             </footer>
           </blockquote>
         </div>
 
-        <div class="w-full md:w-1/2 grid grid-cols-2 gap-6">
-          <div
-            class="aspect-square border-2 border-ink dark:border-[#444] bg-cover bg-center"
-            style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBHsYJ9Qa7ARi16yjsu3YkoArjLkol2Vc3J7xrfOD_Z-LwfIRuE6TULzzADEwgW4jdNvInFvY4_XmZsfwEmQiTPkbTBRoT5nHi8dMGkOZ1_BJLl1uyk-SzsaMMnVhBSt3eVV3wGlNg-XwIsKvbtmBf1ozoqwKdPrfgFpeH30O3I8ekotZPDHL8Azl6DyGa8dA-9s9wHkpdwYs66aGuGA9kF2opxWJoV4GeF2Ttw-feK8EpriJa0xgJqb5BLk0KD3Jeuqn7ZRyRScnk"); box-shadow: 6px 6px 0 #111'
-            role="img"
-            aria-label="Curator fashion collection piece 1"
-          ></div>
-          <div
-            class="aspect-square border-2 border-ink dark:border-[#444] bg-cover bg-center mt-12"
-            style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBW-Pgug-8HEmVajHNsXIxHmNxjfV8lvsBMN4DR7n69CSQX0I7mYxRQPaepsD42cSCV2UGJZbzhiKiQ6b7vvO45fUVuJx5jPexlx9VRFh3g5Oizx4HomfmcBANWWKChfg7_A3psl3uzvfu_2pkcNXXdES7uFSs0nqBU1OVp8_5eVf1keAdEmF-pKFVufJlt4agUIr3biRHTuAuRyf-Noj0g8-HOz4mTheN7UvpeylSyyxUe4Wzmps9B4J814sJyn_KYL0ygzE0E3Bc"); box-shadow: 6px 6px 0 #111'
-            role="img"
-            aria-label="Curator fashion collection piece 2"
-          ></div>
+        <div class="w-full md:w-1/2 grid grid-cols-2 gap-5">
+          <div class="aspect-square border-2 border-ink dark:border-[#444] bg-cover bg-center" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBHsYJ9Qa7ARi16yjsu3YkoArjLkol2Vc3J7xrfOD_Z-LwfIRuE6TULzzADEwgW4jdNvInFvY4_XmZsfwEmQiTPkbTBRoT5nHi8dMGkOZ1_BJLl1uyk-SzsaMMnVhBSt3eVV3wGlNg-XwIsKvbtmBf1ozoqwKdPrfgFpeH30O3I8ekotZPDHL8Azl6DyGa8dA-9s9wHkpdwYs66aGuGA9kF2opxWJoV4GeF2Ttw-feK8EpriJa0xgJqb5BLk0KD3Jeuqn7ZRyRScnk"); box-shadow:5px 5px 0 #111'
+            role="img" aria-label="Curator listing 1"></div>
+          <div class="aspect-square border-2 border-ink dark:border-[#444] bg-cover bg-center mt-10" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBW-Pgug-8HEmVajHNsXIxHmNxjfV8lvsBMN4DR7n69CSQX0I7mYxRQPaepsD42cSCV2UGJZbzhiKiQ6b7vvO45fUVuJx5jPexlx9VRFh3g5Oizx4HomfmcBANWWKChfg7_A3psl3uzvfu_2pkcNXXdES7uFSs0nqBU1OVp8_5eVf1keAdEmF-pKFVufJlt4agUIr3biRHTuAuRyf-Noj0g8-HOz4mTheN7UvpeylSyyxUe4Wzmps9B4J814sJyn_KYL0ygzE0E3Bc"); box-shadow:5px 5px 0 #111'
+            role="img" aria-label="Curator listing 2"></div>
         </div>
       </div>
     </section>
 
-    <!-- ═══ Waitlist / Newsletter ══════════════════════════════ -->
-    <section class="bg-white dark:bg-[#0F0F0F] border-t-2 border-ink dark:border-[#444] py-20 px-6 lg:px-16" aria-labelledby="waitlist-heading">
-      <div class="max-w-4xl mx-auto text-center flex flex-col items-center gap-8">
-        <div class="w-16 h-16 bg-accent border-2 border-ink flex items-center justify-center text-white" style="box-shadow: 4px 4px 0 #111">
-          <span class="material-symbols-outlined text-3xl">mail</span>
+    <!-- ═══ WAITLIST CTA ════════════════════════════════════════ -->
+    <section class="bg-white dark:bg-[#0F0F0F] border-t-2 border-ink dark:border-[#444] py-16 sm:py-20 px-5 sm:px-8 lg:px-16" aria-labelledby="waitlist-heading">
+      <div class="max-w-4xl mx-auto text-center flex flex-col items-center gap-7">
+        <div class="w-14 h-14 bg-accent border-2 border-ink flex items-center justify-center text-white" style="box-shadow:4px 4px 0 #111">
+          <span class="material-symbols-outlined text-2xl">mail</span>
         </div>
-
-        <h2 id="waitlist-heading" class="font-display text-4xl md:text-5xl font-extrabold text-ink dark:text-ink-dark uppercase">
+        <h2 id="waitlist-heading" class="font-display text-3xl sm:text-5xl font-extrabold text-ink dark:text-ink-dark uppercase leading-tight">
           Join the Kenyan Waitlist
         </h2>
-        <p class="text-ink-muted dark:text-ink-muted-dark text-lg max-w-2xl leading-relaxed">
-          Join 10,000+ others waiting for the ultimate sustainable fashion platform. Members get a unique founding badge.
+        <p class="text-ink-muted dark:text-ink-muted-dark text-base sm:text-lg max-w-xl leading-relaxed">
+          Get on the early access list and receive a founding member badge when we launch in Nairobi.
         </p>
-
-        <form class="w-full max-w-lg" onsubmit="return false;">
-          <div class="flex flex-col md:flex-row gap-3">
+        <form class="w-full max-w-md" onsubmit="return false;">
+          <div class="flex flex-col sm:flex-row gap-3">
             <label for="waitlist-email" class="sr-only">Email address</label>
-            <input
-              id="waitlist-email"
-              type="email"
-              placeholder="ENTER YOUR EMAIL"
-              class="flex-1 h-14 border-2 border-ink dark:border-[#444] bg-white dark:bg-[#1A1A1A] px-6 text-ink dark:text-ink-dark font-bold focus:outline-none focus:border-accent transition-colors"
-            />
-            <button type="submit" class="h-14 px-8 bg-secondary text-white font-bold border-2 border-ink dark:border-[#444] hover:translate-x-[2px] hover:translate-y-[2px] hover:[box-shadow:none] transition-all uppercase" style="box-shadow: 4px 4px 0 #111">
+            <input id="waitlist-email" type="email" placeholder="YOUR EMAIL ADDRESS"
+              class="flex-1 h-14 border-2 border-ink dark:border-[#444] bg-white dark:bg-[#1A1A1A] px-5 text-ink dark:text-ink-dark font-bold focus:outline-none focus:border-accent transition-colors placeholder:text-ink-muted text-sm" />
+            <button type="submit"
+              class="h-14 px-8 bg-secondary text-white font-bold border-2 border-ink dark:border-[#444] hover:translate-x-[2px] hover:translate-y-[2px] hover:[box-shadow:none] transition-all uppercase text-sm" style="box-shadow:4px 4px 0 #111">
               Join Now
             </button>
           </div>
-          <p class="text-ink-muted dark:text-ink-muted-dark text-xs mt-4 font-bold">No spam. Just updates on our progress in Nairobi.</p>
+          <p class="text-ink-muted dark:text-ink-muted-dark text-xs mt-3 font-semibold">No spam. Just launch updates.</p>
         </form>
-
-        <div class="mt-8 pt-8 border-t-2 border-ink/10 dark:border-[#444]/50 w-full flex flex-col md:flex-row justify-between items-center gap-4">
-          <div class="flex items-center gap-2">
-            <span class="material-symbols-outlined text-secondary">eco</span>
-            <span class="font-bold uppercase tracking-tighter text-ink dark:text-ink-dark">gikomba.app © 2024</span>
-          </div>
-          <nav class="flex gap-6 text-ink-muted dark:text-ink-muted-dark text-sm font-bold uppercase" aria-label="Legal and social links">
-            <a href="#" class="hover:text-secondary dark:hover:text-primary transition-colors">Privacy</a>
-            <a href="#" class="hover:text-secondary dark:hover:text-primary transition-colors">Terms</a>
-            <a href="#" class="hover:text-secondary dark:hover:text-primary transition-colors">Instagram</a>
-            <a href="#" class="hover:text-secondary dark:hover:text-primary transition-colors">TikTok</a>
-          </nav>
-        </div>
       </div>
     </section>
 
   </main>
+
+  <footer class="border-t-2 border-ink dark:border-[#444] bg-white dark:bg-[#0F0F0F] py-8 px-5 sm:px-8 lg:px-16" role="contentinfo">
+    <div class="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-4">
+      <a href="index.html" class="flex items-center gap-2">
+        <div class="w-7 h-7 bg-secondary border-2 border-ink flex items-center justify-center">
+          <span class="material-symbols-outlined text-white" style="font-size:14px">local_mall</span>
+        </div>
+        <span style="font-family:'Syne',sans-serif;font-weight:800;" class="text-ink dark:text-ink-dark">gikomba<span style="color:#7B4FC4">.app</span></span>
+      </a>
+      <p class="text-xs text-ink-muted dark:text-ink-muted-dark">© 2024 gikomba.app. All rights reserved.</p>
+    </div>
+  </footer>
 
   <script src="gikomba.js"></script>
 </body>

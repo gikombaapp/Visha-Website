@@ -3,196 +3,174 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <!-- SEO -->
-  <title>Support Center — gikomba.app | Help & Resources</title>
-  <meta name="description" content="Get help with your gikomba.app account. Browse guides, check FAQs, and contact our Nairobi-based support team." />
-  <meta name="keywords" content="gikomba support, help Kenya marketplace, FAQ thrift app, Nairobi customer support" />
-  <meta property="og:title" content="Support Center — gikomba.app" />
-  <meta property="og:description" content="Get help with buying and selling on gikomba.app. Nairobi-based support team." />
+  <title>Support — gikomba.app | Help & Resources</title>
+  <meta name="description" content="Get help with the gikomba.app. Browse FAQs, find guides, and contact our Nairobi-based support team." />
+  <meta property="og:title" content="Support — gikomba.app" />
   <meta property="og:type" content="website" />
   <link rel="canonical" href="https://gikomba.app/support.html" />
-
-  <!-- Styles -->
-  <link rel="stylesheet" href="styles.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap" rel="stylesheet" />
-
-  <!-- Tailwind CDN fallback -->
+  <link rel="stylesheet" href="styles.css" />
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
       darkMode: "class",
-      theme: {
-        extend: {
-          colors: {
-            primary: "#B5F03A", secondary: "#7B4FC4", accent: "#007A91",
-            surface: "#FFFFFF", "surface-dark": "#0F0F0F",
-            ink: "#111111", "ink-muted": "#555555",
-            "ink-dark": "#E8E8E8", "ink-muted-dark": "#9CA3AF",
-          },
-          fontFamily: { display: ["'Syne'", "sans-serif"], body: ["'DM Sans'", "sans-serif"] },
-          borderRadius: { DEFAULT: "0px", none: "0px", sm: "0px", md: "0px", lg: "0px", xl: "0px", "2xl": "0px", full: "0px" },
-        },
-      },
+      theme: { extend: { colors: { primary:"#B5F03A", secondary:"#7B4FC4", accent:"#007A91", ink:"#111111", "ink-muted":"#555555", "ink-dark":"#E8E8E8", "ink-muted-dark":"#9CA3AF" }, fontFamily: { display:["'Syne'","sans-serif"], body:["'DM Sans'","sans-serif"] }, borderRadius: { DEFAULT:"0px", none:"0px", sm:"0px", md:"0px", lg:"0px", xl:"0px", "2xl":"0px", full:"0px" } } }
     };
   </script>
+  <style>
+    body { font-family: 'DM Sans', sans-serif; }
+    h1, h2, h3, h4 { font-family: 'Syne', sans-serif; }
+    .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; vertical-align: middle; }
+  </style>
 </head>
 
-<body class="bg-white dark:bg-[#0F0F0F] text-ink dark:text-ink-dark font-body antialiased transition-colors duration-200">
+<body class="bg-white dark:bg-[#0F0F0F] text-ink dark:text-ink-dark antialiased transition-colors duration-200">
 
   <div id="site-nav"></div>
 
   <main>
 
-    <!-- ═══ Hero ════════════════════════════════════════════════ -->
-    <section class="max-w-7xl mx-auto px-6 lg:px-16 py-12" aria-labelledby="support-heading">
-      <div class="flex flex-col lg:flex-row gap-12 items-center bg-secondary border-2 border-ink dark:border-[#444] p-8 lg:p-12" style="box-shadow: 8px 8px 0 #111">
+    <!-- ═══ HERO ═══════════════════════════════════════════════ -->
+    <section class="max-w-7xl mx-auto px-5 sm:px-8 lg:px-16 py-10 sm:py-14" aria-labelledby="support-heading">
+      <div class="flex flex-col lg:flex-row gap-10 lg:gap-16 items-center bg-secondary border-2 border-ink dark:border-[#444] p-7 sm:p-10 lg:p-12" style="box-shadow:8px 8px 0 #111">
 
-        <div class="flex-1 flex flex-col gap-6">
-          <span class="inline-block bg-white/20 px-4 py-1 text-sm font-bold text-white uppercase tracking-wider border border-white/30 w-fit">
-            Help Center
+        <div class="flex-1 flex flex-col gap-5">
+          <span class="inline-block bg-white/20 border border-white/30 px-3 py-1 text-xs font-bold text-white uppercase tracking-wider w-fit">
+            App Support
           </span>
-          <h1 id="support-heading" class="font-display text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight text-white">
-            Habari! How can we help you today?
+          <h1 id="support-heading" class="font-display text-3xl sm:text-5xl lg:text-6xl font-extrabold leading-tight text-white">
+            Habari! How can we help?
           </h1>
-          <p class="text-white/80 text-lg max-w-xl leading-relaxed">
-            Find quick answers, browse detailed guides, or get in touch with our Nairobi-based support team.
+          <p class="text-white/75 text-base sm:text-lg max-w-lg leading-relaxed">
+            Find quick answers about the gikomba.app, browse guides for buyers and sellers, or contact our Nairobi-based team.
           </p>
-
-          <div class="flex max-w-md gap-2">
+          <div class="flex gap-2 max-w-md">
+            <label for="support-search" class="sr-only">Search for help</label>
             <div class="relative flex-1">
-              <span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-ink-muted text-base">search</span>
-              <label for="support-search" class="sr-only">Search for help</label>
-              <input
-                id="support-search"
-                type="search"
-                placeholder="Search for help..."
-                class="h-14 w-full border-2 border-ink bg-white text-ink pl-12 focus:outline-none focus:border-accent transition-colors placeholder:text-ink-muted"
-              />
+              <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-ink-muted" style="font-size:16px">search</span>
+              <input id="support-search" type="search" placeholder="e.g. how do I pay with M-Pesa?"
+                class="h-13 w-full border-2 border-ink bg-white text-ink pl-10 pr-4 py-3 focus:outline-none focus:border-accent transition-colors text-sm placeholder:text-ink-muted" />
             </div>
-            <button class="h-14 bg-primary border-2 border-ink text-ink font-bold px-8 hover:bg-white transition-colors">
+            <button class="bg-primary border-2 border-ink text-ink font-bold px-5 py-3 hover:bg-white transition-colors text-sm">
               Search
             </button>
           </div>
         </div>
 
-        <div class="hidden lg:block flex-1 max-w-sm">
-          <div
-            class="w-full aspect-square bg-cover bg-center border-2 border-ink"
-            style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAbfwi8xSfGswgQXaen-QI3y71VpxE502RfORlAjXcW-fHMiQEBCMznPRYoWUmDUO0fUiPv2hP6yzLvjCzVV146whOzHeVGW5jhxZTIgXpI_m6SwD8qaIw6P6LDNjjil4iN340tzCwsLWs3nE7_nFrrGJn7RoKXjbWJQSJfGRtov7RVVHxhFh09cDi4za38k6jc0xxBl4-5tKV1vXbaPXkGKJNrgcrfsEBtHBTwjwZT2LoDeREKCGLbZ186i-mZBUPPxf81DwNawOA");'
-            role="img"
-            aria-label="Friendly support team in a bright Nairobi office"
-          ></div>
+        <div class="hidden lg:block w-64 xl:w-72 shrink-0">
+          <div class="w-full aspect-square bg-cover bg-center border-2 border-ink"
+            style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAbfwi8xSfGswgQXaen-QI3y71VpxE502RfORlAjXcW-fHMiQEBCMznPRYoWUmDUO0fUiPv2hP6yzLvjCzVV146whOzHeVGW5jhxZTIgXpI_m6SwD8qaIw6P6LDNjjil4iN340tzCwsLWs3nE7_nFrrGJn7RoKXjbWJQSJfGRtov7RVVHxhFh09cDi4za38k6jc0xxBl4-5tKV1vXbaPXkGKJNrgcrfsEBtHBTwjwZT2LoDeREKCGLbZ186i-mZBUPPxf81DwNawOA"); box-shadow:6px 6px 0 #111'
+            role="img" aria-label="Friendly gikomba.app support team in Nairobi"></div>
         </div>
       </div>
     </section>
 
-    <!-- ═══ Help Guides ═════════════════════════════════════════ -->
-    <section class="max-w-7xl mx-auto px-6 lg:px-16 py-16" aria-labelledby="guides-heading">
-      <h2 id="guides-heading" class="font-display text-2xl font-extrabold mb-8 text-ink dark:text-ink-dark">Browse Topics</h2>
-      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+    <!-- ═══ APP HELP CATEGORIES ═════════════════════════════════ -->
+    <section class="max-w-7xl mx-auto px-5 sm:px-8 lg:px-16 py-12 sm:py-16" aria-labelledby="guides-heading">
+      <h2 id="guides-heading" class="font-display text-2xl font-extrabold mb-7 text-ink dark:text-ink-dark">Browse Help Topics</h2>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
 
-        <!-- Guide 1 -->
-        <article class="group flex flex-col gap-4 border-2 border-ink dark:border-[#444] bg-white dark:bg-[#1A1A1A] p-6 hover:-translate-y-1 transition-transform" style="box-shadow: 4px 4px 0 #111">
-          <div class="flex h-12 w-12 items-center justify-center border-2 border-ink dark:border-[#444] bg-accent/10 text-accent">
-            <span class="material-symbols-outlined">rocket_launch</span>
+        <article class="group border-2 border-ink dark:border-[#444] bg-white dark:bg-[#1A1A1A] p-6 flex flex-col gap-4 hover:-translate-y-1 transition-transform" style="box-shadow:4px 4px 0 #111">
+          <div class="w-11 h-11 border-2 border-ink dark:border-[#444] bg-accent/15 text-accent flex items-center justify-center">
+            <span class="material-symbols-outlined">download</span>
           </div>
           <div>
             <h3 class="font-display text-lg font-bold text-ink dark:text-ink-dark">Getting Started</h3>
-            <p class="mt-2 text-sm text-ink-muted dark:text-ink-muted-dark leading-relaxed">
-              Everything you need to set up and start using your account in minutes.
-            </p>
+            <p class="mt-1.5 text-sm text-ink-muted dark:text-ink-muted-dark leading-relaxed">How to download, sign up, and create your first listing on gikomba.app.</p>
           </div>
-          <a href="#" class="mt-auto flex items-center gap-2 text-sm font-bold text-accent hover:underline">
-            View 12 articles <span class="material-symbols-outlined text-sm">arrow_forward</span>
+          <a href="#" class="mt-auto flex items-center gap-1 text-sm font-bold text-accent hover:underline">
+            12 articles <span class="material-symbols-outlined" style="font-size:14px">arrow_forward</span>
           </a>
         </article>
 
-        <!-- Guide 2 -->
-        <article class="group flex flex-col gap-4 border-2 border-ink dark:border-[#444] bg-white dark:bg-[#1A1A1A] p-6 hover:-translate-y-1 transition-transform" style="box-shadow: 4px 4px 0 #111">
-          <div class="flex h-12 w-12 items-center justify-center border-2 border-ink dark:border-[#444] bg-secondary/10 text-secondary">
+        <article class="group border-2 border-ink dark:border-[#444] bg-white dark:bg-[#1A1A1A] p-6 flex flex-col gap-4 hover:-translate-y-1 transition-transform" style="box-shadow:4px 4px 0 #111">
+          <div class="w-11 h-11 border-2 border-ink dark:border-[#444] bg-secondary/15 text-secondary flex items-center justify-center">
             <span class="material-symbols-outlined">payments</span>
           </div>
           <div>
-            <h3 class="font-display text-lg font-bold text-ink dark:text-ink-dark">Billing &amp; Invoices</h3>
-            <p class="mt-2 text-sm text-ink-muted dark:text-ink-muted-dark leading-relaxed">
-              Understand your billing cycle, manage payment methods, and download invoices.
-            </p>
+            <h3 class="font-display text-lg font-bold text-ink dark:text-ink-dark">M-Pesa &amp; Payments</h3>
+            <p class="mt-1.5 text-sm text-ink-muted dark:text-ink-muted-dark leading-relaxed">How to pay, get paid, and understand how our escrow system protects you.</p>
           </div>
-          <a href="#" class="mt-auto flex items-center gap-2 text-sm font-bold text-secondary hover:underline">
-            View 8 articles <span class="material-symbols-outlined text-sm">arrow_forward</span>
+          <a href="#" class="mt-auto flex items-center gap-1 text-sm font-bold text-secondary hover:underline">
+            8 articles <span class="material-symbols-outlined" style="font-size:14px">arrow_forward</span>
           </a>
         </article>
 
-        <!-- Guide 3 -->
-        <article class="group flex flex-col gap-4 border-2 border-ink dark:border-[#444] bg-white dark:bg-[#1A1A1A] p-6 hover:-translate-y-1 transition-transform" style="box-shadow: 4px 4px 0 #111">
-          <div class="flex h-12 w-12 items-center justify-center border-2 border-ink dark:border-[#444] bg-primary/20 text-ink dark:text-ink-dark">
-            <span class="material-symbols-outlined">settings_suggest</span>
+        <article class="group border-2 border-ink dark:border-[#444] bg-white dark:bg-[#1A1A1A] p-6 flex flex-col gap-4 hover:-translate-y-1 transition-transform" style="box-shadow:4px 4px 0 #111">
+          <div class="w-11 h-11 border-2 border-ink dark:border-[#444] bg-primary/20 text-ink dark:text-ink-dark flex items-center justify-center">
+            <span class="material-symbols-outlined">local_shipping</span>
           </div>
           <div>
-            <h3 class="font-display text-lg font-bold text-ink dark:text-ink-dark">Account Settings</h3>
-            <p class="mt-2 text-sm text-ink-muted dark:text-ink-muted-dark leading-relaxed">
-              Configure your profile, notification preferences, and security settings.
-            </p>
+            <h3 class="font-display text-lg font-bold text-ink dark:text-ink-dark">Delivery &amp; Meetups</h3>
+            <p class="mt-1.5 text-sm text-ink-muted dark:text-ink-muted-dark leading-relaxed">Arranging meetups safely, courier options, and what to do if something goes wrong.</p>
           </div>
-          <a href="#" class="mt-auto flex items-center gap-2 text-sm font-bold text-ink-muted dark:text-ink-muted-dark hover:text-secondary dark:hover:text-primary hover:underline">
-            View 15 articles <span class="material-symbols-outlined text-sm">arrow_forward</span>
+          <a href="#" class="mt-auto flex items-center gap-1 text-sm font-bold text-ink-muted dark:text-ink-muted-dark hover:text-secondary dark:hover:text-primary hover:underline transition-colors">
+            10 articles <span class="material-symbols-outlined" style="font-size:14px">arrow_forward</span>
           </a>
         </article>
 
       </div>
     </section>
 
-    <!-- ═══ FAQ ═════════════════════════════════════════════════ -->
-    <section class="py-20 border-y-2 border-ink dark:border-[#444] bg-primary/20 dark:bg-primary/5" id="faq" aria-labelledby="faq-heading">
-      <div class="max-w-3xl mx-auto px-6">
-        <header class="mb-12 text-center">
+    <!-- ═══ APP-SPECIFIC FAQ ════════════════════════════════════ -->
+    <section class="py-16 sm:py-20 border-y-2 border-ink dark:border-[#444] bg-primary/15 dark:bg-primary/5" id="faq" aria-labelledby="faq-heading">
+      <div class="max-w-3xl mx-auto px-5 sm:px-8">
+        <header class="mb-10 text-center">
           <h2 id="faq-heading" class="font-display text-3xl font-extrabold text-ink dark:text-ink-dark">Frequently Asked Questions</h2>
-          <p class="mt-4 text-ink-muted dark:text-ink-muted-dark">Quick answers to the most common questions from our community.</p>
+          <p class="mt-3 text-ink-muted dark:text-ink-muted-dark text-sm">The most common questions about using the gikomba.app.</p>
         </header>
-
-        <div class="space-y-4">
+        <div class="space-y-3">
 
           <details class="group border-2 border-ink dark:border-[#444] bg-white dark:bg-[#1A1A1A]" open>
-            <summary class="flex cursor-pointer items-center justify-between p-6 list-none">
-              <span class="text-base font-bold text-ink dark:text-ink-dark">How do I reset my password?</span>
-              <span class="material-symbols-outlined text-ink-muted group-open:rotate-180 transition-transform">expand_more</span>
+            <summary class="flex cursor-pointer items-center justify-between p-5 list-none gap-4">
+              <span class="text-base font-bold text-ink dark:text-ink-dark">How do I pay for items using M-Pesa?</span>
+              <span class="material-symbols-outlined text-ink-muted group-open:rotate-180 transition-transform shrink-0">expand_more</span>
             </summary>
-            <div class="px-6 pb-6 text-ink-muted dark:text-ink-muted-dark leading-relaxed">
-              You can reset your password by clicking 'Forgot Password' at the login screen. We'll send an email with instructions to your registered address within a few minutes.
+            <div class="px-5 pb-5 text-ink-muted dark:text-ink-muted-dark text-sm leading-relaxed">
+              When you find an item you want to buy, tap "Buy Now" and follow the M-Pesa STK push on your phone. Your payment is held securely by gikomba.app until you confirm the item has arrived as described — then it's released to the seller.
             </div>
           </details>
 
           <details class="group border-2 border-ink dark:border-[#444] bg-white dark:bg-[#1A1A1A]">
-            <summary class="flex cursor-pointer items-center justify-between p-6 list-none">
-              <span class="text-base font-bold text-ink dark:text-ink-dark">Can I change my subscription plan at any time?</span>
-              <span class="material-symbols-outlined text-ink-muted group-open:rotate-180 transition-transform">expand_more</span>
+            <summary class="flex cursor-pointer items-center justify-between p-5 list-none gap-4">
+              <span class="text-base font-bold text-ink dark:text-ink-dark">How do I list an item for sale on the app?</span>
+              <span class="material-symbols-outlined text-ink-muted group-open:rotate-180 transition-transform shrink-0">expand_more</span>
             </summary>
-            <div class="px-6 pb-6 text-ink-muted dark:text-ink-muted-dark leading-relaxed">
-              Yes! You can upgrade or downgrade your plan at any time from your Account Settings. If you upgrade, the new features will be available immediately.
+            <div class="px-5 pb-5 text-ink-muted dark:text-ink-muted-dark text-sm leading-relaxed">
+              Tap the + button on the home screen, take up to 8 photos, fill in a description and price, then tap "List Item". Your listing is live immediately and visible to buyers across Nairobi.
             </div>
           </details>
 
           <details class="group border-2 border-ink dark:border-[#444] bg-white dark:bg-[#1A1A1A]">
-            <summary class="flex cursor-pointer items-center justify-between p-6 list-none">
-              <span class="text-base font-bold text-ink dark:text-ink-dark">What is your refund policy?</span>
-              <span class="material-symbols-outlined text-ink-muted group-open:rotate-180 transition-transform">expand_more</span>
+            <summary class="flex cursor-pointer items-center justify-between p-5 list-none gap-4">
+              <span class="text-base font-bold text-ink dark:text-ink-dark">Is my money safe if something goes wrong?</span>
+              <span class="material-symbols-outlined text-ink-muted group-open:rotate-180 transition-transform shrink-0">expand_more</span>
             </summary>
-            <div class="px-6 pb-6 text-ink-muted dark:text-ink-muted-dark leading-relaxed">
-              We offer a 30-day money-back guarantee for all premium plans. If you're not satisfied, just contact our support team and we'll process your refund, no questions asked.
+            <div class="px-5 pb-5 text-ink-muted dark:text-ink-muted-dark text-sm leading-relaxed">
+              Yes. All payments are held in escrow by gikomba.app until you confirm receipt. If the item doesn't arrive or isn't as described, you can open a dispute within the app and we'll review it within 24 hours.
             </div>
           </details>
 
           <details class="group border-2 border-ink dark:border-[#444] bg-white dark:bg-[#1A1A1A]">
-            <summary class="flex cursor-pointer items-center justify-between p-6 list-none">
-              <span class="text-base font-bold text-ink dark:text-ink-dark">Is my data secure?</span>
-              <span class="material-symbols-outlined text-ink-muted group-open:rotate-180 transition-transform">expand_more</span>
+            <summary class="flex cursor-pointer items-center justify-between p-5 list-none gap-4">
+              <span class="text-base font-bold text-ink dark:text-ink-dark">How do I get a Verified Seller badge?</span>
+              <span class="material-symbols-outlined text-ink-muted group-open:rotate-180 transition-transform shrink-0">expand_more</span>
             </summary>
-            <div class="px-6 pb-6 text-ink-muted dark:text-ink-muted-dark leading-relaxed">
-              Security is our top priority. We use industry-standard encryption and follow best practices to ensure your data is always protected and never shared with third parties.
+            <div class="px-5 pb-5 text-ink-muted dark:text-ink-muted-dark text-sm leading-relaxed">
+              Go to your profile settings and tap "Verify Account". You'll be asked to upload a photo of your ID. Verification takes up to 2 hours and unlocks the seller badge, boosting your listing visibility.
+            </div>
+          </details>
+
+          <details class="group border-2 border-ink dark:border-[#444] bg-white dark:bg-[#1A1A1A]">
+            <summary class="flex cursor-pointer items-center justify-between p-5 list-none gap-4">
+              <span class="text-base font-bold text-ink dark:text-ink-dark">Which cities does gikomba.app deliver to?</span>
+              <span class="material-symbols-outlined text-ink-muted group-open:rotate-180 transition-transform shrink-0">expand_more</span>
+            </summary>
+            <div class="px-5 pb-5 text-ink-muted dark:text-ink-muted-dark text-sm leading-relaxed">
+              We support deliveries across Nairobi, Mombasa, Kisumu, Nakuru, and Eldoret. You can also arrange local meetups anywhere in Kenya. More cities coming soon.
             </div>
           </details>
 
@@ -200,136 +178,112 @@
       </div>
     </section>
 
-    <!-- ═══ Contact Form ═════════════════════════════════════════ -->
-    <section class="max-w-7xl mx-auto px-6 lg:px-16 py-24" id="contact" aria-labelledby="contact-heading">
-      <div class="grid lg:grid-cols-2 gap-16">
+    <!-- ═══ CONTACT FORM ════════════════════════════════════════ -->
+    <section class="max-w-7xl mx-auto px-5 sm:px-8 lg:px-16 py-16 sm:py-24" id="contact" aria-labelledby="contact-heading">
+      <div class="grid lg:grid-cols-2 gap-12 lg:gap-16">
 
-        <!-- Contact details -->
-        <div class="space-y-8">
+        <!-- Details -->
+        <div class="flex flex-col gap-8">
           <div>
             <h2 id="contact-heading" class="font-display text-3xl font-extrabold text-ink dark:text-ink-dark">Still need help?</h2>
-            <p class="mt-4 text-lg text-ink-muted dark:text-ink-muted-dark leading-relaxed">
-              Our friendly team is here to help. Send us a message and we'll get back to you within 24 hours.
+            <p class="mt-3 text-base text-ink-muted dark:text-ink-muted-dark leading-relaxed">
+              Our Nairobi-based team is standing by. We reply within 24 hours on weekdays.
             </p>
           </div>
-
-          <address class="not-italic space-y-6">
+          <address class="not-italic flex flex-col gap-5">
             <div class="flex items-start gap-4">
-              <div class="flex h-12 w-12 shrink-0 items-center justify-center border-2 border-ink dark:border-[#444] bg-accent/10 text-accent">
+              <div class="w-11 h-11 border-2 border-ink dark:border-[#444] bg-accent/10 text-accent flex items-center justify-center shrink-0">
                 <span class="material-symbols-outlined">mail</span>
               </div>
               <div>
-                <h3 class="font-bold text-ink dark:text-ink-dark">Email us</h3>
-                <a href="mailto:support@gikomba.app" class="text-ink-muted dark:text-ink-muted-dark hover:text-secondary dark:hover:text-primary transition-colors">support@gikomba.app</a>
+                <h3 class="font-bold text-sm text-ink dark:text-ink-dark">Email</h3>
+                <a href="mailto:support@gikomba.app" class="text-sm text-ink-muted dark:text-ink-muted-dark hover:text-secondary dark:hover:text-primary transition-colors">support@gikomba.app</a>
               </div>
             </div>
-
             <div class="flex items-start gap-4">
-              <div class="flex h-12 w-12 shrink-0 items-center justify-center border-2 border-ink dark:border-[#444] bg-secondary/10 text-secondary">
+              <div class="w-11 h-11 border-2 border-ink dark:border-[#444] bg-secondary/10 text-secondary flex items-center justify-center shrink-0">
                 <span class="material-symbols-outlined">forum</span>
               </div>
               <div>
-                <h3 class="font-bold text-ink dark:text-ink-dark">Live Chat</h3>
-                <p class="text-ink-muted dark:text-ink-muted-dark">Available Mon–Fri, 8am–6pm EAT</p>
+                <h3 class="font-bold text-sm text-ink dark:text-ink-dark">In-App Chat</h3>
+                <p class="text-sm text-ink-muted dark:text-ink-muted-dark">Mon–Fri, 8am–6pm EAT. Tap "Support" in the app menu.</p>
               </div>
             </div>
-
             <div class="flex items-start gap-4">
-              <div class="flex h-12 w-12 shrink-0 items-center justify-center border-2 border-ink dark:border-[#444] bg-primary/20 text-ink dark:text-ink-dark">
+              <div class="w-11 h-11 border-2 border-ink dark:border-[#444] bg-primary/20 flex items-center justify-center shrink-0 text-ink dark:text-ink-dark">
                 <span class="material-symbols-outlined">location_on</span>
               </div>
               <div>
-                <h3 class="font-bold text-ink dark:text-ink-dark">Headquarters</h3>
-                <p class="text-ink-muted dark:text-ink-muted-dark">
-                  Westlands Commercial Centre,<br />
-                  Ring Rd Parklands, Nairobi, Kenya
-                </p>
+                <h3 class="font-bold text-sm text-ink dark:text-ink-dark">Office</h3>
+                <p class="text-sm text-ink-muted dark:text-ink-muted-dark">Westlands Commercial Centre,<br />Ring Rd Parklands, Nairobi</p>
               </div>
             </div>
           </address>
         </div>
 
-        <!-- Contact form -->
-        <div class="border-2 border-ink dark:border-[#444] bg-white dark:bg-[#1A1A1A] p-8" style="box-shadow: 6px 6px 0 #111">
-          <form class="space-y-6" onsubmit="return false;">
+        <!-- Form -->
+        <div class="border-2 border-ink dark:border-[#444] bg-white dark:bg-[#1A1A1A] p-7 sm:p-8" style="box-shadow:5px 5px 0 #111">
+          <form class="flex flex-col gap-5" onsubmit="return false;">
 
-            <div class="grid sm:grid-cols-2 gap-6">
-              <div class="space-y-2">
-                <label for="contact-name" class="text-sm font-bold text-ink dark:text-ink-dark">Full Name</label>
-                <input
-                  id="contact-name"
-                  type="text"
-                  autocomplete="name"
-                  placeholder="Jane Doe"
-                  class="w-full border-2 border-ink dark:border-[#444] bg-gray-50 dark:bg-[#111] text-ink dark:text-ink-dark px-4 py-3 focus:outline-none focus:border-accent transition-colors placeholder:text-ink-muted"
-                />
+            <div class="grid sm:grid-cols-2 gap-5">
+              <div class="flex flex-col gap-1.5">
+                <label for="c-name" class="text-xs font-bold text-ink dark:text-ink-dark uppercase tracking-widest">Name</label>
+                <input id="c-name" type="text" autocomplete="name" placeholder="Your name"
+                  class="w-full border-2 border-ink dark:border-[#444] bg-gray-50 dark:bg-[#111] text-ink dark:text-ink-dark px-4 py-3 text-sm focus:outline-none focus:border-accent transition-colors placeholder:text-ink-muted" />
               </div>
-              <div class="space-y-2">
-                <label for="contact-email" class="text-sm font-bold text-ink dark:text-ink-dark">Email Address</label>
-                <input
-                  id="contact-email"
-                  type="email"
-                  autocomplete="email"
-                  placeholder="jane@example.com"
-                  class="w-full border-2 border-ink dark:border-[#444] bg-gray-50 dark:bg-[#111] text-ink dark:text-ink-dark px-4 py-3 focus:outline-none focus:border-accent transition-colors placeholder:text-ink-muted"
-                />
+              <div class="flex flex-col gap-1.5">
+                <label for="c-email" class="text-xs font-bold text-ink dark:text-ink-dark uppercase tracking-widest">Email</label>
+                <input id="c-email" type="email" autocomplete="email" placeholder="you@example.com"
+                  class="w-full border-2 border-ink dark:border-[#444] bg-gray-50 dark:bg-[#111] text-ink dark:text-ink-dark px-4 py-3 text-sm focus:outline-none focus:border-accent transition-colors placeholder:text-ink-muted" />
               </div>
             </div>
 
-            <div class="space-y-2">
-              <label for="contact-subject" class="text-sm font-bold text-ink dark:text-ink-dark">Subject</label>
-              <select
-                id="contact-subject"
-                class="w-full border-2 border-ink dark:border-[#444] bg-gray-50 dark:bg-[#111] text-ink dark:text-ink-dark px-4 py-3 focus:outline-none focus:border-accent transition-colors"
-              >
-                <option>Technical Issue</option>
-                <option>Billing Question</option>
-                <option>Feature Request</option>
+            <div class="flex flex-col gap-1.5">
+              <label for="c-topic" class="text-xs font-bold text-ink dark:text-ink-dark uppercase tracking-widest">Topic</label>
+              <select id="c-topic"
+                class="w-full border-2 border-ink dark:border-[#444] bg-gray-50 dark:bg-[#111] text-ink dark:text-ink-dark px-4 py-3 text-sm focus:outline-none focus:border-accent transition-colors">
+                <option>M-Pesa / Payment Issue</option>
+                <option>Listing Problem</option>
+                <option>Delivery or Meetup</option>
+                <option>Account / Verification</option>
+                <option>Report a Seller</option>
                 <option>Other</option>
               </select>
             </div>
 
-            <div class="space-y-2">
-              <label for="contact-message" class="text-sm font-bold text-ink dark:text-ink-dark">Message</label>
-              <textarea
-                id="contact-message"
-                rows="4"
-                placeholder="How can we help you?"
-                class="w-full border-2 border-ink dark:border-[#444] bg-gray-50 dark:bg-[#111] text-ink dark:text-ink-dark px-4 py-3 focus:outline-none focus:border-accent transition-colors resize-none placeholder:text-ink-muted"
-              ></textarea>
+            <div class="flex flex-col gap-1.5">
+              <label for="c-msg" class="text-xs font-bold text-ink dark:text-ink-dark uppercase tracking-widest">Message</label>
+              <textarea id="c-msg" rows="4" placeholder="Describe your issue..."
+                class="w-full border-2 border-ink dark:border-[#444] bg-gray-50 dark:bg-[#111] text-ink dark:text-ink-dark px-4 py-3 text-sm focus:outline-none focus:border-accent transition-colors resize-none placeholder:text-ink-muted"></textarea>
             </div>
 
-            <button
-              type="submit"
-              class="w-full bg-secondary text-white font-bold py-4 border-2 border-ink dark:border-[#444] hover:translate-x-[2px] hover:translate-y-[2px] hover:[box-shadow:none] transition-all"
-              style="box-shadow: 4px 4px 0 #111"
-            >
+            <button type="submit"
+              class="w-full bg-secondary text-white font-bold py-4 border-2 border-ink dark:border-[#444] text-sm hover:translate-x-[2px] hover:translate-y-[2px] hover:[box-shadow:none] transition-all"
+              style="box-shadow:4px 4px 0 #111">
               Send Message
             </button>
 
           </form>
         </div>
-
       </div>
     </section>
 
   </main>
 
-  <!-- Footer -->
-  <footer class="border-t-2 border-ink dark:border-[#444] bg-white dark:bg-[#0F0F0F] py-10 px-6 lg:px-16" role="contentinfo">
+  <footer class="border-t-2 border-ink dark:border-[#444] bg-white dark:bg-[#0F0F0F] py-8 px-5 sm:px-8 lg:px-16" role="contentinfo">
     <div class="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-4">
       <a href="index.html" class="flex items-center gap-2">
-        <div class="flex h-8 w-8 items-center justify-center bg-primary border-2 border-ink">
-          <span class="material-symbols-outlined text-ink text-sm">help_center</span>
+        <div class="w-7 h-7 bg-primary border-2 border-ink flex items-center justify-center">
+          <span class="material-symbols-outlined text-ink" style="font-size:14px">help_center</span>
         </div>
-        <span class="font-display font-extrabold text-lg text-ink dark:text-ink-dark">gikomba<span class="text-secondary">.app</span> Support</span>
+        <span style="font-family:'Syne',sans-serif;font-weight:800;" class="text-ink dark:text-ink-dark">gikomba<span style="color:#7B4FC4">.app</span> Support</span>
       </a>
-      <nav class="flex gap-6 text-sm text-ink-muted dark:text-ink-muted-dark" aria-label="Footer legal links">
-        <a href="#" class="hover:text-ink dark:hover:text-ink-dark transition-colors">Privacy Policy</a>
-        <a href="#" class="hover:text-ink dark:hover:text-ink-dark transition-colors">Terms of Service</a>
-        <a href="#" class="hover:text-ink dark:hover:text-ink-dark transition-colors">Status</a>
+      <nav class="flex gap-5 text-sm text-ink-muted dark:text-ink-muted-dark" aria-label="Footer links">
+        <a href="#" class="hover:text-ink dark:hover:text-ink-dark transition-colors">Privacy</a>
+        <a href="#" class="hover:text-ink dark:hover:text-ink-dark transition-colors">Terms</a>
+        <a href="#faq" class="hover:text-ink dark:hover:text-ink-dark transition-colors">FAQ</a>
       </nav>
-      <p class="text-sm text-ink-muted dark:text-ink-muted-dark">© 2024 gikomba.app</p>
+      <p class="text-xs text-ink-muted dark:text-ink-muted-dark">© 2024 gikomba.app</p>
     </div>
   </footer>
 

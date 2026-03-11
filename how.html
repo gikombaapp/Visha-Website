@@ -3,237 +3,270 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <!-- SEO -->
-  <title>How It Works — gikomba.app | Simple & Secure Trading in Kenya</title>
-  <meta name="description" content="Learn how to snap, list, chat, and complete secure deliveries on gikomba.app. Trading in Kenya made simple with M-Pesa payments." />
-  <meta name="keywords" content="how to sell Kenya, buy online Kenya, M-Pesa marketplace, secure delivery Nairobi, thrift marketplace guide" />
+  <title>How It Works — gikomba.app | Buy & Sell in Minutes</title>
+  <meta name="description" content="Learn how gikomba.app works. Snap, list, chat, and get paid via M-Pesa — all from your phone in Nairobi." />
   <meta property="og:title" content="How It Works — gikomba.app" />
-  <meta property="og:description" content="Trading in Kenya made simple and secure. Snap, list, chat, deliver." />
   <meta property="og:type" content="website" />
-  <link rel="canonical" href="https://gikomba.app/howitworks.html" />
-
-  <!-- Styles -->
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="canonical" href="https://gikomba.app/how.html" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap" rel="stylesheet" />
-
-  <!-- Tailwind CDN fallback -->
+  <link rel="stylesheet" href="styles.css" />
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
       darkMode: "class",
-      theme: {
-        extend: {
-          colors: {
-            primary: "#B5F03A", secondary: "#7B4FC4", accent: "#007A91",
-            surface: "#FFFFFF", "surface-dark": "#0F0F0F",
-            ink: "#111111", "ink-muted": "#555555",
-            "ink-dark": "#E8E8E8", "ink-muted-dark": "#9CA3AF",
-          },
-          fontFamily: { display: ["'Syne'", "sans-serif"], body: ["'DM Sans'", "sans-serif"] },
-          borderRadius: { DEFAULT: "0px", none: "0px", sm: "0px", md: "0px", lg: "0px", xl: "0px", "2xl": "0px", full: "0px" },
-        },
-      },
+      theme: { extend: { colors: { primary:"#B5F03A", secondary:"#7B4FC4", accent:"#007A91", ink:"#111111", "ink-muted":"#555555", "ink-dark":"#E8E8E8", "ink-muted-dark":"#9CA3AF" }, fontFamily: { display:["'Syne'","sans-serif"], body:["'DM Sans'","sans-serif"] }, borderRadius: { DEFAULT:"0px", none:"0px", sm:"0px", md:"0px", lg:"0px", xl:"0px", "2xl":"0px", full:"0px" } } }
     };
   </script>
+  <style>
+    body { font-family: 'DM Sans', sans-serif; }
+    h1, h2, h3, h4 { font-family: 'Syne', sans-serif; }
+    .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; vertical-align: middle; }
+  </style>
 </head>
 
-<body class="bg-white dark:bg-[#0F0F0F] text-ink dark:text-ink-dark font-body antialiased transition-colors duration-200">
+<body class="bg-white dark:bg-[#0F0F0F] text-ink dark:text-ink-dark antialiased transition-colors duration-200">
 
   <div id="site-nav"></div>
 
   <main>
 
-    <!-- ═══ Hero ════════════════════════════════════════════════ -->
-    <section class="px-6 lg:px-16 py-20 max-w-4xl mx-auto text-center" aria-labelledby="hiw-heading">
-      <span class="inline-block px-4 py-1.5 mb-6 text-xs font-bold uppercase tracking-widest bg-primary/30 border border-ink/20 text-ink dark:text-ink-dark">
-        The Marketplace Guide
+    <!-- ═══ HERO ═══════════════════════════════════════════════ -->
+    <section class="max-w-4xl mx-auto px-5 sm:px-8 lg:px-16 pt-14 pb-10 text-center" aria-labelledby="how-heading">
+      <span class="inline-block border-2 border-ink dark:border-[#444] bg-primary text-ink text-xs font-bold uppercase tracking-widest px-3 py-1.5 mb-6">
+        The App Guide
       </span>
-      <h1 id="hiw-heading" class="font-display text-4xl md:text-6xl font-extrabold mb-6 leading-tight text-ink dark:text-ink-dark">
-        Trading in Kenya made
-        <span class="bg-primary border-2 border-ink px-2 text-ink">simple</span>
-        and secure.
+      <h1 id="how-heading" class="font-display text-4xl sm:text-5xl lg:text-6xl font-extrabold text-ink dark:text-ink-dark leading-tight mb-5">
+        Buy and sell in Kenya — <span class="bg-primary px-2">from your phone.</span>
       </h1>
-      <p class="text-ink-muted dark:text-ink-muted-dark text-lg max-w-2xl mx-auto leading-relaxed">
-        Join thousands of Kenyans buying and selling everything from electronics to fashion. Here's how to get started today.
+      <p class="text-ink-muted dark:text-ink-muted-dark text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
+        gikomba.app makes it simple. Whether you're a Gikomba vendor moving stock digitally, or a buyer hunting vintage gems — here's how the app works.
       </p>
     </section>
 
-    <!-- ═══ Toggle (Sellers / Buyers) ══════════════════════════ -->
-    <div class="flex justify-center px-6 mb-16" role="tablist" aria-label="View for sellers or buyers">
-      <div class="bg-white dark:bg-[#1A1A1A] p-2 border-2 border-ink dark:border-[#444] flex gap-2" style="box-shadow: 4px 4px 0 #111">
-        <button
-          role="tab"
-          aria-selected="true"
-          class="px-8 py-3 bg-primary border-2 border-ink dark:border-[#444] font-bold text-sm flex items-center gap-2 text-ink"
-          onclick="setTab(this, 'sellers')"
-          id="tab-sellers"
-        >
+    <!-- ═══ TOGGLE: SELLERS / BUYERS ════════════════════════════ -->
+    <div class="flex justify-center px-5 mb-14" role="tablist" aria-label="Switch between seller and buyer view">
+      <div class="bg-white dark:bg-[#1A1A1A] p-1.5 border-2 border-ink dark:border-[#444] flex gap-2" style="box-shadow:4px 4px 0 #111">
+        <button id="tab-sellers" role="tab" aria-selected="true" onclick="switchTab('sellers')"
+          class="px-6 sm:px-8 py-3 bg-primary border-2 border-ink font-bold text-sm text-ink flex items-center gap-2 transition-all">
           <span class="material-symbols-outlined text-base">storefront</span>
           For Sellers
         </button>
-        <button
-          role="tab"
-          aria-selected="false"
-          class="px-8 py-3 font-bold text-sm text-ink-muted dark:text-ink-muted-dark hover:text-ink dark:hover:text-ink-dark flex items-center gap-2 transition-colors"
-          onclick="setTab(this, 'buyers')"
-          id="tab-buyers"
-        >
+        <button id="tab-buyers" role="tab" aria-selected="false" onclick="switchTab('buyers')"
+          class="px-6 sm:px-8 py-3 bg-transparent font-bold text-sm text-ink-muted dark:text-ink-muted-dark flex items-center gap-2 hover:text-ink dark:hover:text-ink-dark transition-all">
           <span class="material-symbols-outlined text-base">shopping_cart</span>
           For Buyers
         </button>
       </div>
     </div>
 
-    <!-- ═══ Steps ════════════════════════════════════════════════ -->
-    <section class="px-6 lg:px-16 py-12 max-w-6xl mx-auto" aria-labelledby="steps-heading">
-      <h2 id="steps-heading" class="sr-only">How to buy or sell on gikomba.app</h2>
-      <div class="grid lg:grid-cols-3 gap-10">
+    <!-- ═══ SELLER STEPS ════════════════════════════════════════ -->
+    <div id="panel-sellers" class="max-w-6xl mx-auto px-5 sm:px-8 lg:px-16 pb-16">
+      <div class="grid lg:grid-cols-3 gap-6 sm:gap-8">
 
         <!-- Step 1 -->
         <article class="relative group">
-          <div class="absolute -top-6 -left-4 text-8xl font-black text-primary/20 select-none group-hover:text-primary/40 transition-colors font-display" aria-hidden="true">1</div>
-          <div class="bg-white dark:bg-[#1A1A1A] p-8 border-2 border-ink dark:border-[#444] flex flex-col items-center text-center h-full relative z-10" style="box-shadow: 8px 8px 0 #111">
-            <div class="w-20 h-20 bg-primary/20 border-2 border-ink dark:border-[#444] flex items-center justify-center mb-8 rotate-3 group-hover:rotate-0 transition-transform">
-              <span class="material-symbols-outlined text-4xl text-ink">add_a_photo</span>
+          <div class="absolute -top-5 -left-3 font-display font-extrabold text-7xl text-primary/15 dark:text-primary/10 select-none group-hover:text-primary/30 transition-colors" aria-hidden="true">1</div>
+          <div class="relative z-10 bg-white dark:bg-[#1A1A1A] border-2 border-ink dark:border-[#444] p-7 flex flex-col items-center text-center h-full" style="box-shadow:6px 6px 0 #111">
+            <div class="w-16 h-16 bg-primary/20 border-2 border-ink dark:border-[#444] flex items-center justify-center mb-6 rotate-3 group-hover:rotate-0 transition-transform">
+              <span class="material-symbols-outlined text-3xl text-ink">add_a_photo</span>
             </div>
-            <h3 class="font-display text-2xl font-bold mb-4 text-ink dark:text-ink-dark">Snap &amp; List</h3>
-            <p class="text-ink-muted dark:text-ink-muted-dark leading-relaxed mb-6">
-              Clear photos sell faster. Take shots from different angles, write a quick description, and set your price.
+            <h3 class="font-display text-2xl font-bold mb-3 text-ink dark:text-ink-dark">Snap &amp; List</h3>
+            <p class="text-ink-muted dark:text-ink-muted-dark text-sm leading-relaxed mb-5">
+              Open the app, tap the + button, take a few photos, add a description and price. Your listing is live in under 60 seconds.
             </p>
-            <div class="mt-auto w-full aspect-square border-2 border-ink dark:border-[#444] overflow-hidden">
-              <img
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuAp-mOFFU8CaBlYmoTKEK4aDoKcWX6tr6fM7avfCrmSVEyfHeZDJp1iFR91qQI0gd8ryffgeVDO3TzIPM8sl1KfQzw-nFaTXHmzlXo8jQYPlajLPAqy5aVG9V6cMD8A1mcGa7xCsk25tlpcp6ehay0WP3DEFSFZybKnkHlQOskbhDPezhitci98SX75O0tVxmgfBf_L0cWEPDXkC6AA8flhiB2ygwdRSaeuwxi4KPMIYWcHGglbiRQQGmxTJQIwPEIYFnj5TT02kgg"
-                alt="Smartphone camera for listing items"
-                class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
-                loading="lazy"
-              />
-            </div>
+            <div class="mt-auto w-full border-2 border-ink dark:border-[#444] overflow-hidden aspect-video bg-cover bg-center"
+              style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAp-mOFFU8CaBlYmoTKEK4aDoKcWX6tr6fM7avfCrmSVEyfHeZDJp1iFR91qQI0gd8ryffgeVDO3TzIPM8sl1KfQzw-nFaTXHmzlXo8jQYPlajLPAqy5aVG9V6cMD8A1mcGa7xCsk25tlpcp6ehay0WP3DEFSFZybKnkHlQOskbhDPezhitci98SX75O0tVxmgfBf_L0cWEPDXkC6AA8flhiB2ygwdRSaeuwxi4KPMIYWcHGglbiRQQGmxTJQIwPEIYFnj5TT02kgg")'
+              role="img" aria-label="Snapping a photo to list on gikomba.app"></div>
           </div>
         </article>
 
         <!-- Step 2 -->
         <article class="relative group">
-          <div class="absolute -top-6 -left-4 text-8xl font-black text-primary/20 select-none group-hover:text-primary/40 transition-colors font-display" aria-hidden="true">2</div>
-          <div class="bg-white dark:bg-[#1A1A1A] p-8 border-2 border-ink dark:border-[#444] flex flex-col items-center text-center h-full relative z-10" style="box-shadow: 8px 8px 0 #111">
-            <div class="w-20 h-20 bg-primary border-2 border-ink dark:border-[#444] flex items-center justify-center mb-8 -rotate-3 group-hover:rotate-0 transition-transform">
-              <span class="material-symbols-outlined text-4xl text-ink">forum</span>
+          <div class="absolute -top-5 -left-3 font-display font-extrabold text-7xl text-primary/15 dark:text-primary/10 select-none group-hover:text-primary/30 transition-colors" aria-hidden="true">2</div>
+          <div class="relative z-10 bg-white dark:bg-[#1A1A1A] border-2 border-ink dark:border-[#444] p-7 flex flex-col items-center text-center h-full" style="box-shadow:6px 6px 0 #111">
+            <div class="w-16 h-16 bg-primary border-2 border-ink flex items-center justify-center mb-6 -rotate-3 group-hover:rotate-0 transition-transform">
+              <span class="material-symbols-outlined text-3xl text-ink">forum</span>
             </div>
-            <h3 class="font-display text-2xl font-bold mb-4 text-ink dark:text-ink-dark">Chat &amp; Negotiate</h3>
-            <p class="text-ink-muted dark:text-ink-muted-dark leading-relaxed mb-6">
-              Use our built-in secure chat to answer questions. Discuss pricing and delivery details directly with buyers.
+            <h3 class="font-display text-2xl font-bold mb-3 text-ink dark:text-ink-dark">Chat &amp; Negotiate</h3>
+            <p class="text-ink-muted dark:text-ink-muted-dark text-sm leading-relaxed mb-5">
+              Buyers message you directly in the app. Discuss price, condition, and pick-up — without sharing your personal number.
             </p>
-            <div class="mt-auto w-full aspect-square border-2 border-ink dark:border-[#444] p-4 bg-gray-50 dark:bg-[#111] flex flex-col gap-3 justify-center" aria-label="Example chat conversation">
-              <div class="bg-primary/40 self-start px-3 py-2 text-xs font-bold text-ink border border-ink/20">Is the item still available?</div>
-              <div class="bg-gray-200 dark:bg-[#2A2A2A] self-end px-3 py-2 text-xs font-bold text-ink dark:text-ink-dark border border-ink/10 dark:border-[#444]">Yes, perfect condition!</div>
-              <div class="bg-primary/40 self-start px-3 py-2 text-xs font-bold text-ink border border-ink/20">Can we meet in Westlands?</div>
+            <div class="mt-auto w-full border-2 border-ink dark:border-[#444] bg-gray-50 dark:bg-[#111] p-4 flex flex-col gap-2 justify-center">
+              <div class="bg-primary/50 self-start px-3 py-1.5 text-xs font-bold text-ink border border-ink/20">Is this still available?</div>
+              <div class="bg-gray-200 dark:bg-[#2A2A2A] self-end px-3 py-1.5 text-xs font-bold text-ink dark:text-ink-dark border border-ink/10 dark:border-[#444]">Yes! Great condition 👌</div>
+              <div class="bg-primary/50 self-start px-3 py-1.5 text-xs font-bold text-ink border border-ink/20">Can we meet in CBD?</div>
             </div>
           </div>
         </article>
 
         <!-- Step 3 -->
         <article class="relative group">
-          <div class="absolute -top-6 -left-4 text-8xl font-black text-primary/20 select-none group-hover:text-primary/40 transition-colors font-display" aria-hidden="true">3</div>
-          <div class="bg-white dark:bg-[#1A1A1A] p-8 border-2 border-ink dark:border-[#444] flex flex-col items-center text-center h-full relative z-10" style="box-shadow: 8px 8px 0 #111">
-            <div class="w-20 h-20 bg-primary/20 border-2 border-ink dark:border-[#444] flex items-center justify-center mb-8 rotate-6 group-hover:rotate-0 transition-transform">
-              <span class="material-symbols-outlined text-4xl text-ink">local_shipping</span>
+          <div class="absolute -top-5 -left-3 font-display font-extrabold text-7xl text-primary/15 dark:text-primary/10 select-none group-hover:text-primary/30 transition-colors" aria-hidden="true">3</div>
+          <div class="relative z-10 bg-white dark:bg-[#1A1A1A] border-2 border-ink dark:border-[#444] p-7 flex flex-col items-center text-center h-full" style="box-shadow:6px 6px 0 #111">
+            <div class="w-16 h-16 bg-primary/20 border-2 border-ink dark:border-[#444] flex items-center justify-center mb-6 rotate-6 group-hover:rotate-0 transition-transform">
+              <span class="material-symbols-outlined text-3xl text-ink">payments</span>
             </div>
-            <h3 class="font-display text-2xl font-bold mb-4 text-ink dark:text-ink-dark">Secure Delivery</h3>
-            <p class="text-ink-muted dark:text-ink-muted-dark leading-relaxed mb-6">
-              Choose between meet-up or courier. Once the buyer confirms receipt, your funds are safely released via M-Pesa.
+            <h3 class="font-display text-2xl font-bold mb-3 text-ink dark:text-ink-dark">Get Paid via M-Pesa</h3>
+            <p class="text-ink-muted dark:text-ink-muted-dark text-sm leading-relaxed mb-5">
+              The buyer pays via M-Pesa inside the app. Funds are held safely until delivery is confirmed — then released straight to your wallet.
             </p>
-            <div class="mt-auto w-full aspect-square border-2 border-ink dark:border-[#444] overflow-hidden relative">
-              <div class="absolute inset-0 bg-primary/10 p-4 flex items-center justify-center">
-                <div class="border-2 border-dashed border-primary/60 w-full h-full flex items-center justify-center">
-                  <span class="material-symbols-outlined text-5xl text-primary animate-pulse">verified_user</span>
-                </div>
-              </div>
-              <img
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuBBx9R3ts7dX1DroHNJnSj_55FAEK3POzwc7rW-O_yOB9FjzirOZIrs00TKCXXN3rKMF2TmiJfK_BSOVzABHpV-RMdMH_ko-Gy5KE-154xj7uQBSADjw8be3eBIUldCFjjAS9w5CvCMg2xeJH1XVMAiD82rArhMBlmF4D2W_GHv8IJZgpDwcuFKYHeuo5sw5RlS0Mg7r8lYTHXllMDFwy06pJyWYB7nWGsqp7sW29QuJwjR7v2TZ8nvqhQL3v93gYxMFGZnQy9BnMM"
-                alt="Delivery person handing over a package securely"
-                class="w-full h-full object-cover opacity-40 grayscale group-hover:grayscale-0 transition-all duration-500"
-                loading="lazy"
-              />
+            <div class="mt-auto w-full border-2 border-ink dark:border-[#444] bg-gray-50 dark:bg-[#111] p-4 flex flex-col gap-3 items-center justify-center aspect-video">
+              <span class="material-symbols-outlined text-4xl text-primary animate-pulse">verified_user</span>
+              <div class="text-xs font-bold text-ink dark:text-ink-dark text-center">Payment of Ksh 1,200 confirmed ✓</div>
+              <div class="text-[10px] text-ink-muted dark:text-ink-muted-dark">Funds released to your M-Pesa</div>
             </div>
           </div>
         </article>
 
       </div>
-    </section>
+    </div>
 
-    <!-- ═══ Trust Bar ══════════════════════════════════════════ -->
-    <section class="bg-secondary border-y-2 border-ink dark:border-[#444] py-12 mt-12" aria-label="Trust indicators">
-      <div class="flex flex-col md:flex-row items-center justify-around gap-8 px-6 lg:px-16 max-w-6xl mx-auto">
+    <!-- ═══ BUYER STEPS (hidden by default) ═════════════════════ -->
+    <div id="panel-buyers" class="hidden max-w-6xl mx-auto px-5 sm:px-8 lg:px-16 pb-16">
+      <div class="grid lg:grid-cols-3 gap-6 sm:gap-8">
+
+        <article class="relative group">
+          <div class="absolute -top-5 -left-3 font-display font-extrabold text-7xl text-primary/15 dark:text-primary/10 select-none group-hover:text-primary/30 transition-colors" aria-hidden="true">1</div>
+          <div class="relative z-10 bg-white dark:bg-[#1A1A1A] border-2 border-ink dark:border-[#444] p-7 flex flex-col items-center text-center h-full" style="box-shadow:6px 6px 0 #111">
+            <div class="w-16 h-16 bg-primary border-2 border-ink flex items-center justify-center mb-6 rotate-3 group-hover:rotate-0 transition-transform">
+              <span class="material-symbols-outlined text-3xl text-ink">search</span>
+            </div>
+            <h3 class="font-display text-2xl font-bold mb-3 text-ink dark:text-ink-dark">Browse &amp; Discover</h3>
+            <p class="text-ink-muted dark:text-ink-muted-dark text-sm leading-relaxed">
+              Search by category, style, or location. Filter by price range and size. Save favourites and get notified when similar items drop.
+            </p>
+          </div>
+        </article>
+
+        <article class="relative group">
+          <div class="absolute -top-5 -left-3 font-display font-extrabold text-7xl text-primary/15 dark:text-primary/10 select-none group-hover:text-primary/30 transition-colors" aria-hidden="true">2</div>
+          <div class="relative z-10 bg-white dark:bg-[#1A1A1A] border-2 border-ink dark:border-[#444] p-7 flex flex-col items-center text-center h-full" style="box-shadow:6px 6px 0 #111">
+            <div class="w-16 h-16 bg-accent border-2 border-ink flex items-center justify-center mb-6 -rotate-2 group-hover:rotate-0 transition-transform">
+              <span class="material-symbols-outlined text-3xl text-white">forum</span>
+            </div>
+            <h3 class="font-display text-2xl font-bold mb-3 text-ink dark:text-ink-dark">Message the Seller</h3>
+            <p class="text-ink-muted dark:text-ink-muted-dark text-sm leading-relaxed">
+              Have questions? Message sellers directly. Ask about size, condition, or arrange a local meetup — all in-app.
+            </p>
+          </div>
+        </article>
+
+        <article class="relative group">
+          <div class="absolute -top-5 -left-3 font-display font-extrabold text-7xl text-primary/15 dark:text-primary/10 select-none group-hover:text-primary/30 transition-colors" aria-hidden="true">3</div>
+          <div class="relative z-10 bg-white dark:bg-[#1A1A1A] border-2 border-ink dark:border-[#444] p-7 flex flex-col items-center text-center h-full" style="box-shadow:6px 6px 0 #111">
+            <div class="w-16 h-16 bg-secondary border-2 border-ink flex items-center justify-center mb-6 rotate-6 group-hover:rotate-0 transition-transform">
+              <span class="material-symbols-outlined text-3xl text-white">payments</span>
+            </div>
+            <h3 class="font-display text-2xl font-bold mb-3 text-ink dark:text-ink-dark">Pay with M-Pesa</h3>
+            <p class="text-ink-muted dark:text-ink-muted-dark text-sm leading-relaxed">
+              Checkout with M-Pesa in one tap. Your money is held securely until you confirm the item arrived as described. Then it's done.
+            </p>
+          </div>
+        </article>
+
+      </div>
+    </div>
+
+    <!-- ═══ TRUST BAR ══════════════════════════════════════════ -->
+    <section class="bg-secondary border-y-2 border-ink dark:border-[#444] py-10 sm:py-12" aria-label="Trust indicators">
+      <div class="max-w-7xl mx-auto px-5 sm:px-8 lg:px-16 grid sm:grid-cols-3 gap-6 sm:gap-8">
         <div class="flex items-center gap-4">
-          <span class="material-symbols-outlined text-primary text-4xl">shield</span>
+          <span class="material-symbols-outlined text-primary text-4xl shrink-0">shield</span>
           <div>
-            <p class="font-bold text-white">Verified Users</p>
-            <p class="text-sm text-white/70">Trusted community in Kenya</p>
+            <p class="font-bold text-white">Verified Sellers</p>
+            <p class="text-sm text-white/70">ID-checked, community rated</p>
           </div>
         </div>
         <div class="flex items-center gap-4">
-          <span class="material-symbols-outlined text-primary text-4xl">payments</span>
+          <span class="material-symbols-outlined text-primary text-4xl shrink-0">payments</span>
           <div>
-            <p class="font-bold text-white">M-Pesa Safe Payments</p>
-            <p class="text-sm text-white/70">Escrow-style security</p>
+            <p class="font-bold text-white">Escrow-Style Payments</p>
+            <p class="text-sm text-white/70">Your money is always protected</p>
           </div>
         </div>
         <div class="flex items-center gap-4">
-          <span class="material-symbols-outlined text-primary text-4xl">support_agent</span>
+          <span class="material-symbols-outlined text-primary text-4xl shrink-0">support_agent</span>
           <div>
-            <p class="font-bold text-white">24/7 Support</p>
-            <p class="text-sm text-white/70">Help when you need it</p>
+            <p class="font-bold text-white">Nairobi Support Team</p>
+            <p class="text-sm text-white/70">Real people, fast responses</p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ═══ CTA ════════════════════════════════════════════════ -->
-    <section class="px-6 lg:px-16 py-24 text-center" aria-labelledby="hiw-cta-heading">
-      <div class="bg-accent border-2 border-ink dark:border-[#444] p-12 lg:p-20 max-w-5xl mx-auto relative overflow-hidden" style="box-shadow: 10px 10px 0 #111">
-        <h2 id="hiw-cta-heading" class="font-display text-3xl md:text-5xl text-white mb-6 relative z-10">Ready to start selling?</h2>
-        <p class="text-white/80 text-lg mb-10 max-w-xl mx-auto relative z-10">
-          Join over 50,000 active sellers across Nairobi, Mombasa, Kisumu and beyond.
+    <!-- ═══ FINAL CTA ══════════════════════════════════════════ -->
+    <section class="max-w-7xl mx-auto px-5 sm:px-8 lg:px-16 py-16 sm:py-24" aria-labelledby="how-cta-heading">
+      <div class="bg-accent border-2 border-ink dark:border-[#444] p-10 sm:p-16 text-center" style="box-shadow:8px 8px 0 #111">
+        <h2 id="how-cta-heading" class="font-display text-3xl sm:text-5xl text-white font-extrabold mb-5">Ready to start?</h2>
+        <p class="text-white/80 text-base sm:text-lg mb-8 max-w-md mx-auto">
+          Sign up for early access and be among the first to buy and sell on gikomba.app in Nairobi.
         </p>
-        <div class="flex flex-col sm:flex-row gap-4 justify-center relative z-10">
-          <a href="registration.html" class="bg-primary text-ink border-2 border-ink font-bold text-lg px-10 py-4 hover:translate-x-[2px] hover:translate-y-[2px] hover:[box-shadow:none] transition-all" style="box-shadow: 4px 4px 0 #111">
-            Post an Ad Now
-          </a>
-          <a href="index.html" class="bg-white text-ink border-2 border-ink font-bold text-lg px-10 py-4 hover:translate-x-[2px] hover:translate-y-[2px] hover:[box-shadow:none] transition-all" style="box-shadow: 4px 4px 0 #111">
-            Explore Categories
-          </a>
-        </div>
+        <form class="flex flex-col sm:flex-row gap-3 max-w-md mx-auto w-full" onsubmit="handleHowWaitlist(event)">
+          <label for="how-email" class="sr-only">Email address</label>
+          <input id="how-email" type="email" placeholder="Your email address" required
+            class="flex-1 h-13 border-2 border-ink bg-white text-ink px-5 py-3.5 text-sm focus:outline-none focus:border-primary transition-colors placeholder:text-ink-muted" />
+          <button type="submit"
+            class="h-13 bg-primary border-2 border-ink text-ink font-bold px-7 py-3.5 text-sm hover:translate-x-[2px] hover:translate-y-[2px] hover:[box-shadow:none] transition-all whitespace-nowrap"
+            style="box-shadow:4px 4px 0 #111">
+            Join Waitlist
+          </button>
+        </form>
+        <p id="how-waitlist-success" class="hidden text-sm font-bold text-primary mt-4">
+          ✓ You're on the list — we'll be in touch soon!
+        </p>
       </div>
     </section>
 
   </main>
 
-  <!-- Footer -->
-  <footer class="border-t-2 border-ink dark:border-[#444] bg-white dark:bg-[#0F0F0F] py-12 px-6 lg:px-16" role="contentinfo">
+  <footer class="border-t-2 border-ink dark:border-[#444] bg-white dark:bg-[#0F0F0F] py-8 px-5 sm:px-8 lg:px-16" role="contentinfo">
     <div class="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-4">
       <a href="index.html" class="flex items-center gap-2">
         <div class="w-7 h-7 bg-primary border-2 border-ink flex items-center justify-center">
-          <span class="material-symbols-outlined text-ink text-sm">local_mall</span>
+          <span class="material-symbols-outlined text-ink" style="font-size:14px">local_mall</span>
         </div>
-        <span class="font-display font-extrabold text-lg text-ink dark:text-ink-dark">gikomba<span class="text-secondary">.app</span></span>
+        <span style="font-family:'Syne',sans-serif;font-weight:800;" class="text-ink dark:text-ink-dark">gikomba<span style="color:#7B4FC4">.app</span></span>
       </a>
       <p class="text-xs text-ink-muted dark:text-ink-muted-dark">© 2024 gikomba.app — Built for the pride of Africa.</p>
     </div>
   </footer>
 
   <script>
-    function setTab(btn, tab) {
-      document.querySelectorAll("[role='tab']").forEach((el) => {
-        el.setAttribute("aria-selected", "false");
-        el.classList.remove("bg-primary", "border-2", "border-ink");
-        el.classList.add("text-ink-muted");
-      });
-      btn.setAttribute("aria-selected", "true");
-      btn.classList.add("bg-primary", "border-2", "border-ink");
-      btn.classList.remove("text-ink-muted");
+    function switchTab(tab) {
+      const sellers = document.getElementById("panel-sellers");
+      const buyers  = document.getElementById("panel-buyers");
+      const btnS    = document.getElementById("tab-sellers");
+      const btnB    = document.getElementById("tab-buyers");
+
+      if (tab === "sellers") {
+        sellers.classList.remove("hidden");
+        buyers.classList.add("hidden");
+        btnS.classList.add("bg-primary", "border-2", "border-ink", "text-ink");
+        btnS.classList.remove("text-ink-muted", "dark:text-ink-muted-dark");
+        btnS.setAttribute("aria-selected", "true");
+        btnB.classList.remove("bg-primary", "border-2", "border-ink", "text-ink");
+        btnB.classList.add("text-ink-muted", "dark:text-ink-muted-dark");
+        btnB.setAttribute("aria-selected", "false");
+      } else {
+        buyers.classList.remove("hidden");
+        sellers.classList.add("hidden");
+        btnB.classList.add("bg-primary", "border-2", "border-ink", "text-ink");
+        btnB.classList.remove("text-ink-muted", "dark:text-ink-muted-dark");
+        btnB.setAttribute("aria-selected", "true");
+        btnS.classList.remove("bg-primary", "border-2", "border-ink", "text-ink");
+        btnS.classList.add("text-ink-muted", "dark:text-ink-muted-dark");
+        btnS.setAttribute("aria-selected", "false");
+      }
+    }
+  </script>
+  <script>
+    function handleHowWaitlist(e) {
+      e.preventDefault();
+      e.target.classList.add("hidden");
+      document.getElementById("how-waitlist-success").classList.remove("hidden");
     }
   </script>
   <script src="gikomba.js"></script>
