@@ -1,283 +1,338 @@
 <!DOCTYPE html>
+<html lang="en" class="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<html class="light" lang="en"><head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Support Center | Help &amp; Resources</title>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Gochi+Hand&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Gochi+Hand&amp;display=swap" rel="stylesheet"/>
-<script id="tailwind-config">
-        tailwind.config = {
-            darkMode: "class",
-            theme: {
-                extend: {
-                    colors: {
-                        "primary": "#BEFF72",
-                        "secondary": "#8B60C3",
-                        "accent": "#0098B3",
-                        "background-light": "#ffffff",
-                        "background-dark": "#121212",
-                    },
-                    fontFamily: {
-                        "display": ["Gochi Hand", "cursive"],
-                        "sans": ["Plus Jakarta Sans", "sans-serif"]
-                    },
-                    borderRadius: {"DEFAULT": "0px", "lg": "0px", "xl": "0px", "full": "0px"},
-                },
-            },
-        }
-    </script>
-<style>
-        body { font-family: 'Plus Jakarta Sans', sans-serif; }
-        h1, h2, h3, h4 { font-family: 'Gochi Hand', cursive; }
-        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
-        .brutalist-card { border: 2px solid #000000; box-shadow: 4px 4px 0px #000000; }
-        .brutalist-button { border: 2px solid #000000; box-shadow: 2px 2px 0px #000000; }
-        .brutalist-button:active { transform: translate(1px, 1px); box-shadow: 1px 1px 0px #000000; }
-        .brutalist-input { border: 2px solid #000000 !important; border-radius: 0px !important; }
-    </style>
+  <!-- SEO -->
+  <title>Support Center — gikomba.app | Help & Resources</title>
+  <meta name="description" content="Get help with your gikomba.app account. Browse guides, check FAQs, and contact our Nairobi-based support team." />
+  <meta name="keywords" content="gikomba support, help Kenya marketplace, FAQ thrift app, Nairobi customer support" />
+  <meta property="og:title" content="Support Center — gikomba.app" />
+  <meta property="og:description" content="Get help with buying and selling on gikomba.app. Nairobi-based support team." />
+  <meta property="og:type" content="website" />
+  <link rel="canonical" href="https://gikomba.app/support.html" />
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind CDN fallback -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            primary: "#B5F03A", secondary: "#7B4FC4", accent: "#007A91",
+            surface: "#FFFFFF", "surface-dark": "#0F0F0F",
+            ink: "#111111", "ink-muted": "#555555",
+            "ink-dark": "#E8E8E8", "ink-muted-dark": "#9CA3AF",
+          },
+          fontFamily: { display: ["'Syne'", "sans-serif"], body: ["'DM Sans'", "sans-serif"] },
+          borderRadius: { DEFAULT: "0px", none: "0px", sm: "0px", md: "0px", lg: "0px", xl: "0px", "2xl": "0px", full: "0px" },
+        },
+      },
+    };
+  </script>
 </head>
-<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 antialiased">
-<div class="relative flex min-h-screen w-full flex-col overflow-x-hidden">
-<!-- Navigation -->
-<header class="sticky top-0 z-50 w-full border-b border-slate-200/50 bg-white/80 backdrop-blur-md dark:border-slate-800/50 dark:bg-background-dark/80 rounded-none border-b-2 border-black">
-<div class="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
-<div class="flex items-center gap-8">
-<div class="flex items-center gap-3">
-<div class="flex h-10 w-10 items-center justify-center rounded-xl bg-primary text-slate-900 rounded-none brutalist-card">
-<span class="material-symbols-outlined">help_center</span>
-</div>
-<h2 class="text-xl font-extrabold tracking-tight">Support</h2>
-</div>
-<nav class="hidden md:flex items-center gap-8">
-<a class="text-sm font-bold hover:text-secondary transition-colors" href="#">Home</a>
-<a class="text-sm font-bold hover:text-secondary transition-colors" href="#">Features</a>
-<a class="text-sm font-bold hover:text-secondary transition-colors" href="#">How It Works</a>
-<a class="text-sm font-bold hover:text-secondary transition-colors" href="#">Join</a>
-<a class="text-sm font-bold hover:text-secondary transition-colors" href="#faq">Support</a>
-<a class="text-sm font-bold hover:text-secondary transition-colors" href="#">Blog</a>
-</nav>
-</div>
-<div class="flex items-center gap-4">
-<div class="hidden sm:block">
-<label class="relative flex items-center">
-<span class="material-symbols-outlined absolute left-3 text-slate-400">search</span>
-<input class="h-10 w-64 rounded-xl border-none bg-slate-100 pl-10 text-sm focus:ring-2 focus:ring-secondary dark:bg-slate-800 rounded-none brutalist-card brutalist-input" placeholder="Search knowledge base..." type="text"/>
-</label>
-</div>
-<button class="flex h-10 w-10 items-center justify-center rounded-full bg-slate-100 dark:bg-slate-800 rounded-none brutalist-button">
-<span class="material-symbols-outlined text-slate-600 dark:text-slate-300">person</span>
-</button>
-</div>
-</div>
-</header>
-<main class="flex-1">
-<!-- Hero Section -->
-<section class="mx-auto max-w-7xl px-6 py-12 @container">
-<div class="flex flex-col gap-8 bg-[#8B60C3] p-8 @[864px]:flex-row @[864px]:items-center border-2 border-black">
-<div class="flex flex-1 flex-col gap-6">
-<div class="space-y-4">
-<span class="inline-block rounded-full bg-secondary/20 px-4 py-1 text-sm font-bold text-secondary uppercase tracking-wider">Help Center</span>
-<h1 class="text-4xl font-black leading-tight tracking-tight text-slate-900 dark:text-white sm:text-5xl lg:text-6xl">Habari! How can we <span class="text-secondary">help you</span> in Kenya today?</h1>
-<p class="text-lg text-slate-600 dark:text-slate-400 max-w-xl">Find quick answers for local services, browse detailed Kenyan business guides, or get in touch with our Nairobi-based support team.</p>
-</div>
-<div class="flex max-w-md gap-2">
-<div class="relative flex-1">
-<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-slate-400">search</span>
-<input class="h-14 w-full rounded-xl border-none bg-white pl-12 text-base shadow-sm focus:ring-2 focus:ring-secondary dark:bg-slate-900 rounded-none brutalist-card brutalist-input" placeholder="Search for help..." type="text"/>
-</div>
-<button class="h-14 rounded-none bg-[#BEFF72] px-8 text-base font-bold text-slate-900 brutalist-button transition-all">
-                            Search
-                        </button>
-</div>
-</div>
-<div class="hidden @[864px]:block flex-1">
-<div class="aspect-square w-full rounded-3xl bg-cover bg-center shadow-2xl rounded-none brutalist-card" data-alt="Friendly support team working together in a bright office environment" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAbfwi8xSfGswgQXaen-QI3y71VpxE502RfORlAjXcW-fHMiQEBCMznPRYoWUmDUO0fUiPv2hP6yzLvjCzVV146whOzHeVGW5jhxZTIgXpI_m6SwD8qaIw6P6LDNjjil4iN340tzCwsLWs3nE7_nFrrGJn7RoKXjbWJQSJfGRtov7RVVHxhFh09cDi4za38k6jc0xxBl4-5tKV1vXbaPXkGKJNrgcrfsEBtHBTwjwZT2LoDeREKCGLbZ186i-mZBUPPxf81DwNawOA");'></div>
-</div>
-</div>
-</section>
-<!-- Help Guides Grid -->
-<section class="mx-auto max-w-7xl px-6 py-12">
-<h2 class="mb-8 text-2xl font-extrabold tracking-tight">Browse Topics</h2>
-<div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-<!-- Guide Card 1 -->
-<div class="group flex flex-col gap-4 rounded-2xl border border-slate-200 bg-white p-6 transition-all hover:shadow-xl dark:border-slate-800 dark:bg-slate-900/50 rounded-none brutalist-card">
-<div class="flex h-12 w-12 items-center justify-center rounded-xl bg-accent/10 text-accent rounded-none brutalist-card">
-<span class="material-symbols-outlined">rocket_launch</span>
-</div>
-<div>
-<h3 class="text-lg font-bold">Getting Started</h3>
-<p class="mt-2 text-sm text-slate-600 dark:text-slate-400">Everything you need to know to set up and start using your account in minutes.</p>
-</div>
-<a class="mt-2 flex items-center gap-2 text-sm font-bold text-accent group-hover:underline" href="#">
-                        View 12 articles <span class="material-symbols-outlined text-xs">arrow_forward</span>
-</a>
-</div>
-<!-- Guide Card 2 -->
-<div class="group flex flex-col gap-4 rounded-2xl border border-slate-200 bg-white p-6 transition-all hover:shadow-xl dark:border-slate-800 dark:bg-slate-900/50 rounded-none brutalist-card">
-<div class="flex flex-col gap-8 bg-[#8B60C3] p-8 @[864px]:flex-row @[864px]:items-center border-2 border-black">
-<span class="material-symbols-outlined">payments</span>
-</div>
-<div>
-<h3 class="text-lg font-bold">Billing &amp; Invoices</h3>
-<p class="mt-2 text-sm text-slate-600 dark:text-slate-400">Understand your billing cycle, manage payment methods, and download invoices.</p>
-</div>
-<a class="mt-2 flex items-center gap-2 text-sm font-bold text-secondary group-hover:underline" href="#">
-                        View 8 articles <span class="material-symbols-outlined text-xs">arrow_forward</span>
-</a>
-</div>
-<!-- Guide Card 3 -->
-<div class="group flex flex-col gap-4 rounded-2xl border border-slate-200 bg-white p-6 transition-all hover:shadow-xl dark:border-slate-800 dark:bg-slate-900/50 rounded-none brutalist-card">
-<div class="flex h-12 w-12 items-center justify-center rounded-xl bg-primary/20 text-slate-700 rounded-none brutalist-card">
-<span class="material-symbols-outlined">settings_suggest</span>
-</div>
-<div>
-<h3 class="text-lg font-bold">Account Settings</h3>
-<p class="mt-2 text-sm text-slate-600 dark:text-slate-400">Configure your profile, notification preferences, and security settings.</p>
-</div>
-<a class="mt-2 flex items-center gap-2 text-sm font-bold text-slate-700 dark:text-primary group-hover:underline" href="#">
-                        View 15 articles <span class="material-symbols-outlined text-xs">arrow_forward</span>
-</a>
-</div>
-</div>
-</section>
-<!-- FAQ Section -->
-<section class="py-20 dark:bg-slate-900/30 border-y-2 border-black" id="faq" style="background-color: #BEFF72;">
-<div class="mx-auto max-w-3xl px-6">
-<div class="mb-12 text-center">
-<h2 class="text-3xl font-black">Frequently Asked Questions</h2>
-<p class="mt-4 text-slate-600 dark:text-slate-400">Quick answers to the most common questions from our community.</p>
-</div>
-<div class="space-y-4">
-<details class="group rounded-2xl border border-slate-200 bg-white dark:border-slate-800 dark:bg-slate-900 rounded-none brutalist-card" open="">
-<summary class="flex cursor-pointer items-center justify-between p-6 list-none">
-<span class="text-base font-bold">How do I reset my password?</span>
-<span class="material-symbols-outlined transition-transform group-open:rotate-180">expand_more</span>
-</summary>
-<div class="px-6 pb-6 pt-0 text-slate-600 dark:text-slate-400">
-                            You can reset your password by clicking on 'Forgot Password' at the login screen. We will send an email with instructions to your registered address within a few minutes.
-                        </div>
-</details>
-<details class="group rounded-2xl border border-slate-200 bg-white dark:border-slate-800 dark:bg-slate-900 rounded-none brutalist-card">
-<summary class="flex cursor-pointer items-center justify-between p-6 list-none">
-<span class="text-base font-bold">Can I change my subscription plan at any time?</span>
-<span class="material-symbols-outlined transition-transform group-open:rotate-180">expand_more</span>
-</summary>
-<div class="px-6 pb-6 pt-0 text-slate-600 dark:text-slate-400">
-                            Yes! You can upgrade or downgrade your plan at any time from your Account Settings. If you upgrade, the new features will be available immediately.
-                        </div>
-</details>
-<details class="group rounded-2xl border border-slate-200 bg-white dark:border-slate-800 dark:bg-slate-900 rounded-none brutalist-card">
-<summary class="flex cursor-pointer items-center justify-between p-6 list-none">
-<span class="text-base font-bold">What is your refund policy?</span>
-<span class="material-symbols-outlined transition-transform group-open:rotate-180">expand_more</span>
-</summary>
-<div class="px-6 pb-6 pt-0 text-slate-600 dark:text-slate-400">
-                            We offer a 30-day money-back guarantee for all our premium plans. If you're not satisfied, just contact our support team and we'll process your refund, no questions asked.
-                        </div>
-</details>
-<details class="group rounded-2xl border border-slate-200 bg-white dark:border-slate-800 dark:bg-slate-900 rounded-none brutalist-card">
-<summary class="flex cursor-pointer items-center justify-between p-6 list-none">
-<span class="text-base font-bold">Is my data secure?</span>
-<span class="material-symbols-outlined transition-transform group-open:rotate-180">expand_more</span>
-</summary>
-<div class="px-6 pb-6 pt-0 text-slate-600 dark:text-slate-400">
-                            Security is our top priority. We use industry-standard encryption and follow best practices to ensure your data is always protected and never shared with third parties.
-                        </div>
-</details>
-</div>
-</div>
-</section>
-<!-- Contact Form Section -->
-<section class="mx-auto max-w-7xl px-6 py-24" id="contact">
-<div class="grid gap-16 lg:grid-cols-2">
-<div class="space-y-8">
-<div>
-<h2 class="text-3xl font-black">Still need help?</h2>
-<p class="mt-4 text-lg text-slate-600 dark:text-slate-400">Our friendly team is here to help. Send us a message and we'll get back to you within 24 hours.</p>
-</div>
-<div class="space-y-6">
-<div class="flex items-start gap-4">
-<div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-accent/10 text-accent rounded-none brutalist-card">
-<span class="material-symbols-outlined">mail</span>
-</div>
-<div>
-<h4 class="font-bold">Email us</h4>
-<p class="text-slate-600 dark:text-slate-400">support@friendlysupport.com</p>
-</div>
-</div>
-<div class="flex items-start gap-4">
-<div class="flex flex-col gap-8 bg-[#8B60C3] p-8 @[864px]:flex-row @[864px]:items-center border-2 border-black">
-<span class="material-symbols-outlined">forum</span>
-</div>
-<div>
-<h4 class="font-bold">Live Chat</h4>
-<p class="text-slate-600 dark:text-slate-400">Available Mon-Fri, 9am-5pm EST</p>
-</div>
-</div>
-<div class="flex items-start gap-4">
-<div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-primary/20 text-slate-700 rounded-none brutalist-card">
-<span class="material-symbols-outlined">location_on</span>
-</div>
-<div>
-<h4 class="font-bold">Headquarters</h4>
-<p class="text-slate-600 dark:text-slate-400">Westlands Commercial Centre, Ring Rd Parklands, Nairobi, Kenya</p>
-</div>
-</div>
-</div>
-</div>
-<div class="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm dark:border-slate-800 dark:bg-slate-900/50 rounded-none brutalist-card">
-<form class="space-y-6">
-<div class="grid gap-6 sm:grid-cols-2">
-<div class="space-y-2">
-<label class="text-sm font-bold">Full Name</label>
-<input class="w-full rounded-xl border-slate-200 bg-slate-50 px-4 py-3 focus:border-secondary focus:ring-secondary dark:border-slate-800 dark:bg-slate-900 rounded-none brutalist-card brutalist-input" placeholder="John Doe" type="text"/>
-</div>
-<div class="space-y-2">
-<label class="text-sm font-bold">Email Address</label>
-<input class="w-full rounded-xl border-slate-200 bg-slate-50 px-4 py-3 focus:border-secondary focus:ring-secondary dark:border-slate-800 dark:bg-slate-900 rounded-none brutalist-card brutalist-input" placeholder="john@example.com" type="email"/>
-</div>
-</div>
-<div class="space-y-2">
-<label class="text-sm font-bold">Subject</label>
-<select class="w-full rounded-xl border-slate-200 bg-slate-50 px-4 py-3 focus:border-secondary focus:ring-secondary dark:border-slate-800 dark:bg-slate-900 rounded-none brutalist-card brutalist-input">
-<option>Technical Issue</option>
-<option>Billing Question</option>
-<option>Feature Request</option>
-<option>Other</option>
-</select>
-</div>
-<div class="space-y-2">
-<label class="text-sm font-bold">Message</label>
-<textarea class="w-full rounded-xl border-slate-200 bg-slate-50 px-4 py-3 focus:border-secondary focus:ring-secondary dark:border-slate-800 dark:bg-slate-900 rounded-none brutalist-card brutalist-input" placeholder="How can we help you?" rows="4"></textarea>
-</div>
-<button class="w-full rounded-none bg-[#8B60C3] py-4 text-center text-base font-bold text-white brutalist-button transition-all">
-                            Send Message
-                        </button>
-</form>
-</div>
-</div>
-</section>
-</main>
-<!-- Footer -->
-<footer class="border-t border-slate-200 py-12 dark:border-slate-800">
-<div class="mx-auto max-w-7xl px-6">
-<div class="flex flex-col items-center justify-between gap-6 sm:flex-row">
-<div class="flex items-center gap-3">
-<div class="flex h-8 w-8 items-center justify-center rounded-lg bg-primary text-slate-900">
-<span class="material-symbols-outlined text-sm">help_center</span>
-</div>
-<span class="text-lg font-bold tracking-tight">Support Center</span>
-</div>
-<div class="flex gap-8 text-sm text-slate-500 dark:text-slate-400">
-<a class="hover:text-slate-900 dark:hover:text-white" href="#">Privacy Policy</a>
-<a class="hover:text-slate-900 dark:hover:text-white" href="#">Terms of Service</a>
-<a class="hover:text-slate-900 dark:hover:text-white" href="#">Status</a>
-</div>
-<p class="text-sm text-slate-400">© 2024 Support Center. All rights reserved.</p>
-</div>
-</div>
-</footer>
-</div>
-</body></html>
+
+<body class="bg-white dark:bg-[#0F0F0F] text-ink dark:text-ink-dark font-body antialiased transition-colors duration-200">
+
+  <div id="site-nav"></div>
+
+  <main>
+
+    <!-- ═══ Hero ════════════════════════════════════════════════ -->
+    <section class="max-w-7xl mx-auto px-6 lg:px-16 py-12" aria-labelledby="support-heading">
+      <div class="flex flex-col lg:flex-row gap-12 items-center bg-secondary border-2 border-ink dark:border-[#444] p-8 lg:p-12" style="box-shadow: 8px 8px 0 #111">
+
+        <div class="flex-1 flex flex-col gap-6">
+          <span class="inline-block bg-white/20 px-4 py-1 text-sm font-bold text-white uppercase tracking-wider border border-white/30 w-fit">
+            Help Center
+          </span>
+          <h1 id="support-heading" class="font-display text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight text-white">
+            Habari! How can we help you today?
+          </h1>
+          <p class="text-white/80 text-lg max-w-xl leading-relaxed">
+            Find quick answers, browse detailed guides, or get in touch with our Nairobi-based support team.
+          </p>
+
+          <div class="flex max-w-md gap-2">
+            <div class="relative flex-1">
+              <span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-ink-muted text-base">search</span>
+              <label for="support-search" class="sr-only">Search for help</label>
+              <input
+                id="support-search"
+                type="search"
+                placeholder="Search for help..."
+                class="h-14 w-full border-2 border-ink bg-white text-ink pl-12 focus:outline-none focus:border-accent transition-colors placeholder:text-ink-muted"
+              />
+            </div>
+            <button class="h-14 bg-primary border-2 border-ink text-ink font-bold px-8 hover:bg-white transition-colors">
+              Search
+            </button>
+          </div>
+        </div>
+
+        <div class="hidden lg:block flex-1 max-w-sm">
+          <div
+            class="w-full aspect-square bg-cover bg-center border-2 border-ink"
+            style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAbfwi8xSfGswgQXaen-QI3y71VpxE502RfORlAjXcW-fHMiQEBCMznPRYoWUmDUO0fUiPv2hP6yzLvjCzVV146whOzHeVGW5jhxZTIgXpI_m6SwD8qaIw6P6LDNjjil4iN340tzCwsLWs3nE7_nFrrGJn7RoKXjbWJQSJfGRtov7RVVHxhFh09cDi4za38k6jc0xxBl4-5tKV1vXbaPXkGKJNrgcrfsEBtHBTwjwZT2LoDeREKCGLbZ186i-mZBUPPxf81DwNawOA");'
+            role="img"
+            aria-label="Friendly support team in a bright Nairobi office"
+          ></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ Help Guides ═════════════════════════════════════════ -->
+    <section class="max-w-7xl mx-auto px-6 lg:px-16 py-16" aria-labelledby="guides-heading">
+      <h2 id="guides-heading" class="font-display text-2xl font-extrabold mb-8 text-ink dark:text-ink-dark">Browse Topics</h2>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+
+        <!-- Guide 1 -->
+        <article class="group flex flex-col gap-4 border-2 border-ink dark:border-[#444] bg-white dark:bg-[#1A1A1A] p-6 hover:-translate-y-1 transition-transform" style="box-shadow: 4px 4px 0 #111">
+          <div class="flex h-12 w-12 items-center justify-center border-2 border-ink dark:border-[#444] bg-accent/10 text-accent">
+            <span class="material-symbols-outlined">rocket_launch</span>
+          </div>
+          <div>
+            <h3 class="font-display text-lg font-bold text-ink dark:text-ink-dark">Getting Started</h3>
+            <p class="mt-2 text-sm text-ink-muted dark:text-ink-muted-dark leading-relaxed">
+              Everything you need to set up and start using your account in minutes.
+            </p>
+          </div>
+          <a href="#" class="mt-auto flex items-center gap-2 text-sm font-bold text-accent hover:underline">
+            View 12 articles <span class="material-symbols-outlined text-sm">arrow_forward</span>
+          </a>
+        </article>
+
+        <!-- Guide 2 -->
+        <article class="group flex flex-col gap-4 border-2 border-ink dark:border-[#444] bg-white dark:bg-[#1A1A1A] p-6 hover:-translate-y-1 transition-transform" style="box-shadow: 4px 4px 0 #111">
+          <div class="flex h-12 w-12 items-center justify-center border-2 border-ink dark:border-[#444] bg-secondary/10 text-secondary">
+            <span class="material-symbols-outlined">payments</span>
+          </div>
+          <div>
+            <h3 class="font-display text-lg font-bold text-ink dark:text-ink-dark">Billing &amp; Invoices</h3>
+            <p class="mt-2 text-sm text-ink-muted dark:text-ink-muted-dark leading-relaxed">
+              Understand your billing cycle, manage payment methods, and download invoices.
+            </p>
+          </div>
+          <a href="#" class="mt-auto flex items-center gap-2 text-sm font-bold text-secondary hover:underline">
+            View 8 articles <span class="material-symbols-outlined text-sm">arrow_forward</span>
+          </a>
+        </article>
+
+        <!-- Guide 3 -->
+        <article class="group flex flex-col gap-4 border-2 border-ink dark:border-[#444] bg-white dark:bg-[#1A1A1A] p-6 hover:-translate-y-1 transition-transform" style="box-shadow: 4px 4px 0 #111">
+          <div class="flex h-12 w-12 items-center justify-center border-2 border-ink dark:border-[#444] bg-primary/20 text-ink dark:text-ink-dark">
+            <span class="material-symbols-outlined">settings_suggest</span>
+          </div>
+          <div>
+            <h3 class="font-display text-lg font-bold text-ink dark:text-ink-dark">Account Settings</h3>
+            <p class="mt-2 text-sm text-ink-muted dark:text-ink-muted-dark leading-relaxed">
+              Configure your profile, notification preferences, and security settings.
+            </p>
+          </div>
+          <a href="#" class="mt-auto flex items-center gap-2 text-sm font-bold text-ink-muted dark:text-ink-muted-dark hover:text-secondary dark:hover:text-primary hover:underline">
+            View 15 articles <span class="material-symbols-outlined text-sm">arrow_forward</span>
+          </a>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- ═══ FAQ ═════════════════════════════════════════════════ -->
+    <section class="py-20 border-y-2 border-ink dark:border-[#444] bg-primary/20 dark:bg-primary/5" id="faq" aria-labelledby="faq-heading">
+      <div class="max-w-3xl mx-auto px-6">
+        <header class="mb-12 text-center">
+          <h2 id="faq-heading" class="font-display text-3xl font-extrabold text-ink dark:text-ink-dark">Frequently Asked Questions</h2>
+          <p class="mt-4 text-ink-muted dark:text-ink-muted-dark">Quick answers to the most common questions from our community.</p>
+        </header>
+
+        <div class="space-y-4">
+
+          <details class="group border-2 border-ink dark:border-[#444] bg-white dark:bg-[#1A1A1A]" open>
+            <summary class="flex cursor-pointer items-center justify-between p-6 list-none">
+              <span class="text-base font-bold text-ink dark:text-ink-dark">How do I reset my password?</span>
+              <span class="material-symbols-outlined text-ink-muted group-open:rotate-180 transition-transform">expand_more</span>
+            </summary>
+            <div class="px-6 pb-6 text-ink-muted dark:text-ink-muted-dark leading-relaxed">
+              You can reset your password by clicking 'Forgot Password' at the login screen. We'll send an email with instructions to your registered address within a few minutes.
+            </div>
+          </details>
+
+          <details class="group border-2 border-ink dark:border-[#444] bg-white dark:bg-[#1A1A1A]">
+            <summary class="flex cursor-pointer items-center justify-between p-6 list-none">
+              <span class="text-base font-bold text-ink dark:text-ink-dark">Can I change my subscription plan at any time?</span>
+              <span class="material-symbols-outlined text-ink-muted group-open:rotate-180 transition-transform">expand_more</span>
+            </summary>
+            <div class="px-6 pb-6 text-ink-muted dark:text-ink-muted-dark leading-relaxed">
+              Yes! You can upgrade or downgrade your plan at any time from your Account Settings. If you upgrade, the new features will be available immediately.
+            </div>
+          </details>
+
+          <details class="group border-2 border-ink dark:border-[#444] bg-white dark:bg-[#1A1A1A]">
+            <summary class="flex cursor-pointer items-center justify-between p-6 list-none">
+              <span class="text-base font-bold text-ink dark:text-ink-dark">What is your refund policy?</span>
+              <span class="material-symbols-outlined text-ink-muted group-open:rotate-180 transition-transform">expand_more</span>
+            </summary>
+            <div class="px-6 pb-6 text-ink-muted dark:text-ink-muted-dark leading-relaxed">
+              We offer a 30-day money-back guarantee for all premium plans. If you're not satisfied, just contact our support team and we'll process your refund, no questions asked.
+            </div>
+          </details>
+
+          <details class="group border-2 border-ink dark:border-[#444] bg-white dark:bg-[#1A1A1A]">
+            <summary class="flex cursor-pointer items-center justify-between p-6 list-none">
+              <span class="text-base font-bold text-ink dark:text-ink-dark">Is my data secure?</span>
+              <span class="material-symbols-outlined text-ink-muted group-open:rotate-180 transition-transform">expand_more</span>
+            </summary>
+            <div class="px-6 pb-6 text-ink-muted dark:text-ink-muted-dark leading-relaxed">
+              Security is our top priority. We use industry-standard encryption and follow best practices to ensure your data is always protected and never shared with third parties.
+            </div>
+          </details>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ Contact Form ═════════════════════════════════════════ -->
+    <section class="max-w-7xl mx-auto px-6 lg:px-16 py-24" id="contact" aria-labelledby="contact-heading">
+      <div class="grid lg:grid-cols-2 gap-16">
+
+        <!-- Contact details -->
+        <div class="space-y-8">
+          <div>
+            <h2 id="contact-heading" class="font-display text-3xl font-extrabold text-ink dark:text-ink-dark">Still need help?</h2>
+            <p class="mt-4 text-lg text-ink-muted dark:text-ink-muted-dark leading-relaxed">
+              Our friendly team is here to help. Send us a message and we'll get back to you within 24 hours.
+            </p>
+          </div>
+
+          <address class="not-italic space-y-6">
+            <div class="flex items-start gap-4">
+              <div class="flex h-12 w-12 shrink-0 items-center justify-center border-2 border-ink dark:border-[#444] bg-accent/10 text-accent">
+                <span class="material-symbols-outlined">mail</span>
+              </div>
+              <div>
+                <h3 class="font-bold text-ink dark:text-ink-dark">Email us</h3>
+                <a href="mailto:support@gikomba.app" class="text-ink-muted dark:text-ink-muted-dark hover:text-secondary dark:hover:text-primary transition-colors">support@gikomba.app</a>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-4">
+              <div class="flex h-12 w-12 shrink-0 items-center justify-center border-2 border-ink dark:border-[#444] bg-secondary/10 text-secondary">
+                <span class="material-symbols-outlined">forum</span>
+              </div>
+              <div>
+                <h3 class="font-bold text-ink dark:text-ink-dark">Live Chat</h3>
+                <p class="text-ink-muted dark:text-ink-muted-dark">Available Mon–Fri, 8am–6pm EAT</p>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-4">
+              <div class="flex h-12 w-12 shrink-0 items-center justify-center border-2 border-ink dark:border-[#444] bg-primary/20 text-ink dark:text-ink-dark">
+                <span class="material-symbols-outlined">location_on</span>
+              </div>
+              <div>
+                <h3 class="font-bold text-ink dark:text-ink-dark">Headquarters</h3>
+                <p class="text-ink-muted dark:text-ink-muted-dark">
+                  Westlands Commercial Centre,<br />
+                  Ring Rd Parklands, Nairobi, Kenya
+                </p>
+              </div>
+            </div>
+          </address>
+        </div>
+
+        <!-- Contact form -->
+        <div class="border-2 border-ink dark:border-[#444] bg-white dark:bg-[#1A1A1A] p-8" style="box-shadow: 6px 6px 0 #111">
+          <form class="space-y-6" onsubmit="return false;">
+
+            <div class="grid sm:grid-cols-2 gap-6">
+              <div class="space-y-2">
+                <label for="contact-name" class="text-sm font-bold text-ink dark:text-ink-dark">Full Name</label>
+                <input
+                  id="contact-name"
+                  type="text"
+                  autocomplete="name"
+                  placeholder="Jane Doe"
+                  class="w-full border-2 border-ink dark:border-[#444] bg-gray-50 dark:bg-[#111] text-ink dark:text-ink-dark px-4 py-3 focus:outline-none focus:border-accent transition-colors placeholder:text-ink-muted"
+                />
+              </div>
+              <div class="space-y-2">
+                <label for="contact-email" class="text-sm font-bold text-ink dark:text-ink-dark">Email Address</label>
+                <input
+                  id="contact-email"
+                  type="email"
+                  autocomplete="email"
+                  placeholder="jane@example.com"
+                  class="w-full border-2 border-ink dark:border-[#444] bg-gray-50 dark:bg-[#111] text-ink dark:text-ink-dark px-4 py-3 focus:outline-none focus:border-accent transition-colors placeholder:text-ink-muted"
+                />
+              </div>
+            </div>
+
+            <div class="space-y-2">
+              <label for="contact-subject" class="text-sm font-bold text-ink dark:text-ink-dark">Subject</label>
+              <select
+                id="contact-subject"
+                class="w-full border-2 border-ink dark:border-[#444] bg-gray-50 dark:bg-[#111] text-ink dark:text-ink-dark px-4 py-3 focus:outline-none focus:border-accent transition-colors"
+              >
+                <option>Technical Issue</option>
+                <option>Billing Question</option>
+                <option>Feature Request</option>
+                <option>Other</option>
+              </select>
+            </div>
+
+            <div class="space-y-2">
+              <label for="contact-message" class="text-sm font-bold text-ink dark:text-ink-dark">Message</label>
+              <textarea
+                id="contact-message"
+                rows="4"
+                placeholder="How can we help you?"
+                class="w-full border-2 border-ink dark:border-[#444] bg-gray-50 dark:bg-[#111] text-ink dark:text-ink-dark px-4 py-3 focus:outline-none focus:border-accent transition-colors resize-none placeholder:text-ink-muted"
+              ></textarea>
+            </div>
+
+            <button
+              type="submit"
+              class="w-full bg-secondary text-white font-bold py-4 border-2 border-ink dark:border-[#444] hover:translate-x-[2px] hover:translate-y-[2px] hover:[box-shadow:none] transition-all"
+              style="box-shadow: 4px 4px 0 #111"
+            >
+              Send Message
+            </button>
+
+          </form>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="border-t-2 border-ink dark:border-[#444] bg-white dark:bg-[#0F0F0F] py-10 px-6 lg:px-16" role="contentinfo">
+    <div class="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-4">
+      <a href="index.html" class="flex items-center gap-2">
+        <div class="flex h-8 w-8 items-center justify-center bg-primary border-2 border-ink">
+          <span class="material-symbols-outlined text-ink text-sm">help_center</span>
+        </div>
+        <span class="font-display font-extrabold text-lg text-ink dark:text-ink-dark">gikomba<span class="text-secondary">.app</span> Support</span>
+      </a>
+      <nav class="flex gap-6 text-sm text-ink-muted dark:text-ink-muted-dark" aria-label="Footer legal links">
+        <a href="#" class="hover:text-ink dark:hover:text-ink-dark transition-colors">Privacy Policy</a>
+        <a href="#" class="hover:text-ink dark:hover:text-ink-dark transition-colors">Terms of Service</a>
+        <a href="#" class="hover:text-ink dark:hover:text-ink-dark transition-colors">Status</a>
+      </nav>
+      <p class="text-sm text-ink-muted dark:text-ink-muted-dark">© 2024 gikomba.app</p>
+    </div>
+  </footer>
+
+  <script src="gikomba.js"></script>
+</body>
+</html>

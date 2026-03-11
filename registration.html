@@ -1,143 +1,202 @@
 <!DOCTYPE html>
+<html lang="en" class="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<html class="light" lang="en"><head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Early Access - Inner Circle</title><link href="https://fonts.googleapis.com/css2?family=Gochi+Hand&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<script id="tailwind-config">tailwind.config = {
-            darkMode: "class",
-            theme: {
-                extend: {
-                    colors: {
-                        "purple-main": "#8B60C3",
-                        "teal-main": "#0098B3",
-                        "lime-main": "#BEFF72",
-                        "dark-text": "#1A1A1A"
-                    },
-                    fontFamily: {
-                        "display": ["Gochi Hand", "cursive"],
-                        "sans": ["Inter", "sans-serif"]
-                    },
-                    borderRadius: {
-                        "DEFAULT": "4px",
-                        "lg": "4px",
-                        "xl": "4px",
-                        "full": "4px"
-                    },
-                },
-            },
-        }</script>
-<style>body {
-            font-family: 'Inter', sans-serif;
-            background-color: #f7f8f5;
-        }
-        h1, h2, h3 {
-            font-family: 'Gochi Hand', cursive;
-        }
-        .material-symbols-outlined {
-            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
-        }
-        .brutal-border {
-            border: 2px solid #1A1A1A;
-        }
-        .brutal-shadow {
-            box-shadow: 4px 4px 0px 0px #1A1A1A;
-        }</style>
+  <!-- SEO -->
+  <title>Join gikomba.app — Secure Your Spot | Nairobi Thrift Community</title>
+  <meta name="description" content="Register for early access to gikomba.app — Kenya's premier sustainable fashion marketplace. M-Pesa ready drops and exclusive community events." />
+  <meta name="keywords" content="gikomba registration, join thrift Kenya, early access Nairobi fashion, M-Pesa fashion marketplace" />
+  <meta property="og:title" content="Join gikomba.app — Secure Your Spot" />
+  <meta property="og:description" content="Get early access to Kenya's thrift marketplace. M-Pesa drops, community events, and more." />
+  <meta property="og:type" content="website" />
+  <link rel="canonical" href="https://gikomba.app/registration.html" />
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind CDN fallback -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            primary: "#B5F03A", secondary: "#7B4FC4", accent: "#007A91",
+            surface: "#FFFFFF", "surface-dark": "#0F0F0F",
+            ink: "#111111", "ink-muted": "#555555",
+            "ink-dark": "#E8E8E8", "ink-muted-dark": "#9CA3AF",
+          },
+          fontFamily: { display: ["'Syne'", "sans-serif"], body: ["'DM Sans'", "sans-serif"] },
+          borderRadius: { DEFAULT: "0px", none: "0px", sm: "0px", md: "0px", lg: "0px", xl: "0px", "2xl": "0px", full: "0px" },
+        },
+      },
+    };
+  </script>
 </head>
-<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 min-h-screen flex flex-col"><nav class="w-full border-b-2 border-dark-text bg-white px-6 py-4 flex items-center justify-between">
-<div class="flex items-center gap-2">
-<div class="w-8 h-8 bg-purple-main brutal-border"></div>
-<span class="font-display text-2xl font-bold">KE_Vibe</span>
-</div>
-<div class="hidden md:flex items-center gap-8 font-bold">
-<a class="hover:text-purple-main transition-colors" href="#">Home</a>
-<a class="hover:text-purple-main transition-colors" href="#">Features</a>
-<a class="hover:text-purple-main transition-colors" href="#">How It Works</a>
-<a class="hover:text-purple-main transition-colors" href="#">Join</a>
-<a class="hover:text-purple-main transition-colors" href="#">Support</a>
-<a class="hover:text-purple-main transition-colors" href="#">Blog</a>
-</div>
-</nav>
-<!-- Main Container -->
-<div class="flex-1 flex flex-col items-center justify-center px-4 py-12">
-<div class="w-full max-w-[520px] bg-white brutal-border brutal-shadow overflow-hidden">
-<!-- Header Section -->
-<header class="flex items-center justify-between border-b-2 border-dark-text px-8 py-6 bg-purple-main/10">
-<div class="flex items-center gap-3">
-<div class="bg-purple-main p-2 brutal-border">
-<span class="material-symbols-outlined text-background-dark">auto_awesome</span>
-</div>
-<h2 class="text-2xl font-bold tracking-tight text-dark-text">Early Access</h2>
-</div>
-<button class="flex items-center justify-center brutal-border size-10 bg-white hover:bg-lime-main text-dark-text transition-colors">
-<span class="material-symbols-outlined">close</span>
-</button>
-</header>
-<div class="p-8 space-y-8">
-<!-- Headline -->
-<div class="space-y-2">
-<h1 class="text-5xl font-bold leading-tight text-dark-text">Join the Inner Circle</h1>
-<p class="text-slate-500 dark:text-slate-400 text-lg">The ultimate collective for Kenyan creators. Get on the list for M-Pesa enabled drops and local meetups.</p>
-</div>
-<!-- Form Section -->
-<form class="space-y-6">
-<!-- Full Name -->
-<div class="flex flex-col gap-2">
-<label class="text-sm font-black uppercase tracking-widest text-dark-text">Full Name</label>
-<div class="relative">
-<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-slate-400">person</span>
-<input class="w-full rounded-none brutal-border bg-white py-4 pl-12 pr-4 text-dark-text focus:ring-0 focus:border-teal-main outline-none transition-all placeholder:text-slate-400" placeholder="Enter your full name" required="" type="text"/>
-</div>
-</div>
-<!-- Phone Number -->
-<div class="flex flex-col gap-2">
-<label class="text-sm font-black uppercase tracking-widest text-dark-text">Phone Number (M-Pesa)</label>
-<div class="relative">
-<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-slate-400">phone_iphone</span>
-<input class="w-full rounded-none brutal-border bg-white py-4 pl-12 pr-4 text-dark-text focus:ring-0 focus:border-teal-main outline-none transition-all placeholder:text-slate-400" placeholder="e.g. 0712345678" required="" type="tel"/>
-</div>
-</div>
-<!-- Email Address -->
-<div class="flex flex-col gap-2">
-<label class="text-sm font-black uppercase tracking-widest text-dark-text">Email Address</label>
-<div class="relative">
-<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-slate-400">alternate_email</span>
-<input class="w-full rounded-none brutal-border bg-white py-4 pl-12 pr-4 text-dark-text focus:ring-0 focus:border-teal-main outline-none transition-all placeholder:text-slate-400" placeholder="email@example.com" required="" type="email"/>
-</div>
-</div>
-<!-- Favorite Style -->
-<div class="flex flex-col gap-2">
-<label class="text-sm font-black uppercase tracking-widest text-dark-text">Favorite Style</label>
-<div class="relative">
-<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-slate-400">style</span>
-<select class="w-full rounded-none brutal-border bg-white py-4 pl-12 pr-4 text-dark-text focus:ring-0 focus:border-teal-main outline-none transition-all placeholder:text-slate-400">
-<option disabled="" selected="" value="">Select your vibe</option>
-<option value="minimal">Minimalist &amp; Clean</option>
-<option value="streetwear">Streetwear &amp; Bold</option>
-<option value="luxury">Luxury &amp; Classic</option>
-<option value="vibrant">Vibrant &amp; Artistic</option>
-</select>
-<span class="material-symbols-outlined absolute right-4 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none">expand_more</span>
-</div>
-</div>
-<!-- Submit Button -->
-<button class="w-full bg-lime-main brutal-border brutal-shadow text-dark-text font-black text-xl py-5 rounded-none hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none transition-all flex items-center justify-center gap-2 group" type="submit">
-                        Secure Your Spot
-                        <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
-</button>
-</form>
-<!-- Footer Note -->
-<p class="text-center text-sm text-slate-500 dark:text-slate-400">
-                    By registering, you agree to our 
-                    <a class="text-slate-900 dark:text-primary font-bold hover:underline" href="#">Terms of Service</a> 
-                    and 
-                    <a class="text-slate-900 dark:text-primary font-bold hover:underline" href="#">Privacy Policy</a>.
-                </p>
-</div>
-</div>
-<!-- Decorative Background Element -->
-</div>
-</body></html>
+
+<body class="bg-[#f5f4f0] dark:bg-[#0F0F0F] text-ink dark:text-ink-dark font-body antialiased transition-colors duration-200 min-h-screen flex flex-col">
+
+  <div id="site-nav"></div>
+
+  <main class="flex-1 flex flex-col items-center justify-center px-4 py-16">
+
+    <div class="w-full max-w-[520px] bg-white dark:bg-[#1A1A1A] border-2 border-ink dark:border-[#444] overflow-hidden" style="box-shadow: 8px 8px 0 #111">
+
+      <!-- Form header -->
+      <header class="flex items-center justify-between border-b-2 border-ink dark:border-[#444] px-8 py-6 bg-secondary/10 dark:bg-secondary/20">
+        <div class="flex items-center gap-3">
+          <div class="bg-secondary p-2 border-2 border-ink dark:border-[#444]">
+            <span class="material-symbols-outlined text-white">auto_awesome</span>
+          </div>
+          <h1 class="font-display text-2xl font-bold text-ink dark:text-ink-dark">Early Access</h1>
+        </div>
+        <a href="index.html" class="flex items-center justify-center border-2 border-ink dark:border-[#444] w-10 h-10 bg-white dark:bg-[#1A1A1A] hover:bg-primary transition-colors" aria-label="Close and return to home">
+          <span class="material-symbols-outlined text-ink dark:text-ink-dark">close</span>
+        </a>
+      </header>
+
+      <div class="p-8 space-y-8">
+
+        <!-- Headline -->
+        <div>
+          <h2 class="font-display text-4xl font-extrabold text-ink dark:text-ink-dark leading-tight">
+            Join the Inner Circle
+          </h2>
+          <p class="text-ink-muted dark:text-ink-muted-dark text-base mt-2 leading-relaxed">
+            The ultimate collective for Kenyan creators. Get on the list for M-Pesa enabled drops and local meetups.
+          </p>
+        </div>
+
+        <!-- Registration form -->
+        <form class="space-y-6" onsubmit="handleSubmit(event)" novalidate>
+
+          <!-- Full Name -->
+          <div class="flex flex-col gap-2">
+            <label for="full-name" class="text-xs font-black uppercase tracking-widest text-ink dark:text-ink-dark">
+              Full Name
+            </label>
+            <div class="relative">
+              <span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-ink-muted text-base">person</span>
+              <input
+                id="full-name"
+                type="text"
+                name="fullName"
+                autocomplete="name"
+                placeholder="Enter your full name"
+                required
+                class="w-full border-2 border-ink dark:border-[#444] bg-white dark:bg-[#111] text-ink dark:text-ink-dark py-4 pl-12 pr-4 focus:outline-none focus:border-accent transition-colors placeholder:text-ink-muted"
+              />
+            </div>
+          </div>
+
+          <!-- Phone (M-Pesa) -->
+          <div class="flex flex-col gap-2">
+            <label for="phone" class="text-xs font-black uppercase tracking-widest text-ink dark:text-ink-dark">
+              Phone Number (M-Pesa)
+            </label>
+            <div class="relative">
+              <span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-ink-muted text-base">phone_iphone</span>
+              <input
+                id="phone"
+                type="tel"
+                name="phone"
+                autocomplete="tel"
+                placeholder="e.g. 0712 345 678"
+                required
+                pattern="[0-9]{10,12}"
+                class="w-full border-2 border-ink dark:border-[#444] bg-white dark:bg-[#111] text-ink dark:text-ink-dark py-4 pl-12 pr-4 focus:outline-none focus:border-accent transition-colors placeholder:text-ink-muted"
+              />
+            </div>
+          </div>
+
+          <!-- Email -->
+          <div class="flex flex-col gap-2">
+            <label for="email" class="text-xs font-black uppercase tracking-widest text-ink dark:text-ink-dark">
+              Email Address
+            </label>
+            <div class="relative">
+              <span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-ink-muted text-base">alternate_email</span>
+              <input
+                id="email"
+                type="email"
+                name="email"
+                autocomplete="email"
+                placeholder="email@example.com"
+                required
+                class="w-full border-2 border-ink dark:border-[#444] bg-white dark:bg-[#111] text-ink dark:text-ink-dark py-4 pl-12 pr-4 focus:outline-none focus:border-accent transition-colors placeholder:text-ink-muted"
+              />
+            </div>
+          </div>
+
+          <!-- Favourite Style -->
+          <div class="flex flex-col gap-2">
+            <label for="style" class="text-xs font-black uppercase tracking-widest text-ink dark:text-ink-dark">
+              Favourite Style
+            </label>
+            <div class="relative">
+              <span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-ink-muted text-base">style</span>
+              <select
+                id="style"
+                name="style"
+                class="w-full border-2 border-ink dark:border-[#444] bg-white dark:bg-[#111] text-ink dark:text-ink-dark py-4 pl-12 pr-10 focus:outline-none focus:border-accent transition-colors appearance-none"
+              >
+                <option value="" disabled selected>Select your vibe</option>
+                <option value="minimal">Minimalist &amp; Clean</option>
+                <option value="streetwear">Streetwear &amp; Bold</option>
+                <option value="luxury">Luxury &amp; Classic</option>
+                <option value="vibrant">Vibrant &amp; Artistic</option>
+              </select>
+              <span class="material-symbols-outlined absolute right-4 top-1/2 -translate-y-1/2 text-ink-muted pointer-events-none text-base">expand_more</span>
+            </div>
+          </div>
+
+          <!-- Submit -->
+          <button
+            type="submit"
+            class="w-full bg-primary border-2 border-ink text-ink font-black text-xl py-5 flex items-center justify-center gap-2 group hover:translate-x-[2px] hover:translate-y-[2px] hover:[box-shadow:none] transition-all"
+            style="box-shadow: 4px 4px 0 #111"
+          >
+            Secure Your Spot
+            <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
+          </button>
+
+        </form>
+
+        <!-- Success message (hidden by default) -->
+        <div id="success-msg" class="hidden text-center py-6 border-2 border-primary bg-primary/10">
+          <span class="material-symbols-outlined text-4xl text-secondary block mb-2">check_circle</span>
+          <p class="font-bold text-ink dark:text-ink-dark">You're on the list!</p>
+          <p class="text-ink-muted dark:text-ink-muted-dark text-sm mt-1">We'll be in touch with your early access details.</p>
+        </div>
+
+        <!-- Legal -->
+        <p class="text-center text-sm text-ink-muted dark:text-ink-muted-dark">
+          By registering, you agree to our
+          <a href="#" class="font-bold text-ink dark:text-ink-dark hover:text-secondary dark:hover:text-primary hover:underline">Terms of Service</a>
+          and
+          <a href="#" class="font-bold text-ink dark:text-ink-dark hover:text-secondary dark:hover:text-primary hover:underline">Privacy Policy</a>.
+        </p>
+
+      </div>
+    </div>
+
+  </main>
+
+  <script>
+    function handleSubmit(e) {
+      e.preventDefault();
+      const form = e.target;
+      form.classList.add("hidden");
+      document.getElementById("success-msg").classList.remove("hidden");
+    }
+  </script>
+  <script src="gikomba.js"></script>
+</body>
+</html>
