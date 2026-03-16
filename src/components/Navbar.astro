@@ -1,0 +1,228 @@
+---
+// src/components/Navbar.astro
+const links = [
+  { label: 'Home',         href: '/' },
+  { label: 'How It Works', href: '/how' },
+  { label: 'Community',    href: '/community' },
+  { label: 'Blog',         href: '/blog' },
+  { label: 'Support',      href: '/support' },
+];
+
+const currentPath = Astro.url.pathname;
+
+function isActive(href: string) {
+  if (href === '/') return currentPath === '/';
+  return currentPath.startsWith(href);
+}
+---
+
+<header class="site-header" id="site-header">
+  <div class="container header-inner">
+
+    <!-- Logo -->
+    <a href="/" class="logo" aria-label="visha home">
+      <div class="logo-mark">
+        <span class="material-symbols-outlined">local_mall</span>
+      </div>
+      <span class="logo-text">visha<span class="logo-sub"> for the collective</span></span>
+    </a>
+
+    <!-- Desktop nav -->
+    <nav class="desktop-nav" aria-label="Main navigation">
+      {links.map(({ label, href }) => (
+        <a
+          href={href}
+          class={`nav-link ${isActive(href) ? 'nav-link--active' : ''}`}
+          aria-current={isActive(href) ? 'page' : undefined}
+        >
+          {label}
+        </a>
+      ))}
+    </nav>
+
+    <!-- Actions -->
+    <div class="header-actions">
+      <!-- Dark mode toggle -->
+      <button
+        id="dark-toggle"
+        class="icon-btn"
+        aria-label="Toggle dark mode"
+      >
+        <span class="material-symbols-outlined dark-icon">dark_mode</span>
+      </button>
+
+      <!-- Join CTA -->
+      <a href="/registration" class="btn btn-primary header-cta">
+        Join Waitlist
+      </a>
+
+      <!-- Hamburger -->
+      <button
+        id="menu-btn"
+        class="icon-btn hamburger"
+        aria-label="Open menu"
+        aria-expanded="false"
+        aria-controls="mobile-menu"
+      >
+        <span class="material-symbols-outlined" id="hamburger-icon">menu</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile drawer -->
+  <nav
+    id="mobile-menu"
+    class="mobile-menu hidden"
+    aria-label="Mobile navigation"
+  >
+    {links.map(({ label, href }) => (
+      <a
+        href={href}
+        class={`mobile-link ${isActive(href) ? 'mobile-link--active' : ''}`}
+        aria-current={isActive(href) ? 'page' : undefined}
+      >
+        {label}
+      </a>
+    ))}
+    <a href="/registration" class="btn btn-primary mobile-cta">
+      Join Waitlist
+      <span class="material-symbols-outlined" style="font-size:16px">arrow_forward</span>
+    </a>
+  </nav>
+</header>
+
+<style>
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: var(--off-white);
+    border-bottom: 2px solid var(--charcoal);
+    transition: background 0.2s;
+  }
+  body.dark .site-header {
+    background: var(--charcoal);
+    border-color: var(--charcoal-soft);
+  }
+
+  .header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding-block: 0.75rem;
+  }
+
+  /* Logo */
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-shrink: 0;
+  }
+  .logo-mark {
+    width: 2rem; height: 2rem;
+    background: var(--garnet);
+    border: 2px solid var(--charcoal);
+    display: flex; align-items: center; justify-content: center;
+    color: var(--alabaster);
+    flex-shrink: 0;
+  }
+  .logo-mark .material-symbols-outlined { font-size: 16px; }
+  .logo-text {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 1.1rem;
+    color: var(--charcoal);
+    line-height: 1;
+  }
+  body.dark .logo-text { color: var(--alabaster); }
+  .logo-sub {
+    font-size: 0.6rem;
+    font-weight: 400;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-ink-muted);
+    display: block;
+    margin-top: 1px;
+  }
+  body.dark .logo-sub { color: var(--color-ink-muted-dark); }
+
+  /* Desktop nav */
+  .desktop-nav {
+    display: none;
+    align-items: center;
+    gap: 1.75rem;
+  }
+  @media (min-width: 1024px) {
+    .desktop-nav { display: flex; }
+  }
+  .nav-link {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--charcoal);
+    transition: color 0.15s;
+    padding-bottom: 2px;
+    border-bottom: 2px solid transparent;
+  }
+  body.dark .nav-link { color: var(--alabaster); }
+  .nav-link:hover { color: var(--garnet); border-color: var(--garnet); }
+  body.dark .nav-link:hover { color: var(--alabaster-dark); }
+  .nav-link--active {
+    color: var(--garnet);
+    border-bottom-color: var(--garnet);
+  }
+  body.dark .nav-link--active { color: var(--alabaster); border-color: var(--alabaster); }
+
+  /* Actions */
+  .header-actions { display: flex; align-items: center; gap: 0.5rem; }
+
+  .icon-btn {
+    width: 2.25rem; height: 2.25rem;
+    border: 2px solid var(--charcoal);
+    background: transparent;
+    color: var(--charcoal);
+    display: flex; align-items: center; justify-content: center;
+    cursor: pointer;
+    transition: background 0.15s, color 0.15s;
+  }
+  body.dark .icon-btn { border-color: var(--charcoal-soft); color: var(--alabaster); }
+  .icon-btn:hover { background: var(--garnet); color: var(--white); border-color: var(--garnet); }
+  .icon-btn .material-symbols-outlined { font-size: 18px; }
+
+  .header-cta { display: none; }
+  @media (min-width: 640px) { .header-cta { display: inline-flex; } }
+
+  .hamburger { display: flex; }
+  @media (min-width: 1024px) { .hamburger { display: none; } }
+
+  /* Mobile menu */
+  .mobile-menu {
+    border-top: 2px solid var(--charcoal);
+    background: var(--off-white);
+    padding: 0.5rem var(--px-mobile) 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+  body.dark .mobile-menu { background: var(--charcoal); border-color: var(--charcoal-soft); }
+  .mobile-menu.hidden { display: none; }
+
+  .mobile-link {
+    display: block;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--charcoal);
+    padding: 0.875rem 0;
+    border-bottom: 1px solid rgba(37,41,28,0.12);
+    transition: color 0.15s;
+  }
+  body.dark .mobile-link { color: var(--alabaster); border-color: rgba(230,225,222,0.12); }
+  .mobile-link:hover, .mobile-link--active { color: var(--garnet); }
+  body.dark .mobile-link:hover, body.dark .mobile-link--active { color: var(--alabaster-dark); }
+
+  .mobile-cta {
+    margin-top: 0.75rem;
+    justify-content: center;
+  }
+</style>
