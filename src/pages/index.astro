@@ -1,417 +1,496 @@
-<!DOCTYPE html>
-<html lang="en" class="light">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+---
+// src/pages/index.astro
+import Layout from '../layouts/Layout.astro';
+import WaitlistForm from '../components/WaitlistForm.astro';
+---
 
-  <!-- SEO -->
-  <title>gikomba.app — Thrift & Vintage, Nairobi-Style</title>
-  <meta name="description" content="gikomba.app is the app for buying and selling pre-loved fashion in Kenya. M-Pesa ready, community verified, 100% sustainable. Download now." />
-  <meta name="keywords" content="gikomba app, thrift app Kenya, vintage Nairobi, M-Pesa fashion, secondhand Kenya" />
-  <meta property="og:title" content="gikomba.app — Thrift & Vintage, Nairobi-Style" />
-  <meta property="og:description" content="The app for buying and selling pre-loved fashion in Kenya." />
-  <meta property="og:type" content="website" />
-  <link rel="canonical" href="https://gikomba.app/" />
+<Layout
+  title="visha — for the collective | Pre-loved Fashion in Kenya"
+  description="visha is the app for buying and selling pre-loved fashion in Kenya. M-Pesa ready, community verified, 100% sustainable."
+  canonical="https://visha.app/"
+>
 
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet" />
-  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css" />
+  <!-- ═══ HERO ══════════════════════════════════════════════ -->
+  <section class="hero section container" aria-labelledby="hero-heading">
+    <div class="hero-text">
 
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      darkMode: "class",
-      theme: {
-        extend: {
-          colors: {
-            primary: "#B5F03A", secondary: "#7B4FC4", accent: "#007A91",
-            ink: "#111111", "ink-muted": "#555555",
-            "ink-dark": "#E8E8E8", "ink-muted-dark": "#9CA3AF",
-          },
-          fontFamily: { display: ["'Syne'", "sans-serif"], body: ["'DM Sans'", "sans-serif"] },
-          borderRadius: { DEFAULT: "0px", none: "0px", sm: "0px", md: "0px", lg: "0px", xl: "0px", "2xl": "0px", full: "0px" },
-        },
-      },
-    };
-  </script>
+      <span class="tag tag-garnet">Coming to Nairobi</span>
 
-  <style>
-    body { font-family: 'DM Sans', sans-serif; }
-    h1, h2, h3, h4 { font-family: 'Syne', sans-serif; }
-    .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; vertical-align: middle; }
+      <h1 id="hero-heading" class="hero-h1">
+        The thrift app<br />
+        <span class="hero-highlight">built for Kenya.</span>
+      </h1>
 
-    .phone-frame {
-      background: #111; border: 3px solid #111;
-      box-shadow: 8px 8px 0 #7B4FC4;
-      position: relative; overflow: hidden;
-    }
-    .phone-frame::before {
-      content: ''; position: absolute; top: 0; left: 50%;
-      transform: translateX(-50%); width: 38%; height: 18px;
-      background: #111; border-radius: 0 0 10px 10px; z-index: 10;
-    }
+      <p class="hero-body">
+        <strong>visha</strong> brings the spirit of Gikomba Market to your phone. Buy and sell pre-loved fashion across Nairobi — pay with M-Pesa, chat in-app, and shop sustainably.
+      </p>
 
+      <WaitlistForm id="hero" btnLabel="Join Waitlist" />
 
-
-    @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
-    .marquee-track { animation: marquee 22s linear infinite; display: flex; width: max-content; }
-    .marquee-track:hover { animation-play-state: paused; }
-  </style>
-</head>
-
-<body class="bg-white dark:bg-[#0F0F0F] text-ink dark:text-ink-dark antialiased transition-colors duration-200">
-
-  <div id="site-nav"></div>
-
-  <main>
-
-    <!-- ═══ HERO ═══════════════════════════════════════════════ -->
-    <section
-      class="max-w-7xl mx-auto px-5 sm:px-8 lg:px-16 pt-12 pb-10 lg:pt-20 lg:pb-16"
-      aria-labelledby="hero-heading"
-    >
-      <div class="grid lg:grid-cols-2 gap-10 lg:gap-20 items-center">
-
-        <!-- Text -->
-        <div class="flex flex-col gap-6 order-2 lg:order-1">
-          <span class="inline-flex items-center gap-2 w-fit border-2 border-ink dark:border-[#444] bg-secondary text-white text-xs font-bold uppercase tracking-widest px-3 py-1.5">
-            <span class="w-2 h-2 bg-primary animate-pulse" style="border-radius:50%"></span>
-            Coming Soon · Nairobi
-          </span>
-
-          <h1 id="hero-heading" class="font-display text-[2.6rem] sm:text-6xl lg:text-[4.5rem] font-extrabold leading-[1.05] text-ink dark:text-ink-dark">
-            The thrift app<br />
-            <span class="bg-primary px-2 text-ink">built for Kenya.</span>
-          </h1>
-
-          <p class="text-base sm:text-lg text-ink-muted dark:text-ink-muted-dark max-w-lg leading-relaxed">
-            <strong class="text-ink dark:text-ink-dark">gikomba.app</strong> brings the magic of Gikomba Market to your phone. Buy and sell pre-loved fashion across Nairobi — pay with M-Pesa, chat in-app, and shop sustainably.
-          </p>
-
-          <!-- Waitlist CTA -->
-          <form class="flex flex-col sm:flex-row gap-3 pt-2 max-w-md" onsubmit="handleHeroWaitlist(event)">
-            <label for="hero-email" class="sr-only">Email address</label>
-            <input
-              id="hero-email"
-              type="email"
-              placeholder="Your email address"
-              required
-              class="flex-1 h-13 border-2 border-ink dark:border-[#444] bg-white dark:bg-[#1A1A1A] text-ink dark:text-ink-dark px-4 py-3.5 text-sm focus:outline-none focus:border-accent transition-colors placeholder:text-ink-muted"
-            />
-            <button type="submit"
-              class="h-13 bg-primary border-2 border-ink text-ink font-bold px-6 py-3.5 text-sm hover:translate-x-[2px] hover:translate-y-[2px] hover:[box-shadow:none] transition-all whitespace-nowrap"
-              style="box-shadow:4px 4px 0 #111">
-              Join Waitlist
-            </button>
-          </form>
-          <p id="hero-waitlist-success" class="hidden text-sm font-bold text-secondary dark:text-primary">
-            ✓ You're on the list — we'll be in touch soon!
-          </p>
-
-
-        </div>
-
-        <!-- Phone mockup -->
-        <div class="order-1 lg:order-2 flex justify-center">
-          <div class="relative w-[240px] sm:w-[280px] lg:w-[300px]">
-            <div class="absolute -bottom-4 -right-4 w-full h-full bg-primary border-2 border-ink dark:border-[#444]" aria-hidden="true"></div>
-            <div class="phone-frame relative z-10 w-full aspect-[9/19]">
-              <div class="absolute inset-0 pt-5 bg-[#F5F4F0] flex flex-col overflow-hidden">
-                <!-- App header -->
-                <div class="px-3 pb-2 bg-white border-b-2 border-[#111] shrink-0">
-                  <div class="flex items-center justify-between mb-2">
-                    <span class="font-display font-extrabold text-[11px] text-ink">gikomba<span class="text-[#7B4FC4]">.app</span></span>
-                    <span class="material-symbols-outlined text-[14px] text-ink">notifications</span>
-                  </div>
-                  <div class="flex items-center gap-1 border border-[#111] bg-[#F5F4F0] px-2 py-1">
-                    <span class="material-symbols-outlined text-[11px] text-[#555]">search</span>
-                    <span class="text-[9px] text-[#555]">vintage, streetwear...</span>
-                  </div>
-                </div>
-                <!-- Category pills -->
-                <div class="px-2 py-1.5 flex gap-1 overflow-hidden shrink-0">
-                  <span class="bg-[#B5F03A] border border-[#111] px-1.5 py-0.5 text-[8px] font-bold text-ink whitespace-nowrap">All</span>
-                  <span class="bg-white border border-[#111] px-1.5 py-0.5 text-[8px] font-bold text-ink whitespace-nowrap">Streetwear</span>
-                  <span class="bg-white border border-[#111] px-1.5 py-0.5 text-[8px] font-bold text-ink whitespace-nowrap">Vintage</span>
-                  <span class="bg-white border border-[#111] px-1.5 py-0.5 text-[8px] font-bold text-ink whitespace-nowrap">Shoes</span>
-                </div>
-                <!-- Grid -->
-                <div class="px-2 grid grid-cols-2 gap-1.5 flex-1 overflow-hidden pb-2">
-                  <div class="border border-[#111] bg-white overflow-hidden">
-                    <div class="aspect-square bg-cover bg-center" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBorhG7xFUUxIYRDQe8VgF2sjybia3Yci63Z60k9uT7YY_9EfGJmlIHE1fkvuo-zEopHBy5EsB7o7bFWc-fF7LJTb7LhA3khbtQc47XYUBZLCO3DQWUPfRK45S71xd8gdGZgmPUD2mlZIiFQ4stq9oWSX6WfDJXrx5BKOOpIeFpFka7CHhk0FqhmjXCm7dtDzTlOBW9ND1-DDFy2gOcu5PVPGbJ9p6Hky86faP4TlAQA8gtZHeF0xG8eJEvGLwfQO4dHnXGRyEY9wE")'></div>
-                    <div class="p-1"><div class="text-[8px] font-bold text-ink truncate">Vintage Denim</div><div class="text-[8px] text-[#7B4FC4] font-extrabold">Ksh 1,200</div></div>
-                  </div>
-                  <div class="border border-[#111] bg-white overflow-hidden">
-                    <div class="aspect-square bg-cover bg-center" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCkefBJFnKHBDTw8og8vBgEWbjGxSPcSizq6rewIxLYhUx8iiK1d0eYACtCjvq1Lq5BwgxPF_2IVdXo0jl9g-EI95NWcTWv7UWI_AjTB4G-sXn8l3m1gM39kbnwWHCCmfFIi1_C_B9w_y7EygMKVgsjmiOBR_xfG1uTGfBEheqhO3mLEMJiZBSF5FB8iXmzRjBP7xlVEs0l4c8SE0KQeSksIt964tvfohw4un-keXTM87VdqC92MA1uUfPSLGwDE7Fp7kx68597iL8")'></div>
-                    <div class="p-1"><div class="text-[8px] font-bold text-ink truncate">Jordan 1 Retro</div><div class="text-[8px] text-[#7B4FC4] font-extrabold">Ksh 4,500</div></div>
-                  </div>
-                  <div class="border border-[#111] bg-white overflow-hidden">
-                    <div class="aspect-square bg-cover bg-center" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAcTQajgNqruqsFy1uUXQfDKZn6Q8fi6e7vsODiGr7tc1PW1vakeTO01kDK8w3CLl1VJfPqISmrY7tqK9nr4uyFBs1vLSrAK2qHkuvjV9KHtXSd2AwfeLxnYW2fBO5CxtCzyWBgMGMvbpqLK91Ue5pSeFODmcLUgsY-sa8B0gDVHexEf9278XubxKFxnE8ZiNw4382Obzrs-G2fjloWol3q0qoyTRghad2U0wzuvwL3iQd16ONYUE2Z-Y4RrJ1xj3kVk4Bk14WlJwk")'></div>
-                    <div class="p-1"><div class="text-[8px] font-bold text-ink truncate">Streetwear Hoodie</div><div class="text-[8px] text-[#7B4FC4] font-extrabold">Ksh 800</div></div>
-                  </div>
-                  <div class="border border-[#111] bg-white overflow-hidden">
-                    <div class="aspect-square bg-cover bg-center" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDwZVj5_fiXIXBTOfTZWkxyQDhjdtApEJEdugKrkUnyFsWb_V79TaVteHizBo4PBYfZp4VGdP6NkTiJNk6PPhaYxLTSBq2P1uTBeVrNmT8ckLCmFxN0A0m-DljIwKrlfFibCO6-AdD3S7-Vgz_cAwvZ0vQMLbSlRuFDbyuZ1W3QZzJ4vs047BcI9FRTTT9YIKneA4WpWeG6i8f068PPLgaHe7oD-xvx2E7LFk8T69D5l0NvZMtpTw_gXpNArsDo_aeecBLUqBV9tRY")'></div>
-                    <div class="p-1"><div class="text-[8px] font-bold text-ink truncate">Gold Chain Set</div><div class="text-[8px] text-[#7B4FC4] font-extrabold">Ksh 350</div></div>
-                  </div>
-                </div>
-                <!-- Bottom nav -->
-                <div class="bg-white border-t border-[#111] flex justify-around items-center py-1.5 shrink-0">
-                  <span class="material-symbols-outlined text-[#B5F03A] text-[18px]" style="font-variation-settings:'FILL' 1">home</span>
-                  <span class="material-symbols-outlined text-[#555] text-[18px]">search</span>
-                  <span class="material-symbols-outlined text-[#555] text-[18px]">add_circle</span>
-                  <span class="material-symbols-outlined text-[#555] text-[18px]">favorite</span>
-                  <span class="material-symbols-outlined text-[#555] text-[18px]">person</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- ═══ TICKER ═════════════════════════════════════════════ -->
-    <div class="border-y-2 border-ink dark:border-[#444] bg-primary overflow-hidden py-3 select-none" aria-hidden="true">
-      <div class="marquee-track text-ink font-display font-bold text-sm uppercase tracking-widest">
-        <span class="px-6">Vintage · Streetwear · M-Pesa Ready · Nairobi · Gikomba Finds · Sustainable Fashion · Local Sellers · Pre-loved · Authentic Drops · Community Verified · </span>
-        <span class="px-6">Vintage · Streetwear · M-Pesa Ready · Nairobi · Gikomba Finds · Sustainable Fashion · Local Sellers · Pre-loved · Authentic Drops · Community Verified · </span>
-      </div>
     </div>
 
-    <!-- ═══ APP FEATURES ════════════════════════════════════════ -->
-    <section class="max-w-7xl mx-auto px-5 sm:px-8 lg:px-16 py-16 lg:py-24" aria-labelledby="features-heading">
-      <header class="mb-10 lg:mb-14">
-        <h2 id="features-heading" class="font-display text-3xl sm:text-4xl font-extrabold text-ink dark:text-ink-dark">
-          Everything you need,<br class="hidden sm:block" /> in one app.
-        </h2>
-        <p class="mt-3 text-ink-muted dark:text-ink-muted-dark text-base max-w-xl">
-          gikomba.app is designed from the ground up for how Kenyans actually buy and sell.
-        </p>
-      </header>
-
-      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-
-        <article class="border-2 border-ink dark:border-[#444] bg-white dark:bg-[#1A1A1A] p-6 flex flex-col gap-4" style="box-shadow:4px 4px 0 #111">
-          <div class="w-11 h-11 bg-primary border-2 border-ink flex items-center justify-center shrink-0">
-            <span class="material-symbols-outlined text-ink">payments</span>
+    <!-- Phone mockup -->
+    <div class="hero-mockup-wrap" aria-hidden="true">
+      <div class="hero-mockup-offset"></div>
+      <div class="phone-frame hero-phone">
+        <div class="phone-screen">
+          <!-- App header -->
+          <div class="app-header">
+            <span class="app-logo-text">visha</span>
+            <span class="material-symbols-outlined app-icon">notifications</span>
           </div>
-          <h3 class="font-display text-xl font-bold text-ink dark:text-ink-dark">M-Pesa Checkout</h3>
-          <p class="text-sm text-ink-muted dark:text-ink-muted-dark leading-relaxed">Pay and get paid instantly. No bank account required — just your phone number.</p>
-        </article>
-
-        <article class="border-2 border-ink dark:border-[#444] bg-white dark:bg-[#1A1A1A] p-6 flex flex-col gap-4" style="box-shadow:4px 4px 0 #111">
-          <div class="w-11 h-11 bg-secondary border-2 border-ink flex items-center justify-center shrink-0">
-            <span class="material-symbols-outlined text-white">add_a_photo</span>
+          <!-- Search -->
+          <div class="app-search">
+            <span class="material-symbols-outlined" style="font-size:11px">search</span>
+            <span>vintage, streetwear...</span>
           </div>
-          <h3 class="font-display text-xl font-bold text-ink dark:text-ink-dark">List in 60 Seconds</h3>
-          <p class="text-sm text-ink-muted dark:text-ink-muted-dark leading-relaxed">Snap a photo, set a price, go live. Your listing reaches thousands of buyers in Nairobi instantly.</p>
-        </article>
-
-        <article class="border-2 border-ink dark:border-[#444] bg-white dark:bg-[#1A1A1A] p-6 flex flex-col gap-4" style="box-shadow:4px 4px 0 #111">
-          <div class="w-11 h-11 bg-accent border-2 border-ink flex items-center justify-center shrink-0">
-            <span class="material-symbols-outlined text-white">forum</span>
+          <!-- Pills -->
+          <div class="app-pills">
+            <span class="pill pill--active">All</span>
+            <span class="pill">Streetwear</span>
+            <span class="pill">Vintage</span>
+            <span class="pill">Shoes</span>
           </div>
-          <h3 class="font-display text-xl font-bold text-ink dark:text-ink-dark">In-App Chat</h3>
-          <p class="text-sm text-ink-muted dark:text-ink-muted-dark leading-relaxed">Negotiate and arrange meetups — all inside the app, without sharing your number.</p>
-        </article>
-
-        <article class="border-2 border-ink dark:border-[#444] bg-white dark:bg-[#1A1A1A] p-6 flex flex-col gap-4" style="box-shadow:4px 4px 0 #111">
-          <div class="w-11 h-11 bg-primary border-2 border-ink flex items-center justify-center shrink-0">
-            <span class="material-symbols-outlined text-ink">verified_user</span>
-          </div>
-          <h3 class="font-display text-xl font-bold text-ink dark:text-ink-dark">Verified Sellers</h3>
-          <p class="text-sm text-ink-muted dark:text-ink-muted-dark leading-relaxed">Every seller is ID-verified. Buyer ratings and reviews mean you can shop with confidence.</p>
-        </article>
-
-        <article class="border-2 border-ink dark:border-[#444] bg-white dark:bg-[#1A1A1A] p-6 flex flex-col gap-4" style="box-shadow:4px 4px 0 #111">
-          <div class="w-11 h-11 bg-secondary border-2 border-ink flex items-center justify-center shrink-0">
-            <span class="material-symbols-outlined text-white">local_shipping</span>
-          </div>
-          <h3 class="font-display text-xl font-bold text-ink dark:text-ink-dark">Safe Delivery</h3>
-          <p class="text-sm text-ink-muted dark:text-ink-muted-dark leading-relaxed">Meet up locally or use our courier partners across Nairobi, Mombasa, and Kisumu.</p>
-        </article>
-
-        <article class="border-2 border-ink dark:border-[#444] bg-primary p-6 flex flex-col gap-4" style="box-shadow:4px 4px 0 #111">
-          <div class="w-11 h-11 bg-ink border-2 border-ink flex items-center justify-center shrink-0">
-            <span class="material-symbols-outlined text-primary">eco</span>
-          </div>
-          <h3 class="font-display text-xl font-bold text-ink">100% Sustainable</h3>
-          <p class="text-sm text-ink/70 leading-relaxed">Every purchase is a vote against fast fashion. We track your carbon savings too.</p>
-        </article>
-
-      </div>
-    </section>
-
-    <!-- ═══ 3-STEP APP WALKTHROUGH ══════════════════════════════ -->
-    <section class="bg-ink dark:bg-[#111] border-y-2 border-ink dark:border-[#444] py-16 lg:py-24" aria-labelledby="steps-heading">
-      <div class="max-w-7xl mx-auto px-5 sm:px-8 lg:px-16">
-        <h2 id="steps-heading" class="font-display text-3xl sm:text-4xl font-extrabold text-white mb-12 text-center">
-          Up and running in minutes.
-        </h2>
-        <div class="grid sm:grid-cols-3 gap-8">
-
-          <div class="flex flex-col items-center text-center gap-3">
-            <div class="w-14 h-14 bg-primary border-2 border-primary flex items-center justify-center" style="box-shadow:4px 4px 0 #B5F03A">
-              <span class="material-symbols-outlined text-ink text-2xl">download</span>
+          <!-- Grid -->
+          <div class="app-grid">
+            <div class="app-card">
+              <div class="app-card-img" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBorhG7xFUUxIYRDQe8VgF2sjybia3Yci63Z60k9uT7YY_9EfGJmlIHE1fkvuo-zEopHBy5EsB7o7bFWc-fF7LJTb7LhA3khbtQc47XYUBZLCO3DQWUPfRK45S71xd8gdGZgmPUD2mlZIiFQ4stq9oWSX6WfDJXrx5BKOOpIeFpFka7CHhk0FqhmjXCm7dtDzTlOBW9ND1-DDFy2gOcu5PVPGbJ9p6Hky86faP4TlAQA8gtZHeF0xG8eJEvGLwfQO4dHnXGRyEY9wE")'></div>
+              <div class="app-card-info"><div>Vintage Denim</div><div class="app-price">Ksh 1,200</div></div>
             </div>
-            <div class="font-display font-extrabold text-5xl text-white/10 select-none" aria-hidden="true">01</div>
-            <h3 class="font-display text-xl font-bold text-white">Download the app</h3>
-            <p class="text-white/60 text-sm leading-relaxed">Free on iOS and Android. Sign up with your phone number — no email needed.</p>
-          </div>
-
-          <div class="flex flex-col items-center text-center gap-3">
-            <div class="w-14 h-14 bg-secondary border-2 border-secondary flex items-center justify-center" style="box-shadow:4px 4px 0 #7B4FC4">
-              <span class="material-symbols-outlined text-white text-2xl">explore</span>
+            <div class="app-card">
+              <div class="app-card-img" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCkefBJFnKHBDTw8og8vBgEWbjGxSPcSizq6rewIxLYhUx8iiK1d0eYACtCjvq1Lq5BwgxPF_2IVdXo0jl9g-EI95NWcTWv7UWI_AjTB4G-sXn8l3m1gM39kbnwWHCCmfFIi1_C_B9w_y7EygMKVgsjmiOBR_xfG1uTGfBEheqhO3mLEMJiZBSF5FB8iXmzRjBP7xlVEs0l4c8SE0KQeSksIt964tvfohw4un-keXTM87VdqC92MA1uUfPSLGwDE7Fp7kx68597iL8")'></div>
+              <div class="app-card-info"><div>Jordan 1</div><div class="app-price">Ksh 4,500</div></div>
             </div>
-            <div class="font-display font-extrabold text-5xl text-white/10 select-none" aria-hidden="true">02</div>
-            <h3 class="font-display text-xl font-bold text-white">Browse or list</h3>
-            <p class="text-white/60 text-sm leading-relaxed">Find hidden gems or snap your closet and go live in under a minute.</p>
-          </div>
-
-          <div class="flex flex-col items-center text-center gap-3">
-            <div class="w-14 h-14 bg-accent border-2 border-accent flex items-center justify-center" style="box-shadow:4px 4px 0 #007A91">
-              <span class="material-symbols-outlined text-white text-2xl">payments</span>
+            <div class="app-card">
+              <div class="app-card-img" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAcTQajgNqruqsFy1uUXQfDKZn6Q8fi6e7vsODiGr7tc1PW1vakeTO01kDK8w3CLl1VJfPqISmrY7tqK9nr4uyFBs1vLSrAK2qHkuvjV9KHtXSd2AwfeLxnYW2fBO5CxtCzyWBgMGMvbpqLK91Ue5pSeFODmcLUgsY-sa8B0gDVHexEf9278XubxKFxnE8ZiNw4382Obzrs-G2fjloWol3q0qoyTRghad2U0wzuvwL3iQd16ONYUE2Z-Y4RrJ1xj3kVk4Bk14WlJwk")'></div>
+              <div class="app-card-info"><div>Hoodie</div><div class="app-price">Ksh 800</div></div>
             </div>
-            <div class="font-display font-extrabold text-5xl text-white/10 select-none" aria-hidden="true">03</div>
-            <h3 class="font-display text-xl font-bold text-white">Pay with M-Pesa</h3>
-            <p class="text-white/60 text-sm leading-relaxed">Funds held in escrow until you confirm your order arrived safely. Then released instantly.</p>
+            <div class="app-card">
+              <div class="app-card-img" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDwZVj5_fiXIXBTOfTZWkxyQDhjdtApEJEdugKrkUnyFsWb_V79TaVteHizBo4PBYfZp4VGdP6NkTiJNk6PPhaYxLTSBq2P1uTBeVrNmT8ckLCmFxN0A0m-DljIwKrlfFibCO6-AdD3S7-Vgz_cAwvZ0vQMLbSlRuFDbyuZ1W3QZzJ4vs047BcI9FRTTT9YIKneA4WpWeG6i8f068PPLgaHe7oD-xvx2E7LFk8T69D5l0NvZMtpTw_gXpNArsDo_aeecBLUqBV9tRY")'></div>
+              <div class="app-card-info"><div>Gold Chain</div><div class="app-price">Ksh 350</div></div>
+            </div>
           </div>
-
-        </div>
-        <div class="text-center mt-12">
-          <a href="how.html" class="inline-flex items-center gap-2 border-2 border-white text-white font-bold px-8 py-4 hover:bg-primary hover:text-ink hover:border-ink transition-all">
-            See full walkthrough <span class="material-symbols-outlined text-base">arrow_forward</span>
-          </a>
+          <!-- Bottom tab bar -->
+          <div class="app-tabbar">
+            <span class="material-symbols-outlined app-tab app-tab--active" style="font-variation-settings:'FILL' 1">home</span>
+            <span class="material-symbols-outlined app-tab">search</span>
+            <span class="material-symbols-outlined app-tab">add_circle</span>
+            <span class="material-symbols-outlined app-tab">favorite</span>
+            <span class="material-symbols-outlined app-tab">person</span>
+          </div>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- ═══ TESTIMONIALS ════════════════════════════════════════ -->
-    <section class="max-w-7xl mx-auto px-5 sm:px-8 lg:px-16 py-16 lg:py-24" aria-labelledby="testimonials-heading">
-      <h2 id="testimonials-heading" class="font-display text-2xl sm:text-3xl font-extrabold text-ink dark:text-ink-dark mb-8">
-        What the community says.
-      </h2>
-      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+  <!-- ═══ TICKER ═══════════════════════════════════════════ -->
+  <div class="ticker" aria-hidden="true">
+    <div class="marquee-track ticker-track">
+      <span>Vintage · Streetwear · M-Pesa Ready · Nairobi · Gikomba Finds · Sustainable Fashion · Local Sellers · Pre-loved · Authentic Drops · Community Verified · </span>
+      <span>Vintage · Streetwear · M-Pesa Ready · Nairobi · Gikomba Finds · Sustainable Fashion · Local Sellers · Pre-loved · Authentic Drops · Community Verified · </span>
+    </div>
+  </div>
 
-        <blockquote class="border-2 border-ink dark:border-[#444] bg-white dark:bg-[#1A1A1A] p-6" style="box-shadow:4px 4px 0 #111">
-          <p class="text-base italic text-ink-muted dark:text-ink-muted-dark leading-relaxed mb-5">"I sold my old Jordans in under an hour. The M-Pesa integration is seamless — I didn't even have to leave my house."</p>
-          <footer class="flex items-center gap-3">
-            <div class="w-10 h-10 bg-secondary border-2 border-ink flex items-center justify-center font-display font-bold text-white text-sm shrink-0">BK</div>
-            <div>
-              <cite class="not-italic font-bold text-ink dark:text-ink-dark text-sm">Brian K.</cite>
-              <p class="text-xs text-ink-muted dark:text-ink-muted-dark">Seller · Westlands</p>
-            </div>
-          </footer>
-        </blockquote>
+  <!-- ═══ FEATURES ═════════════════════════════════════════ -->
+  <section class="section container" aria-labelledby="features-heading">
+    <header class="features-header">
+      <h2 id="features-heading" class="section-title">Everything you need,<br class="hide-sm" /> in one app.</h2>
+      <p class="section-body">visha is designed from the ground up for how Kenyans actually buy and sell.</p>
+    </header>
 
-        <blockquote class="border-2 border-ink dark:border-[#444] bg-primary p-6" style="box-shadow:4px 4px 0 #111">
-          <p class="text-base italic text-ink/70 leading-relaxed mb-5">"Found a vintage Levi's jacket that wasn't anywhere else in Nairobi. Gikomba market vibes, from my phone."</p>
-          <footer class="flex items-center gap-3">
-            <div class="w-10 h-10 bg-ink border-2 border-ink flex items-center justify-center font-display font-bold text-primary text-sm shrink-0">AM</div>
-            <div>
-              <cite class="not-italic font-bold text-ink text-sm">Amina M.</cite>
-              <p class="text-xs text-ink/60">Buyer · Kileleshwa</p>
-            </div>
-          </footer>
-        </blockquote>
+    <div class="features-grid">
 
-        <blockquote class="border-2 border-ink dark:border-[#444] bg-white dark:bg-[#1A1A1A] p-6 sm:col-span-2 lg:col-span-1" style="box-shadow:4px 4px 0 #111">
-          <p class="text-base italic text-ink-muted dark:text-ink-muted-dark leading-relaxed mb-5">"As a small thrift business in Gikomba, this app gave us access to customers we never had before. Sales tripled."</p>
-          <footer class="flex items-center gap-3">
-            <div class="w-10 h-10 bg-accent border-2 border-ink flex items-center justify-center font-display font-bold text-white text-sm shrink-0">JO</div>
-            <div>
-              <cite class="not-italic font-bold text-ink dark:text-ink-dark text-sm">James O.</cite>
-              <p class="text-xs text-ink-muted dark:text-ink-muted-dark">Seller · Gikomba Market</p>
-            </div>
-          </footer>
-        </blockquote>
+      <article class="feature-card card">
+        <div class="feature-icon feature-icon--garnet">
+          <span class="material-symbols-outlined">payments</span>
+        </div>
+        <h3 class="feature-title">M-Pesa Checkout</h3>
+        <p class="feature-body">Pay and get paid instantly. No bank account required — just your phone number.</p>
+      </article>
 
-      </div>
-    </section>
+      <article class="feature-card card">
+        <div class="feature-icon feature-icon--charcoal">
+          <span class="material-symbols-outlined">add_a_photo</span>
+        </div>
+        <h3 class="feature-title">List in 60 Seconds</h3>
+        <p class="feature-body">Snap a photo, set a price, go live. Your listing reaches buyers in Nairobi instantly.</p>
+      </article>
 
-    <!-- ═══ FINAL CTA ══════════════════════════════════════════ -->
-    <section class="max-w-7xl mx-auto px-5 sm:px-8 lg:px-16 pb-20" aria-labelledby="cta-heading">
-      <div class="bg-secondary border-2 border-ink dark:border-[#444] p-10 sm:p-14 text-center" style="box-shadow:8px 8px 0 #111">
-        <h2 id="cta-heading" class="font-display text-3xl sm:text-5xl font-extrabold text-white mb-4">
-          Ready to thrift smarter?
-        </h2>
-        <p class="text-white/70 text-base sm:text-lg mb-8 max-w-md mx-auto">
-          Download gikomba.app and start buying or selling today.
-        </p>
-        <form class="flex flex-col sm:flex-row gap-3 max-w-md mx-auto w-full" onsubmit="handleBottomWaitlist(event)">
-          <label for="cta-email" class="sr-only">Email address</label>
-          <input id="cta-email" type="email" placeholder="Your email address" required
-            class="flex-1 h-13 border-2 border-ink bg-white text-ink px-5 py-3.5 text-sm focus:outline-none focus:border-accent transition-colors placeholder:text-ink-muted" />
-          <button type="submit"
-            class="h-13 bg-primary border-2 border-ink text-ink font-bold px-7 py-3.5 text-sm hover:translate-x-[2px] hover:translate-y-[2px] hover:[box-shadow:none] transition-all whitespace-nowrap"
-            style="box-shadow:4px 4px 0 #111">
-            Join Waitlist
-          </button>
-        </form>
-        <p id="cta-waitlist-success" class="hidden text-sm font-bold text-primary mt-2">
-          ✓ You're on the list — we'll be in touch soon!
-        </p>
-      </div>
-    </section>
+      <article class="feature-card card">
+        <div class="feature-icon feature-icon--garnet">
+          <span class="material-symbols-outlined">forum</span>
+        </div>
+        <h3 class="feature-title">In-App Chat</h3>
+        <p class="feature-body">Negotiate and arrange meetups — all inside the app, without sharing your number.</p>
+      </article>
 
-  </main>
+      <article class="feature-card card">
+        <div class="feature-icon feature-icon--charcoal">
+          <span class="material-symbols-outlined">verified_user</span>
+        </div>
+        <h3 class="feature-title">Verified Sellers</h3>
+        <p class="feature-body">Every seller is ID-verified. Ratings and reviews mean you can shop with confidence.</p>
+      </article>
 
-  <!-- ═══ FOOTER ════════════════════════════════════════════════ -->
-  <footer class="border-t-2 border-ink dark:border-[#444] bg-white dark:bg-[#0F0F0F] py-12 px-5 sm:px-8 lg:px-16" role="contentinfo">
-    <div class="max-w-7xl mx-auto grid grid-cols-2 sm:grid-cols-4 gap-8 mb-10">
-      <div class="col-span-2 sm:col-span-1">
-        <a href="index.html" class="flex items-center gap-2 mb-3" aria-label="gikomba.app home">
-          <div class="w-8 h-8 bg-primary border-2 border-ink flex items-center justify-center">
-            <span class="material-symbols-outlined text-ink text-base">local_mall</span>
+      <article class="feature-card card">
+        <div class="feature-icon feature-icon--garnet">
+          <span class="material-symbols-outlined">local_shipping</span>
+        </div>
+        <h3 class="feature-title">Safe Delivery</h3>
+        <p class="feature-body">Meet up locally or use our courier partners across Nairobi, Mombasa, and Kisumu.</p>
+      </article>
+
+      <article class="feature-card feature-card--accent">
+        <div class="feature-icon feature-icon--white">
+          <span class="material-symbols-outlined">eco</span>
+        </div>
+        <h3 class="feature-title" style="color:var(--off-white)">100% Sustainable</h3>
+        <p class="feature-body" style="color:rgba(230,225,222,0.7)">Every purchase is a vote against fast fashion. We track your carbon savings too.</p>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- ═══ 3 STEPS ══════════════════════════════════════════ -->
+  <section class="steps-section" aria-labelledby="steps-heading">
+    <div class="container">
+      <h2 id="steps-heading" class="section-title steps-title">Up and running in minutes.</h2>
+      <div class="steps-grid">
+
+        <div class="step">
+          <div class="step-icon step-icon--1">
+            <span class="material-symbols-outlined">download</span>
           </div>
-          <span class="font-display font-extrabold text-xl text-ink dark:text-ink-dark">gikomba<span class="text-secondary">.app</span></span>
+          <div class="step-num" aria-hidden="true">01</div>
+          <h3 class="step-title">Download the app</h3>
+          <p class="step-body">Free on iOS and Android. Sign up with your phone number — no email needed.</p>
+        </div>
+
+        <div class="step">
+          <div class="step-icon step-icon--2">
+            <span class="material-symbols-outlined">explore</span>
+          </div>
+          <div class="step-num" aria-hidden="true">02</div>
+          <h3 class="step-title">Browse or list</h3>
+          <p class="step-body">Find hidden gems or snap your closet and go live in under a minute.</p>
+        </div>
+
+        <div class="step">
+          <div class="step-icon step-icon--3">
+            <span class="material-symbols-outlined">payments</span>
+          </div>
+          <div class="step-num" aria-hidden="true">03</div>
+          <h3 class="step-title">Pay with M-Pesa</h3>
+          <p class="step-body">Funds held in escrow until you confirm arrival. Then released instantly.</p>
+        </div>
+
+      </div>
+      <div style="text-align:center; margin-top:3rem">
+        <a href="/how" class="btn btn-alabaster">
+          See full walkthrough
+          <span class="material-symbols-outlined" style="font-size:16px">arrow_forward</span>
         </a>
-        <p class="text-ink-muted dark:text-ink-muted-dark text-sm leading-relaxed">The app for buying and selling pre-loved fashion in Kenya. Built in Nairobi.</p>
       </div>
-      <nav aria-label="App links">
-        <h3 class="font-display font-bold text-xs uppercase tracking-widest mb-4 text-ink dark:text-ink-dark">App</h3>
-        <ul class="space-y-2 text-sm text-ink-muted dark:text-ink-muted-dark">
-          <li><a href="#" class="hover:text-secondary dark:hover:text-primary transition-colors">iOS Download</a></li>
-          <li><a href="#" class="hover:text-secondary dark:hover:text-primary transition-colors">Android Download</a></li>
-          <li><a href="how.html" class="hover:text-secondary dark:hover:text-primary transition-colors">How It Works</a></li>
-          <li><a href="registration.html" class="hover:text-secondary dark:hover:text-primary transition-colors">Join Waitlist</a></li>
-        </ul>
-      </nav>
-      <nav aria-label="Community links">
-        <h3 class="font-display font-bold text-xs uppercase tracking-widest mb-4 text-ink dark:text-ink-dark">Community</h3>
-        <ul class="space-y-2 text-sm text-ink-muted dark:text-ink-muted-dark">
-          <li><a href="community.html" class="hover:text-secondary dark:hover:text-primary transition-colors">Join Community</a></li>
-          <li><a href="blog.html" class="hover:text-secondary dark:hover:text-primary transition-colors">Fashion Blog</a></li>
-          <li><a href="support.html" class="hover:text-secondary dark:hover:text-primary transition-colors">Support</a></li>
-        </ul>
-      </nav>
-      <nav aria-label="Legal links">
-        <h3 class="font-display font-bold text-xs uppercase tracking-widest mb-4 text-ink dark:text-ink-dark">Legal</h3>
-        <ul class="space-y-2 text-sm text-ink-muted dark:text-ink-muted-dark">
-          <li><a href="#" class="hover:text-secondary dark:hover:text-primary transition-colors">Terms of Service</a></li>
-          <li><a href="#" class="hover:text-secondary dark:hover:text-primary transition-colors">Privacy Policy</a></li>
-        </ul>
-      </nav>
     </div>
-    <div class="border-t-2 border-ink/10 dark:border-[#444]/50 pt-6 flex flex-col sm:flex-row justify-between items-center gap-4">
-      <p class="text-xs text-ink-muted dark:text-ink-muted-dark">© 2024 gikomba.app — Built for the pride of Africa.</p>
-    </div>
-  </footer>
+  </section>
 
-  <script>
-    function handleHeroWaitlist(e) {
-      e.preventDefault();
-      e.target.classList.add("hidden");
-      document.getElementById("hero-waitlist-success").classList.remove("hidden");
-    }
-    function handleBottomWaitlist(e) {
-      e.preventDefault();
-      e.target.classList.add("hidden");
-      document.getElementById("cta-waitlist-success").classList.remove("hidden");
-    }
-  </script>
-  <script src="gikomba.js"></script>
-</body>
-</html>
+  <!-- ═══ TESTIMONIALS ════════════════════════════════════ -->
+  <section class="section container" aria-labelledby="testimonials-heading">
+    <h2 id="testimonials-heading" class="section-title" style="margin-bottom:2rem">What the community says.</h2>
+    <div class="testimonials-grid">
+
+      <blockquote class="card testimonial">
+        <p class="testimonial-quote">"I sold my old Jordans in under an hour. The M-Pesa integration is seamless — I didn't even have to leave my house."</p>
+        <footer class="testimonial-footer">
+          <div class="avatar" style="background:var(--garnet)">BK</div>
+          <div>
+            <cite class="testimonial-name">Brian K.</cite>
+            <p class="testimonial-role">Seller · Westlands</p>
+          </div>
+        </footer>
+      </blockquote>
+
+      <blockquote class="testimonial testimonial--garnet">
+        <p class="testimonial-quote" style="color:rgba(230,225,222,0.8)">"Found a vintage Levi's jacket that wasn't anywhere else in Nairobi. Gikomba market vibes, from my phone."</p>
+        <footer class="testimonial-footer">
+          <div class="avatar" style="background:var(--charcoal); color:var(--alabaster)">AM</div>
+          <div>
+            <cite class="testimonial-name" style="color:var(--alabaster)">Amina M.</cite>
+            <p class="testimonial-role" style="color:rgba(230,225,222,0.6)">Buyer · Kileleshwa</p>
+          </div>
+        </footer>
+      </blockquote>
+
+      <blockquote class="card testimonial">
+        <p class="testimonial-quote">"As a small thrift business in Gikomba, this app gave us access to customers we never had before."</p>
+        <footer class="testimonial-footer">
+          <div class="avatar" style="background:var(--charcoal-soft)">JO</div>
+          <div>
+            <cite class="testimonial-name">James O.</cite>
+            <p class="testimonial-role">Seller · Gikomba Market</p>
+          </div>
+        </footer>
+      </blockquote>
+
+    </div>
+  </section>
+
+  <!-- ═══ BOTTOM CTA ════════════════════════════════════════ -->
+  <section class="cta-section" aria-labelledby="cta-heading">
+    <div class="container cta-inner">
+      <h2 id="cta-heading" class="cta-title">Ready to thrift smarter?</h2>
+      <p class="cta-body">Join the visha waitlist and be first to buy and sell pre-loved fashion in Nairobi.</p>
+      <WaitlistForm id="bottom" dark={true} btnLabel="Join Waitlist" />
+    </div>
+  </section>
+
+</Layout>
+
+<style>
+  /* ── Hero ── */
+  .hero {
+    display: grid;
+    gap: 3rem;
+    align-items: center;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
+  @media (min-width: 1024px) {
+    .hero { grid-template-columns: 1fr 1fr; gap: 5rem; padding-top: 5rem; }
+  }
+
+  .hero-text { display: flex; flex-direction: column; gap: 1.5rem; order: 2; }
+  @media (min-width: 1024px) { .hero-text { order: 1; } }
+
+  .hero-h1 {
+    font-size: clamp(2.4rem, 6vw, 4.5rem);
+    font-weight: 800;
+    color: var(--charcoal);
+    line-height: 1.0;
+  }
+  body.dark .hero-h1 { color: var(--alabaster); }
+
+  .hero-highlight {
+    display: inline;
+    background: var(--garnet);
+    color: var(--white);
+    padding: 0 0.3em;
+  }
+
+  .hero-body {
+    font-size: 1rem;
+    color: var(--color-ink-muted);
+    line-height: 1.7;
+    max-width: 42ch;
+  }
+  body.dark .hero-body { color: var(--color-ink-muted-dark); }
+
+  /* Mockup */
+  .hero-mockup-wrap { position: relative; display: flex; justify-content: center; order: 1; }
+  @media (min-width: 1024px) { .hero-mockup-wrap { order: 2; justify-content: flex-end; } }
+
+  .hero-mockup-offset {
+    position: absolute;
+    bottom: -1rem; right: -1rem;
+    width: 100%; height: 100%;
+    background: var(--alabaster-dark);
+    border: 2px solid var(--charcoal);
+    max-width: 240px;
+  }
+  body.dark .hero-mockup-offset { background: var(--charcoal-soft); }
+
+  .hero-phone { position: relative; z-index: 1; width: 240px; aspect-ratio: 9/19; }
+  @media (min-width: 480px) { .hero-phone { width: 270px; } }
+
+  /* App screen internals */
+  .phone-screen {
+    position: absolute; inset: 0;
+    padding-top: 1.25rem;
+    background: var(--off-white);
+    display: flex; flex-direction: column;
+    overflow: hidden;
+  }
+  .app-header {
+    padding: 0.375rem 0.75rem 0.5rem;
+    background: var(--white);
+    border-bottom: 1.5px solid var(--charcoal);
+    display: flex; align-items: center; justify-content: space-between;
+    flex-shrink: 0;
+  }
+  .app-logo-text { font-family: var(--font-display); font-weight: 800; font-size: 10px; color: var(--charcoal); }
+  .app-icon { font-size: 13px; color: var(--charcoal); }
+  .app-search {
+    margin: 0.375rem 0.5rem;
+    border: 1px solid var(--charcoal);
+    background: var(--white);
+    padding: 0.25rem 0.5rem;
+    display: flex; gap: 0.25rem; align-items: center;
+    font-size: 8px; color: var(--color-ink-muted);
+    flex-shrink: 0;
+  }
+  .app-pills { display: flex; gap: 0.25rem; padding: 0 0.5rem; flex-shrink: 0; margin-bottom: 0.375rem; }
+  .pill {
+    background: var(--white); border: 1px solid var(--charcoal);
+    padding: 0.1rem 0.4rem; font-size: 7px; font-weight: 700; color: var(--charcoal);
+    white-space: nowrap;
+  }
+  .pill--active { background: var(--garnet); color: var(--white); border-color: var(--garnet-dark); }
+
+  .app-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.375rem; padding: 0 0.5rem; flex: 1; overflow: hidden; }
+  .app-card { border: 1px solid var(--charcoal); background: var(--white); overflow: hidden; }
+  .app-card-img { aspect-ratio: 1; background-size: cover; background-position: center; }
+  .app-card-info { padding: 0.2rem 0.3rem; font-size: 7px; font-weight: 700; color: var(--charcoal); }
+  .app-price { color: var(--garnet); font-size: 7px; }
+
+  .app-tabbar {
+    background: var(--white); border-top: 1px solid var(--charcoal);
+    display: flex; justify-content: space-around; padding: 0.35rem;
+    flex-shrink: 0;
+  }
+  .app-tab { font-size: 16px; color: var(--color-ink-muted); }
+  .app-tab--active { color: var(--garnet); }
+
+  /* ── Ticker ── */
+  .ticker {
+    border-top: 2px solid var(--charcoal);
+    border-bottom: 2px solid var(--charcoal);
+    background: var(--garnet);
+    overflow: hidden;
+    padding-block: 0.75rem;
+    user-select: none;
+  }
+  .ticker-track {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--white);
+    white-space: nowrap;
+  }
+  .ticker-track span { padding-inline: 1.5rem; }
+
+  /* ── Features ── */
+  .features-header { margin-bottom: 2.5rem; }
+  .features-grid {
+    display: grid;
+    gap: 1.25rem;
+    grid-template-columns: 1fr;
+  }
+  @media (min-width: 640px)  { .features-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (min-width: 1024px) { .features-grid { grid-template-columns: repeat(3, 1fr); } }
+
+  .feature-card { padding: 1.5rem; display: flex; flex-direction: column; gap: 0.875rem; }
+  .feature-card--accent {
+    background: var(--charcoal);
+    border-color: var(--charcoal);
+    box-shadow: 5px 5px 0 var(--garnet);
+  }
+
+  .feature-icon {
+    width: 2.75rem; height: 2.75rem;
+    border: 2px solid var(--charcoal);
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+  .feature-icon--garnet  { background: var(--garnet);   color: var(--white); border-color: var(--garnet-dark); }
+  .feature-icon--charcoal { background: var(--charcoal); color: var(--alabaster); }
+  .feature-icon--white   { background: var(--alabaster); color: var(--charcoal); border-color: var(--alabaster); }
+  .feature-icon .material-symbols-outlined { font-size: 20px; }
+
+  .feature-title { font-family: var(--font-display); font-size: 1.125rem; font-weight: 700; color: var(--charcoal); }
+  body.dark .feature-title { color: var(--alabaster); }
+  .feature-body  { font-size: 0.875rem; color: var(--color-ink-muted); line-height: 1.65; }
+  body.dark .feature-body { color: var(--color-ink-muted-dark); }
+
+  /* ── Section helpers ── */
+  .section-title { font-size: clamp(1.75rem, 4vw, 2.75rem); font-weight: 800; color: var(--charcoal); margin-bottom: 0.75rem; }
+  body.dark .section-title { color: var(--alabaster); }
+  .section-body  { font-size: 1rem; color: var(--color-ink-muted); max-width: 50ch; }
+  body.dark .section-body { color: var(--color-ink-muted-dark); }
+  .hide-sm { display: none; }
+  @media (min-width: 640px) { .hide-sm { display: block; } }
+
+  /* ── Steps ── */
+  .steps-section {
+    background: var(--charcoal);
+    border-top: 2px solid var(--charcoal);
+    border-bottom: 2px solid var(--charcoal);
+    padding-block: 4rem;
+  }
+  @media (min-width: 1024px) { .steps-section { padding-block: 6rem; } }
+
+  .steps-title { color: var(--alabaster); text-align: center; margin-bottom: 3rem; }
+
+  .steps-grid { display: grid; gap: 2rem; }
+  @media (min-width: 640px) { .steps-grid { grid-template-columns: repeat(3, 1fr); } }
+
+  .step { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 0.75rem; }
+
+  .step-icon {
+    width: 3.5rem; height: 3.5rem;
+    border: 2px solid currentColor;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .step-icon .material-symbols-outlined { font-size: 1.5rem; }
+  .step-icon--1 { background: var(--garnet);  color: var(--white);    border-color: var(--garnet-dark); box-shadow: 4px 4px 0 var(--garnet-dark); }
+  .step-icon--2 { background: var(--alabaster); color: var(--charcoal); border-color: var(--alabaster);  box-shadow: 4px 4px 0 var(--alabaster-dark); }
+  .step-icon--3 { background: var(--charcoal-soft); color: var(--alabaster); border-color: var(--charcoal-soft); box-shadow: 4px 4px 0 var(--charcoal); }
+
+  .step-num { font-family: var(--font-display); font-size: 4rem; font-weight: 800; color: rgba(230,225,222,0.08); line-height: 1; user-select: none; }
+  .step-title { font-family: var(--font-display); font-size: 1.2rem; font-weight: 700; color: var(--alabaster); }
+  .step-body  { font-size: 0.875rem; color: rgba(230,225,222,0.6); line-height: 1.65; }
+
+  /* ── Testimonials ── */
+  .testimonials-grid {
+    display: grid; gap: 1.25rem;
+    grid-template-columns: 1fr;
+  }
+  @media (min-width: 640px)  { .testimonials-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (min-width: 1024px) { .testimonials-grid { grid-template-columns: repeat(3, 1fr); } }
+
+  .testimonial { padding: 1.5rem; }
+  .testimonial--garnet {
+    background: var(--garnet);
+    border: 2px solid var(--garnet-dark);
+    box-shadow: 5px 5px 0 var(--charcoal);
+  }
+
+  .testimonial-quote { font-size: 0.9375rem; font-style: italic; color: var(--color-ink-muted); line-height: 1.65; margin-bottom: 1.25rem; }
+  body.dark .testimonial-quote { color: var(--color-ink-muted-dark); }
+
+  .testimonial-footer { display: flex; align-items: center; gap: 0.75rem; }
+
+  .avatar {
+    width: 2.5rem; height: 2.5rem;
+    border: 2px solid var(--charcoal);
+    display: flex; align-items: center; justify-content: center;
+    font-family: var(--font-display); font-weight: 700; font-size: 0.8125rem;
+    color: var(--white); flex-shrink: 0;
+  }
+
+  .testimonial-name { font-weight: 700; font-size: 0.875rem; color: var(--charcoal); display: block; }
+  body.dark .testimonial-name { color: var(--alabaster); }
+  .testimonial-role { font-size: 0.75rem; color: var(--color-ink-muted); }
+  body.dark .testimonial-role { color: var(--color-ink-muted-dark); }
+
+  /* ── Bottom CTA ── */
+  .cta-section {
+    background: var(--garnet);
+    border-top: 2px solid var(--charcoal);
+    padding-block: 4rem;
+  }
+  @media (min-width: 1024px) { .cta-section { padding-block: 5rem; } }
+
+  .cta-inner { display: flex; flex-direction: column; align-items: center; gap: 1.25rem; text-align: center; }
+
+  .cta-title {
+    font-size: clamp(1.75rem, 4vw, 3rem);
+    font-weight: 800;
+    color: var(--white);
+  }
+  .cta-body { font-size: 1rem; color: rgba(230,225,222,0.8); max-width: 42ch; }
+
+  .cta-inner :global(.waitlist-wrap) { max-width: 28rem; width: 100%; }
+  .cta-inner :global(.waitlist-success) { color: var(--alabaster); }
+</style>
