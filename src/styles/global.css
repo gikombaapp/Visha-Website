@@ -1,0 +1,242 @@
+/* ═══════════════════════════════════════════════════════════════
+   visha — for the collective
+   Global styles & design tokens
+   ═══════════════════════════════════════════════════════════════ */
+
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap');
+
+/* ─── Tokens ───────────────────────────────────────────────── */
+:root {
+  /* Palette */
+  --garnet:        #6B0005;
+  --garnet-dark:   #4A0003;
+  --garnet-soft:   #8B1A1F;
+  --charcoal:      #25291C;
+  --charcoal-soft: #3A3F2E;
+  --alabaster:     #E6E1DE;
+  --alabaster-dark:#CFC9C5;
+  --white:         #FFFFFF;
+  --off-white:     #F7F4F1;
+
+  /* Semantic roles */
+  --color-primary:      var(--garnet);
+  --color-primary-dark: var(--garnet-dark);
+  --color-ink:          var(--charcoal);
+  --color-ink-muted:    #5A5F4E;
+  --color-surface:      var(--off-white);
+  --color-surface-card: var(--white);
+  --color-border:       var(--charcoal);
+
+  /* Dark mode overrides */
+  --color-surface-dark:      var(--charcoal);
+  --color-surface-card-dark: #2F3422;
+  --color-ink-dark:          var(--alabaster);
+  --color-ink-muted-dark:    #9A9F8E;
+  --color-border-dark:       #3A3F2E;
+
+  /* Typography */
+  --font-display: 'Syne', sans-serif;
+  --font-body:    'DM Sans', sans-serif;
+
+  /* Spacing */
+  --px-mobile:  1.25rem;  /* 20px */
+  --px-tablet:  2rem;     /* 32px */
+  --px-desktop: 4rem;     /* 64px */
+
+  /* Shadows (brutalist offset) */
+  --shadow-sm: 3px 3px 0 var(--charcoal);
+  --shadow-md: 5px 5px 0 var(--charcoal);
+  --shadow-lg: 8px 8px 0 var(--charcoal);
+}
+
+/* ─── Reset & Base ─────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--off-white);
+  color: var(--charcoal);
+  transition: background-color 0.2s, color 0.2s;
+  border-radius: 0 !important;
+}
+
+body.dark {
+  background-color: var(--charcoal);
+  color: var(--alabaster);
+}
+
+h1, h2, h3, h4, h5 {
+  font-family: var(--font-display);
+  line-height: 1.05;
+}
+
+a { color: inherit; text-decoration: none; }
+img { display: block; max-width: 100%; }
+
+/* ─── Material Icons ───────────────────────────────────────── */
+.material-symbols-outlined {
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+  vertical-align: middle;
+  line-height: 1;
+  user-select: none;
+}
+
+/* ─── Utility classes ──────────────────────────────────────── */
+
+/* Containers */
+.container {
+  max-width: 80rem;
+  margin-inline: auto;
+  padding-inline: var(--px-mobile);
+}
+@media (min-width: 640px)  { .container { padding-inline: var(--px-tablet); } }
+@media (min-width: 1024px) { .container { padding-inline: var(--px-desktop); } }
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.875rem;
+  border: 2px solid var(--charcoal);
+  padding: 0.75rem 1.5rem;
+  cursor: pointer;
+  transition: transform 0.1s, box-shadow 0.1s;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+.btn:hover {
+  transform: translate(2px, 2px);
+  box-shadow: none !important;
+}
+
+.btn-primary {
+  background: var(--garnet);
+  color: var(--white);
+  box-shadow: var(--shadow-sm);
+}
+.btn-primary:hover { background: var(--garnet-dark); }
+
+.btn-ghost {
+  background: transparent;
+  color: var(--charcoal);
+  box-shadow: var(--shadow-sm);
+}
+body.dark .btn-ghost {
+  color: var(--alabaster);
+  border-color: var(--alabaster);
+  box-shadow: 3px 3px 0 var(--alabaster);
+}
+
+.btn-alabaster {
+  background: var(--alabaster);
+  color: var(--charcoal);
+  box-shadow: var(--shadow-sm);
+}
+
+/* Cards */
+.card {
+  background: var(--white);
+  border: 2px solid var(--charcoal);
+  box-shadow: var(--shadow-md);
+}
+body.dark .card {
+  background: var(--color-surface-card-dark);
+  border-color: var(--color-border-dark);
+  box-shadow: 5px 5px 0 var(--garnet);
+}
+
+/* Form inputs */
+.input {
+  width: 100%;
+  border: 2px solid var(--charcoal);
+  background: var(--white);
+  color: var(--charcoal);
+  padding: 0.875rem 1rem;
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  outline: none;
+  transition: border-color 0.15s;
+}
+.input:focus { border-color: var(--garnet); }
+.input::placeholder { color: var(--color-ink-muted); }
+body.dark .input {
+  background: var(--charcoal-soft);
+  color: var(--alabaster);
+  border-color: var(--color-border-dark);
+}
+
+/* Badge / tag */
+.tag {
+  display: inline-block;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.6875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  padding: 0.25rem 0.75rem;
+  border: 2px solid var(--charcoal);
+}
+.tag-garnet  { background: var(--garnet);    color: var(--white);    border-color: var(--garnet-dark); }
+.tag-alabaster { background: var(--alabaster); color: var(--charcoal); }
+.tag-charcoal { background: var(--charcoal); color: var(--alabaster); }
+
+/* Section spacing */
+.section { padding-block: 4rem; }
+@media (min-width: 1024px) { .section { padding-block: 6rem; } }
+
+/* Divider */
+.divider {
+  border: none;
+  border-top: 2px solid var(--charcoal);
+}
+body.dark .divider { border-color: var(--color-border-dark); }
+
+/* ─── Marquee ──────────────────────────────────────────────── */
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+.marquee-track {
+  animation: marquee 28s linear infinite;
+  display: flex;
+  width: max-content;
+}
+.marquee-track:hover { animation-play-state: paused; }
+
+/* ─── Phone mockup ─────────────────────────────────────────── */
+.phone-frame {
+  background: var(--charcoal);
+  border: 3px solid var(--charcoal);
+  box-shadow: 8px 8px 0 var(--garnet);
+  position: relative;
+  overflow: hidden;
+}
+.phone-frame::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 50%;
+  transform: translateX(-50%);
+  width: 38%; height: 18px;
+  background: var(--charcoal);
+  border-radius: 0 0 10px 10px;
+  z-index: 10;
+}
+
+/* ─── Dark mode card shadow ────────────────────────────────── */
+body.dark .shadow-brutal { box-shadow: 5px 5px 0 var(--garnet); }
+
+/* ─── Accessibility ────────────────────────────────────────── */
+:focus-visible {
+  outline: 2px solid var(--garnet);
+  outline-offset: 3px;
+}
