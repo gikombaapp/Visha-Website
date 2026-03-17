@@ -1,1 +1,271 @@
 @import "tailwindcss";
+
+@theme {
+  /* 
+    Our brand colors - I mapped these from your original CSS variables
+    to keep things consistent across the site 
+  */
+  --color-garnet: #6B0005;
+  --color-garnet-dark: #4A0003;
+  --color-garnet-soft: #8B1A1F;
+  
+  --color-charcoal: #25291C;
+  --color-charcoal-soft: #3A3F2E;
+  
+  --color-alabaster: #E6E1DE;
+  --color-alabaster-dark: #CFC9C5;
+  
+  --color-cream: #F7F4F1;
+  --color-white: #FFFFFF;
+
+  /* 
+    Semantic aliases - I use these in the markup so we can 
+    switch between light/dark modes easily 
+  */
+  --color-surface: var(--color-cream);
+  --color-surface-dark: var(--color-charcoal);
+  --color-card: var(--color-white);
+  --color-card-dark: #2F3422;
+  
+  --color-ink: var(--color-charcoal);
+  --color-ink-dark: var(--color-alabaster);
+  --color-ink-muted: #5A5F4E;
+  --color-ink-muted-dark: #9A9F8E;
+
+  /* 
+    Typography - keeping Syne for headings and DM Sans for body text
+    as per your original design 
+  */
+  --font-display: 'Syne', sans-serif;
+  --font-body: 'DM Sans', sans-serif;
+
+  /* 
+    Spacing scale - I kept your original px values as rem 
+    so they scale with the root font size 
+  */
+  --spacing-px-mobile: 1.25rem;   /* 20px */
+  --spacing-px-tablet: 2rem;      /* 32px */
+  --spacing-px-desktop: 4rem;     /* 64px */
+}
+
+/* 
+  I use these layer directives to organize my custom utilities.
+  Base = resets and element defaults
+  Components = reusable patterns like cards and buttons
+  Utilities = one-off helper classes
+*/
+
+@layer base {
+  /* 
+    I set up the font families here so they cascade down 
+    without needing to declare them on every element
+  */
+  body {
+    font-family: var(--font-body);
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    line-height: 1.05;
+  }
+}
+
+@layer components {
+  /* 
+    Our brutalist card style - I use this everywhere for consistency.
+    The shadow offset gives it that distinctive "lifted" look.
+  */
+  .card-brutalist {
+    @apply bg-white border-2 border-charcoal shadow-[5px_5px_0_#25291C];
+  }
+  
+  .dark .card-brutalist {
+    @apply bg-[#2F3422] border-charcoal-soft shadow-[5px_5px_0_#6B0005];
+  }
+
+  /* 
+    Primary button - garnet background with the offset shadow.
+    I added the hover transform to keep that tactile feel from your original.
+  */
+  .btn-primary {
+    @apply inline-flex items-center gap-2 px-6 py-3 bg-garnet text-white 
+           border-2 border-charcoal font-display font-bold text-sm uppercase 
+           tracking-wider shadow-[3px_3px_0_#25291C] 
+           transition-transform duration-100 hover:translate-x-0.5 hover:translate-y-0.5 hover:shadow-none;
+  }
+
+  /* 
+    Ghost button for secondary actions - transparent with border.
+    I switch the border color in dark mode so it stays visible.
+  */
+  .btn-ghost {
+    @apply inline-flex items-center gap-2 px-6 py-3 bg-transparent text-charcoal 
+           border-2 border-charcoal font-display font-bold text-sm uppercase 
+           tracking-wider shadow-[3px_3px_0_#25291C]
+           transition-transform duration-100 hover:translate-x-0.5 hover:translate-y-0.5 hover:shadow-none;
+  }
+  
+  .dark .btn-ghost {
+    @apply text-alabaster border-alabaster shadow-[3px_3px_0_#E6E1DE];
+  }
+
+  /* 
+    Alabaster variant - good for dark backgrounds or when you need 
+    a lighter button that still pops
+  */
+  .btn-alabaster {
+    @apply inline-flex items-center gap-2 px-6 py-3 bg-alabaster text-charcoal 
+           border-2 border-charcoal font-display font-bold text-sm uppercase 
+           tracking-wider shadow-[3px_3px_0_#25291C]
+           transition-transform duration-100 hover:translate-x-0.5 hover:translate-y-0.5 hover:shadow-none;
+  }
+
+  /* 
+    Tags/badges - small uppercase labels used for categorization.
+    I kept the tight letter spacing to match your original design.
+  */
+  .tag {
+    @apply inline-block font-display font-bold text-[11px] uppercase tracking-widest 
+           px-3 py-1 border-2 border-charcoal;
+  }
+
+  .tag-garnet {
+    @apply bg-garnet text-white border-garnet-dark;
+  }
+
+  .tag-alabaster {
+    @apply bg-alabaster text-charcoal;
+  }
+
+  .tag-charcoal {
+    @apply bg-charcoal text-alabaster;
+  }
+
+  /* 
+    Form inputs - consistent styling across all text inputs.
+    I added the focus ring color to match our garnet brand color.
+  */
+  .input-brutalist {
+    @apply w-full border-2 border-charcoal bg-white text-charcoal 
+           px-4 py-3.5 font-body text-sm outline-none 
+           transition-colors duration-150 focus:border-garnet 
+           placeholder:text-ink-muted;
+  }
+  
+  .dark .input-brutalist {
+    @apply bg-charcoal-soft text-alabaster border-charcoal-soft;
+  }
+
+  /* 
+    Container with your original padding scale.
+    I use this instead of Tailwind's default container to keep 
+    your specific mobile/tablet/desktop breakpoints.
+  */
+  .container-visha {
+    @apply max-w-7xl mx-auto px-5;
+  }
+  
+  @media (min-width: 640px) {
+    .container-visha {
+      @apply px-8;
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .container-visha {
+      @apply px-16;
+    }
+  }
+
+  /* 
+    Section spacing - consistent vertical padding for page sections.
+    I bumped it up on larger screens like you had in the original.
+  */
+  .section-visha {
+    @apply py-16;
+  }
+  
+  @media (min-width: 1024px) {
+    .section-visha {
+      @apply py-24;
+    }
+  }
+
+  /* 
+    Marquee animation for that scrolling ticker effect.
+    I kept your 28s duration and linear timing.
+  */
+  .marquee-track {
+    @apply flex w-max;
+    animation: marquee 28s linear infinite;
+  }
+  
+  .marquee-track:hover {
+    animation-play-state: paused;
+  }
+
+  /* 
+    Phone mockup frame - used in the hero section.
+    I preserved the notch detail and offset shadow.
+  */
+  .phone-mockup {
+    @apply bg-charcoal border-[3px] border-charcoal shadow-[8px_8px_0_#6B0005] relative overflow-hidden;
+  }
+  
+  .phone-mockup::before {
+    content: '';
+    @apply absolute top-0 left-1/2 -translate-x-1/2 w-[38%] h-[18px] bg-charcoal rounded-b-[10px] z-10;
+  }
+
+  /* 
+    Icon row - for those little material icon + text combos
+    you use throughout the site.
+  */
+  .icon-row {
+    @apply flex items-center gap-2;
+  }
+}
+
+@layer utilities {
+  /* 
+    I use this for screen reader only text - 
+    accessible but visually hidden.
+  */
+  .sr-only {
+    @apply absolute w-px h-px p-0 -m-px overflow-hidden whitespace-nowrap border-0;
+    clip: rect(0, 0, 0, 0);
+  }
+
+  /* 
+    Text shadow utility - sometimes I need a subtle shadow 
+    on light text over images.
+  */
+  .text-shadow {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  }
+
+  /* 
+    Muted text colors that adapt to light/dark mode.
+    I use these for secondary text throughout.
+  */
+  .text-muted {
+    @apply text-ink-muted;
+  }
+  
+  .dark .text-muted {
+    @apply text-ink-muted-dark;
+  }
+}
+
+/* 
+  Keyframe animations - I define these outside the layer 
+  since they're referenced by name in the components.
+*/
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}

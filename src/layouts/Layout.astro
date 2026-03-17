@@ -2,8 +2,8 @@
 // src/layouts/Layout.astro
 import Navbar from '../components/Navbar.astro';
 import Footer from '../components/Footer.astro';
-import '../styles/global.css';
 import '../styles/tailwind.css';
+import '../styles/global.css';
 
 interface Props {
   title: string;
@@ -23,48 +23,39 @@ const canonicalURL = canonical ?? new URL(Astro.url.pathname, Astro.site).href;
 ---
 
 <!doctype html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <title>{title}</title>
-  <meta name="description" content={description} />
-  <meta property="og:title" content={ogTitle ?? title} />
-  <meta property="og:description" content={description} />
-  <meta property="og:type" content="website" />
-  <link rel="canonical" href={canonicalURL} />
-
-  <!-- Fonts preconnect -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-
-  <!-- Dark mode: run before paint to prevent flash -->
-  <script is:inline>
-    (function () {
-      const stored = localStorage.getItem('visha-theme');
-      if (stored === 'dark' || (!stored && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-        document.documentElement.classList.add('dark-pending');
-      }
-    })();
-  </script>
-</head>
-
-<body>
-  <Navbar />
-  <main>
-    <slot />
-  </main>
-  <Footer />
-
-  <script src="/scripts/visha.js" is:inline></script>
-</body>
+<html lang="en" class="scroll-smooth antialiased">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta property="og:title" content={ogTitle ?? title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <link rel="canonical" href={canonicalURL} />
+    
+    <!-- Fonts preconnect -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    
+    <!-- Dark mode: run before paint to prevent flash -->
+    <script is:inline>
+      (function () {
+        const stored = localStorage.getItem('visha-theme');
+        if (stored === 'dark' || (!stored && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+          document.documentElement.classList.add('dark');
+        }
+      })();
+    </script>
+  </head>
+  
+  <body class="bg-cream text-charcoal transition-colors duration-200 dark:bg-charcoal dark:text-alabaster">
+    <Navbar />
+    <main>
+      <slot />
+    </main>
+    <Footer />
+    
+    <script src="/scripts/visha.js" is:inline></script>
+  </body>
 </html>
-
-<style is:global>
-  /* Apply dark class to body (not html, to avoid Tailwind conflicts) */
-  html.dark-pending body { 
-    background-color: #25291C; 
-    color: #E6E1DE; 
-  }
-</style>
