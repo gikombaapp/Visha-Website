@@ -15,21 +15,21 @@ const {
 } = Astro.props;
 ---
 
-<div class="waitlist-wrap" data-waitlist-id={id}>
-  <form class={`waitlist-form ${dark ? 'waitlist-form--dark' : ''}`} novalidate>
+<div class="w-full" data-waitlist-id={id}>
+  <form class={`waitlist-form w-full flex flex-col gap-2.5 ${dark ? 'waitlist-form--dark' : ''}`} novalidate>
     <label for={`waitlist-${id}`} class="sr-only">Email address</label>
     <input
       id={`waitlist-${id}`}
       type="email"
       required
       placeholder={placeholder}
-      class={`input waitlist-input ${dark ? 'waitlist-input--dark' : ''}`}
+      class={`flex-1 ${dark ? 'input-brutalist bg-white border-charcoal text-charcoal placeholder:text-ink-muted' : 'input-brutalist'}`}
     />
-    <button type="submit" class={`btn ${dark ? 'btn-alabaster' : 'btn-primary'}`}>
+    <button type="submit" class={dark ? 'btn-alabaster' : 'btn-primary'}>
       {btnLabel}
     </button>
   </form>
-  <p class="waitlist-success hidden" id={`waitlist-success-${id}`}>
+  <p class="waitlist-success hidden items-center gap-2 font-bold text-[0.9rem] text-garnet py-3" id={`waitlist-success-${id}`}>
     <span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1">check_circle</span>
     You're on the list — we'll be in touch!
   </p>
@@ -49,43 +49,8 @@ const {
 </script>
 
 <style>
-  .waitlist-wrap { width: 100%; }
-  .waitlist-form {
-    display: flex;
-    flex-direction: column;
-    gap: 0.625rem;
-    width: 100%;
-  }
-  @media (min-width: 480px) { .waitlist-form { flex-direction: row; } }
-
-  .waitlist-input { flex: 1; }
-
-  .waitlist-input--dark {
-    background: var(--white);
-    border-color: var(--charcoal);
-    color: var(--charcoal);
-  }
-
-  .waitlist-success {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    font-weight: 700;
-    font-size: 0.9rem;
-    color: var(--garnet);
-    padding: 0.75rem 0;
-  }
-  .waitlist-success.hidden { display: none; }
-
-  .waitlist-form.hidden { display: none; }
-
-  .sr-only {
-    position: absolute;
-    width: 1px; height: 1px;
-    padding: 0; margin: -1px;
-    overflow: hidden;
-    clip: rect(0,0,0,0);
-    white-space: nowrap;
-    border-width: 0;
-  }
+  /* JS toggles .hidden on these; flex must win when visible */
+  .waitlist-form:not(.hidden) { display: flex; }
+  @media (min-width: 480px) { .waitlist-form:not(.hidden) { flex-direction: row; } }
+  .waitlist-success:not(.hidden) { display: flex; }
 </style>

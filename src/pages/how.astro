@@ -11,25 +11,29 @@ import WaitlistForm from '../components/WaitlistForm.astro';
 >
 
   <!-- Hero -->
-  <section class="section container text-center how-hero" aria-labelledby="how-heading">
+  <section class="section-visha container-visha flex flex-col items-center gap-5 text-center pb-10" aria-labelledby="how-heading">
     <span class="tag tag-garnet">The App Guide</span>
-    <h1 id="how-heading" class="how-h1">
+    <h1 id="how-heading" class="text-[clamp(2rem,5vw,3.5rem)] font-extrabold text-charcoal dark:text-alabaster max-w-[20ch]">
       Buy and sell in Kenya —<br />
-      <span class="how-highlight">from your phone.</span>
+      <span class="highlight">from your phone.</span>
     </h1>
-    <p class="how-intro">
+    <p class="text-base text-ink-muted dark:text-ink-muted-dark max-w-[55ch] leading-[1.7]">
       Whether you're a Gikomba vendor moving stock digitally, or a buyer hunting vintage gems — here's how visha works.
     </p>
   </section>
 
   <!-- Tab toggle -->
-  <div class="tabs-wrap" role="tablist" aria-label="Switch between seller and buyer view">
-    <div class="tabs-inner">
-      <button id="tab-sellers" role="tab" aria-selected="true" class="tab tab--active" onclick="switchTab('sellers')">
+  <div class="flex justify-center px-5 mb-14" role="tablist" aria-label="Switch between seller and buyer view">
+    <div class="bg-white border-2 border-charcoal shadow-[3px_3px_0_#28231E] flex p-1.5 gap-2 dark:bg-card-dark dark:border-warm-dusk">
+      <button id="tab-sellers" role="tab" aria-selected="true"
+        class="tab inline-flex items-center gap-2 px-6 py-3 font-display font-bold text-sm cursor-pointer border-none bg-garnet text-white transition-all duration-150"
+        onclick="switchTab('sellers')">
         <span class="material-symbols-outlined" style="font-size:18px">storefront</span>
         For Sellers
       </button>
-      <button id="tab-buyers" role="tab" aria-selected="false" class="tab" onclick="switchTab('buyers')">
+      <button id="tab-buyers" role="tab" aria-selected="false"
+        class="tab inline-flex items-center gap-2 px-6 py-3 font-display font-bold text-sm cursor-pointer border-none bg-transparent text-ink-muted transition-all duration-150 hover:text-charcoal dark:text-ink-muted-dark dark:hover:text-alabaster"
+        onclick="switchTab('buyers')">
         <span class="material-symbols-outlined" style="font-size:18px">shopping_cart</span>
         For Buyers
       </button>
@@ -37,44 +41,38 @@ import WaitlistForm from '../components/WaitlistForm.astro';
   </div>
 
   <!-- Seller steps -->
-  <div id="panel-sellers" class="steps-panel container" role="tabpanel">
-    <div class="how-grid">
+  <div id="panel-sellers" class="container-visha pb-16" role="tabpanel">
+    <div class="grid gap-6 lg:grid-cols-3">
 
-      <article class="how-step card">
-        <div class="how-step-num" aria-hidden="true">1</div>
-        <div class="step-icon-lg step-icon-lg--garnet">
-          <span class="material-symbols-outlined">add_a_photo</span>
-        </div>
-        <h3 class="how-step-title">Snap &amp; List</h3>
-        <p class="how-step-body">Open the app, tap the + button, take a few photos, add a description and price. Your listing is live in under 60 seconds.</p>
-        <div class="how-step-img" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAp-mOFFU8CaBlYmoTKEK4aDoKcWX6tr6fM7avfCrmSVEyfHeZDJp1iFR91qQI0gd8ryffgeVDO3TzIPM8sl1KfQzw-nFaTXHmzlXo8jQYPlajLPAqy5aVG9V6cMD8A1mcGa7xCsk25tlpcp6ehay0WP3DEFSFZybKnkHlQOskbhDPezhitci98SX75O0tVxmgfBf_L0cWEPDXkC6AA8flhiB2ygwdRSaeuwxi4KPMIYWcHGglbiRQQGmxTJQIwPEIYFnj5TT02kgg")' role="img" aria-label="Listing an item on visha"></div>
+      <article class="card-brutalist p-7 flex flex-col gap-4 relative">
+        <div class="font-display text-[5rem] font-extrabold text-alabaster dark:text-warm-dusk leading-none absolute top-[-1rem] left-[-0.5rem] select-none pointer-events-none">1</div>
+        <div class="icon-box icon-box--garnet w-16 h-16 hover:rotate-[-3deg] transition-transform duration-200"><span class="material-symbols-outlined" style="font-size:1.75rem">add_a_photo</span></div>
+        <h3 class="font-display text-[1.375rem] font-bold text-charcoal dark:text-alabaster">Snap &amp; List</h3>
+        <p class="text-sm text-ink-muted dark:text-ink-muted-dark leading-[1.65]">Open the app, tap the + button, take a few photos, add a description and price. Your listing is live in under 60 seconds.</p>
+        <div class="mt-auto w-full aspect-video bg-cover bg-center border-2 border-charcoal" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAp-mOFFU8CaBlYmoTKEK4aDoKcWX6tr6fM7avfCrmSVEyfHeZDJp1iFR91qQI0gd8ryffgeVDO3TzIPM8sl1KfQzw-nFaTXHmzlXo8jQYPlajLPAqy5aVG9V6cMD8A1mcGa7xCsk25tlpcp6ehay0WP3DEFSFZybKnkHlQOskbhDPezhitci98SX75O0tVxmgfBf_L0cWEPDXkC6AA8flhiB2ygwdRSaeuwxi4KPMIYWcHGglbiRQQGmxTJQIwPEIYFnj5TT02kgg")' role="img" aria-label="Listing an item on visha"></div>
       </article>
 
-      <article class="how-step card">
-        <div class="how-step-num" aria-hidden="true">2</div>
-        <div class="step-icon-lg step-icon-lg--alabaster">
-          <span class="material-symbols-outlined">forum</span>
-        </div>
-        <h3 class="how-step-title">Chat &amp; Negotiate</h3>
-        <p class="how-step-body">Buyers message you directly. Discuss price, condition, and pick-up — without sharing your personal number.</p>
-        <div class="chat-demo">
-          <div class="chat-bubble chat-bubble--in">Is this still available?</div>
-          <div class="chat-bubble chat-bubble--out">Yes! Great condition 👌</div>
-          <div class="chat-bubble chat-bubble--in">Can we meet in CBD?</div>
+      <article class="card-brutalist p-7 flex flex-col gap-4 relative">
+        <div class="font-display text-[5rem] font-extrabold text-alabaster dark:text-warm-dusk leading-none absolute top-[-1rem] left-[-0.5rem] select-none pointer-events-none">2</div>
+        <div class="icon-box icon-box--alabaster w-16 h-16 hover:rotate-[-3deg] transition-transform duration-200"><span class="material-symbols-outlined" style="font-size:1.75rem">forum</span></div>
+        <h3 class="font-display text-[1.375rem] font-bold text-charcoal dark:text-alabaster">Chat &amp; Negotiate</h3>
+        <p class="text-sm text-ink-muted dark:text-ink-muted-dark leading-[1.65]">Buyers message you directly. Discuss price, condition, and pick-up — without sharing your personal number.</p>
+        <div class="mt-auto bg-parchment border-2 border-charcoal p-4 flex flex-col gap-2 dark:bg-warm-dusk">
+          <div class="bg-garnet text-white self-start px-3 py-1.5 text-xs font-bold max-w-[80%]">Is this still available?</div>
+          <div class="bg-alabaster text-charcoal self-end px-3 py-1.5 text-xs font-bold max-w-[80%]">Yes! Great condition 👌</div>
+          <div class="bg-garnet text-white self-start px-3 py-1.5 text-xs font-bold max-w-[80%]">Can we meet in CBD?</div>
         </div>
       </article>
 
-      <article class="how-step card">
-        <div class="how-step-num" aria-hidden="true">3</div>
-        <div class="step-icon-lg step-icon-lg--garnet">
-          <span class="material-symbols-outlined">payments</span>
-        </div>
-        <h3 class="how-step-title">Get Paid via M-Pesa</h3>
-        <p class="how-step-body">The buyer pays via M-Pesa inside the app. Funds are held safely until delivery is confirmed — then released to your wallet.</p>
-        <div class="payment-demo">
-          <span class="material-symbols-outlined pay-icon" style="font-variation-settings:'FILL' 1">verified_user</span>
-          <p class="pay-text">Payment confirmed ✓</p>
-          <p class="pay-sub">Funds released to your M-Pesa</p>
+      <article class="card-brutalist p-7 flex flex-col gap-4 relative">
+        <div class="font-display text-[5rem] font-extrabold text-alabaster dark:text-warm-dusk leading-none absolute top-[-1rem] left-[-0.5rem] select-none pointer-events-none">3</div>
+        <div class="icon-box icon-box--garnet w-16 h-16 hover:rotate-[-3deg] transition-transform duration-200"><span class="material-symbols-outlined" style="font-size:1.75rem">payments</span></div>
+        <h3 class="font-display text-[1.375rem] font-bold text-charcoal dark:text-alabaster">Get Paid via M-Pesa</h3>
+        <p class="text-sm text-ink-muted dark:text-ink-muted-dark leading-[1.65]">The buyer pays via M-Pesa inside the app. Funds are held safely until delivery is confirmed — then released to your wallet.</p>
+        <div class="mt-auto bg-parchment border-2 border-charcoal p-5 flex flex-col items-center gap-2 aspect-video justify-center dark:bg-warm-dusk">
+          <span class="material-symbols-outlined text-garnet" style="font-size:2.5rem;font-variation-settings:'FILL' 1">verified_user</span>
+          <p class="text-[0.8125rem] font-bold text-charcoal dark:text-alabaster">Payment confirmed ✓</p>
+          <p class="text-[0.6875rem] text-ink-muted">Funds released to your M-Pesa</p>
         </div>
       </article>
 
@@ -82,72 +80,68 @@ import WaitlistForm from '../components/WaitlistForm.astro';
   </div>
 
   <!-- Buyer steps -->
-  <div id="panel-buyers" class="steps-panel container hidden" role="tabpanel">
-    <div class="how-grid">
+  <div id="panel-buyers" class="container-visha pb-16 hidden" role="tabpanel">
+    <div class="grid gap-6 lg:grid-cols-3">
 
-      <article class="how-step card">
-        <div class="how-step-num" aria-hidden="true">1</div>
-        <div class="step-icon-lg step-icon-lg--garnet">
-          <span class="material-symbols-outlined">search</span>
-        </div>
-        <h3 class="how-step-title">Browse &amp; Discover</h3>
-        <p class="how-step-body">Search by category, style, or location. Filter by price and size. Save favourites and get notified when similar items drop.</p>
+      <article class="card-brutalist p-7 flex flex-col gap-4 relative">
+        <div class="font-display text-[5rem] font-extrabold text-alabaster dark:text-warm-dusk leading-none absolute top-[-1rem] left-[-0.5rem] select-none pointer-events-none">1</div>
+        <div class="icon-box icon-box--garnet w-16 h-16"><span class="material-symbols-outlined" style="font-size:1.75rem">search</span></div>
+        <h3 class="font-display text-[1.375rem] font-bold text-charcoal dark:text-alabaster">Browse &amp; Discover</h3>
+        <p class="text-sm text-ink-muted dark:text-ink-muted-dark leading-[1.65]">Search by category, style, or location. Filter by price and size. Save favourites and get notified when similar items drop.</p>
       </article>
 
-      <article class="how-step card">
-        <div class="how-step-num" aria-hidden="true">2</div>
-        <div class="step-icon-lg step-icon-lg--alabaster">
-          <span class="material-symbols-outlined">forum</span>
-        </div>
-        <h3 class="how-step-title">Message the Seller</h3>
-        <p class="how-step-body">Ask about size, condition, or arrange a local meetup — all inside the app. No numbers shared.</p>
+      <article class="card-brutalist p-7 flex flex-col gap-4 relative">
+        <div class="font-display text-[5rem] font-extrabold text-alabaster dark:text-warm-dusk leading-none absolute top-[-1rem] left-[-0.5rem] select-none pointer-events-none">2</div>
+        <div class="icon-box icon-box--alabaster w-16 h-16"><span class="material-symbols-outlined" style="font-size:1.75rem">forum</span></div>
+        <h3 class="font-display text-[1.375rem] font-bold text-charcoal dark:text-alabaster">Message the Seller</h3>
+        <p class="text-sm text-ink-muted dark:text-ink-muted-dark leading-[1.65]">Ask about size, condition, or arrange a local meetup — all inside the app. No numbers shared.</p>
       </article>
 
-      <article class="how-step card">
-        <div class="how-step-num" aria-hidden="true">3</div>
-        <div class="step-icon-lg step-icon-lg--garnet">
-          <span class="material-symbols-outlined">payments</span>
-        </div>
-        <h3 class="how-step-title">Pay with M-Pesa</h3>
-        <p class="how-step-body">Checkout with M-Pesa in one tap. Your money is held securely until you confirm the item arrived as described.</p>
+      <article class="card-brutalist p-7 flex flex-col gap-4 relative">
+        <div class="font-display text-[5rem] font-extrabold text-alabaster dark:text-warm-dusk leading-none absolute top-[-1rem] left-[-0.5rem] select-none pointer-events-none">3</div>
+        <div class="icon-box icon-box--garnet w-16 h-16"><span class="material-symbols-outlined" style="font-size:1.75rem">payments</span></div>
+        <h3 class="font-display text-[1.375rem] font-bold text-charcoal dark:text-alabaster">Pay with M-Pesa</h3>
+        <p class="text-sm text-ink-muted dark:text-ink-muted-dark leading-[1.65]">Checkout with M-Pesa in one tap. Your money is held securely until you confirm the item arrived as described.</p>
       </article>
 
     </div>
   </div>
 
   <!-- Trust bar -->
-  <section class="trust-bar" aria-label="Trust indicators">
-    <div class="container trust-grid">
-      <div class="trust-item">
-        <span class="material-symbols-outlined trust-icon">shield</span>
+  <section class="bg-charcoal border-y-2 border-charcoal py-10" aria-label="Trust indicators">
+    <div class="container-visha grid gap-6 sm:grid-cols-3">
+      <div class="flex items-center gap-4">
+        <span class="material-symbols-outlined text-garnet shrink-0" style="font-size:2.25rem">shield</span>
         <div>
-          <p class="trust-title">Verified Sellers</p>
-          <p class="trust-body">ID-checked, community rated</p>
+          <p class="font-bold text-alabaster text-[0.9375rem]">Verified Sellers</p>
+          <p class="text-[0.8125rem] text-alabaster/60 mt-0.5">ID-checked, community rated</p>
         </div>
       </div>
-      <div class="trust-item">
-        <span class="material-symbols-outlined trust-icon">payments</span>
+      <div class="flex items-center gap-4">
+        <span class="material-symbols-outlined text-garnet shrink-0" style="font-size:2.25rem">payments</span>
         <div>
-          <p class="trust-title">Escrow Payments</p>
-          <p class="trust-body">Your money is always protected</p>
+          <p class="font-bold text-alabaster text-[0.9375rem]">Escrow Payments</p>
+          <p class="text-[0.8125rem] text-alabaster/60 mt-0.5">Your money is always protected</p>
         </div>
       </div>
-      <div class="trust-item">
-        <span class="material-symbols-outlined trust-icon">support_agent</span>
+      <div class="flex items-center gap-4">
+        <span class="material-symbols-outlined text-garnet shrink-0" style="font-size:2.25rem">support_agent</span>
         <div>
-          <p class="trust-title">Nairobi Support</p>
-          <p class="trust-body">Real people, fast responses</p>
+          <p class="font-bold text-alabaster text-[0.9375rem]">Nairobi Support</p>
+          <p class="text-[0.8125rem] text-alabaster/60 mt-0.5">Real people, fast responses</p>
         </div>
       </div>
     </div>
   </section>
 
   <!-- CTA -->
-  <section class="cta-section" aria-labelledby="how-cta">
-    <div class="container cta-inner">
-      <h2 id="how-cta" class="cta-title">Ready to start?</h2>
-      <p class="cta-body">Sign up for early access and be among the first to buy and sell on visha in Nairobi.</p>
-      <WaitlistForm id="how" dark={true} />
+  <section class="bg-garnet border-t-2 border-charcoal py-16 pb-20" aria-labelledby="how-cta">
+    <div class="container-visha flex flex-col items-center text-center gap-5">
+      <h2 id="how-cta" class="text-[clamp(1.75rem,4vw,3rem)] font-extrabold text-white">Ready to start?</h2>
+      <p class="text-base text-alabaster/80 max-w-[42ch]">Sign up for early access and be among the first to buy and sell on visha in Nairobi.</p>
+      <div class="max-w-[28rem] w-full [&_.waitlist-success]:text-alabaster">
+        <WaitlistForm id="how" dark={true} />
+      </div>
     </div>
   </section>
 
@@ -162,110 +156,17 @@ import WaitlistForm from '../components/WaitlistForm.astro';
 
     if (tab === 'sellers') {
       sellers.classList.remove('hidden'); buyers.classList.add('hidden');
-      btnS.classList.add('tab--active'); btnS.setAttribute('aria-selected','true');
-      btnB.classList.remove('tab--active'); btnB.setAttribute('aria-selected','false');
+      btnS.classList.add('!bg-garnet', '!text-white'); btnS.classList.remove('bg-transparent', 'text-ink-muted');
+      btnB.classList.remove('!bg-garnet', '!text-white'); btnB.classList.add('bg-transparent', 'text-ink-muted');
+      btnS.setAttribute('aria-selected','true');
+      btnB.setAttribute('aria-selected','false');
     } else {
       buyers.classList.remove('hidden'); sellers.classList.add('hidden');
-      btnB.classList.add('tab--active'); btnB.setAttribute('aria-selected','true');
-      btnS.classList.remove('tab--active'); btnS.setAttribute('aria-selected','false');
+      btnB.classList.add('!bg-garnet', '!text-white'); btnB.classList.remove('bg-transparent', 'text-ink-muted');
+      btnS.classList.remove('!bg-garnet', '!text-white'); btnS.classList.add('bg-transparent', 'text-ink-muted');
+      btnB.setAttribute('aria-selected','true');
+      btnS.setAttribute('aria-selected','false');
     }
   }
   (window as any).switchTab = switchTab;
 </script>
-
-<style>
-  .how-hero { display: flex; flex-direction: column; align-items: center; gap: 1.25rem; padding-bottom: 2.5rem; }
-  .how-h1   { font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 800; color: var(--charcoal); max-width: 20ch; }
-  body.dark .how-h1 { color: var(--alabaster); }
-  .how-highlight { background: var(--garnet); color: var(--white); padding: 0 0.25em; }
-  .how-intro { font-size: 1rem; color: var(--color-ink-muted); max-width: 55ch; line-height: 1.7; }
-  body.dark .how-intro { color: var(--color-ink-muted-dark); }
-
-  .tabs-wrap { display: flex; justify-content: center; padding-inline: 1.25rem; margin-bottom: 3.5rem; }
-  .tabs-inner { background: var(--white); border: 2px solid var(--charcoal); box-shadow: var(--shadow-sm); display: flex; padding: 0.375rem; gap: 0.5rem; }
-  body.dark .tabs-inner { background: var(--color-surface-card-dark); border-color: var(--charcoal-soft); }
-
-  .tab {
-    display: inline-flex; align-items: center; gap: 0.5rem;
-    padding: 0.75rem 1.5rem;
-    font-family: var(--font-display); font-weight: 700; font-size: 0.875rem;
-    color: var(--color-ink-muted);
-    cursor: pointer; background: transparent; border: none;
-    transition: all 0.15s;
-  }
-  body.dark .tab { color: var(--color-ink-muted-dark); }
-  .tab:hover { color: var(--charcoal); }
-  body.dark .tab:hover { color: var(--alabaster); }
-  .tab--active { background: var(--garnet); color: var(--white) !important; }
-
-  .steps-panel { padding-bottom: 4rem; }
-  .steps-panel.hidden { display: none; }
-
-  .how-grid { display: grid; gap: 1.5rem; }
-  @media (min-width: 1024px) { .how-grid { grid-template-columns: repeat(3, 1fr); } }
-
-  .how-step { padding: 1.75rem; display: flex; flex-direction: column; gap: 1rem; position: relative; }
-
-  .how-step-num {
-    font-family: var(--font-display); font-size: 5rem; font-weight: 800;
-    color: var(--alabaster); line-height: 1;
-    position: absolute; top: -1rem; left: -0.5rem;
-    user-select: none; pointer-events: none;
-  }
-  body.dark .how-step-num { color: var(--charcoal-soft); }
-
-  .step-icon-lg {
-    width: 4rem; height: 4rem;
-    border: 2px solid var(--charcoal);
-    display: flex; align-items: center; justify-content: center;
-    transition: transform 0.2s;
-  }
-  .how-step:hover .step-icon-lg { transform: rotate(-3deg); }
-  .step-icon-lg .material-symbols-outlined { font-size: 1.75rem; }
-  .step-icon-lg--garnet   { background: var(--garnet);   color: var(--white);    border-color: var(--garnet-dark); }
-  .step-icon-lg--alabaster { background: var(--alabaster); color: var(--charcoal); }
-
-  .how-step-title { font-family: var(--font-display); font-size: 1.375rem; font-weight: 700; color: var(--charcoal); }
-  body.dark .how-step-title { color: var(--alabaster); }
-  .how-step-body  { font-size: 0.875rem; color: var(--color-ink-muted); line-height: 1.65; }
-  body.dark .how-step-body { color: var(--color-ink-muted-dark); }
-
-  .how-step-img {
-    margin-top: auto;
-    width: 100%; aspect-ratio: 16/9;
-    background-size: cover; background-position: center;
-    border: 2px solid var(--charcoal);
-  }
-
-  /* Chat demo */
-  .chat-demo { margin-top: auto; display: flex; flex-direction: column; gap: 0.5rem; background: var(--off-white); border: 2px solid var(--charcoal); padding: 1rem; }
-  body.dark .chat-demo { background: var(--charcoal-soft); }
-  .chat-bubble { padding: 0.4rem 0.75rem; font-size: 0.75rem; font-weight: 700; max-width: 80%; }
-  .chat-bubble--in  { background: var(--garnet); color: var(--white); align-self: flex-start; }
-  .chat-bubble--out { background: var(--alabaster); color: var(--charcoal); align-self: flex-end; }
-
-  /* Payment demo */
-  .payment-demo { margin-top: auto; background: var(--off-white); border: 2px solid var(--charcoal); padding: 1.25rem; display: flex; flex-direction: column; align-items: center; gap: 0.5rem; aspect-ratio: 16/9; justify-content: center; }
-  body.dark .payment-demo { background: var(--charcoal-soft); }
-  .pay-icon { font-size: 2.5rem; color: var(--garnet); }
-  .pay-text { font-size: 0.8125rem; font-weight: 700; color: var(--charcoal); }
-  body.dark .pay-text { color: var(--alabaster); }
-  .pay-sub  { font-size: 0.6875rem; color: var(--color-ink-muted); }
-
-  /* Trust */
-  .trust-bar { background: var(--charcoal); border-top: 2px solid var(--charcoal); border-bottom: 2px solid var(--charcoal); padding-block: 2.5rem; }
-  .trust-grid { display: grid; gap: 1.5rem; }
-  @media (min-width: 640px) { .trust-grid { grid-template-columns: repeat(3, 1fr); } }
-  .trust-item { display: flex; align-items: center; gap: 1rem; }
-  .trust-icon { font-size: 2.25rem; color: var(--garnet); flex-shrink: 0; }
-  .trust-title { font-weight: 700; color: var(--alabaster); font-size: 0.9375rem; }
-  .trust-body  { font-size: 0.8125rem; color: rgba(230,225,222,0.6); margin-top: 0.2rem; }
-
-  /* CTA */
-  .cta-section { background: var(--garnet); border-top: 2px solid var(--charcoal); padding-block: 4rem 5rem; }
-  .cta-inner { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 1.25rem; }
-  .cta-title { font-size: clamp(1.75rem, 4vw, 3rem); font-weight: 800; color: var(--white); }
-  .cta-body  { font-size: 1rem; color: rgba(230,225,222,0.8); max-width: 42ch; }
-  .cta-inner :global(.waitlist-wrap) { max-width: 28rem; width: 100%; }
-  .cta-inner :global(.waitlist-success) { color: var(--alabaster); }
-</style>

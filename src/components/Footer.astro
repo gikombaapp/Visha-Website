@@ -2,138 +2,50 @@
 // src/components/Footer.astro
 ---
 
-<footer class="site-footer">
-  <div class="container footer-inner">
+<footer class="border-t-2 border-charcoal bg-white mt-auto dark:bg-card-dark dark:border-warm-dusk">
+  <div class="container-visha grid grid-cols-2 md:grid-cols-[2fr_1fr_1fr] gap-10 py-12">
 
-    <div class="footer-brand">
-      <a href="/" class="footer-logo" aria-label="visha home">
-        <div class="footer-logo-mark">
-          <span class="material-symbols-outlined">local_mall</span>
+    <!-- Brand -->
+    <div class="col-span-2 md:col-span-1">
+      <a href="/" class="inline-flex items-center gap-2 mb-3" aria-label="visha home">
+        <div class="w-7 h-7 bg-garnet border-2 border-charcoal flex items-center justify-center text-white">
+          <span class="material-symbols-outlined" style="font-size:14px">local_mall</span>
         </div>
-        <span class="footer-logo-text">visha</span>
+        <span class="font-display font-extrabold text-[1.1rem] text-charcoal dark:text-alabaster">visha</span>
       </a>
-      <p class="footer-tagline">
+      <p class="text-sm text-ink-muted leading-relaxed max-w-[26ch] dark:text-ink-muted-dark">
         For the collective. Pre-loved fashion in Kenya — M-Pesa ready, community verified.
       </p>
     </div>
 
-    <nav class="footer-nav" aria-label="App links">
-      <h3 class="footer-nav-title">App</h3>
-      <ul>
-        <li><a href="/how">How It Works</a></li>
-        <li><a href="/registration">Join Waitlist</a></li>
-        <li><a href="/community">Community</a></li>
-        <li><a href="/blog">Fashion Blog</a></li>
+    <!-- App links -->
+    <nav aria-label="App links">
+      <h3 class="font-display text-[11px] font-bold uppercase tracking-widest text-charcoal mb-4 dark:text-alabaster">App</h3>
+      <ul class="flex flex-col gap-2.5">
+        <li><a href="/how"          class="text-sm text-ink-muted transition-colors hover:text-garnet dark:text-ink-muted-dark dark:hover:text-alabaster">How It Works</a></li>
+        <li><a href="/registration" class="text-sm text-ink-muted transition-colors hover:text-garnet dark:text-ink-muted-dark dark:hover:text-alabaster">Join Waitlist</a></li>
+        <li><a href="/community"    class="text-sm text-ink-muted transition-colors hover:text-garnet dark:text-ink-muted-dark dark:hover:text-alabaster">Community</a></li>
+        <li><a href="/blog"         class="text-sm text-ink-muted transition-colors hover:text-garnet dark:text-ink-muted-dark dark:hover:text-alabaster">Fashion Blog</a></li>
       </ul>
     </nav>
 
-    <nav class="footer-nav" aria-label="Support links">
-      <h3 class="footer-nav-title">Help</h3>
-      <ul>
-        <li><a href="/support">Support</a></li>
-        <li><a href="/support#faq">FAQ</a></li>
-        <li><a href="#">Privacy Policy</a></li>
-        <li><a href="#">Terms of Service</a></li>
+    <!-- Help links -->
+    <nav aria-label="Support links">
+      <h3 class="font-display text-[11px] font-bold uppercase tracking-widest text-charcoal mb-4 dark:text-alabaster">Help</h3>
+      <ul class="flex flex-col gap-2.5">
+        <li><a href="/support"      class="text-sm text-ink-muted transition-colors hover:text-garnet dark:text-ink-muted-dark dark:hover:text-alabaster">Support</a></li>
+        <li><a href="/support#faq"  class="text-sm text-ink-muted transition-colors hover:text-garnet dark:text-ink-muted-dark dark:hover:text-alabaster">FAQ</a></li>
+        <li><a href="#"             class="text-sm text-ink-muted transition-colors hover:text-garnet dark:text-ink-muted-dark dark:hover:text-alabaster">Privacy Policy</a></li>
+        <li><a href="#"             class="text-sm text-ink-muted transition-colors hover:text-garnet dark:text-ink-muted-dark dark:hover:text-alabaster">Terms of Service</a></li>
       </ul>
     </nav>
 
   </div>
 
-  <div class="footer-bottom">
-    <div class="container footer-bottom-inner">
-      <p>© 2024 visha — for the collective. Built in Nairobi.</p>
+  <!-- Bottom bar -->
+  <div class="border-t border-charcoal/15 py-5 dark:border-alabaster/10">
+    <div class="container-visha flex justify-center">
+      <p class="text-xs text-ink-muted text-center dark:text-ink-muted-dark">© 2024 visha — for the collective. Built in Nairobi.</p>
     </div>
   </div>
 </footer>
-
-<style>
-  .site-footer {
-    border-top: 2px solid var(--charcoal);
-    background: var(--white);
-    margin-top: auto;
-  }
-  body.dark .site-footer {
-    background: var(--color-surface-card-dark);
-    border-color: var(--charcoal-soft);
-  }
-
-  .footer-inner {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 2.5rem;
-    padding-block: 3rem;
-  }
-  @media (min-width: 768px) {
-    .footer-inner { grid-template-columns: 2fr 1fr 1fr; }
-  }
-
-  .footer-brand { grid-column: 1 / -1; }
-  @media (min-width: 768px) { .footer-brand { grid-column: auto; } }
-
-  .footer-logo {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    margin-bottom: 0.75rem;
-  }
-  .footer-logo-mark {
-    width: 1.75rem; height: 1.75rem;
-    background: var(--garnet);
-    border: 2px solid var(--charcoal);
-    display: flex; align-items: center; justify-content: center;
-    color: var(--white);
-  }
-  .footer-logo-mark .material-symbols-outlined { font-size: 14px; }
-  .footer-logo-text {
-    font-family: var(--font-display);
-    font-weight: 800;
-    font-size: 1.1rem;
-    color: var(--charcoal);
-  }
-  body.dark .footer-logo-text { color: var(--alabaster); }
-
-  .footer-tagline {
-    font-size: 0.875rem;
-    color: var(--color-ink-muted);
-    line-height: 1.6;
-    max-width: 26ch;
-  }
-  body.dark .footer-tagline { color: var(--color-ink-muted-dark); }
-
-  .footer-nav-title {
-    font-family: var(--font-display);
-    font-size: 0.6875rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    color: var(--charcoal);
-    margin-bottom: 1rem;
-  }
-  body.dark .footer-nav-title { color: var(--alabaster); }
-
-  .footer-nav ul { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; }
-  .footer-nav a {
-    font-size: 0.875rem;
-    color: var(--color-ink-muted);
-    transition: color 0.15s;
-  }
-  body.dark .footer-nav a { color: var(--color-ink-muted-dark); }
-  .footer-nav a:hover { color: var(--garnet); }
-  body.dark .footer-nav a:hover { color: var(--alabaster); }
-
-  .footer-bottom {
-    border-top: 1px solid rgba(37,41,28,0.15);
-    padding-block: 1.25rem;
-  }
-  body.dark .footer-bottom { border-color: rgba(230,225,222,0.1); }
-  .footer-bottom-inner {
-    display: flex;
-    justify-content: center;
-  }
-  .footer-bottom p {
-    font-size: 0.75rem;
-    color: var(--color-ink-muted);
-    text-align: center;
-  }
-  body.dark .footer-bottom p { color: var(--color-ink-muted-dark); }
-</style>

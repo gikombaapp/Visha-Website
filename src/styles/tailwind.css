@@ -1,271 +1,183 @@
 @import "tailwindcss";
 
+/* Class-based dark mode — targets body.dark (set by visha.js) */
+@variant dark (&:where(.dark, .dark *));
+
 @theme {
-  /* 
-    Our brand colors - I mapped these from your original CSS variables
-    to keep things consistent across the site 
-  */
-  --color-garnet: #6B0005;
-  --color-garnet-dark: #4A0003;
-  --color-garnet-soft: #8B1A1F;
-  
-  --color-charcoal: #25291C;
-  --color-charcoal-soft: #3A3F2E;
-  
-  --color-alabaster: #E6E1DE;
-  --color-alabaster-dark: #CFC9C5;
-  
-  --color-cream: #F7F4F1;
-  --color-white: #FFFFFF;
+  /* ── Updated brand palette ── */
+  --color-garnet:        #6B0005;   /* Primary brand, CTAs */
+  --color-mahogany:      #4A0003;   /* Hover states, shadow offsets */
+  --color-garnet-soft:   #8B1A1F;
 
-  /* 
-    Semantic aliases - I use these in the markup so we can 
-    switch between light/dark modes easily 
-  */
-  --color-surface: var(--color-cream);
-  --color-surface-dark: var(--color-charcoal);
-  --color-card: var(--color-white);
-  --color-card-dark: #2F3422;
-  
-  --color-ink: var(--color-charcoal);
-  --color-ink-dark: var(--color-alabaster);
-  --color-ink-muted: #5A5F4E;
-  --color-ink-muted-dark: #9A9F8E;
+  --color-charcoal:      #28231E;   /* Carbon Black — headings, borders, dark surfaces */
+  --color-warm-dusk:     #3A3530;   /* Dark card bg, muted borders */
 
-  /* 
-    Typography - keeping Syne for headings and DM Sans for body text
-    as per your original design 
-  */
+  --color-alabaster:     #E6E1DE;   /* Light surfaces, backgrounds */
+  --color-alabaster-dark:#CFC9C5;
+
+  --color-parchment:     #F7F4F1;   /* Off-white, card backgrounds */
+  --color-white:         #FFFFFF;
+
+  /* Semantic */
+  --color-ink-muted:     #5A5550;
+  --color-ink-muted-dark:#9A9590;
+  --color-card-dark:     #2A2520;
+
   --font-display: 'Syne', sans-serif;
-  --font-body: 'DM Sans', sans-serif;
-
-  /* 
-    Spacing scale - I kept your original px values as rem 
-    so they scale with the root font size 
-  */
-  --spacing-px-mobile: 1.25rem;   /* 20px */
-  --spacing-px-tablet: 2rem;      /* 32px */
-  --spacing-px-desktop: 4rem;     /* 64px */
+  --font-body:    'DM Sans', sans-serif;
 }
 
-/* 
-  I use these layer directives to organize my custom utilities.
-  Base = resets and element defaults
-  Components = reusable patterns like cards and buttons
-  Utilities = one-off helper classes
-*/
-
 @layer base {
-  /* 
-    I set up the font families here so they cascade down 
-    without needing to declare them on every element
-  */
+  /* Anti-FOUC: dark bg before visha.js transfers class to body */
+  html.dark-pending body {
+    background-color: #28231E;
+    color: #E6E1DE;
+  }
+
   body {
     font-family: var(--font-body);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
-  
+
   h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-display);
     line-height: 1.05;
   }
+
+  a { color: inherit; text-decoration: none; }
+  img { display: block; max-width: 100%; }
+
+  :focus-visible {
+    outline: 2px solid #6B0005;
+    outline-offset: 3px;
+  }
+
+  .material-symbols-outlined {
+    font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    vertical-align: middle;
+    line-height: 1;
+    user-select: none;
+  }
 }
 
 @layer components {
-  /* 
-    Our brutalist card style - I use this everywhere for consistency.
-    The shadow offset gives it that distinctive "lifted" look.
-  */
+  /* ── Layout ── */
+  .container-visha {
+    @apply max-w-7xl mx-auto px-5 sm:px-8 lg:px-16;
+  }
+
+  .section-visha {
+    @apply py-16 lg:py-24;
+  }
+
+  /* ── Shared section text patterns ── */
+  .section-title {
+    @apply text-[clamp(1.75rem,4vw,2.75rem)] font-extrabold leading-tight text-charcoal dark:text-alabaster mb-3;
+  }
+
+  .section-body {
+    @apply text-base text-ink-muted dark:text-ink-muted-dark max-w-[50ch];
+  }
+
+  /* Highlighted span (garnet bg on headings) */
+  .highlight {
+    @apply bg-garnet text-white px-1;
+  }
+
+  /* ── Card ── */
   .card-brutalist {
-    @apply bg-white border-2 border-charcoal shadow-[5px_5px_0_#25291C];
-  }
-  
-  .dark .card-brutalist {
-    @apply bg-[#2F3422] border-charcoal-soft shadow-[5px_5px_0_#6B0005];
+    @apply bg-white border-2 border-charcoal shadow-[5px_5px_0_#28231E]
+           dark:bg-card-dark dark:border-warm-dusk dark:shadow-[5px_5px_0_#6B0005];
   }
 
-  /* 
-    Primary button - garnet background with the offset shadow.
-    I added the hover transform to keep that tactile feel from your original.
-  */
+  /* ── Buttons ── */
   .btn-primary {
-    @apply inline-flex items-center gap-2 px-6 py-3 bg-garnet text-white 
-           border-2 border-charcoal font-display font-bold text-sm uppercase 
-           tracking-wider shadow-[3px_3px_0_#25291C] 
-           transition-transform duration-100 hover:translate-x-0.5 hover:translate-y-0.5 hover:shadow-none;
+    @apply inline-flex items-center gap-2 px-6 py-3
+           bg-garnet text-white border-2 border-charcoal
+           font-display font-bold text-sm uppercase tracking-wider
+           shadow-[3px_3px_0_#28231E] cursor-pointer
+           transition-[transform,box-shadow] duration-100
+           hover:bg-mahogany hover:translate-x-0.5 hover:translate-y-0.5 hover:shadow-none;
   }
 
-  /* 
-    Ghost button for secondary actions - transparent with border.
-    I switch the border color in dark mode so it stays visible.
-  */
   .btn-ghost {
-    @apply inline-flex items-center gap-2 px-6 py-3 bg-transparent text-charcoal 
-           border-2 border-charcoal font-display font-bold text-sm uppercase 
-           tracking-wider shadow-[3px_3px_0_#25291C]
-           transition-transform duration-100 hover:translate-x-0.5 hover:translate-y-0.5 hover:shadow-none;
-  }
-  
-  .dark .btn-ghost {
-    @apply text-alabaster border-alabaster shadow-[3px_3px_0_#E6E1DE];
+    @apply inline-flex items-center gap-2 px-6 py-3
+           bg-transparent text-charcoal border-2 border-charcoal
+           font-display font-bold text-sm uppercase tracking-wider
+           shadow-[3px_3px_0_#28231E] cursor-pointer
+           transition-[transform,box-shadow] duration-100
+           hover:translate-x-0.5 hover:translate-y-0.5 hover:shadow-none
+           dark:text-alabaster dark:border-alabaster dark:shadow-[3px_3px_0_#E6E1DE];
   }
 
-  /* 
-    Alabaster variant - good for dark backgrounds or when you need 
-    a lighter button that still pops
-  */
   .btn-alabaster {
-    @apply inline-flex items-center gap-2 px-6 py-3 bg-alabaster text-charcoal 
-           border-2 border-charcoal font-display font-bold text-sm uppercase 
-           tracking-wider shadow-[3px_3px_0_#25291C]
-           transition-transform duration-100 hover:translate-x-0.5 hover:translate-y-0.5 hover:shadow-none;
+    @apply inline-flex items-center gap-2 px-6 py-3
+           bg-alabaster text-charcoal border-2 border-charcoal
+           font-display font-bold text-sm uppercase tracking-wider
+           shadow-[3px_3px_0_#28231E] cursor-pointer
+           transition-[transform,box-shadow] duration-100
+           hover:translate-x-0.5 hover:translate-y-0.5 hover:shadow-none;
   }
 
-  /* 
-    Tags/badges - small uppercase labels used for categorization.
-    I kept the tight letter spacing to match your original design.
-  */
+  /* ── Tags / badges ── */
   .tag {
-    @apply inline-block font-display font-bold text-[11px] uppercase tracking-widest 
+    @apply inline-block font-display font-bold text-[11px] uppercase tracking-widest
            px-3 py-1 border-2 border-charcoal;
   }
+  .tag-garnet    { @apply bg-garnet text-white border-mahogany; }
+  .tag-alabaster { @apply bg-alabaster text-charcoal; }
+  .tag-charcoal  { @apply bg-charcoal text-alabaster; }
 
-  .tag-garnet {
-    @apply bg-garnet text-white border-garnet-dark;
-  }
-
-  .tag-alabaster {
-    @apply bg-alabaster text-charcoal;
-  }
-
-  .tag-charcoal {
-    @apply bg-charcoal text-alabaster;
-  }
-
-  /* 
-    Form inputs - consistent styling across all text inputs.
-    I added the focus ring color to match our garnet brand color.
-  */
+  /* ── Form input ── */
   .input-brutalist {
-    @apply w-full border-2 border-charcoal bg-white text-charcoal 
-           px-4 py-3.5 font-body text-sm outline-none 
-           transition-colors duration-150 focus:border-garnet 
-           placeholder:text-ink-muted;
-  }
-  
-  .dark .input-brutalist {
-    @apply bg-charcoal-soft text-alabaster border-charcoal-soft;
+    @apply w-full border-2 border-charcoal bg-white text-charcoal
+           px-4 py-3.5 font-body text-sm outline-none
+           transition-colors duration-150 focus:border-garnet
+           placeholder:text-ink-muted
+           dark:bg-warm-dusk dark:text-alabaster dark:border-warm-dusk
+           dark:placeholder:text-ink-muted-dark;
   }
 
-  /* 
-    Container with your original padding scale.
-    I use this instead of Tailwind's default container to keep 
-    your specific mobile/tablet/desktop breakpoints.
-  */
-  .container-visha {
-    @apply max-w-7xl mx-auto px-5;
-  }
-  
-  @media (min-width: 640px) {
-    .container-visha {
-      @apply px-8;
-    }
-  }
-  
-  @media (min-width: 1024px) {
-    .container-visha {
-      @apply px-16;
-    }
-  }
-
-  /* 
-    Section spacing - consistent vertical padding for page sections.
-    I bumped it up on larger screens like you had in the original.
-  */
-  .section-visha {
-    @apply py-16;
-  }
-  
-  @media (min-width: 1024px) {
-    .section-visha {
-      @apply py-24;
-    }
-  }
-
-  /* 
-    Marquee animation for that scrolling ticker effect.
-    I kept your 28s duration and linear timing.
-  */
+  /* ── Marquee ── */
   .marquee-track {
-    @apply flex w-max;
+    display: flex;
+    width: max-content;
     animation: marquee 28s linear infinite;
   }
-  
   .marquee-track:hover {
     animation-play-state: paused;
   }
 
-  /* 
-    Phone mockup frame - used in the hero section.
-    I preserved the notch detail and offset shadow.
-  */
+  /* ── Phone mockup ── */
   .phone-mockup {
     @apply bg-charcoal border-[3px] border-charcoal shadow-[8px_8px_0_#6B0005] relative overflow-hidden;
   }
-  
   .phone-mockup::before {
     content: '';
     @apply absolute top-0 left-1/2 -translate-x-1/2 w-[38%] h-[18px] bg-charcoal rounded-b-[10px] z-10;
   }
 
-  /* 
-    Icon row - for those little material icon + text combos
-    you use throughout the site.
-  */
-  .icon-row {
-    @apply flex items-center gap-2;
+  /* ── Icon box (feature / guide icons) ── */
+  .icon-box {
+    @apply w-11 h-11 border-2 border-charcoal flex items-center justify-center shrink-0;
   }
+  .icon-box--garnet    { @apply bg-garnet text-white border-mahogany; }
+  .icon-box--charcoal  { @apply bg-charcoal text-alabaster; }
+  .icon-box--alabaster { @apply bg-alabaster text-charcoal; }
 }
 
 @layer utilities {
-  /* 
-    I use this for screen reader only text - 
-    accessible but visually hidden.
-  */
   .sr-only {
     @apply absolute w-px h-px p-0 -m-px overflow-hidden whitespace-nowrap border-0;
     clip: rect(0, 0, 0, 0);
   }
-
-  /* 
-    Text shadow utility - sometimes I need a subtle shadow 
-    on light text over images.
-  */
   .text-shadow {
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-  }
-
-  /* 
-    Muted text colors that adapt to light/dark mode.
-    I use these for secondary text throughout.
-  */
-  .text-muted {
-    @apply text-ink-muted;
-  }
-  
-  .dark .text-muted {
-    @apply text-ink-muted-dark;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
   }
 }
 
-/* 
-  Keyframe animations - I define these outside the layer 
-  since they're referenced by name in the components.
-*/
 @keyframes marquee {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(-50%);
-  }
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
 }
