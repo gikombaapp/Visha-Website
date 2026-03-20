@@ -1,10 +1,10 @@
 ---
 // src/components/WaitlistForm.astro
 interface Props {
-  id: string;           // unique id per page (for the success message)
+  id: string;
   placeholder?: string;
   btnLabel?: string;
-  dark?: boolean;       // true = white input for dark backgrounds
+  dark?: boolean;
 }
 
 const {
@@ -16,41 +16,183 @@ const {
 ---
 
 <div class="w-full" data-waitlist-id={id}>
-  <form class={`waitlist-form w-full flex flex-col gap-2.5 ${dark ? 'waitlist-form--dark' : ''}`} novalidate>
-    <label for={`waitlist-${id}`} class="sr-only">Email address</label>
+  <form
+    class={`waitlist-form w-full flex flex-col gap-2.5 ${dark ? 'waitlist-form--dark' : ''}`}
+    novalidate
+  >
+    <label for={`waitlist-name-${id}`} class="sr-only">Full name</label>
     <input
-      id={`waitlist-${id}`}
+      id={`waitlist-name-${id}`}
+      type="text"
+      required
+      placeholder="Your name"
+      class={`flex-1 ${dark ? 'input-brutalist bg-white border-charcoal text-charcoal placeholder:text-ink-muted' : 'input-brutalist'}`}
+    />
+
+    <label for={`waitlist-email-${id}`} class="sr-only">Email address</label>
+    <input
+      id={`waitlist-email-${id}`}
       type="email"
       required
       placeholder={placeholder}
       class={`flex-1 ${dark ? 'input-brutalist bg-white border-charcoal text-charcoal placeholder:text-ink-muted' : 'input-brutalist'}`}
     />
-    <button type="submit" class={dark ? 'btn-alabaster' : 'btn-primary'}>
+
+    <label for={`waitlist-phone-${id}`} class="sr-only">Phone number</label>
+    <input
+      id={`waitlist-phone-${id}`}
+      type="tel"
+      required
+      placeholder="Your phone number"
+      class={`flex-1 ${dark ? 'input-brutalist bg-white border-charcoal text-charcoal placeholder:text-ink-muted' : 'input-brutalist'}`}
+    />
+
+    <button
+      type="submit"
+      data-label={btnLabel}
+      class={dark ? 'btn-alabaster' : 'btn-primary'}
+    >
       {btnLabel}
     </button>
   </form>
-  <p class="waitlist-success hidden items-center gap-2 font-bold text-[0.9rem] text-garnet py-3" id={`waitlist-success-${id}`}>
+
+  <p
+    class="waitlist-success hidden items-center gap-2 font-bold text-[0.9rem] text-garnet py-3"
+    id={`waitlist-success-${id}`}
+  >
     <span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1">check_circle</span>
     You're on the list — we'll be in touch!
+  </p>
+
+  <p
+    class="waitlist-error hidden items-center gap-2 font-bold text-[0.9rem] text-red-500 py-3"
+    id={`waitlist-error-${id}`}
+  >
+    <span class="material-symbols-outlined">error</span>
+    Something went wrong. Please try again.
   </p>
 </div>
 
 <script>
+  import { initializeApp } from 'firebase/app';
+  import {
+    getFirestore,
+    collection,
+    addDoc,
+    serverTimestamp,
+    getDocs,
+    query,
+    where
+  } from 'firebase/firestore';
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyBaRwqAsM52JM-itALada0fK5AESWbwrNY",
+    authDomain: "visha-app-291ec.firebaseapp.com",
+    projectId: "visha-app-291ec",
+    storageBucket: "visha-app-291ec.firebasestorage.app",
+    messagingSenderId: "6236911241",
+    appId: "1:6236911241:web:ab43630faef3e04eaaf858",
+    measurementId: "G-6SWFPN9BH6"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const db = getFirestore(app);
+
   document.querySelectorAll('[data-waitlist-id]').forEach((wrap) => {
     const id = (wrap as HTMLElement).dataset.waitlistId!;
     const form = wrap.querySelector('form')!;
     const success = document.getElementById(`waitlist-success-${id}`)!;
-    form.addEventListener('submit', (e) => {
+    const error = document.getElementById(`waitlist-error-${id}`)!;
+    const btn = form.querySelector('button')! as HTMLButtonElement;
+
+    const nameInput = document.getElementById(`waitlist-name-${id}`) as HTMLInputElement;
+    const emailInput = document.getElementById(`waitlist-email-${id}`) as HTMLInputElement;
+    const phoneInput = document.getElementById(`waitlist-phone-${id}`) as HTMLInputElement;
+
+    // resets button to original label
+    const resetBtn = () => {
+      btn.disabled = false;
+      btn.textContent = btn.dataset.label || 'Join Waitlist';
+    };
+
+    const showError = (msg: string) => {
+      error.textContent = msg;
+      error.classList.remove('hidden');
+    };
+
+    form.addEventListener('submit', async (e) => {
       e.preventDefault();
-      form.classList.add('hidden');
-      success.classList.remove('hidden');
+      error.classList.add('hidden');
+
+      const name = nameInput.value.trim();
+      const email = emailInput.value.trim();
+      const phone = phoneInput.value.trim();
+
+      // validation
+      if (!name || name.length < 2) {
+        showError('Please enter your full name.');
+        return;
+      }
+
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!email || !emailRegex.test(email)) {
+        showError('Please enter a valid email address.');
+        return;
+      }
+
+      const phoneRegex = /^[\+]?[0-9]{9,15}$/;
+      if (!phone || !phoneRegex.test(phone.replace(/\s/g, ''))) {
+        showError('Please enter a valid phone number.');
+        return;
+      }
+
+      // loading state
+      btn.disabled = true;
+      btn.textContent = 'Joining...';
+
+      try {
+        // check duplicates
+        const [emailSnap, phoneSnap] = await Promise.all([
+          getDocs(query(collection(db, 'waitlist'), where('email', '==', email))),
+          getDocs(query(collection(db, 'waitlist'), where('phone', '==', phone)))
+        ]);
+
+        if (!emailSnap.empty) {
+          resetBtn();
+          showError('This email is already on the waitlist!');
+          return;
+        }
+
+        if (!phoneSnap.empty) {
+          resetBtn();
+          showError('This phone number is already on the waitlist!');
+          return;
+        }
+
+        // save to Firestore
+        await addDoc(collection(db, 'waitlist'), {
+          name,
+          email,
+          phone,
+          joinedAt: serverTimestamp(),
+          source: id,
+        });
+
+        form.classList.add('hidden');
+        success.classList.remove('hidden');
+
+      } catch (err) {
+        console.error('Firestore error:', err);
+        resetBtn();
+        showError('Something went wrong. Please try again.');
+      }
     });
   });
 </script>
 
 <style>
-  /* JS toggles .hidden on these; flex must win when visible */
   .waitlist-form:not(.hidden) { display: flex; }
-  @media (min-width: 480px) { .waitlist-form:not(.hidden) { flex-direction: row; } }
+  @media (min-width: 480px) { .waitlist-form:not(.hidden) { flex-direction: column; } }
   .waitlist-success:not(.hidden) { display: flex; }
+  .waitlist-error:not(.hidden) { display: flex; }
 </style>
