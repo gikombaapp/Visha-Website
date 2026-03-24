@@ -18,7 +18,18 @@ const {
   ogTitle,
 } = Astro.props;
 
-const canonicalURL = canonical ?? new URL(Astro.url.pathname, Astro.site).href;
+// Fix: Handle when Astro.site is undefined
+let canonicalURL = canonical;
+if (!canonicalURL) {
+  try {
+    // Use the current URL path or fallback to the base URL
+    const baseUrl = Astro.site ? Astro.site.href : 'http://localhost:4321';
+    canonicalURL = new URL(Astro.url.pathname, baseUrl).href;
+  } catch (e) {
+    // Fallback if URL construction fails
+    canonicalURL = Astro.url.pathname;
+  }
+}
 ---
 
 <!doctype html>
