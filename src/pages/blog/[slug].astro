@@ -1,0 +1,191 @@
+---
+// src/pages/blog/[slug].astro
+import Layout from '../../layouts/Layout.astro';
+---
+
+<Layout title="Blog Post - Visha">
+  <div id="post-container" class="py-12">
+    <div class="container-visha max-w-3xl mx-auto">
+      <!-- Content will be loaded dynamically -->
+      <div class="text-center py-12">
+        <div class="animate-pulse">
+          <div class="h-64 bg-gray-200 rounded w-full mb-6"></div>
+          <div class="h-8 bg-gray-200 rounded w-3/4 mx-auto mb-4"></div>
+          <div class="h-4 bg-gray-200 rounded w-1/2 mx-auto"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</Layout>
+
+<script>
+  import { marked } from 'marked';
+  
+  // Configure marked for better markdown rendering
+  marked.setOptions({
+    breaks: true,
+    gfm: true
+  });
+  
+  function getPostBySlug(slug) {
+    const posts = JSON.parse(localStorage.getItem('visha_blog_posts') || '[]');
+    return posts.find(p => p.slug === slug);
+  }
+  
+  function renderPost() {
+    const slug = window.location.pathname.split('/').pop();
+    const post = getPostBySlug(slug);
+    const container = document.getElementById('post-container');
+    
+    if (!post) {
+      container.innerHTML = `
+        <div class="container-visha max-w-3xl mx-auto text-center py-12">
+          <h1 class="font-display text-3xl font-bold text-charcoal mb-4">Post Not Found</h1>
+          <p class="text-ink-muted mb-6">The blog post you're looking for doesn't exist.</p>
+          <a href="/blog" class="btn-primary inline-flex">Back to Blog</a>
+        </div>
+      `;
+      return;
+    }
+    
+    // Parse markdown content
+    let htmlContent = marked.parse(post.content || '');
+    
+    container.innerHTML = `
+      <article class="max-w-3xl mx-auto">
+        ${post.bannerImage ? `
+          <div class="mb-8 rounded-lg overflow-hidden border-2 border-charcoal dark:border-warm-dusk">
+            <img src="${post.bannerImage}" alt="${escapeHtml(post.title)}" class="w-full">
+          </div>
+        ` : ''}
+        
+        <h1 class="font-display text-4xl font-bold text-charcoal mb-4 dark:text-alabaster">
+          ${escapeHtml(post.title)}
+        </h1>
+        
+        <div class="flex flex-wrap items-center gap-4 text-ink-muted mb-8 pb-4 border-b border-charcoal/20 dark:text-ink-muted-dark">
+          <span>Published: ${formatDate(post.date || post.createdAt)}</span>
+          ${post.author ? `<span>By ${escapeHtml(post.author)}</span>` : ''}
+          ${post.readTime ? `<span>${post.readTime}</span>` : ''}
+          ${post.category ? `<span class="tag tag-charcoal">${escapeHtml(post.category)}</span>` : ''}
+        </div>
+        
+        <div class="prose max-w-none dark:prose-invert markdown-content">
+          ${htmlContent}
+        </div>
+        
+        <div class="mt-12 pt-8 border-t border-charcoal/20 text-center">
+          <a href="/blog" class="inline-flex items-center gap-2 text-garnet hover:gap-3 transition-all">
+            <span class="material-symbols-outlined">arrow_back</span>
+            Back to all posts
+          </a>
+        </div>
+      </article>
+    `;
+  }
+  
+  function formatDate(dateString) {
+    if (!dateString) return 'Recent';
+    const date = new Date(dateString);
+    return date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+  }
+  
+  function escapeHtml(text) {
+    if (!text) return '';
+    const div = document.createElement('div');
+    div.textContent = text;
+    return div.innerHTML;
+  }
+  
+  renderPost();
+</script>
+
+<style is:global>
+  /* Markdown styles to match your design */
+  .markdown-content {
+    font-size: 1.125rem;
+    line-height: 1.7;
+  }
+  
+  .markdown-content h1 {
+    font-size: 2em;
+    margin-top: 1.5em;
+    margin-bottom: 0.5em;
+    font-weight: bold;
+  }
+  
+  .markdown-content h2 {
+    font-size: 1.5em;
+    margin-top: 1.2em;
+    margin-bottom: 0.5em;
+    font-weight: bold;
+  }
+  
+  .markdown-content h3 {
+    font-size: 1.25em;
+    margin-top: 1em;
+    margin-bottom: 0.5em;
+    font-weight: bold;
+  }
+  
+  .markdown-content p {
+    margin-bottom: 1.2em;
+  }
+  
+  .markdown-content ul, 
+  .markdown-content ol {
+    margin-bottom: 1.2em;
+    padding-left: 2em;
+  }
+  
+  .markdown-content li {
+    margin-bottom: 0.5em;
+  }
+  
+  .markdown-content a {
+    color: #B23C1C;
+    text-decoration: underline;
+  }
+  
+  .markdown-content a:hover {
+    text-decoration: none;
+  }
+  
+  .markdown-content blockquote {
+    border-left: 4px solid #B23C1C;
+    padding-left: 1.5em;
+    margin: 1.5em 0;
+    font-style: italic;
+    color: #666;
+  }
+  
+  .markdown-content pre {
+    background: #f4f4f4;
+    padding: 1em;
+    border-radius: 4px;
+    overflow-x: auto;
+    margin-bottom: 1.2em;
+  }
+  
+  .markdown-content code {
+    background: #f4f4f4;
+    padding: 0.2em 0.4em;
+    border-radius: 3px;
+    font-family: monospace;
+    font-size: 0.9em;
+  }
+  
+  .dark .markdown-content pre {
+    background: #2d2d2d;
+    color: #f8f8f2;
+  }
+  
+  .dark .markdown-content code {
+    background: #2d2d2d;
+    color: #f8f8f2;
+  }
+  
+  .dark .markdown-content blockquote {
+    color: #aaa;
+  }
+</style>
