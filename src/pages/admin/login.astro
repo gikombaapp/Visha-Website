@@ -1,0 +1,102 @@
+---
+// src/pages/admin/login.astro
+import Layout from '../../layouts/Layout.astro';
+---
+
+<Layout title="Author Login - Visha Admin">
+  <div class="min-h-[80vh] flex items-center justify-center py-12">
+    <div class="w-full max-w-md">
+      <div class="border-2 border-charcoal bg-white p-8 dark:bg-card-dark dark:border-warm-dusk">
+        <h1 class="font-display text-3xl font-bold text-charcoal mb-2 dark:text-alabaster">Author Login</h1>
+        <p class="text-ink-muted mb-6 dark:text-ink-muted-dark">Sign in to manage blog posts</p>
+        
+        <form id="login-form" class="space-y-4">
+          <div>
+            <label for="username" class="block text-sm font-medium text-charcoal mb-1 dark:text-alabaster">Username</label>
+            <input
+              type="text"
+              id="username"
+              name="username"
+              required
+              class="w-full border-2 border-charcoal px-3 py-2 focus:outline-none focus:border-garnet dark:bg-card-dark dark:border-warm-dusk dark:text-alabaster"
+              placeholder="Enter your username"
+            />
+          </div>
+          
+          <div>
+            <label for="password" class="block text-sm font-medium text-charcoal mb-1 dark:text-alabaster">Password</label>
+            <input
+              type="password"
+              id="password"
+              name="password"
+              required
+              class="w-full border-2 border-charcoal px-3 py-2 focus:outline-none focus:border-garnet dark:bg-card-dark dark:border-warm-dusk dark:text-alabaster"
+              placeholder="Enter your password"
+            />
+          </div>
+          
+          <button
+            type="submit"
+            class="w-full btn-primary justify-center"
+          >
+            Sign In
+          </button>
+        </form>
+        
+        <div id="error-message" class="mt-4 hidden text-red-500 text-sm"></div>
+      </div>
+    </div>
+  </div>
+</Layout>
+
+<script>
+  // Pre-defined authors
+  const AUTHORS = [
+    { username: 'admin', password: 'visha123' },
+    { username: 'editor', password: 'editor456' }
+  ];
+  
+  // Check if already logged in
+  const auth = localStorage.getItem('visha_auth');
+  if (auth) {
+    try {
+      const authData = JSON.parse(auth);
+      if (authData.loggedIn && Date.now() - authData.timestamp < 24 * 60 * 60 * 1000) {
+        // Already logged in, redirect to editor
+        window.location.href = '/admin/blog-editor';
+      }
+    } catch(e) {}
+  }
+  
+  const form = document.getElementById('login-form');
+  const errorDiv = document.getElementById('error-message');
+  
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    
+    const username = document.getElementById('username').value;
+    const password = document.getElementById('password').value;
+    
+    const author = AUTHORS.find(a => a.username === username && a.password === password);
+    
+    if (author) {
+      // Store login session
+      localStorage.setItem('visha_auth', JSON.stringify({
+        username: author.username,
+        loggedIn: true,
+        timestamp: Date.now()
+      }));
+      
+      // Redirect to blog editor
+      window.location.href = '/admin/blog-editor';
+    } else {
+      errorDiv.textContent = 'Invalid username or password';
+      errorDiv.classList.remove('hidden');
+      
+      // Hide error after 3 seconds
+      setTimeout(() => {
+        errorDiv.classList.add('hidden');
+      }, 3000);
+    }
+  });
+</script>
