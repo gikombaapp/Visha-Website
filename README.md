@@ -1,0 +1,197 @@
+# gikomba.app — Visha Website
+
+The marketing and pre-launch website for **gikomba.app**, a mobile-first thrift & vintage marketplace for Nairobi, Kenya. The site introduces the platform, explains how it works, showcases the community, and collects early-access registrations.
+
+---
+
+## What This Is
+
+[gikomba.app](https://gikomba.app) digitises Gikomba Market — Nairobi's famous open-air secondhand market — into a mobile app where vendors can list inventory and buyers can discover pre-loved fashion, pay via M-Pesa, and participate in a community of sustainable fashion enthusiasts.
+
+This repository contains the **static promotional website** (not the app itself). It serves as:
+
+- A landing page / waitlist collection point
+- A "How It Works" guide for buyers and sellers
+- A community feature showcase
+- A fashion editorial blog
+- A help & support hub
+
+---
+
+## Tech Stack
+
+| Layer | Technology |
+|---|---|
+| Markup | HTML5 (plain, no template engine) |
+| Styling | [Tailwind CSS v4](https://tailwindcss.com/) (local build) |
+| JavaScript | Vanilla JS (ES6+) |
+| Fonts | [Google Fonts](https://fonts.google.com/) — Syne (display) · DM Sans (body) |
+| Icons | [Material Symbols Outlined](https://fonts.google.com/icons) |
+| Build | `@tailwindcss/cli` |
+| Config | Astro config present (reserved for future SSG migration) |
+
+There is no backend. The site is a fully static set of HTML files that can be hosted on any CDN or static host (Netlify, Vercel, GitHub Pages, etc.).
+
+---
+
+## Project Structure
+
+```
+Visha-Website/
+├── index.html          # Hero landing page & waitlist signup
+├── how.html            # Seller / buyer "How It Works" guide
+├── community.html      # Community features & cultural positioning
+├── blog.html           # Fashion editorial blog
+├── registration.html   # Early-access waitlist registration form
+├── support.html        # Help centre, FAQ & support topics
+│
+├── gikomba.js          # Shared UI: navbar injection, dark mode, mobile menu
+│
+├── src/
+│   ├── input.css       # Tailwind entry point (@import "tailwindcss")
+│   └── output.css      # Generated stylesheet (committed for zero-build deploys)
+│
+├── robots.txt          # SEO crawl rules
+├── sitemap.xml         # XML sitemap (6 pages)
+│
+├── astro.config.mjs    # Astro configuration (future use)
+└── package.json        # Dependencies & build scripts
+```
+
+---
+
+## Design System
+
+The site uses a bold, geometric aesthetic inspired by Lagos/Nairobi streetwear culture.
+
+| Token | Value | Usage |
+|---|---|---|
+| Primary | `#B5F03A` | CTAs, highlights, active states |
+| Secondary | `#7B4FC4` | Accents, hover states |
+| Accent | `#007A91` | Informational elements |
+| Shadow style | `8px 8px 0 #111` | Cards, buttons, offset borders |
+| Display font | Syne | Headings, display text |
+| Body font | DM Sans | Paragraphs, UI labels |
+
+Dark mode is supported on all pages and is persisted in `localStorage`.
+
+---
+
+## Getting Started
+
+### Prerequisites
+
+- [Node.js](https://nodejs.org/) ≥ 18
+- npm ≥ 9
+
+### Install dependencies
+
+```bash
+npm install
+```
+
+### Development (watch mode)
+
+Compile Tailwind CSS and watch for changes:
+
+```bash
+npm run dev
+```
+
+Then open any HTML file directly in your browser, or use a static file server:
+
+```bash
+npx serve .
+```
+
+### Production build
+
+Compile and minify the stylesheet for production:
+
+```bash
+npm run build
+```
+
+---
+
+## Pages
+
+| File | URL | Purpose |
+|---|---|---|
+| `index.html` | `/` | Hero section, value proposition, waitlist CTA |
+| `how.html` | `/how.html` | Step-by-step seller & buyer flows |
+| `community.html` | `/community.html` | Community benefits, culture, brand story |
+| `blog.html` | `/blog.html` | Fashion editorial content & articles |
+| `registration.html` | `/registration.html` | Waitlist registration form |
+| `support.html` | `/support.html` | Help centre, search, FAQ categories |
+
+---
+
+## What's Working
+
+- ✅ Fully responsive, mobile-first layout on all pages
+- ✅ Dark mode (toggle + `localStorage` persistence)
+- ✅ Shared dynamic navbar (`gikomba.js`) injected on every page
+- ✅ Accessible markup (ARIA labels, semantic HTML5, focus management)
+- ✅ SEO basics (meta tags, Open Graph, canonical links, sitemap, robots.txt)
+- ✅ Interactive tabs on `how.html` (Seller / Buyer flow toggle) and `blog.html`
+
+---
+
+## What Still Needs to Be Done
+
+### Highest Priority
+
+- [ ] **Wire up the waitlist / registration form** — connect to a backend service (e.g. Supabase, Firebase, Mailchimp, Loops) so submitted emails are actually captured
+- [ ] **Replace placeholder blog content** with real editorial articles
+- [ ] **Replace video placeholders** on `how.html` with real demo/walkthrough videos
+
+### Developer Experience
+
+- [ ] **Add a development server** to `package.json` (e.g. `live-server` or Vite) for hot-reload without manual refresh
+- [ ] **Migrate to Astro** for component reuse (the `astro.config.mjs` is already in place) — this would eliminate the copy-pasted navbar HTML currently generated by `gikomba.js`
+- [ ] **Add a linter** (ESLint + Prettier) for consistent code style
+- [ ] **Add end-to-end tests** (Playwright or Cypress) to validate navigation and form flows
+
+### Performance
+
+- [ ] **Self-host fonts** instead of loading from Google Fonts to avoid third-party requests
+- [ ] **Add image optimisation** — current images are external Google Photos URLs; they should be local + compressed WebP/AVIF
+
+### Features
+
+- [ ] **M-Pesa payment integration** in the app (website should reflect this capability more prominently)
+- [ ] **Localisation / i18n** — Swahili language option for Kenyan users
+- [ ] **Accessibility audit** — run axe or Lighthouse and address any remaining issues
+- [ ] **Analytics** — add privacy-respecting analytics (e.g. Plausible, Fathom)
+
+---
+
+## Deployment
+
+The site is a set of static files and can be deployed to any static host with no build step required (the generated `output.css` is committed to the repository).
+
+For a clean production deploy with minified CSS:
+
+```bash
+npm run build
+# Deploy the root directory
+```
+
+Recommended hosts: **Vercel**, **Netlify**, **GitHub Pages**, **Cloudflare Pages**.
+
+---
+
+## Contributing
+
+1. Fork the repository
+2. Create a feature branch: `git checkout -b feat/your-feature`
+3. Make your changes and run `npm run dev` to verify the CSS compiles
+4. Commit using a descriptive message
+5. Open a Pull Request against `main`
+
+---
+
+## License
+
+© gikomba.app. All rights reserved.
