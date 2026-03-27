@@ -48,6 +48,14 @@ function isActive(href: string) {
           {label}
         </a>
       ))}
+      
+      <!-- Admin/Author Login Link - Always visible on desktop -->
+      <a
+        href="/admin/login"
+        class="text-sm font-semibold pb-0.5 border-b-2 border-transparent text-ink-muted hover:text-garnet hover:border-garnet transition-colors duration-150 dark:text-ink-muted-dark dark:hover:text-alabaster"
+      >
+        Author Login
+      </a>
     </nav>
 
     <!-- Actions -->
@@ -98,6 +106,15 @@ function isActive(href: string) {
         {label}
       </a>
     ))}
+    
+    <!-- Admin/Author Login Link in mobile menu -->
+    <a
+      href="/admin/login"
+      class="block text-base font-semibold py-3.5 border-b border-charcoal/10 text-ink-muted hover:text-garnet transition-colors duration-150 dark:border-alabaster/10 dark:text-ink-muted-dark dark:hover:text-alabaster"
+    >
+      Author Login
+    </a>
+    
     <a href="/registration" class="btn-primary mt-3 justify-center">
       Join Waitlist
       <span class="material-symbols-outlined" style="font-size:16px">arrow_forward</span>
