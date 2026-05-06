@@ -2,29 +2,32 @@
 import { getCollection } from 'astro:content';
 
 const posts = await getCollection('blog');
+console.log('Raw posts:', posts.map(p => ({ slug: p.slug, id: p.id, file: p.file })));
 const sortedPosts = posts.sort((a, b) => b.data.pubDate - a.data.pubDate);
 ---
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>The Fashion Edit | gikomba.app</title>
   <link rel="stylesheet" href="/src/styles/global.css">
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
-  <h1>The Fashion <span style="background:#B5F03A; color:#111; padding:0 8px;">Edit</span></h1>
-  
-  <div class="grid">
-    {sortedPosts.map(post => (
-      <div class="post-card">
-        <h2>{post.data.title}</h2>
-        <p>{post.data.description || 'No description available'}</p>
-        <a href={`/blog/${post.slug}`}>Read more →</a>
-      </div>
-    ))}
-  </div>
+  <main class="max-w-4xl mx-auto px-4 py-12">
+    <h1 class="text-4xl md:text-5xl font-display font-bold mb-8">The Fashion <span class="bg-primary px-2 text-black">Edit</span></h1>
+    
+    <div class="grid gap-6">
+      {sortedPosts.map((post) => (
+        <div class="post-card border border-gray-200 dark:border-gray-800 rounded-lg p-6">
+          <h2 class="text-2xl font-bold mb-2">{post.data.title}</h2>
+          <p class="text-gray-600 dark:text-gray-400 mb-4">{post.data.description}</p>
+          <a href={`/blog/${post.id}`}>Read more →</a>
+        </div>
+      ))}
+    </div>
+  </main>
 </body>
 </html>
