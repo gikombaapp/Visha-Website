@@ -64,14 +64,15 @@ const otherPosts = allPosts.filter(p => p.id !== post.id).sort((a, b) => b.data.
     <section>
       <h2 class="text-2xl font-bold mb-6">More from The Fashion Edit</h2>
       <div class="other-posts-grid">
-        {otherPosts.map(other => (
-          <div class="other-post-card">
-            <h3 class="other-post-title">{other.data.title}</h3>
-            <p class="other-post-description">{other.data.description}</p>
-            <a href={`/blog/${other.id}`} class="other-post-link">Read more →</a>
-          </div>
-        ))}
+  {otherPosts.map(other => (
+    <a href={`/blog/${other.id}`} class="block no-underline">
+      <div class="other-post-card">
+        <h3 class="other-post-title">{other.data.title}</h3>
+        <p class="other-post-description">{other.data.description}</p>
       </div>
+    </a>
+  ))}
+</div>
     </section>
   </main>
 </body>
