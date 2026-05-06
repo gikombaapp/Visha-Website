@@ -1,0 +1,399 @@
+---
+// src/pages/registration.astro
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout
+  title="Join visha — Get Early Access"
+  description="Sign up for early access to visha. Be first to buy and sell pre-loved fashion in Nairobi with M-Pesa payments."
+  canonical="https://visha.app/registration"
+>
+
+  <div class="min-h-[calc(100vh-60px)] flex items-center justify-center px-5 py-8 bg-alabaster dark:bg-warm-dusk">
+    <div class="w-full max-w-[56rem] grid border-2 border-charcoal shadow-[8px_8px_0_#28231E] overflow-hidden lg:grid-cols-2">
+
+      <!-- Left panel -->
+      <div class="bg-charcoal p-10 flex flex-col gap-8 text-alabaster">
+        <a href="/" class="inline-flex items-center gap-2.5" aria-label="Back to visha home">
+          <div class="w-9 h-9 bg-garnet border-2 border-alabaster/30 flex items-center justify-center text-white">
+            <span class="material-symbols-outlined" style="font-size:16px">local_mall</span>
+          </div>
+          <div>
+            <span class="font-display font-extrabold text-lg block">visha</span>
+            <span class="text-[0.6rem] uppercase tracking-widest text-alabaster/50 block">for the collective</span>
+          </div>
+        </a>
+
+        <div>
+          <h1 class="text-[clamp(1.75rem,3.5vw,2.5rem)] font-extrabold leading-[1.1] mb-3">Join the<br />Inner Circle</h1>
+          <p class="text-[0.9375rem] text-alabaster/70 leading-[1.65]">Get early access to Kenya's premier thrift app. M-Pesa drops, community events, and founding member perks.</p>
+        </div>
+
+        <ul class="flex flex-col gap-3">
+          <li class="flex items-center gap-3 text-sm text-alabaster/90">
+            <span class="w-[1.625rem] h-[1.625rem] bg-garnet border border-alabaster/20 flex items-center justify-center text-white shrink-0 material-symbols-outlined" style="font-size:14px">check</span>
+            M-Pesa payments built in
+          </li>
+          <li class="flex items-center gap-3 text-sm text-alabaster/90">
+            <span class="w-[1.625rem] h-[1.625rem] bg-garnet border border-alabaster/20 flex items-center justify-center text-white shrink-0 material-symbols-outlined" style="font-size:14px">check</span>
+            Verified seller badge on your profile
+          </li>
+          <li class="flex items-center gap-3 text-sm text-alabaster/90">
+            <span class="w-[1.625rem] h-[1.625rem] bg-garnet border border-alabaster/20 flex items-center justify-center text-white shrink-0 material-symbols-outlined" style="font-size:14px">check</span>
+            Access to Nairobi community events
+          </li>
+          <li class="flex items-center gap-3 text-sm text-alabaster/90">
+            <span class="w-[1.625rem] h-[1.625rem] bg-garnet border border-alabaster/20 flex items-center justify-center text-white shrink-0 material-symbols-outlined" style="font-size:14px">check</span>
+            Founding member badge — exclusive to early signups
+          </li>
+        </ul>
+
+        <div class="mt-auto pt-6 border-t border-alabaster/15 flex items-center gap-2 text-[0.8125rem] text-alabaster/55">
+          <span class="material-symbols-outlined" style="font-size:16px">lock</span>
+          Early access — first come, first served.
+        </div>
+      </div>
+
+      <!-- Right panel: form -->
+      <div class="bg-white p-10 dark:bg-card-dark">
+
+        <div id="form-container">
+          <h2 class="font-display text-2xl font-extrabold text-charcoal dark:text-alabaster mb-1">Create your account</h2>
+          <p class="text-sm text-ink-muted dark:text-ink-muted-dark mb-8">Free forever. No credit card needed.</p>
+
+          <form id="reg-form" class="flex flex-col gap-5" novalidate>
+
+            <div class="flex flex-col gap-1.5">
+              <label for="full-name" class="text-[11px] font-extrabold uppercase tracking-widest text-charcoal dark:text-alabaster">Full Name</label>
+              <div class="relative">
+                <span class="material-symbols-outlined absolute left-3.5 top-1/2 -translate-y-1/2 text-ink-muted pointer-events-none" style="font-size:16px">person</span>
+                <input id="full-name" type="text" name="fullName" autocomplete="name" placeholder="Your full name" required class="input-brutalist pl-11" />
+              </div>
+            </div>
+
+            <div class="flex flex-col gap-1.5">
+              <label for="phone" class="text-[11px] font-extrabold uppercase tracking-widest text-charcoal dark:text-alabaster">Phone (M-Pesa)</label>
+              <div class="relative">
+                <span class="material-symbols-outlined absolute left-3.5 top-1/2 -translate-y-1/2 text-ink-muted pointer-events-none" style="font-size:16px">phone_android</span>
+                <input id="phone" type="tel" name="phone" autocomplete="tel" placeholder="e.g. 0712 345 678" required class="input-brutalist pl-11" />
+              </div>
+            </div>
+
+            <div class="flex flex-col gap-1.5">
+              <label for="email" class="text-[11px] font-extrabold uppercase tracking-widest text-charcoal dark:text-alabaster">Email Address</label>
+              <div class="relative">
+                <span class="material-symbols-outlined absolute left-3.5 top-1/2 -translate-y-1/2 text-ink-muted pointer-events-none" style="font-size:16px">alternate_email</span>
+                <input id="email" type="email" name="email" autocomplete="email" placeholder="email@example.com" required class="input-brutalist pl-11" />
+              </div>
+            </div>
+
+            <div class="flex flex-col gap-1.5">
+              <label for="style" class="text-[11px] font-extrabold uppercase tracking-widest text-charcoal dark:text-alabaster">Your Style</label>
+              <div class="relative">
+                <span class="material-symbols-outlined absolute left-3.5 top-1/2 -translate-y-1/2 text-ink-muted pointer-events-none" style="font-size:16px">style</span>
+                <select id="style" name="style" class="input-brutalist pl-11 pr-11 appearance-none cursor-pointer">
+                  <option value="" disabled selected>Select your vibe</option>
+                  <option value="minimal">Minimalist &amp; Clean</option>
+                  <option value="streetwear">Streetwear &amp; Bold</option>
+                  <option value="luxury">Luxury &amp; Classic</option>
+                  <option value="vibrant">Vibrant &amp; Artistic</option>
+                </select>
+                <span class="material-symbols-outlined absolute right-3.5 top-1/2 -translate-y-1/2 text-ink-muted pointer-events-none" style="font-size:16px">expand_more</span>
+              </div>
+            </div>
+
+            <button type="submit" class="btn-primary w-full justify-center mt-2 text-[0.9375rem] py-4">
+              Secure My Spot
+              <span class="material-symbols-outlined" style="font-size:18px">arrow_forward</span>
+            </button>
+
+          </form>
+
+          <p class="text-xs text-center text-ink-muted dark:text-ink-muted-dark mt-4">
+            By registering you agree to our
+            <a href="#" class="font-bold text-charcoal dark:text-alabaster hover:text-garnet">Terms</a> and
+            <a href="#" class="font-bold text-charcoal dark:text-alabaster hover:text-garnet">Privacy Policy</a>.
+          </p>
+        </div>
+
+        <!-- Success state -->
+        <div id="success-msg" class="hidden flex-col items-center text-center gap-4 py-12">
+          <div class="w-16 h-16 bg-garnet border-2 border-charcoal flex items-center justify-center text-white shadow-[3px_3px_0_#28231E]">
+            <span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1; font-size:2rem">check_circle</span>
+          </div>
+          <h2 class="font-display text-2xl font-extrabold text-charcoal dark:text-alabaster">You're on the list!</h2>
+          <p class="text-sm text-ink-muted dark:text-ink-muted-dark max-w-[28ch] leading-[1.6]">We'll send your early access details to your phone and email as soon as visha launches.</p>
+          <a href="/" class="btn-ghost">Back to home</a>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+</Layout>
+
+<script>
+  document.getElementById('reg-form')?.addEventListener('submit', (e) => {
+    e.preventDefault();
+    document.getElementById('form-container')!.classList.add('hidden');
+    const msg = document.getElementById('success-msg')!;
+    msg.classList.remove('hidden');
+    msg.style.display = 'flex';
+  });
+</script>
+---
+// src/pages/blog.astro
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout
+  title="The Fashion Edit — visha Blog"
+  description="Stories on Kenyan streetwear, vintage treasures, sustainable fashion, and the rise of thrift culture in Nairobi."
+  canonical="https://visha.app/blog"
+>
+
+  <!-- Hero -->
+  <section class="section-visha container-visha pb-8" aria-labelledby="blog-heading">
+    <h1 id="blog-heading" class="text-[clamp(3rem,8vw,5.5rem)] font-extrabold text-charcoal dark:text-alabaster mb-4">The Fashion Edit</h1>
+    <p class="text-[1.0625rem] text-garnet font-semibold max-w-[52ch] leading-[1.65] dark:text-garnet-soft">Exploring the pulse of Kenyan style, vintage treasures, and the rise of sustainable culture in the Green City in the Sun.</p>
+  </section>
+
+  <!-- Categories -->
+  <nav class="container-visha mb-12 border-b-2 border-charcoal overflow-x-auto dark:border-warm-dusk" aria-label="Blog categories">
+    <div class="flex min-w-max">
+      <button data-category="all" class="category-btn block px-6 py-4 text-sm font-bold font-display text-charcoal whitespace-nowrap border-b-[3px] border-garnet dark:text-alabaster">All Posts</button>
+      <button data-category="streetwear" class="category-btn block px-6 py-4 text-sm font-bold font-display text-ink-muted whitespace-nowrap border-b-[3px] border-transparent transition-all hover:text-charcoal dark:text-ink-muted-dark dark:hover:text-alabaster">Streetwear</button>
+      <button data-category="vintage" class="category-btn block px-6 py-4 text-sm font-bold font-display text-ink-muted whitespace-nowrap border-b-[3px] border-transparent transition-all hover:text-charcoal dark:text-ink-muted-dark dark:hover:text-alabaster">Vintage</button>
+      <button data-category="sustainable" class="category-btn block px-6 py-4 text-sm font-bold font-display text-ink-muted whitespace-nowrap border-b-[3px] border-transparent transition-all hover:text-charcoal dark:text-ink-muted-dark dark:hover:text-alabaster">Sustainable</button>
+      <button data-category="local-labels" class="category-btn block px-6 py-4 text-sm font-bold font-display text-ink-muted whitespace-nowrap border-b-[3px] border-transparent transition-all hover:text-charcoal dark:text-ink-muted-dark dark:hover:text-alabaster">Local Labels</button>
+    </div>
+  </nav>
+
+  <!-- Dynamic Posts Grid -->
+  <section class="section-visha container-visha" aria-labelledby="latest-heading">
+    <h2 id="latest-heading" class="font-display text-[1.25rem] font-bold flex items-center gap-2 text-charcoal dark:text-alabaster mb-8">
+      <span class="material-symbols-outlined text-garnet">auto_awesome</span>
+      Latest Stories
+    </h2>
+    <div id="posts-grid" class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      <!-- Posts will be loaded dynamically here -->
+      <div class="col-span-full text-center py-12">
+        <div class="animate-pulse">
+          <div class="h-32 bg-gray-200 rounded w-full mb-4"></div>
+          <div class="h-4 bg-gray-200 rounded w-3/4 mx-auto"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Newsletter (keep as is) -->
+  <section class="bg-charcoal border-t-2 border-charcoal py-16 pb-20" aria-labelledby="newsletter-heading">
+    <div class="container-visha flex flex-col items-center text-center gap-5">
+      <h2 id="newsletter-heading" class="text-[clamp(1.75rem,4vw,2.75rem)] font-extrabold text-alabaster">Stay Ahead of the Curve</h2>
+      <p class="text-base text-alabaster/70 max-w-[40ch]">Join the weekly edit of Nairobi's best style — delivered to your inbox.</p>
+      <form class="newsletter-form flex flex-col gap-2.5 max-w-[26rem] w-full" onsubmit="handleNewsletter(event)">
+        <label for="newsletter-email" class="sr-only">Email address</label>
+        <input id="newsletter-email" type="email" placeholder="Your email address" required class="input-brutalist flex-1" />
+        <button type="submit" class="btn-alabaster">Subscribe</button>
+      </form>
+      <p id="newsletter-success" class="hidden items-center gap-2 font-bold text-alabaster">
+        <span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1">check_circle</span>
+        Welcome to the edit!
+      </p>
+      <p class="text-[11px] text-alabaster/40 uppercase tracking-widest font-semibold">No spam. Only curated inspiration.</p>
+    </div>
+  </section>
+
+</Layout>
+
+<script>
+  import { marked } from 'marked';
+  
+  // Sample posts for demonstration (replace with actual data source)
+  const SAMPLE_POSTS = [
+    {
+      id: "1",
+      title: "Kenyan Streetwear Trends: Beyond the Aesthetic",
+      slug: "kenyan-streetwear-trends",
+      excerpt: "From oversized silhouettes to tribal print fusions, see how Nairobi's youth are redefining modern identity through bold style choices.",
+      content: "Full content here...",
+      category: "streetwear",
+      bannerImage: "https://lh3.googleusercontent.com/aida-public/AB6AXuDoYBiRzrotXyoGqnzmkWO5mJSkvsVeV1wbmZk79_x8gLvxKyUjxG0BZYbsTcJUCP-sVPhklqmr309M0e6ZxzGeS5n52mS8yHAKzos1SkYfRww5aMCkw9COILddSNT4vkQBpFahkjKj5kuhjeq5m3i0euUL5ydL9fD15k6Alf9zTn4eToJ2xAjJIEOpdtVGT47HzKj1l1jhZ0Y1jaXmVHLU5zXKuC2hvnkYvqDOQynmkvGveD69G0N-dWQzL53Am4h5w3L2Eb9HMc8",
+      author: "Wanjiku Kamau",
+      date: "2023-10-12",
+      readTime: "5 min read"
+    },
+    {
+      id: "2",
+      title: "How to Spot Vintage Gems in Gikomba",
+      slug: "vintage-gems-gikomba",
+      excerpt: "The ultimate guide to navigating East Africa's largest open-air market for high-end labels and unique 90s finds.",
+      content: "Full content here...",
+      category: "vintage",
+      bannerImage: "https://lh3.googleusercontent.com/aida-public/AB6AXuDuFfF6kCtk0imm5wS2u1kkKrw7okew5LyYZQMIL3netV50EKxsdcTIbZDy3VTq_9EHW8z0nGqhmtXVSbUnaDuQZ913afYbbKlPiRx6XYKOTgiCfwGBy-ZDZuNj-uKrtSnvzB3VzmpgtRPii89n4hsJPlYPkxjkUNLPMTM_4wa7rvfwFMPul5dEdsTSeeOHWscOIlu2AtG70lKHXyoT6CoZlODevQrpG23G81fZc5UGiRvnekIJBe-53hLe1bXSUH2BfxyYtcR8uuw",
+      author: "James Otieno",
+      date: "2023-10-10",
+      readTime: "7 min read"
+    },
+    {
+      id: "3",
+      title: "Sustainable Fashion in Nairobi",
+      slug: "sustainable-fashion-nairobi",
+      excerpt: "Meet the local designers transforming recycled materials into runway-ready couture, leading the slow fashion movement.",
+      content: "Full content here...",
+      category: "sustainable",
+      bannerImage: "https://lh3.googleusercontent.com/aida-public/AB6AXuDkk77Cd7sm6GaxfJBrehekp7H7wQFIRMfGgtt9lAu2Le4TYBOBDEdGK29jXEgw4zDgL0xC83FjoomwuYiwlhxFmm5TzSmKdNM9zpjYZMfWGXwNzBujHP-Sey2X7RTmEkGTeLq8BUiXgxxUsheBU-9rv9QMBsRkPHLO6v3X4tHReoaoDvVoT1YSDhuJnDXwL-GQvo3Cwj7oGSwfRdV40RKa_ov2YeSyVLnnnzJgKXCXYyRNnxslrCS9e3wSZCpiBuiSncnT-gVsMuo",
+      author: "Njeri Mwangi",
+      date: "2023-10-08",
+      readTime: "6 min read"
+    },
+    {
+      id: "4",
+      title: "The Modern Maasai: Reimagined Patterns",
+      slug: "modern-maasai-patterns",
+      excerpt: "How traditional shuka patterns are finding their way into high-fashion menswear and luxury accessories.",
+      content: "Full content here...",
+      category: "local-labels",
+      bannerImage: "https://lh3.googleusercontent.com/aida-public/AB6AXuD-Yxup1LA46Tbqgcxq4luOkaSjTtvgNRN9-Qzqf-NZ4x8JNBPt-IQc7xj5XyjpguBzkiAAV0Qawlv4BniC6LAPfjqwUqLs5J2_2VW6vY0MCz_iuEJALfe-jGSnJqSjyYjEHIRMaY8vA8UXele0jBI9Tl8Swp4a5I-FtEt5iuB6TU9D5HHOGCaAeEPf2WFyOcsHha4s1IZYr0BIgGWJ-RnlbEj6CUCrYMeDyyvSa1krnQFIO2aAAVzpbhZzcK1n0U_yonSdyabZ1-o",
+      author: "Kwame Asare",
+      date: "2023-10-05",
+      readTime: "4 min read"
+    }
+  ];
+  
+  let currentCategory = 'all';
+  
+  function loadPosts() {
+    // Try to get posts from localStorage first
+    let posts = [];
+    const storedPosts = localStorage.getItem('visha_blog_posts');
+    
+    if (storedPosts && JSON.parse(storedPosts).length > 0) {
+      posts = JSON.parse(storedPosts);
+    } else {
+      // If no stored posts, use sample posts
+      posts = SAMPLE_POSTS;
+      // Optionally save samples to localStorage
+      if (!storedPosts) {
+        localStorage.setItem('visha_blog_posts', JSON.stringify(SAMPLE_POSTS));
+      }
+    }
+    
+    // Filter by category
+    let filteredPosts = posts;
+    if (currentCategory !== 'all') {
+      filteredPosts = posts.filter(post => post.category === currentCategory);
+    }
+    
+    // Sort by date (newest first)
+    filteredPosts.sort((a, b) => new Date(b.date) - new Date(a.date));
+    
+    renderPosts(filteredPosts);
+  }
+  
+  function renderPosts(posts) {
+    const grid = document.getElementById('posts-grid');
+    
+    if (posts.length === 0) {
+      grid.innerHTML = `
+        <div class="col-span-full text-center py-12">
+          <p class="text-ink-muted dark:text-ink-muted-dark">No posts found in this category. Check back soon!</p>
+        </div>
+      `;
+      return;
+    }
+    
+    grid.innerHTML = posts.map(post => `
+      <article class="card-brutalist flex flex-col overflow-hidden">
+        <div class="relative aspect-square overflow-hidden border-b-2 border-charcoal dark:border-warm-dusk">
+          <div class="absolute inset-0 bg-cover bg-center transition-transform duration-500 hover:scale-[1.04]"
+            style='background-image: url("${post.bannerImage || 'https://via.placeholder.com/400x400?text=No+Image'}")'></div>
+          <span class="absolute top-3 left-3 bg-garnet text-white border-2 border-mahogany px-2 py-0.5 text-[11px] font-bold uppercase tracking-[0.07em]">${escapeHtml(post.category || 'Uncategorized')}</span>
+        </div>
+        <div class="p-5 flex-1 flex flex-col gap-2.5">
+          <h3 class="font-display text-[1.0625rem] font-bold text-charcoal dark:text-alabaster leading-[1.25]">
+            <a href="/blog/${post.slug}" class="hover:text-garnet transition-colors">
+              ${escapeHtml(post.title)}
+            </a>
+          </h3>
+          <p class="text-[0.8125rem] text-ink-muted dark:text-ink-muted-dark leading-[1.65] flex-1">${escapeHtml(post.excerpt || post.content.substring(0, 120) + '...')}</p>
+          <footer class="flex items-center justify-between mt-auto pt-3 border-t border-charcoal/10 dark:border-alabaster/10">
+            <div>
+              <time class="text-xs text-ink-muted dark:text-ink-muted-dark" datetime="${post.date}">${formatDate(post.date)}</time>
+              ${post.readTime ? `<span class="text-xs text-ink-muted ml-2">· ${post.readTime}</span>` : ''}
+            </div>
+            <a href="/blog/${post.slug}" class="text-[0.8125rem] font-bold text-garnet inline-flex items-center gap-1 transition-[gap] duration-150 hover:gap-2">
+              Read story 
+              <span class="material-symbols-outlined" style="font-size:15px">north_east</span>
+            </a>
+          </footer>
+        </div>
+      </article>
+    `).join('');
+  }
+  
+  function formatDate(dateString) {
+    const date = new Date(dateString);
+    return date.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+  }
+  
+  function escapeHtml(text) {
+    const div = document.createElement('div');
+    div.textContent = text;
+    return div.innerHTML;
+  }
+  
+  function handleNewsletter(e) {
+    e.preventDefault();
+    const form = e.target;
+    form.classList.add('hidden');
+    const success = document.getElementById('newsletter-success');
+    success.classList.remove('hidden');
+    success.style.display = 'flex';
+  }
+  
+  // Setup category filtering
+  function setupCategoryFilters() {
+    const buttons = document.querySelectorAll('.category-btn');
+    buttons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        // Update active styles
+        buttons.forEach(b => {
+          b.classList.remove('border-garnet', 'text-charcoal');
+          b.classList.add('border-transparent', 'text-ink-muted');
+          if (b.classList.contains('dark')) {
+            b.classList.add('dark:text-ink-muted-dark');
+          }
+        });
+        btn.classList.remove('border-transparent', 'text-ink-muted');
+        btn.classList.add('border-garnet', 'text-charcoal');
+        if (btn.classList.contains('dark')) {
+          btn.classList.remove('dark:text-ink-muted-dark');
+        }
+        
+        // Update current category and reload posts
+        currentCategory = btn.dataset.category;
+        loadPosts();
+      });
+    });
+  }
+  
+  // Initialize
+  window.addEventListener('DOMContentLoaded', () => {
+    loadPosts();
+    setupCategoryFilters();
+  });
+  
+  (window).handleNewsletter = handleNewsletter;
+</script>
+
+<style>
+  /* Newsletter form: flex row on wider screens */
+  .newsletter-form:not(.hidden) { display: flex; }
+  @media (min-width: 480px) { .newsletter-form:not(.hidden) { flex-direction: row; } }
+  
+  /* Category button transitions */
+  .category-btn {
+    transition: all 0.2s ease;
+  }
+</style>
