@@ -9,31 +9,33 @@
 /* ─── Tokens ───────────────────────────────────────────────── */
 :root {
   /* Palette */
-  --garnet:        #6B0005;
-  --garnet-dark:   #4A0003;
-  --garnet-soft:   #8B1A1F;
-  --charcoal:      #25291C;
-  --charcoal-soft: #3A3F2E;
-  --alabaster:     #E6E1DE;
-  --alabaster-dark:#CFC9C5;
+  --garnet:        #7D39EB;
+  --garnet-dark:   #5A1FB8;
+  --garnet-soft:   #C6FF33;
+  --lime:          #C6FF33;
+  --lime-dark:     #A8DB1A;
+  --charcoal:      #000000;
+  --charcoal-soft: #1A1A1A;
+  --alabaster:     #F0F0F0;
+  --alabaster-dark:#D9D9D9;
   --white:         #FFFFFF;
-  --off-white:     #F7F4F1;
+  --off-white:     #FFFFFF;
 
   /* Semantic roles */
   --color-primary:      var(--garnet);
   --color-primary-dark: var(--garnet-dark);
   --color-ink:          var(--charcoal);
-  --color-ink-muted:    #5A5F4E;
+  --color-ink-muted:    #666666;
   --color-surface:      var(--off-white);
   --color-surface-card: var(--white);
   --color-border:       var(--charcoal);
 
   /* Dark mode overrides */
   --color-surface-dark:      var(--charcoal);
-  --color-surface-card-dark: #2F3422;
+  --color-surface-card-dark: #0D0D0D;
   --color-ink-dark:          var(--alabaster);
-  --color-ink-muted-dark:    #9A9F8E;
-  --color-border-dark:       #3A3F2E;
+  --color-ink-muted-dark:    #A0A0A0;
+  --color-border-dark:       #1A1A1A;
 
   /* Typography */
   --font-display: 'Syne', sans-serif;

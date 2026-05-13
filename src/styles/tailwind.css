@@ -5,23 +5,25 @@
 
 @theme {
   /* ── Updated brand palette ── */
-  --color-garnet:        #6B0005;   /* Primary brand, CTAs */
-  --color-mahogany:      #4A0003;   /* Hover states, shadow offsets */
-  --color-garnet-soft:   #8B1A1F;
+  --color-garnet:        #7D39EB;   /* Primary brand (violet), CTAs */
+  --color-mahogany:      #5A1FB8;   /* Hover states, shadow offsets */
+  --color-garnet-soft:   #C6FF33;
+  --color-lime:          #C6FF33;   /* Secondary accent */
+  --color-lime-dark:     #A8DB1A;
 
-  --color-charcoal:      #28231E;   /* Carbon Black — headings, borders, dark surfaces */
-  --color-warm-dusk:     #3A3530;   /* Dark card bg, muted borders */
+  --color-charcoal:      #000000;   /* Carbon Black — headings, borders, dark surfaces */
+  --color-warm-dusk:     #1A1A1A;   /* Dark card bg, muted borders */
 
-  --color-alabaster:     #E6E1DE;   /* Light surfaces, backgrounds */
-  --color-alabaster-dark:#CFC9C5;
+  --color-alabaster:     #F0F0F0;   /* Light surfaces, backgrounds */
+  --color-alabaster-dark:#D9D9D9;
 
-  --color-parchment:     #F7F4F1;   /* Off-white, card backgrounds */
+  --color-parchment:     #FFFFFF;   /* Off-white, card backgrounds */
   --color-white:         #FFFFFF;
 
   /* Semantic */
-  --color-ink-muted:     #5A5550;
-  --color-ink-muted-dark:#9A9590;
-  --color-card-dark:     #2A2520;
+  --color-ink-muted:     #666666;
+  --color-ink-muted-dark:#A0A0A0;
+  --color-card-dark:     #0D0D0D;
 
   --font-display: 'Syne', sans-serif;
   --font-body:    'DM Sans', sans-serif;
@@ -30,8 +32,8 @@
 @layer base {
   /* Anti-FOUC: dark bg before visha.js transfers class to body */
   html.dark-pending body {
-    background-color: #28231E;
-    color: #E6E1DE;
+    background-color: #000000;
+    color: #F0F0F0;
   }
 
   body {
@@ -49,7 +51,7 @@
   img { display: block; max-width: 100%; }
 
   :focus-visible {
-    outline: 2px solid #6B0005;
+    outline: 2px solid #7D39EB;
     outline-offset: 3px;
   }
 
@@ -82,13 +84,13 @@
 
   /* Highlighted span (garnet bg on headings) */
   .highlight {
-    @apply bg-garnet text-white px-1;
+    @apply bg-lime text-charcoal px-1;
   }
 
   /* ── Card ── */
   .card-brutalist {
-    @apply bg-white border-2 border-charcoal shadow-[5px_5px_0_#28231E]
-           dark:bg-card-dark dark:border-warm-dusk dark:shadow-[5px_5px_0_#6B0005];
+    @apply bg-white border-2 border-charcoal shadow-[5px_5px_0_#000000]
+           dark:bg-card-dark dark:border-warm-dusk dark:shadow-[5px_5px_0_#C6FF33];
   }
 
   /* ── Buttons ── */
@@ -96,7 +98,7 @@
     @apply inline-flex items-center gap-2 px-6 py-3
            bg-garnet text-white border-2 border-charcoal
            font-display font-bold text-sm uppercase tracking-wider
-           shadow-[3px_3px_0_#28231E] cursor-pointer
+           shadow-[3px_3px_0_#000000] cursor-pointer
            transition-[transform,box-shadow] duration-100
            hover:bg-mahogany hover:translate-x-0.5 hover:translate-y-0.5 hover:shadow-none;
   }
@@ -105,17 +107,17 @@
     @apply inline-flex items-center gap-2 px-6 py-3
            bg-transparent text-charcoal border-2 border-charcoal
            font-display font-bold text-sm uppercase tracking-wider
-           shadow-[3px_3px_0_#28231E] cursor-pointer
+           shadow-[3px_3px_0_#000000] cursor-pointer
            transition-[transform,box-shadow] duration-100
            hover:translate-x-0.5 hover:translate-y-0.5 hover:shadow-none
-           dark:text-alabaster dark:border-alabaster dark:shadow-[3px_3px_0_#E6E1DE];
+           dark:text-alabaster dark:border-alabaster dark:shadow-[3px_3px_0_#F0F0F0];
   }
 
   .btn-alabaster {
     @apply inline-flex items-center gap-2 px-6 py-3
            bg-alabaster text-charcoal border-2 border-charcoal
            font-display font-bold text-sm uppercase tracking-wider
-           shadow-[3px_3px_0_#28231E] cursor-pointer
+           shadow-[3px_3px_0_#000000] cursor-pointer
            transition-[transform,box-shadow] duration-100
            hover:translate-x-0.5 hover:translate-y-0.5 hover:shadow-none;
   }
@@ -151,7 +153,7 @@
 
   /* ── Phone mockup ── */
   .phone-mockup {
-    @apply bg-charcoal border-[3px] border-charcoal shadow-[8px_8px_0_#6B0005] relative overflow-hidden;
+    @apply bg-charcoal border-[3px] border-charcoal shadow-[8px_8px_0_#C6FF33] relative overflow-hidden;
   }
   .phone-mockup::before {
     content: '';
