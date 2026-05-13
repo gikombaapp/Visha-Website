@@ -1,0 +1,139 @@
+---
+// src/pages/community.astro
+import Layout from '../layouts/Layout.astro';
+import WaitlistForm from '../components/WaitlistForm.astro';
+---
+
+<Layout
+  title="Community — visha | Kenya's Thrift Movement"
+  description="Join the visha community. Connect with curators, attend Nairobi events, and be part of Kenya's sustainable fashion movement."
+  canonical="https://visha.app/community"
+>
+
+  <!-- Hero -->
+  <section class="section-visha container-visha grid gap-12 items-center lg:grid-cols-2 lg:gap-20" aria-labelledby="community-heading">
+    <div class="flex flex-col gap-6">
+      <span class="tag tag-garnet">Community</span>
+      <h1 id="community-heading" class="text-[clamp(2.2rem,5vw,3.75rem)] font-extrabold text-charcoal dark:text-alabaster">
+        More than an app.<br />
+        <span class="highlight">A movement.</span>
+      </h1>
+      <p class="text-base text-ink-muted dark:text-ink-muted-dark max-w-[44ch] leading-[1.7]">
+        visha is home to Kenya's most vibrant community of sustainable fashion lovers. Whether you're a Gikomba vendor, a vintage hunter, or just getting started — you belong here.
+      </p>
+      <div class="flex flex-wrap gap-3">
+        <a href="/registration" class="btn-primary">Become a Member</a>
+        <a href="/how" class="btn-ghost">How It Works</a>
+      </div>
+    </div>
+
+    <div class="relative">
+      <div class="absolute inset-[-0.75rem] bg-charcoal border-2 border-charcoal"></div>
+      <div
+        class="relative z-10 w-full aspect-[4/3] bg-cover bg-center border-2 border-charcoal shadow-[10px_10px_0_#000000]"
+        style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuACVm0M3bynGdI2VYO9pmoYqJGrkCH-UrJoChYBqUtT8I_78Bo2yrvh9r0SmNy788EH89qKtdd1mp6wL-A81LeQRt49UiNteQnZAxtOJK5yHjc9xxhLwBm-xoYUwbCr_zwLxs3CPx1hnHv6xBgo8p6wsdlVuGyhFqXWgo1dXYAikb-4EcmQHdBJ-YlHAODFbdCyAch2FMTR4pDciSsEgVsjRtCg_2QiexMkJxqxR-3u1E9jg1hUQV-OBkmDRiaCcxLlPNHJHR55UpI")'
+        role="img" aria-label="Nairobi thrift community event"
+      ></div>
+    </div>
+  </section>
+
+  <!-- Why join -->
+  <section class="bg-alabaster border-y-2 border-charcoal py-16 dark:bg-warm-dusk" aria-labelledby="why-heading">
+    <div class="container-visha">
+      <header class="text-center mb-12">
+        <h2 id="why-heading" class="section-title">Why join the community?</h2>
+        <p class="section-body mx-auto">Inside visha, community is built in — not bolted on.</p>
+      </header>
+      <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+
+        <article class="card-brutalist overflow-hidden">
+          <div class="w-full aspect-video bg-cover bg-center border-b-2 border-charcoal dark:border-warm-dusk"
+            style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCqjNi7Ikfex46jD91fezFlzGJRetYARJAF00W5ewHs1Mjx5r7jImeqnTvINP-CKnfD3CK9UBa8gtMtv5sfHRDvkOEC6aNKnJiKzd5_Uek5qd2h3HVy_NgUQyVahAEUEHQPeaCW4bTWCJMyTb7lA3zqm09cWVS10bY4ND3cT5aEpAhbts0I3mTpgEw-lyXLvyw947Do9zbbgFK6uwc7J6SL-zrQm1x4-ZrvAMmUlvPDYReyzlSIMtFXoJ6Si8Cd1tnJ5VIBITSyxNk")'
+            aria-label="Nairobi community swap event" role="img"></div>
+          <div class="p-5">
+            <div class="flex items-center gap-2 mb-2">
+              <span class="material-symbols-outlined text-garnet" style="font-size:20px">event_available</span>
+              <h3 class="font-display text-lg font-bold text-charcoal dark:text-alabaster">In-App Events</h3>
+            </div>
+            <p class="text-sm text-ink-muted dark:text-ink-muted-dark leading-[1.65]">Discover and RSVP to sip-and-swaps, Gikomba tours, and DIY upcycling workshops — all organised through the app.</p>
+          </div>
+        </article>
+
+        <article class="card-brutalist overflow-hidden">
+          <div class="w-full aspect-video bg-cover bg-center border-b-2 border-charcoal dark:border-warm-dusk"
+            style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBBGyQ4q5vH6clH9W0UFBJxBvMMJTOCQkSI5ILtCDY48E-FsBLPZIbCvwtCOHSTMXK_aGx3JFFWqYFA65JW__6TvD40gD8aMK4rmvKaJ-LxE7IbJmKVNmXs6OsylPkZhajHC25lqflImbFy6kOj-DCEKPhcuh5ufKuMm55ppLzIcqvcub8yq5yADO_TV-BOsokH7_avVA3NsU1o6eGho2T7JIIvg4FUB1MSMRRBImIubVvB-qhp318UtZ0VAAP8Tn19o0sW1o3dmzc")'
+            aria-label="Seller spotlight feature" role="img"></div>
+          <div class="p-5">
+            <div class="flex items-center gap-2 mb-2">
+              <span class="material-symbols-outlined text-garnet" style="font-size:20px">campaign</span>
+              <h3 class="font-display text-lg font-bold text-charcoal dark:text-alabaster">Seller Spotlights</h3>
+            </div>
+            <p class="text-sm text-ink-muted dark:text-ink-muted-dark leading-[1.65]">Get featured on the app's discover feed. We celebrate the most creative curators in our network every week.</p>
+          </div>
+        </article>
+
+        <article class="card-brutalist overflow-hidden">
+          <div class="w-full aspect-video bg-cover bg-center border-b-2 border-charcoal dark:border-warm-dusk"
+            style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuA6SzHP979-2PGP49rNAovVMsPUcUyiuu2g4KeVs_H047DI3R-H6XHk0jYkAWwWMU9y9I_BjR59zC_D1XPgqFt5IE2Rs-TUM0bRPRAsENR6uJmgcz9WEX0lxQ5qdz_JZcVKIE4OK7uuOyXmcXBSZAR6IUjc907BrMq0laq5fpzigHZx14SkcEI6CwCFCQspme-98WLO488oQyC02-Po9DkfFKxG3iEsKwptBBrNQAc6ytMOx19Z5afdLZKS8R-XUB3zh9WpSu1ZL2Q")'
+            aria-label="Ambassador program" role="img"></div>
+          <div class="p-5">
+            <div class="flex items-center gap-2 mb-2">
+              <span class="material-symbols-outlined text-garnet" style="font-size:20px">badge</span>
+              <h3 class="font-display text-lg font-bold text-charcoal dark:text-alabaster">Ambassador Program</h3>
+            </div>
+            <p class="text-sm text-ink-muted dark:text-ink-muted-dark leading-[1.65]">Top sellers earn Ambassador status — exclusive badges, early access to new features, and networking opportunities.</p>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured curator -->
+  <section class="section-visha container-visha flex flex-col gap-12 md:flex-row md:items-center md:gap-16" aria-labelledby="curator-heading">
+    <div class="flex-1 flex flex-col gap-6">
+      <h2 id="curator-heading" class="section-title">
+        This month's<br />
+        <span class="highlight">featured curator</span>
+      </h2>
+      <blockquote class="card-brutalist p-7">
+        <p class="font-display text-lg italic text-garnet leading-[1.5] mb-5">"Thrifting in Nairobi isn't just about cheap clothes — it's about preserving stories. visha made it easy to find my tribe."</p>
+        <footer class="flex items-center gap-3.5">
+          <div class="w-12 h-12 border-2 border-charcoal overflow-hidden shrink-0">
+            <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuD06cWdWySFrPMQGciraQ7pbJ9bm5EFWDzSEwrMxoBBVE_A9v4Y7OiHUGvLtQoUykm5aijXsmiWhWWg5rXTWxuER3pPGNjbJE9rC7MJEg1JEOI0N-2r70PCrXTl-gR5KNAqEnlW89d_MHWAmPozFfy1edfF481buJIfQMwhBz-1KUnnQuek_s3bVFAw_FitGREqX74hQWsRcF3_QKFiLqr_mFPRSKfy8YJwZ1vdGrxQwOMLj3Gixc0_JRDQ8QzAxxjxisf6tBLLJIA"
+              alt="Sarah Jenkins" class="w-full h-full object-cover" loading="lazy" />
+          </div>
+          <div>
+            <cite class="font-bold text-sm uppercase tracking-[0.05em] text-charcoal dark:text-alabaster not-italic block">Sarah Jenkins</cite>
+            <p class="text-xs text-ink-muted dark:text-ink-muted-dark">Vintage Collector · on visha since 2023</p>
+          </div>
+        </footer>
+      </blockquote>
+    </div>
+
+    <div class="flex-1 grid grid-cols-2 gap-5">
+      <div class="aspect-square bg-cover bg-center border-2 border-charcoal shadow-[5px_5px_0_#000000] dark:shadow-[5px_5px_0_#C6FF33]"
+        style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBHsYJ9Qa7ARi16yjsu3YkoArjLkol2Vc3J7xrfOD_Z-LwfIRuE6TULzzADEwgW4jdNvInFvY4_XmZsfwEmQiTPkbTBRoT5nHi8dMGkOZ1_BJLl1uyk-SzsaMMnVhBSt3eVV3wGlNg-XwIsKvbtmBf1ozoqwKdPrfgFpeH30O3I8ekotZPDHL8Azl6DyGa8dA-9s9wHkpdwYs66aGuGA9kF2opxWJoV4GeF2Ttw-feK8EpriJa0xgJqb5BLk0KD3Jeuqn7ZRyRScnk")'
+        role="img" aria-label="Curator listing"></div>
+      <div class="aspect-square bg-cover bg-center border-2 border-charcoal shadow-[5px_5px_0_#000000] dark:shadow-[5px_5px_0_#C6FF33] mt-10"
+        style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBW-Pgug-8HEmVajHNsXIxHmNxjfV8lvsBMN4DR7n69CSQX0I7mYxRQPaepsD42cSCV2UGJZbzhiKiQ6b7vvO45fUVuJx5jPexlx9VRFh3g5Oizx4HomfmcBANWWKChfg7_A3psl3uzvfu_2pkcNXXdES7uFSs0nqBU1OVp8_5eVf1keAdEmF-pKFVufJlt4agUIr3biRHTuAuRyf-Noj0g8-HOz4mTheN7UvpeylSyyxUe4Wzmps9B4J814sJyn_KYL0ygzE0E3Bc")'
+        role="img" aria-label="Curator listing"></div>
+    </div>
+  </section>
+
+  <!-- Waitlist -->
+  <section class="bg-charcoal border-t-2 border-charcoal py-20" aria-labelledby="waitlist-heading">
+    <div class="container-visha flex flex-col items-center text-center gap-5">
+      <div class="w-14 h-14 bg-garnet border-2 border-mahogany flex items-center justify-center text-white shadow-[3px_3px_0_#000000]">
+        <span class="material-symbols-outlined" style="font-size:1.5rem">mail</span>
+      </div>
+      <h2 id="waitlist-heading" class="text-[clamp(1.75rem,4vw,2.75rem)] font-extrabold text-alabaster uppercase">Join the Kenyan Waitlist</h2>
+      <p class="text-base text-alabaster/70 max-w-[44ch] leading-[1.65]">Get on the early access list and receive a founding member badge when we launch in Nairobi.</p>
+      <div class="max-w-[28rem] w-full [&_.waitlist-success]:text-alabaster">
+        <WaitlistForm id="community" dark={true} placeholder="YOUR EMAIL ADDRESS" btnLabel="Join Now" />
+      </div>
+      <p class="text-xs text-alabaster/50 font-semibold uppercase tracking-[0.08em]">No spam. Just launch updates.</p>
+    </div>
+  </section>
+
+</Layout>

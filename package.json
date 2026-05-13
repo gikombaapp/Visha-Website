@@ -1,6 +1,20 @@
 {
+  "name": "promo",
+  "type": "module",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
   "dependencies": {
-    "@tailwindcss/cli": "^4.2.1",
+    "@tailwindcss/vite": "^4.2.1",
+    "astro": "^6.0.5",
+    "firebase": "^12.11.0",
+    "highlight.js": "^11.11.1",
+    "marked": "^17.0.5",
     "tailwindcss": "^4.2.1"
   }
 }

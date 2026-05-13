@@ -1,0 +1,51 @@
+---
+// src/components/Footer.astro
+---
+
+<footer class="border-t-2 border-charcoal bg-white mt-auto dark:bg-card-dark dark:border-warm-dusk">
+  <div class="container-visha grid grid-cols-2 md:grid-cols-[2fr_1fr_1fr] gap-10 py-12">
+
+    <!-- Brand -->
+    <div class="col-span-2 md:col-span-1">
+      <a href="/" class="inline-flex items-center gap-2 mb-3" aria-label="visha home">
+        <div class="w-7 h-7 bg-garnet border-2 border-charcoal flex items-center justify-center text-white">
+          <span class="material-symbols-outlined" style="font-size:14px">local_mall</span>
+        </div>
+        <span class="font-display font-extrabold text-[1.1rem] text-charcoal dark:text-alabaster">visha</span>
+      </a>
+      <p class="text-sm text-ink-muted leading-relaxed max-w-[26ch] dark:text-ink-muted-dark">
+        For the collective. Pre-loved fashion in Kenya — M-Pesa ready, community verified.
+      </p>
+    </div>
+
+    <!-- App links -->
+    <nav aria-label="App links">
+      <h3 class="font-display text-[11px] font-bold uppercase tracking-widest text-charcoal mb-4 dark:text-alabaster">App</h3>
+      <ul class="flex flex-col gap-2.5">
+        <li><a href="/how"          class="text-sm text-ink-muted transition-colors hover:text-garnet dark:text-ink-muted-dark dark:hover:text-alabaster">How It Works</a></li>
+        <li><a href="/registration" class="text-sm text-ink-muted transition-colors hover:text-garnet dark:text-ink-muted-dark dark:hover:text-alabaster">Join Waitlist</a></li>
+        <li><a href="/community"    class="text-sm text-ink-muted transition-colors hover:text-garnet dark:text-ink-muted-dark dark:hover:text-alabaster">Community</a></li>
+        <li><a href="/blog"         class="text-sm text-ink-muted transition-colors hover:text-garnet dark:text-ink-muted-dark dark:hover:text-alabaster">Fashion Blog</a></li>
+      </ul>
+    </nav>
+
+    <!-- Help links -->
+    <nav aria-label="Support links">
+      <h3 class="font-display text-[11px] font-bold uppercase tracking-widest text-charcoal mb-4 dark:text-alabaster">Help</h3>
+      <ul class="flex flex-col gap-2.5">
+        <li><a href="/support"      class="text-sm text-ink-muted transition-colors hover:text-garnet dark:text-ink-muted-dark dark:hover:text-alabaster">Support</a></li>
+        <li><a href="/support#faq"  class="text-sm text-ink-muted transition-colors hover:text-garnet dark:text-ink-muted-dark dark:hover:text-alabaster">FAQ</a></li>
+        <li><a href="#"             class="text-sm text-ink-muted transition-colors hover:text-garnet dark:text-ink-muted-dark dark:hover:text-alabaster">Privacy Policy</a></li>
+        <li><a href="#"             class="text-sm text-ink-muted transition-colors hover:text-garnet dark:text-ink-muted-dark dark:hover:text-alabaster">Terms of Service</a></li>
+      </ul>
+    </nav>
+
+  </div>
+
+  <!-- Bottom bar -->
+  <div class="border-t border-charcoal/15 py-5 dark:border-alabaster/10">
+    <div class="container-visha flex justify-center">
+      <p class="text-xs text-ink-muted text-center dark:text-ink-muted-dark">© 2024 visha — for the collective. Built in Nairobi.</p>
+    </div>
+  </div>
+</footer>

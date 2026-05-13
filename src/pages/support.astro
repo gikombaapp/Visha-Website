@@ -1,0 +1,187 @@
+---
+// src/pages/support.astro
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout
+  title="Support — visha | Help & Resources"
+  description="Get help with visha. Browse FAQs, find guides, and contact our Nairobi-based support team."
+  canonical="https://visha.app/support"
+>
+
+  <!-- Hero -->
+  <section class="container-visha grid gap-10 items-center py-12 lg:grid-cols-2 lg:gap-16 lg:py-16" aria-labelledby="support-heading">
+    <div class="flex flex-col gap-5">
+      <span class="tag tag-garnet">App Support</span>
+      <h1 id="support-heading" class="text-[clamp(2rem,5vw,3.5rem)] font-extrabold text-charcoal dark:text-alabaster">Habari! How can<br />we help?</h1>
+      <p class="text-base text-ink-muted dark:text-ink-muted-dark max-w-[44ch] leading-[1.65]">Find quick answers about visha, browse guides for buyers and sellers, or reach our Nairobi-based team.</p>
+      <div class="flex gap-2 max-w-[28rem]">
+        <label for="support-search" class="sr-only">Search for help</label>
+        <div class="flex-1 relative">
+          <span class="material-symbols-outlined absolute left-3.5 top-1/2 -translate-y-1/2 text-ink-muted" style="font-size:16px">search</span>
+          <input id="support-search" type="search" placeholder="e.g. how do I pay with M-Pesa?" class="input-brutalist pl-11" />
+        </div>
+        <button class="btn-primary">Search</button>
+      </div>
+    </div>
+
+    <div
+      class="hidden lg:block w-full aspect-square bg-cover bg-center border-2 border-charcoal shadow-[8px_8px_0_#000000]"
+      style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAbfwi8xSfGswgQXaen-QI3y71VpxE502RfORlAjXcW-fHMiQEBCMznPRYoWUmDUO0fUiPv2hP6yzLvjCzVV146whOzHeVGW5jhxZTIgXpI_m6SwD8qaIw6P6LDNjjil4iN340tzCwsLWs3nE7_nFrrGJn7RoKXjbWJQSJfGRtov7RVVHxhFh09cDi4za38k6jc0xxBl4-5tKV1vXbaPXkGKJNrgcrfsEBtHBTwjwZT2LoDeREKCGLbZ186i-mZBUPPxf81DwNawOA")'
+      role="img" aria-label="Friendly visha support team in Nairobi"
+    ></div>
+  </section>
+
+  <!-- Help categories -->
+  <section class="section-visha container-visha" aria-labelledby="guides-heading">
+    <h2 id="guides-heading" class="section-title mb-7">Browse Help Topics</h2>
+    <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+
+      <article class="card-brutalist p-6 flex flex-col gap-3.5 transition-transform duration-150 hover:-translate-y-1">
+        <div class="icon-box icon-box--garnet"><span class="material-symbols-outlined" style="font-size:20px">download</span></div>
+        <h3 class="font-display text-[1.0625rem] font-bold text-charcoal dark:text-alabaster">Getting Started</h3>
+        <p class="text-sm text-ink-muted dark:text-ink-muted-dark leading-[1.6] flex-1">How to download, sign up, and create your first listing on visha.</p>
+        <a href="#" class="inline-flex items-center gap-1 text-sm font-bold text-ink-muted dark:text-ink-muted-dark transition-colors hover:text-garnet">12 articles <span class="material-symbols-outlined" style="font-size:14px">arrow_forward</span></a>
+      </article>
+
+      <article class="card-brutalist p-6 flex flex-col gap-3.5 transition-transform duration-150 hover:-translate-y-1">
+        <div class="icon-box icon-box--charcoal"><span class="material-symbols-outlined" style="font-size:20px">payments</span></div>
+        <h3 class="font-display text-[1.0625rem] font-bold text-charcoal dark:text-alabaster">M-Pesa &amp; Payments</h3>
+        <p class="text-sm text-ink-muted dark:text-ink-muted-dark leading-[1.6] flex-1">How to pay, get paid, and how our escrow system protects you.</p>
+        <a href="#" class="inline-flex items-center gap-1 text-sm font-bold text-garnet transition-colors hover:text-mahogany">8 articles <span class="material-symbols-outlined" style="font-size:14px">arrow_forward</span></a>
+      </article>
+
+      <article class="card-brutalist p-6 flex flex-col gap-3.5 transition-transform duration-150 hover:-translate-y-1">
+        <div class="icon-box icon-box--alabaster"><span class="material-symbols-outlined" style="font-size:20px">local_shipping</span></div>
+        <h3 class="font-display text-[1.0625rem] font-bold text-charcoal dark:text-alabaster">Delivery &amp; Meetups</h3>
+        <p class="text-sm text-ink-muted dark:text-ink-muted-dark leading-[1.6] flex-1">Arranging meetups safely, courier options, and dispute resolution.</p>
+        <a href="#" class="inline-flex items-center gap-1 text-sm font-bold text-ink-muted dark:text-ink-muted-dark transition-colors hover:text-garnet">10 articles <span class="material-symbols-outlined" style="font-size:14px">arrow_forward</span></a>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="bg-alabaster border-y-2 border-charcoal py-16 dark:bg-warm-dusk" id="faq" aria-labelledby="faq-heading">
+    <div class="container-visha max-w-3xl mx-auto">
+      <h2 id="faq-heading" class="section-title text-center mb-10">Frequently Asked Questions</h2>
+      <div class="flex flex-col gap-3">
+
+        <details class="border-2 border-charcoal bg-white dark:bg-card-dark dark:border-warm-dusk" open>
+          <summary class="flex justify-between items-center gap-4 p-5 font-bold text-[0.9375rem] cursor-pointer text-charcoal dark:text-alabaster list-none [&::-webkit-details-marker]:hidden">
+            How do I pay for items using M-Pesa?
+            <span class="material-symbols-outlined text-ink-muted shrink-0 transition-transform duration-200 details-chevron">expand_more</span>
+          </summary>
+          <div class="px-5 pb-5 text-sm text-ink-muted dark:text-ink-muted-dark leading-[1.7]">Tap "Buy Now" on any listing and follow the M-Pesa STK push on your phone. Your payment is held securely by visha until you confirm the item arrived as described — then it's released to the seller.</div>
+        </details>
+
+        <details class="border-2 border-charcoal bg-white dark:bg-card-dark dark:border-warm-dusk">
+          <summary class="flex justify-between items-center gap-4 p-5 font-bold text-[0.9375rem] cursor-pointer text-charcoal dark:text-alabaster list-none [&::-webkit-details-marker]:hidden">
+            How do I list an item for sale?
+            <span class="material-symbols-outlined text-ink-muted shrink-0 transition-transform duration-200 details-chevron">expand_more</span>
+          </summary>
+          <div class="px-5 pb-5 text-sm text-ink-muted dark:text-ink-muted-dark leading-[1.7]">Tap the + button on the home screen, take up to 8 photos, fill in a description and price, then tap "List Item". Your listing is live immediately and visible to buyers across Nairobi.</div>
+        </details>
+
+        <details class="border-2 border-charcoal bg-white dark:bg-card-dark dark:border-warm-dusk">
+          <summary class="flex justify-between items-center gap-4 p-5 font-bold text-[0.9375rem] cursor-pointer text-charcoal dark:text-alabaster list-none [&::-webkit-details-marker]:hidden">
+            Is my money safe if something goes wrong?
+            <span class="material-symbols-outlined text-ink-muted shrink-0 transition-transform duration-200 details-chevron">expand_more</span>
+          </summary>
+          <div class="px-5 pb-5 text-sm text-ink-muted dark:text-ink-muted-dark leading-[1.7]">Yes. Payments are held in escrow until you confirm receipt. If the item doesn't arrive or isn't as described, open a dispute within the app and we'll review it within 24 hours.</div>
+        </details>
+
+        <details class="border-2 border-charcoal bg-white dark:bg-card-dark dark:border-warm-dusk">
+          <summary class="flex justify-between items-center gap-4 p-5 font-bold text-[0.9375rem] cursor-pointer text-charcoal dark:text-alabaster list-none [&::-webkit-details-marker]:hidden">
+            How do I get a Verified Seller badge?
+            <span class="material-symbols-outlined text-ink-muted shrink-0 transition-transform duration-200 details-chevron">expand_more</span>
+          </summary>
+          <div class="px-5 pb-5 text-sm text-ink-muted dark:text-ink-muted-dark leading-[1.7]">Go to your profile settings and tap "Verify Account". Upload a photo of your ID. Verification takes up to 2 hours and unlocks the seller badge, boosting your listing visibility.</div>
+        </details>
+
+        <details class="border-2 border-charcoal bg-white dark:bg-card-dark dark:border-warm-dusk">
+          <summary class="flex justify-between items-center gap-4 p-5 font-bold text-[0.9375rem] cursor-pointer text-charcoal dark:text-alabaster list-none [&::-webkit-details-marker]:hidden">
+            Which cities does visha deliver to?
+            <span class="material-symbols-outlined text-ink-muted shrink-0 transition-transform duration-200 details-chevron">expand_more</span>
+          </summary>
+          <div class="px-5 pb-5 text-sm text-ink-muted dark:text-ink-muted-dark leading-[1.7]">We support deliveries across Nairobi, Mombasa, Kisumu, Nakuru, and Eldoret. You can also arrange local meetups anywhere in Kenya. More cities coming soon.</div>
+        </details>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section class="section-visha container-visha" id="contact" aria-labelledby="contact-heading">
+    <div class="grid gap-12 lg:grid-cols-2 lg:gap-16">
+      <div>
+        <h2 id="contact-heading" class="section-title">Still need help?</h2>
+        <p class="text-base text-ink-muted dark:text-ink-muted-dark mt-3 mb-8 leading-[1.6]">Our Nairobi-based team replies within 24 hours on weekdays.</p>
+        <address class="flex flex-col gap-6 not-italic">
+
+          <div class="flex items-start gap-4">
+            <div class="icon-box icon-box--garnet shrink-0"><span class="material-symbols-outlined" style="font-size:20px">mail</span></div>
+            <div>
+              <h3 class="font-bold text-[0.8125rem] text-charcoal dark:text-alabaster mb-0.5">Email</h3>
+              <a href="mailto:support@visha.app" class="text-sm text-ink-muted dark:text-ink-muted-dark hover:text-garnet transition-colors">support@visha.app</a>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-4">
+            <div class="icon-box icon-box--charcoal shrink-0"><span class="material-symbols-outlined" style="font-size:20px">forum</span></div>
+            <div>
+              <h3 class="font-bold text-[0.8125rem] text-charcoal dark:text-alabaster mb-0.5">In-App Chat</h3>
+              <p class="text-sm text-ink-muted dark:text-ink-muted-dark leading-[1.5]">Mon–Fri, 8am–6pm EAT. Tap "Support" in the app menu.</p>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-4">
+            <div class="icon-box icon-box--alabaster shrink-0"><span class="material-symbols-outlined" style="font-size:20px">location_on</span></div>
+            <div>
+              <h3 class="font-bold text-[0.8125rem] text-charcoal dark:text-alabaster mb-0.5">Office</h3>
+              <p class="text-sm text-ink-muted dark:text-ink-muted-dark leading-[1.5]">Westlands Commercial Centre,<br />Ring Rd Parklands, Nairobi</p>
+            </div>
+          </div>
+
+        </address>
+      </div>
+
+      <div class="card-brutalist p-7">
+        <form class="flex flex-col gap-5" onsubmit="return false">
+          <div class="grid gap-5 sm:grid-cols-2">
+            <div>
+              <label for="c-name" class="block text-[11px] font-bold uppercase tracking-widest text-charcoal dark:text-alabaster mb-1.5">Name</label>
+              <input id="c-name" type="text" placeholder="Your name" class="input-brutalist" />
+            </div>
+            <div>
+              <label for="c-email" class="block text-[11px] font-bold uppercase tracking-widest text-charcoal dark:text-alabaster mb-1.5">Email</label>
+              <input id="c-email" type="email" placeholder="you@example.com" class="input-brutalist" />
+            </div>
+          </div>
+          <div>
+            <label for="c-topic" class="block text-[11px] font-bold uppercase tracking-widest text-charcoal dark:text-alabaster mb-1.5">Topic</label>
+            <select id="c-topic" class="input-brutalist">
+              <option>M-Pesa / Payment Issue</option>
+              <option>Listing Problem</option>
+              <option>Delivery or Meetup</option>
+              <option>Account / Verification</option>
+              <option>Report a Seller</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div>
+            <label for="c-msg" class="block text-[11px] font-bold uppercase tracking-widest text-charcoal dark:text-alabaster mb-1.5">Message</label>
+            <textarea id="c-msg" rows="4" placeholder="Describe your issue..." class="input-brutalist resize-none"></textarea>
+          </div>
+          <button type="submit" class="btn-primary w-full justify-center">Send Message</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+</Layout>
+
+<style>
+  /* Rotate chevron when details is open */
+  details[open] .details-chevron { transform: rotate(180deg); }
+</style>

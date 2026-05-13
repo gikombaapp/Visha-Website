@@ -1,0 +1,185 @@
+@import "tailwindcss";
+
+/* Class-based dark mode — targets body.dark (set by visha.js) */
+@variant dark (&:where(.dark, .dark *));
+
+@theme {
+  /* ── Updated brand palette ── */
+  --color-garnet:        #7D39EB;   /* Primary brand (violet), CTAs */
+  --color-mahogany:      #5A1FB8;   /* Hover states, shadow offsets */
+  --color-garnet-soft:   #C6FF33;
+  --color-lime:          #C6FF33;   /* Secondary accent */
+  --color-lime-dark:     #A8DB1A;
+
+  --color-charcoal:      #000000;   /* Carbon Black — headings, borders, dark surfaces */
+  --color-warm-dusk:     #1A1A1A;   /* Dark card bg, muted borders */
+
+  --color-alabaster:     #F0F0F0;   /* Light surfaces, backgrounds */
+  --color-alabaster-dark:#D9D9D9;
+
+  --color-parchment:     #FFFFFF;   /* Off-white, card backgrounds */
+  --color-white:         #FFFFFF;
+
+  /* Semantic */
+  --color-ink-muted:     #666666;
+  --color-ink-muted-dark:#A0A0A0;
+  --color-card-dark:     #0D0D0D;
+
+  --font-display: 'Syne', sans-serif;
+  --font-body:    'DM Sans', sans-serif;
+}
+
+@layer base {
+  /* Anti-FOUC: dark bg before visha.js transfers class to body */
+  html.dark-pending body {
+    background-color: #000000;
+    color: #F0F0F0;
+  }
+
+  body {
+    font-family: var(--font-body);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    line-height: 1.05;
+  }
+
+  a { color: inherit; text-decoration: none; }
+  img { display: block; max-width: 100%; }
+
+  :focus-visible {
+    outline: 2px solid #7D39EB;
+    outline-offset: 3px;
+  }
+
+  .material-symbols-outlined {
+    font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    vertical-align: middle;
+    line-height: 1;
+    user-select: none;
+  }
+}
+
+@layer components {
+  /* ── Layout ── */
+  .container-visha {
+    @apply max-w-7xl mx-auto px-5 sm:px-8 lg:px-16;
+  }
+
+  .section-visha {
+    @apply py-16 lg:py-24;
+  }
+
+  /* ── Shared section text patterns ── */
+  .section-title {
+    @apply text-[clamp(1.75rem,4vw,2.75rem)] font-extrabold leading-tight text-charcoal dark:text-alabaster mb-3;
+  }
+
+  .section-body {
+    @apply text-base text-ink-muted dark:text-ink-muted-dark max-w-[50ch];
+  }
+
+  /* Highlighted span (garnet bg on headings) */
+  .highlight {
+    @apply bg-lime text-charcoal px-1;
+  }
+
+  /* ── Card ── */
+  .card-brutalist {
+    @apply bg-white border-2 border-charcoal shadow-[5px_5px_0_#000000]
+           dark:bg-card-dark dark:border-warm-dusk dark:shadow-[5px_5px_0_#C6FF33];
+  }
+
+  /* ── Buttons ── */
+  .btn-primary {
+    @apply inline-flex items-center gap-2 px-6 py-3
+           bg-garnet text-white border-2 border-charcoal
+           font-display font-bold text-sm uppercase tracking-wider
+           shadow-[3px_3px_0_#000000] cursor-pointer
+           transition-[transform,box-shadow] duration-100
+           hover:bg-mahogany hover:translate-x-0.5 hover:translate-y-0.5 hover:shadow-none;
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center gap-2 px-6 py-3
+           bg-transparent text-charcoal border-2 border-charcoal
+           font-display font-bold text-sm uppercase tracking-wider
+           shadow-[3px_3px_0_#000000] cursor-pointer
+           transition-[transform,box-shadow] duration-100
+           hover:translate-x-0.5 hover:translate-y-0.5 hover:shadow-none
+           dark:text-alabaster dark:border-alabaster dark:shadow-[3px_3px_0_#F0F0F0];
+  }
+
+  .btn-alabaster {
+    @apply inline-flex items-center gap-2 px-6 py-3
+           bg-alabaster text-charcoal border-2 border-charcoal
+           font-display font-bold text-sm uppercase tracking-wider
+           shadow-[3px_3px_0_#000000] cursor-pointer
+           transition-[transform,box-shadow] duration-100
+           hover:translate-x-0.5 hover:translate-y-0.5 hover:shadow-none;
+  }
+
+  /* ── Tags / badges ── */
+  .tag {
+    @apply inline-block font-display font-bold text-[11px] uppercase tracking-widest
+           px-3 py-1 border-2 border-charcoal;
+  }
+  .tag-garnet    { @apply bg-garnet text-white border-mahogany; }
+  .tag-alabaster { @apply bg-alabaster text-charcoal; }
+  .tag-charcoal  { @apply bg-charcoal text-alabaster; }
+
+  /* ── Form input ── */
+  .input-brutalist {
+    @apply w-full border-2 border-charcoal bg-white text-charcoal
+           px-4 py-3.5 font-body text-sm outline-none
+           transition-colors duration-150 focus:border-garnet
+           placeholder:text-ink-muted
+           dark:bg-warm-dusk dark:text-alabaster dark:border-warm-dusk
+           dark:placeholder:text-ink-muted-dark;
+  }
+
+  /* ── Marquee ── */
+  .marquee-track {
+    display: flex;
+    width: max-content;
+    animation: marquee 28s linear infinite;
+  }
+  .marquee-track:hover {
+    animation-play-state: paused;
+  }
+
+  /* ── Phone mockup ── */
+  .phone-mockup {
+    @apply bg-charcoal border-[3px] border-charcoal shadow-[8px_8px_0_#C6FF33] relative overflow-hidden;
+  }
+  .phone-mockup::before {
+    content: '';
+    @apply absolute top-0 left-1/2 -translate-x-1/2 w-[38%] h-[18px] bg-charcoal rounded-b-[10px] z-10;
+  }
+
+  /* ── Icon box (feature / guide icons) ── */
+  .icon-box {
+    @apply w-11 h-11 border-2 border-charcoal flex items-center justify-center shrink-0;
+  }
+  .icon-box--garnet    { @apply bg-garnet text-white border-mahogany; }
+  .icon-box--charcoal  { @apply bg-charcoal text-alabaster; }
+  .icon-box--alabaster { @apply bg-alabaster text-charcoal; }
+}
+
+@layer utilities {
+  .sr-only {
+    @apply absolute w-px h-px p-0 -m-px overflow-hidden whitespace-nowrap border-0;
+    clip: rect(0, 0, 0, 0);
+  }
+  .text-shadow {
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+  }
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}

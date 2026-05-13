@@ -1,0 +1,454 @@
+---
+// src/pages/admin/blog-editor.astro
+import Layout from '../../layouts/Layout.astro';
+---
+
+<Layout title="Blog Editor - Visha Admin">
+  <div class="py-8">
+    <div class="container-visha">
+      <div class="flex justify-between items-center mb-8">
+        <div>
+          <h1 class="font-display text-3xl font-bold text-charcoal dark:text-alabaster">Blog Editor</h1>
+          <p class="text-ink-muted dark:text-ink-muted-dark">Create and manage blog posts</p>
+        </div>
+        <button
+          id="logout-btn"
+          class="border-2 border-charcoal px-4 py-2 hover:bg-garnet hover:text-white hover:border-garnet transition-colors dark:border-warm-dusk dark:text-alabaster"
+        >
+          Logout
+        </button>
+      </div>
+      
+      <!-- Post List Section -->
+      <div class="mb-8">
+        <h2 class="font-display text-xl font-bold text-charcoal mb-4 dark:text-alabaster">Your Posts</h2>
+        <div id="posts-list" class="space-y-3">
+          <p class="text-ink-muted">No posts yet. Create your first post!</p>
+        </div>
+        <button
+          id="new-post-btn"
+          class="mt-4 btn-primary"
+        >
+          + New Post
+        </button>
+      </div>
+      
+      <!-- Editor Section -->
+      <div id="editor-section" class="hidden border-2 border-charcoal p-6 mt-6 dark:border-warm-dusk">
+        <h2 class="font-display text-xl font-bold text-charcoal mb-4 dark:text-alabaster">Edit Post</h2>
+        <form id="blog-form" class="space-y-6">
+          <input type="hidden" id="post-id" />
+          
+          <div>
+            <label class="block text-sm font-medium text-charcoal mb-1 dark:text-alabaster">Title *</label>
+            <input
+              type="text"
+              id="title"
+              required
+              class="w-full border-2 border-charcoal px-3 py-2 focus:outline-none focus:border-garnet dark:bg-card-dark dark:border-warm-dusk dark:text-alabaster"
+              placeholder="Enter post title"
+            />
+          </div>
+          
+          <div>
+            <label class="block text-sm font-medium text-charcoal mb-1 dark:text-alabaster">Slug (URL) *</label>
+            <input
+              type="text"
+              id="slug"
+              required
+              class="w-full border-2 border-charcoal px-3 py-2 focus:outline-none focus:border-garnet dark:bg-card-dark dark:border-warm-dusk dark:text-alabaster"
+              placeholder="post-url-slug"
+            />
+            <p class="text-xs text-ink-muted mt-1 dark:text-ink-muted-dark">Will be used as: /blog/[slug] (lowercase letters, numbers, hyphens only)</p>
+          </div>
+          
+          <div>
+            <label class="block text-sm font-medium text-charcoal mb-1 dark:text-alabaster">Category</label>
+            <select
+              id="category"
+              class="w-full border-2 border-charcoal px-3 py-2 focus:outline-none focus:border-garnet dark:bg-card-dark dark:border-warm-dusk dark:text-alabaster"
+            >
+              <option value="streetwear">Streetwear</option>
+              <option value="vintage">Vintage</option>
+              <option value="sustainable">Sustainable</option>
+              <option value="local-labels">Local Labels</option>
+            </select>
+          </div>
+          
+          <div>
+            <label class="block text-sm font-medium text-charcoal mb-1 dark:text-alabaster">Excerpt</label>
+            <textarea
+              id="excerpt"
+              rows="2"
+              class="w-full border-2 border-charcoal px-3 py-2 focus:outline-none focus:border-garnet dark:bg-card-dark dark:border-warm-dusk dark:text-alabaster"
+              placeholder="Short summary of the post"
+            ></textarea>
+          </div>
+          
+          <div>
+            <label class="block text-sm font-medium text-charcoal mb-1 dark:text-alabaster">Banner Image</label>
+            <input
+              type="file"
+              id="banner-image"
+              accept="image/*"
+              class="w-full border-2 border-charcoal px-3 py-2 dark:bg-card-dark dark:border-warm-dusk"
+            />
+            <div id="image-preview" class="mt-2 hidden">
+              <img id="preview-img" class="max-h-48 object-cover border-2 border-charcoal" alt="Banner preview" />
+              <button type="button" id="remove-image" class="text-red-500 text-sm mt-1 hover:underline">Remove image</button>
+            </div>
+          </div>
+          
+          <div>
+            <label class="block text-sm font-medium text-charcoal mb-1 dark:text-alabaster">Author</label>
+            <input
+              type="text"
+              id="author"
+              class="w-full border-2 border-charcoal px-3 py-2 focus:outline-none focus:border-garnet dark:bg-card-dark dark:border-warm-dusk dark:text-alabaster"
+              placeholder="Author name"
+              value="Visha Editorial"
+            />
+          </div>
+          
+          <div>
+            <label class="block text-sm font-medium text-charcoal mb-1 dark:text-alabaster">Read Time</label>
+            <input
+              type="text"
+              id="read-time"
+              class="w-full border-2 border-charcoal px-3 py-2 focus:outline-none focus:border-garnet dark:bg-card-dark dark:border-warm-dusk dark:text-alabaster"
+              placeholder="e.g., 5 min read"
+              value="5 min read"
+            />
+          </div>
+          
+          <div>
+            <label class="block text-sm font-medium text-charcoal mb-1 dark:text-alabaster">Content (Markdown) *</label>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
+              <div>
+                <textarea
+                  id="content"
+                  rows="15"
+                  required
+                  class="w-full border-2 border-charcoal px-3 py-2 font-mono text-sm focus:outline-none focus:border-garnet dark:bg-card-dark dark:border-warm-dusk dark:text-alabaster"
+                  placeholder="# Welcome to my post&#10;&#10;This is **bold** and this is *italic*.&#10;&#10;- List item 1&#10;- List item 2&#10;&#10;[Link text](https://example.com)"
+                ></textarea>
+                <p class="text-xs text-ink-muted mt-1 dark:text-ink-muted-dark">
+                  Supports Markdown: **bold**, *italic*, [links](url), # headings, - lists, etc.
+                </p>
+              </div>
+              <div class="border-2 border-charcoal p-4 overflow-auto max-h-[400px] dark:border-warm-dusk dark:bg-card-dark">
+                <h3 class="font-bold mb-2 text-charcoal dark:text-alabaster">Live Preview</h3>
+                <div id="preview" class="prose dark:prose-invert max-w-none text-sm"></div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="flex gap-3">
+            <button type="submit" class="btn-primary">
+              Save Post
+            </button>
+            <button type="button" id="cancel-edit" class="border-2 border-charcoal px-4 py-2 hover:bg-gray-100 dark:border-warm-dusk dark:text-alabaster">
+              Cancel
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</Layout>
+
+<script>
+  import { marked } from 'marked';
+  
+  // Configure marked
+  marked.setOptions({
+    breaks: true,
+    gfm: true
+  });
+  
+  // Check authentication immediately
+  (function() {
+    const auth = localStorage.getItem('visha_auth');
+    if (!auth) {
+      window.location.href = '/admin/login';
+      return;
+    }
+    
+    try {
+      const authData = JSON.parse(auth);
+      if (!authData.loggedIn || Date.now() - authData.timestamp > 24 * 60 * 60 * 1000) {
+        localStorage.removeItem('visha_auth');
+        window.location.href = '/admin/login';
+        return;
+      }
+    } catch(e) {
+      window.location.href = '/admin/login';
+    }
+  })();
+  
+  // Blog post storage functions
+  function getPosts() {
+    const posts = localStorage.getItem('visha_blog_posts');
+    return posts ? JSON.parse(posts) : [];
+  }
+  
+  function savePost(post) {
+    const posts = getPosts();
+    const index = posts.findIndex(p => p.id === post.id);
+    
+    if (index >= 0) {
+      posts[index] = { ...posts[index], ...post, updatedAt: new Date().toISOString() };
+    } else {
+      post.id = Date.now().toString();
+      post.createdAt = new Date().toISOString();
+      posts.push(post);
+    }
+    
+    localStorage.setItem('visha_blog_posts', JSON.stringify(posts));
+    renderPostsList();
+  }
+  
+  // Make deletePost available globally
+  window.deletePost = function(id) {
+    if (confirm('Are you sure you want to delete this post?')) {
+      const posts = getPosts().filter(p => p.id !== id);
+      localStorage.setItem('visha_blog_posts', JSON.stringify(posts));
+      renderPostsList();
+      
+      const postId = document.getElementById('post-id').value;
+      if (postId === id) {
+        clearEditor();
+        document.getElementById('editor-section').classList.add('hidden');
+      }
+      alert('Post deleted successfully!');
+    }
+  };
+  
+  // Make editPost available globally
+  window.editPost = function(id) {
+    const posts = getPosts();
+    const post = posts.find(p => p.id === id);
+    
+    if (post) {
+      document.getElementById('post-id').value = post.id;
+      document.getElementById('title').value = post.title;
+      document.getElementById('slug').value = post.slug;
+      document.getElementById('category').value = post.category || 'streetwear';
+      document.getElementById('excerpt').value = post.excerpt || '';
+      document.getElementById('author').value = post.author || 'Visha Editorial';
+      document.getElementById('read-time').value = post.readTime || '5 min read';
+      document.getElementById('content').value = post.content;
+      
+      if (post.bannerImage) {
+        document.getElementById('image-preview').classList.remove('hidden');
+        document.getElementById('preview-img').src = post.bannerImage;
+        currentImageData = post.bannerImage;
+      } else {
+        document.getElementById('image-preview').classList.add('hidden');
+        currentImageData = null;
+      }
+      
+      updatePreview();
+      document.getElementById('editor-section').classList.remove('hidden');
+      window.scrollTo({ top: document.getElementById('editor-section').offsetTop, behavior: 'smooth' });
+    }
+  };
+  
+  function renderPostsList() {
+    const posts = getPosts();
+    const container = document.getElementById('posts-list');
+    
+    if (posts.length === 0) {
+      container.innerHTML = '<p class="text-ink-muted">No posts yet. Create your first post!</p>';
+      return;
+    }
+    
+    container.innerHTML = posts.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))
+      .map(post => `
+        <div class="border-2 border-charcoal p-4 flex justify-between items-center dark:border-warm-dusk">
+          <div class="flex-1">
+            <h3 class="font-bold text-charcoal dark:text-alabaster">${escapeHtml(post.title)}</h3>
+            <p class="text-sm text-ink-muted">${escapeHtml(post.excerpt || post.content.substring(0, 100) + '...')}</p>
+            <div class="flex gap-2 mt-1">
+              <span class="text-xs text-ink-muted">${post.category || 'Uncategorized'}</span>
+              <span class="text-xs text-ink-muted">•</span>
+              <span class="text-xs text-ink-muted">${new Date(post.createdAt).toLocaleDateString()}</span>
+            </div>
+          </div>
+          <div class="flex gap-2 ml-4">
+            <button onclick="window.editPost('${post.id}')" class="border-2 border-charcoal px-3 py-1 text-sm hover:bg-garnet hover:text-white dark:border-warm-dusk">Edit</button>
+            <button onclick="window.deletePost('${post.id}')" class="border-2 border-red-500 text-red-500 px-3 py-1 text-sm hover:bg-red-500 hover:text-white">Delete</button>
+          </div>
+        </div>
+      `).join('');
+  }
+  
+  function clearEditor() {
+    document.getElementById('post-id').value = '';
+    document.getElementById('title').value = '';
+    document.getElementById('slug').value = '';
+    document.getElementById('category').value = 'streetwear';
+    document.getElementById('excerpt').value = '';
+    document.getElementById('author').value = 'Visha Editorial';
+    document.getElementById('read-time').value = '5 min read';
+    document.getElementById('content').value = '';
+    document.getElementById('image-preview').classList.add('hidden');
+    document.getElementById('preview-img').src = '';
+    currentImageData = null;
+    updatePreview();
+  }
+  
+  function updatePreview() {
+    const content = document.getElementById('content').value;
+    const previewDiv = document.getElementById('preview');
+    
+    if (content && content.trim()) {
+      previewDiv.innerHTML = marked.parse(content);
+    } else {
+      previewDiv.innerHTML = '<p class="text-ink-muted">Preview will appear here as you type...</p>';
+    }
+  }
+  
+  function escapeHtml(text) {
+    if (!text) return '';
+    const div = document.createElement('div');
+    div.textContent = text;
+    return div.innerHTML;
+  }
+  
+  // Initialize variables
+  let currentImageData = null;
+  
+  // Setup event listeners
+  document.addEventListener('DOMContentLoaded', () => {
+    // Image upload
+    const imageInput = document.getElementById('banner-image');
+    if (imageInput) {
+      imageInput.addEventListener('change', (e) => {
+        const file = e.target.files[0];
+        if (file && file.type.startsWith('image/')) {
+          const reader = new FileReader();
+          reader.onload = (event) => {
+            currentImageData = event.target.result;
+            document.getElementById('image-preview').classList.remove('hidden');
+            document.getElementById('preview-img').src = currentImageData;
+          };
+          reader.readAsDataURL(file);
+        }
+      });
+    }
+    
+    // Remove image
+    const removeImageBtn = document.getElementById('remove-image');
+    if (removeImageBtn) {
+      removeImageBtn.addEventListener('click', () => {
+        currentImageData = null;
+        document.getElementById('image-preview').classList.add('hidden');
+        document.getElementById('preview-img').src = '';
+        document.getElementById('banner-image').value = '';
+      });
+    }
+    
+    // Live preview
+    const contentTextarea = document.getElementById('content');
+    if (contentTextarea) {
+      contentTextarea.addEventListener('input', updatePreview);
+    }
+    
+    // Form submission
+    const blogForm = document.getElementById('blog-form');
+    if (blogForm) {
+      blogForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        
+        const title = document.getElementById('title').value;
+        const slug = document.getElementById('slug').value;
+        const category = document.getElementById('category').value;
+        const excerpt = document.getElementById('excerpt').value;
+        const author = document.getElementById('author').value;
+        const readTime = document.getElementById('read-time').value;
+        const content = document.getElementById('content').value;
+        
+        if (!title || !slug || !content) {
+          alert('Please fill in title, slug, and content');
+          return;
+        }
+        
+        if (!/^[a-z0-9-]+$/.test(slug)) {
+          alert('Slug can only contain lowercase letters, numbers, and hyphens');
+          return;
+        }
+        
+        const postData = {
+          title: title.trim(),
+          slug: slug.trim().toLowerCase(),
+          category,
+          excerpt: excerpt.trim(),
+          author: author.trim(),
+          readTime,
+          content,
+          bannerImage: currentImageData || null,
+          date: new Date().toISOString()
+        };
+        
+        const postId = document.getElementById('post-id').value;
+        if (postId) {
+          postData.id = postId;
+        }
+        
+        savePost(postData);
+        clearEditor();
+        document.getElementById('editor-section').classList.add('hidden');
+        alert('Post saved successfully!');
+      });
+    }
+    
+    // Cancel button
+    const cancelBtn = document.getElementById('cancel-edit');
+    if (cancelBtn) {
+      cancelBtn.addEventListener('click', () => {
+        clearEditor();
+        document.getElementById('editor-section').classList.add('hidden');
+      });
+    }
+    
+    // New post button
+    const newPostBtn = document.getElementById('new-post-btn');
+    if (newPostBtn) {
+      newPostBtn.addEventListener('click', () => {
+        clearEditor();
+        document.getElementById('editor-section').classList.remove('hidden');
+        window.scrollTo({ top: document.getElementById('editor-section').offsetTop, behavior: 'smooth' });
+      });
+    }
+    
+    // Logout button
+    const logoutBtn = document.getElementById('logout-btn');
+    if (logoutBtn) {
+      logoutBtn.addEventListener('click', () => {
+        localStorage.removeItem('visha_auth');
+        window.location.href = '/';
+      });
+    }
+    
+    // Initial render
+    renderPostsList();
+    updatePreview();
+  });
+</script>
+<style is:global>
+  .prose {
+    max-width: none;
+  }
+  .prose h1 { font-size: 1.8em; margin-top: 0.5em; margin-bottom: 0.5em; font-weight: bold; }
+  .prose h2 { font-size: 1.5em; margin-top: 0.8em; margin-bottom: 0.5em; font-weight: bold; }
+  .prose h3 { font-size: 1.25em; margin-top: 0.6em; margin-bottom: 0.5em; font-weight: bold; }
+  .prose p { margin-bottom: 0.8em; line-height: 1.5; }
+  .prose ul, .prose ol { margin-bottom: 0.8em; padding-left: 1.5em; }
+  .prose li { margin-bottom: 0.3em; }
+  .prose a { color: #7D39EB; text-decoration: underline; }
+  .prose pre { background: #f4f4f4; padding: 0.8em; border-radius: 4px; overflow-x: auto; margin-bottom: 0.8em; }
+  .prose code { background: #f4f4f4; padding: 0.2em 0.4em; border-radius: 3px; font-family: monospace; font-size: 0.9em; }
+  .dark .prose pre { background: #2d2d2d; }
+  .dark .prose code { background: #2d2d2d; color: #f8f8f2; }
+</style>
