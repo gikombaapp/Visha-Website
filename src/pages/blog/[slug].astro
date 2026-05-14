@@ -1,6 +1,15 @@
 ---
 // src/pages/blog/[slug].astro
 import Layout from '../../layouts/Layout.astro';
+export async function getStaticPaths() {
+  // This could also come from a CMS or local Markdown files
+  return [
+    { params: { slug: 'welcome' } },
+    { params: { slug: 'new-collection' } },
+  ];
+}
+
+const { slug } = Astro.params;
 ---
 
 <Layout title="Blog Post - Visha">
