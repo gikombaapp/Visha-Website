@@ -1,79 +1,371 @@
 ---
+// src/pages/blog/[...slug].astro
 import { getCollection, render } from 'astro:content';
+import Layout from "../../layouts/Layout.astro"
 
 export async function getStaticPaths() {
-  const posts = await getCollection('blog');
-  return posts.map((post) => ({
-    params: { slug: post.id },
-    props: { post },
+  const blogEntries = await getCollection('blog');
+  
+  return blogEntries.map(entry => ({
+    params: { slug: entry.id }, 
+    props: { entry },
   }));
 }
 
-const { post } = Astro.props;
-const { Content } = await render(post);
+const { entry } = Astro.props;
+const { Content } = await render(entry);
 
-
-// Get all other posts (excluding current)
+// Fetch other blog posts for suggestions
 const allPosts = await getCollection('blog');
-const otherPosts = allPosts.filter(p => p.id !== post.id).sort((a, b) => b.data.pubDate - a.data.pubDate);
+const otherPosts = allPosts
+  .filter(post => post.id !== entry.id)
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+  .slice(0, 3);
 ---
+<Layout
+  title={`${entry.data.title} | The Fashion Edit — visha`}
+  description={entry.data.description || "visha is the app for buying and selling pre-loved fashion in Kenya."}
+  ogTitle={entry.data.title}
+>
+  <div class="container-visha py-10 md:py-16">
+    <!-- Back to blog -->
+    <a href="/blog" class="btn-ghost mb-8 inline-flex items-center gap-2">
+      <span class="material-symbols-outlined" style="font-size: 18px">arrow_back</span>
+      Back to Blog
+    </a>
 
-<!DOCTYPE html>
-<html lang="en" class="dark">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{post.data.title} | The Fashion Edit</title>
-  <link rel="stylesheet" href="/src/styles/global.css">
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
-</head>
-<body class="bg-black text-white">
-  <main class="max-w-4xl mx-auto px-4 py-12">
-    <!-- Back button -->
-    <div class="mb-8">
-      <a href="/blog" class="back-button">← All posts</a>
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-10">
+      <!-- Article Header & Body -->
+      <article class="lg:col-span-8">
+        <!-- Tags -->
+        {entry.data.tags && entry.data.tags.length > 0 && (
+          <div class="flex flex-wrap gap-2 mb-4">
+            {entry.data.tags.map((tag) => (
+              <span class="tag tag-garnet">{tag}</span>
+            ))}
+          </div>
+        )}
+
+        <!-- Title -->
+        <h1 class="text-[clamp(2.25rem,6vw,4rem)] font-extrabold text-charcoal dark:text-alabaster leading-[1.1] mb-6">
+          {entry.data.title}
+        </h1>
+
+        <!-- Metadata -->
+        <div class="flex items-center gap-4 flex-wrap border-b-2 border-charcoal/10 pb-6 dark:border-alabaster/10 mb-8">
+          <div class="w-10 h-10 border-2 border-charcoal bg-garnet text-white font-display font-extrabold flex items-center justify-center text-sm shrink-0">
+            {entry.data.author ? entry.data.author.charAt(0).toUpperCase() : 'V'}
+          </div>
+          <div>
+            <p class="font-bold text-sm text-charcoal dark:text-alabaster leading-none mb-1">
+              {entry.data.author || 'visha Team'}
+            </p>
+            <time class="text-xs text-ink-muted dark:text-ink-muted-dark block" datetime={entry.data.pubDate.toISOString()}>
+              {entry.data.pubDate.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })}
+              &middot; {Math.max(1, Math.round(entry.body ? entry.body.split(/\s+/).length / 200 : 1))} min read
+            </time>
+          </div>
+        </div>
+
+        <!-- Lead Description -->
+        {entry.data.description && (
+          <p class="text-lg md:text-xl font-semibold text-garnet dark:text-garnet-soft mb-8 leading-relaxed max-w-[65ch]">
+            {entry.data.description}
+          </p>
+        )}
+
+        <!-- Article Content -->
+        <div class="blog-content max-w-[65ch]">
+          <Content />
+        </div>
+      </article>
+
+      <!-- Sidebar / Meta Info -->
+      <aside class="lg:col-span-4 lg:border-l-2 lg:border-charcoal/10 lg:pl-10 dark:lg:border-alabaster/10">
+        <div class="sticky top-24 flex flex-col gap-8">
+          <!-- App promo -->
+          <div class="card-brutalist p-6 flex flex-col gap-4">
+            <span class="tag tag-charcoal self-start">Join the Collective</span>
+            <h3 class="font-display font-extrabold text-lg text-charcoal dark:text-alabaster">
+              Buy & Sell Pre-loved Clothes on visha
+            </h3>
+            <p class="text-xs text-ink-muted dark:text-ink-muted-dark leading-relaxed">
+              Discover unique streetwear, vintage Levi's, and local labels. Safe transactions via M-Pesa.
+            </p>
+            <a href="/registration" class="btn-primary text-center justify-center text-xs py-2">
+              Sign Up Now
+              <span class="material-symbols-outlined" style="font-size: 16px">arrow_forward</span>
+            </a>
+          </div>
+
+          <!-- Share section -->
+          <div class="flex flex-col gap-3">
+            <h4 class="font-display font-bold text-xs uppercase tracking-wider text-charcoal dark:text-alabaster">
+              Share this story
+            </h4>
+            <div class="flex gap-2">
+              <button 
+                onclick="window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(document.title)}&url=${encodeURIComponent(window.location.href)}`, '_blank')"
+                class="w-10 h-10 border-2 border-charcoal flex items-center justify-center hover:bg-garnet hover:text-white transition-colors cursor-pointer dark:border-alabaster dark:hover:bg-garnet-soft"
+                title="Share on Twitter/X"
+              >
+                <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
+                  <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                </svg>
+              </button>
+              <button 
+                onclick="window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(window.location.href)}`, '_blank')"
+                class="w-10 h-10 border-2 border-charcoal flex items-center justify-center hover:bg-garnet hover:text-white transition-colors cursor-pointer dark:border-alabaster dark:hover:bg-garnet-soft"
+                title="Share on Facebook"
+              >
+                <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
+                  <path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c4.56-.93 8-4.96 8-9.75z"/>
+                </svg>
+              </button>
+              <button 
+                onclick="navigator.clipboard.writeText(window.location.href); alert('Link copied to clipboard!');"
+                class="w-10 h-10 border-2 border-charcoal flex items-center justify-center hover:bg-garnet hover:text-white transition-colors cursor-pointer dark:border-alabaster dark:hover:bg-garnet-soft"
+                title="Copy Link"
+              >
+                <span class="material-symbols-outlined" style="font-size: 18px">link</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </aside>
     </div>
 
-    <!-- Current post -->
-    <article class="mb-16">
-      <h1 class="text-4xl md:text-5xl font-bold mb-3 text-white">{post.data.title}</h1>
-      <div class="text-gray-400 mb-6">
-        {new Date(post.data.pubDate).toLocaleDateString('en-US', { 
-          year: 'numeric', 
-          month: 'long', 
-          day: 'numeric' 
-        })}
-      </div>
-          <!-- Tags -->
-    {post.data.tags && post.data.tags.length > 0 && (
-      <div class="flex flex-wrap gap-2 my-4">
-        {post.data.tags.map(tag => (
-          <span class="tag">{tag}</span>
-        ))}
-      </div>
+    <!-- Suggested Posts Section -->
+    {otherPosts.length > 0 && (
+      <section class="border-t-2 border-charcoal/10 dark:border-alabaster/10 pt-16 mt-16 pb-8">
+        <h3 class="font-display text-[1.5rem] font-bold flex items-center gap-2 text-charcoal dark:text-alabaster mb-8">
+          <span class="material-symbols-outlined text-garnet">auto_awesome</span>
+          You Might Also Like
+        </h3>
+        <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {otherPosts.map((post) => (
+            <article class="card-brutalist flex flex-col overflow-hidden">
+              <div class="p-5 flex-1 flex flex-col gap-2.5">
+                <div class="flex gap-1 flex-wrap mb-1">
+                  {post.data.tags?.slice(0, 2).map((tag) => (
+                    <span class="text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 border border-charcoal/30 bg-parchment dark:border-warm-dusk/50 dark:bg-charcoal text-charcoal dark:text-alabaster">
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+                <h4 class="font-display text-[1.125rem] font-bold text-charcoal dark:text-alabaster leading-[1.25]">
+                  <a href={`/blog/${post.id}`} class="hover:underline">
+                    {post.data.title}
+                  </a>
+                </h4>
+                <p class="text-[0.8125rem] text-ink-muted dark:text-ink-muted-dark leading-[1.65] flex-1 line-clamp-2">
+                  {post.data.description || 'Read the full story on Kenyan fashion and vintage culture.'}
+                </p>
+                <footer class="flex items-center justify-between mt-auto pt-3 border-t border-charcoal/10 dark:border-alabaster/10">
+                  <time class="text-xs text-ink-muted dark:text-ink-muted-dark" datetime={post.data.pubDate.toISOString()}>
+                    {post.data.pubDate.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })}
+                  </time>
+                  <a href={`/blog/${post.id}`} class="text-[0.8125rem] font-bold text-garnet inline-flex items-center gap-1 transition-[gap] duration-150 hover:gap-2 dark:text-garnet-soft">
+                    Read story <span class="material-symbols-outlined" style="font-size:15px">north_east</span>
+                  </a>
+                </footer>
+              </div>
+            </article>
+          ))}
+        </div>
+      </section>
     )}
-      <div class="blog-content">
-        <Content />
-      </div>
-    </article>
+  </div>
+</Layout>
 
-    <!-- Separator -->
-    <hr class="my-12 border-gray-800">
+<style>
+  /* Typography and layout inside the post */
+  .blog-content {
+    font-size: 1.0625rem;
+    line-height: 1.75;
+    color: var(--color-charcoal);
+  }
+  :global(.dark) .blog-content {
+    color: var(--color-alabaster);
+  }
 
-    <!-- Other posts section -->
-    <section>
-      <h2 class="text-2xl font-bold mb-6">More from The Fashion Edit</h2>
-      <div class="other-posts-grid">
-  {otherPosts.map(other => (
-    <a href={`/blog/${other.id}`} class="block no-underline">
-      <div class="other-post-card">
-        <h3 class="other-post-title">{other.data.title}</h3>
-        <p class="other-post-description">{other.data.description}</p>
-      </div>
-    </a>
-  ))}
-</div>
-    </section>
-  </main>
-</body>
-</html>
+  .blog-content :global(h2) {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    font-weight: 800;
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+    border-bottom: 2px solid rgba(40, 35, 30, 0.1);
+    padding-bottom: 0.5rem;
+    color: var(--color-charcoal);
+  }
+  @media (min-width: 768px) {
+    .blog-content :global(h2) {
+      font-size: 1.875rem;
+    }
+  }
+  :global(.dark) .blog-content :global(h2) {
+    color: var(--color-alabaster);
+    border-color: rgba(230, 225, 222, 0.1);
+  }
+
+  .blog-content :global(h3) {
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-top: 2rem;
+    margin-bottom: 0.75rem;
+    color: var(--color-charcoal);
+  }
+  @media (min-width: 768px) {
+    .blog-content :global(h3) {
+      font-size: 1.5rem;
+    }
+  }
+  :global(.dark) .blog-content :global(h3) {
+    color: var(--color-alabaster);
+  }
+
+  .blog-content :global(p) {
+    margin-bottom: 1.5rem;
+    color: var(--color-ink-muted);
+  }
+  :global(.dark) .blog-content :global(p) {
+    color: var(--color-ink-muted-dark);
+  }
+
+  .blog-content :global(ul) {
+    list-style-type: none;
+    padding-left: 0;
+    margin-bottom: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .blog-content :global(ul li) {
+    position: relative;
+    padding-left: 1.5rem;
+    color: var(--color-ink-muted);
+  }
+  :global(.dark) .blog-content :global(ul li) {
+    color: var(--color-ink-muted-dark);
+  }
+
+  /* Brutalist bullet point */
+  .blog-content :global(ul li::before) {
+    content: "■";
+    position: absolute;
+    left: 0;
+    top: 0.1em;
+    color: var(--color-garnet);
+    font-size: 0.875rem;
+  }
+  :global(.dark) .blog-content :global(ul li::before) {
+    color: var(--color-garnet-soft);
+  }
+
+  .blog-content :global(ol) {
+    list-style-type: decimal;
+    padding-left: 1.5rem;
+    margin-bottom: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    color: var(--color-ink-muted);
+  }
+  :global(.dark) .blog-content :global(ol) {
+    color: var(--color-ink-muted-dark);
+  }
+
+  .blog-content :global(ol li) {
+    padding-left: 0.25rem;
+  }
+
+  .blog-content :global(blockquote) {
+    border-left: 4px solid var(--color-garnet);
+    background-color: var(--color-white);
+    padding: 1.25rem;
+    margin: 2rem 0;
+    font-style: italic;
+    font-weight: 600;
+    color: var(--color-charcoal);
+    box-shadow: 3px 3px 0 var(--color-charcoal);
+  }
+  :global(.dark) .blog-content :global(blockquote) {
+    border-color: var(--color-garnet-soft);
+    background-color: var(--color-warm-dusk);
+    color: var(--color-alabaster);
+    box-shadow: 3px 3px 0 var(--color-garnet-soft);
+  }
+
+  .blog-content :global(a) {
+    color: var(--color-garnet);
+    font-weight: 700;
+    text-decoration: underline;
+    transition: color 0.15s ease-in-out;
+  }
+  .blog-content :global(a:hover) {
+    color: var(--color-mahogany);
+  }
+  :global(.dark) .blog-content :global(a) {
+    color: var(--color-garnet-soft);
+  }
+
+  .blog-content :global(pre) {
+    background-color: var(--color-charcoal);
+    border: 2px solid var(--color-charcoal);
+    padding: 1.25rem;
+    overflow-x: auto;
+    margin: 2rem 0;
+    font-family: monospace;
+    font-size: 0.875rem;
+    color: var(--color-alabaster);
+    box-shadow: 4px 4px 0 var(--color-garnet);
+  }
+  :global(.dark) .blog-content :global(pre) {
+    border-color: var(--color-warm-dusk);
+    box-shadow: 4px 4px 0 var(--color-garnet-soft);
+  }
+
+  .blog-content :global(code) {
+    font-family: monospace;
+    font-size: 0.875em;
+    background-color: rgba(230, 225, 222, 0.5);
+    padding: 0.125rem 0.375rem;
+    border-radius: 0.25rem;
+    border: 1px solid rgba(40, 35, 30, 0.1);
+  }
+  :global(.dark) .blog-content :global(code) {
+    background-color: rgba(58, 53, 48, 0.5);
+    border-color: rgba(230, 225, 222, 0.1);
+  }
+
+  .blog-content :global(pre code) {
+    padding: 0;
+    background-color: transparent;
+    border: none;
+    border-radius: 0;
+  }
+
+  .blog-content :global(hr) {
+    border: 0;
+    border-top: 2px solid rgba(40, 35, 30, 0.1);
+    margin: 2.5rem 0;
+  }
+  :global(.dark) .blog-content :global(hr) {
+    border-top-color: rgba(230, 225, 222, 0.1);
+  }
+
+  .blog-content :global(img) {
+    border: 2px solid var(--color-charcoal);
+    box-shadow: 4px 4px 0 var(--color-charcoal);
+    margin: 2rem 0;
+    max-width: 100%;
+    height: auto;
+  }
+  :global(.dark) .blog-content :global(img) {
+    border-color: var(--color-warm-dusk);
+    box-shadow: 4px 4px 0 var(--color-garnet-soft);
+  }
+</style>
