@@ -15,7 +15,7 @@ const {
 } = Astro.props;
 ---
 
-<div class="w-full" data-waitlist-id={id}>
+<div class="w-full" data-waitlist-container>
   <form
     class={`waitlist-form w-full flex flex-col gap-2.5 ${dark ? 'waitlist-form--dark' : ''}`}
     novalidate
@@ -23,6 +23,7 @@ const {
     <label for={`waitlist-name-${id}`} class="sr-only">Full name</label>
     <input
       id={`waitlist-name-${id}`}
+      name="name" 
       type="text"
       required
       placeholder="Your name"
@@ -32,6 +33,7 @@ const {
     <label for={`waitlist-email-${id}`} class="sr-only">Email address</label>
     <input
       id={`waitlist-email-${id}`}
+      name="email"
       type="email"
       required
       placeholder={placeholder}
@@ -41,6 +43,7 @@ const {
     <label for={`waitlist-phone-${id}`} class="sr-only">Phone number</label>
     <input
       id={`waitlist-phone-${id}`}
+      name="phone"
       type="tel"
       required
       placeholder="Your phone number"
@@ -56,22 +59,58 @@ const {
     </button>
   </form>
 
-  <p
-    class="waitlist-success hidden items-center gap-2 font-bold text-[0.9rem] text-garnet py-3"
-    id={`waitlist-success-${id}`}
-  >
+  <p class="waitlist-success hidden items-center gap-2 font-bold text-[0.9rem] text-garnet py-3">
     <span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1">check_circle</span>
     You're on the list — we'll be in touch!
   </p>
 
-  <p
-    class="waitlist-error hidden items-center gap-2 font-bold text-[0.9rem] text-red-500 py-3"
-    id={`waitlist-error-${id}`}
-  >
+  <p class="waitlist-error hidden items-center gap-2 font-bold text-[0.9rem] text-red-500 py-3">
     <span class="material-symbols-outlined">error</span>
     Something went wrong. Please try again.
   </p>
 </div>
+
+<script>
+  // Handle multiple forms safely by querying scoped containers
+  const containers = document.querySelectorAll('[data-waitlist-container]');
+
+  containers.forEach((container) => {
+    const form = container.querySelector('.waitlist-form') as HTMLFormElement;
+    const successMsg = container.querySelector('.waitlist-success');
+    const errorMsg = container.querySelector('.waitlist-error');
+
+    form?.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      // Reset hidden state on submit attempt
+      successMsg?.classList.add('hidden');
+      errorMsg?.classList.add('hidden');
+      
+
+      const formData = new FormData(form);
+      const payload = Object.fromEntries(formData.entries()); 
+
+      try {
+        const response = await fetch('/api/waitlist', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload),
+        });
+
+        if (response.ok) {
+          successMsg?.classList.remove('hidden');
+          form.reset();
+          // Optionally hide the form elements if you only want to show the success note:
+          form.classList.add('hidden');
+        } else {
+          errorMsg?.classList.remove('hidden');
+        }
+      } catch (err) {
+        errorMsg?.classList.remove('hidden');
+      }
+    });
+  });
+</script>
 
 <style>
   .waitlist-form:not(.hidden) { display: flex; }
