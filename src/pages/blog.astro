@@ -1,6 +1,32 @@
 ---
 // src/pages/blog.astro
+import { getCollection } from 'astro:content';
 import Layout from '../layouts/Layout.astro';
+
+// Fetch blog entries
+const blogEntries = await getCollection('blog');
+const sortedPosts = blogEntries.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+
+// Extract all unique tags
+const allTags = Array.from(new Set(blogEntries.flatMap(post => post.data.tags || []))).filter(Boolean);
+
+// Curated image mapper for tags
+function getPostImage(tags: string[] = []) {
+  const tagString = tags.join(' ').toLowerCase();
+  if (tagString.includes('streetwear') || tagString.includes('street style') || tagString.includes('fashion')) {
+    return "https://lh3.googleusercontent.com/aida-public/AB6AXuDoYBiRzrotXyoGqnzmkWO5mJSkvsVeV1wbmZk79_x8gLvxKyUjxG0BZYbsTcJUCP-sVPhklqmr309M0e6ZxzGeS5n52mS8yHAKzos1SkYfRww5aMCkw9COILddSNT4vkQBpFahkjKj5kuhjeq5m3i0euUL5ydL9fD15k6Alf9zTn4eToJ2xAjJIEOpdtVGT47HzKj1l1jhZ0Y1jaXmVHLU5zXKuC2hvnkYvqDOQynmkvGveD69G0N-dWQzL53Am4h5w3L2Eb9HMc8";
+  }
+  if (tagString.includes('vintage') || tagString.includes('denim')) {
+    return "https://lh3.googleusercontent.com/aida-public/AB6AXuDuFfF6kCtk0imm5wS2u1kkKrw7okew5LyYZQMIL3netV50EKxsdcTIbZDy3VTq_9EHW8z0nGqhmtXVSbUnaDuQZ913afYbbKlPiRx6XYKOTgiCfwGBy-ZDZuNj-uKrtSnvzB3VzmpgtRPii89n4hsJPlYPkxjkUNLPMTM_4wa7rvfwFMPul5dEdsTSeeOHWscOIlu2AtG70lKHXyoT6CoZlODevQrpG23G81fZc5UGiRvnekIJBe-53hLe1bXSUH2BfxyYtcR8uuw";
+  }
+  if (tagString.includes('sustainability') || tagString.includes('sustainable') || tagString.includes('thrift') || tagString.includes('environment')) {
+    return "https://lh3.googleusercontent.com/aida-public/AB6AXuDkk77Cd7sm6GaxfJBrehekp7H7wQFIRMfGgtt9lAu2Le4TYBOBDEdGK29jXEgw4zDgL0xC83FjoomwuYiwlhxFmm5TzSmKdNM9zpjYZMfWGXwNzBujHP-Sey2X7RTmEkGTeLq8BUiXgxxUsheBU-9rv9QMBsRkPHLO6v3X4tHReoaoDvVoT1YSDhuJnDXwL-GQvo3Cwj7oGSwfRdV40RKa_ov2YeSyVLnnnzJgKXCXYyRNnxslrCS9e3wSZCpiBuiSncnT-gVsMuo";
+  }
+  if (tagString.includes('maasai') || tagString.includes('pattern') || tagString.includes('local') || tagString.includes('labels')) {
+    return "https://lh3.googleusercontent.com/aida-public/AB6AXuD-Yxup1LA46Tbqgcxq4luOkaSjTtvgNRN9-Qzqf-NZ4x8JNBPt-IQc7xj5XyjpguBzkiAAV0Qawlv4BniC6LAPfjqwUqLs5J2_2VW6vY0MCz_iuEJALfe-jGSnJqSjyYjEHIRMaY8vA8UXele0jBI9Tl8Swp4a5I-FtEt5iuB6TU9D5HHOGCaAeEPf2WFyOcsHha4s1IZYr0BIgGWJ-RnlbEj6CUCrYMeDyyvSa1krnQFIO2aAAVzpbhZzcK1n0U_yonSdyabZ1-o";
+  }
+  return "https://lh3.googleusercontent.com/aida-public/AB6AXuDoYBiRzrotXyoGqnzmkWO5mJSkvsVeV1wbmZk79_x8gLvxKyUjxG0BZYbsTcJUCP-sVPhklqmr309M0e6ZxzGeS5n52mS8yHAKzos1SkYfRww5aMCkw9COILddSNT4vkQBpFahkjKj5kuhjeq5m3i0euUL5ydL9fD15k6Alf9zTn4eToJ2xAjJIEOpdtVGT47HzKj1l1jhZ0Y1jaXmVHLU5zXKuC2hvnkYvqDOQynmkvGveD69G0N-dWQzL53Am4h5w3L2Eb9HMc8";
+}
 ---
 
 <Layout
@@ -10,106 +36,149 @@ import Layout from '../layouts/Layout.astro';
 >
 
   <!-- Hero -->
-  <section class="section-visha container-visha pb-8" aria-labelledby="blog-heading">
+  <section class="section-visha container-visha pb-4" aria-labelledby="blog-heading">
     <h1 id="blog-heading" class="text-[clamp(3rem,8vw,5.5rem)] font-extrabold text-charcoal dark:text-alabaster mb-4">The Fashion Edit</h1>
     <p class="text-[1.0625rem] text-garnet font-semibold max-w-[52ch] leading-[1.65] dark:text-garnet-soft">Exploring the pulse of Kenyan style, vintage treasures, and the rise of sustainable culture in the Green City in the Sun.</p>
   </section>
 
-  <!-- Categories -->
+  <!-- Search Bar -->
+  <div class="container-visha mb-8 max-w-xl mx-auto">
+    <div class="relative">
+      <span class="material-symbols-outlined absolute left-3.5 top-1/2 -translate-y-1/2 text-ink-muted dark:text-ink-muted-dark pointer-events-none" style="font-size:20px">search</span>
+      <input 
+        id="blog-search" 
+        type="search" 
+        placeholder="Search stories, topics, tags..." 
+        class="input-brutalist pl-11 py-4 text-base"
+      />
+    </div>
+  </div>
+
+  <!-- Interactive Categories / Tags -->
   <nav class="container-visha mb-12 border-b-2 border-charcoal overflow-x-auto dark:border-warm-dusk" aria-label="Blog categories">
-    <div class="flex min-w-max">
-      <a href="#" class="block px-6 py-4 text-sm font-bold font-display text-charcoal whitespace-nowrap border-b-[3px] border-garnet dark:text-alabaster">All Posts</a>
-      <a href="#" class="block px-6 py-4 text-sm font-bold font-display text-ink-muted whitespace-nowrap border-b-[3px] border-transparent transition-all hover:text-charcoal dark:text-ink-muted-dark dark:hover:text-alabaster">Streetwear</a>
-      <a href="#" class="block px-6 py-4 text-sm font-bold font-display text-ink-muted whitespace-nowrap border-b-[3px] border-transparent transition-all hover:text-charcoal dark:text-ink-muted-dark dark:hover:text-alabaster">Vintage</a>
-      <a href="#" class="block px-6 py-4 text-sm font-bold font-display text-ink-muted whitespace-nowrap border-b-[3px] border-transparent transition-all hover:text-charcoal dark:text-ink-muted-dark dark:hover:text-alabaster">Sustainable</a>
-      <a href="#" class="block px-6 py-4 text-sm font-bold font-display text-ink-muted whitespace-nowrap border-b-[3px] border-transparent transition-all hover:text-charcoal dark:text-ink-muted-dark dark:hover:text-alabaster">Local Labels</a>
+    <div class="flex min-w-max gap-2 pb-3">
+      <button 
+        data-tag="all" 
+        class="tag-filter-btn px-6 py-3 text-sm font-bold font-display cursor-pointer transition-all bg-garnet text-white border-2 border-charcoal shadow-[2px_2px_0_#28231E] dark:border-alabaster"
+      >
+        All Posts
+      </button>
+      {allTags.map((tag) => (
+        <button 
+          data-tag={tag} 
+          class="tag-filter-btn px-6 py-3 text-sm font-bold font-display cursor-pointer transition-all bg-white text-charcoal border-2 border-charcoal/20 dark:bg-card-dark dark:text-alabaster dark:border-warm-dusk uppercase"
+        >
+          {tag}
+        </button>
+      ))}
     </div>
   </nav>
 
   <!-- Featured article -->
-  <section class="container-visha mb-16" aria-labelledby="featured-heading">
-    <article class="card-brutalist grid overflow-hidden md:grid-cols-2">
-      <div
-        class="aspect-[4/3] bg-cover bg-center border-b-2 border-charcoal md:border-b-0 md:border-r-2 dark:border-warm-dusk"
-        style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDoYBiRzrotXyoGqnzmkWO5mJSkvsVeV1wbmZk79_x8gLvxKyUjxG0BZYbsTcJUCP-sVPhklqmr309M0e6ZxzGeS5n52mS8yHAKzos1SkYfRww5aMCkw9COILddSNT4vkQBpFahkjKj5kuhjeq5m3i0euUL5ydL9fD15k6Alf9zTn4eToJ2xAjJIEOpdtVGT47HzKj1l1jhZ0Y1jaXmVHLU5zXKuC2hvnkYvqDOQynmkvGveD69G0N-dWQzL53Am4h5w3L2Eb9HMc8")'
-        role="img" aria-label="Modern Kenyan streetwear model"
-      ></div>
-      <div class="p-8 lg:p-9 flex flex-col gap-5 justify-center">
-        <span class="tag tag-charcoal">Streetwear</span>
-        <h2 id="featured-heading" class="text-[clamp(1.5rem,3vw,2rem)] font-extrabold text-charcoal dark:text-alabaster leading-[1.15]">Kenyan Streetwear Trends: Beyond the Aesthetic</h2>
-        <p class="text-[0.9375rem] text-ink-muted dark:text-ink-muted-dark leading-[1.65]">From oversized silhouettes to tribal print fusions, see how Nairobi's youth are redefining modern identity through bold style choices.</p>
-        <footer class="flex items-center gap-3.5 flex-wrap">
-          <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuC5wXOCetqdmOBEih_TefJmWL4-nD-1vJQ5HMYiWOW82hV2jkemL2FtY8k8wCMQPwD8bz6NT44p_fWgLY4phqM9j5_6bz4PkfaoAGKdQh0aT0opqzb-htKqA8sv--Q2CMNU2o7l5LqvCcAixzGCY-CwC7dzM4kuJOjotFHFWRNcCaYnJPf0x72subEuJTiTKmwZuVEHKQ50W8H8WPlUbuw5NehOKx9SK2iK6josAeoWHucx7sl7cYbuz7RtujV1af1038hvllJb0Gg"
-            alt="Wanjiku Kamau" class="w-10 h-10 object-cover border-2 border-charcoal shrink-0" loading="lazy" />
-          <div>
-            <p class="font-bold text-sm text-charcoal dark:text-alabaster">Wanjiku Kamau</p>
-            <time class="text-xs text-ink-muted dark:text-ink-muted-dark block" datetime="2023-10-12">5 min read · Oct 12, 2023</time>
-          </div>
-          <a href="#" class="btn-primary ml-auto">
-            Read More
-            <span class="material-symbols-outlined" style="font-size:16px">arrow_forward</span>
-          </a>
-        </footer>
-      </div>
-    </article>
-  </section>
+  {sortedPosts.length > 0 && (
+    <section id="featured-section" class="container-visha mb-16">
+      <article class="card-brutalist grid overflow-hidden md:grid-cols-2">
+        <div
+          class="aspect-[4/3] bg-cover bg-center border-b-2 border-charcoal md:border-b-0 md:border-r-2 dark:border-warm-dusk"
+          style={`background-image: url("${getPostImage(sortedPosts[0].data.tags)}")`}
+          role="img" 
+          aria-label={sortedPosts[0].data.title}
+        ></div>
+        <div class="p-8 lg:p-9 flex flex-col gap-5 justify-center">
+          {sortedPosts[0].data.tags && sortedPosts[0].data.tags.length > 0 && (
+            <span class="tag tag-charcoal self-start uppercase">{sortedPosts[0].data.tags[0]}</span>
+          )}
+          <h2 class="text-[clamp(1.5rem,3vw,2rem)] font-extrabold text-charcoal dark:text-alabaster leading-[1.15]">
+            <a href={`/blog/${sortedPosts[0].id}`} class="hover:underline">
+              {sortedPosts[0].data.title}
+            </a>
+          </h2>
+          <p class="text-[0.9375rem] text-ink-muted dark:text-ink-muted-dark leading-[1.65]">
+            {sortedPosts[0].data.description || 'Discover the latest trends and stories from our team.'}
+          </p>
+          <footer class="flex items-center gap-3.5 flex-wrap">
+            <div class="w-10 h-10 border-2 border-charcoal bg-garnet text-white font-display font-extrabold flex items-center justify-center text-sm shrink-0">
+              {sortedPosts[0].data.author ? sortedPosts[0].data.author.charAt(0).toUpperCase() : 'V'}
+            </div>
+            <div>
+              <p class="font-bold text-sm text-charcoal dark:text-alabaster leading-none mb-1">{sortedPosts[0].data.author || 'visha Team'}</p>
+              <time class="text-xs text-ink-muted dark:text-ink-muted-dark block" datetime={sortedPosts[0].data.pubDate.toISOString()}>
+                {sortedPosts[0].data.pubDate.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })}
+                &middot; {Math.max(1, Math.round(sortedPosts[0].body ? sortedPosts[0].body.split(/\s+/).length / 200 : 1))} min read
+              </time>
+            </div>
+            <a href={`/blog/${sortedPosts[0].id}`} class="btn-primary ml-auto text-xs">
+              Read Story
+              <span class="material-symbols-outlined" style="font-size:16px">arrow_forward</span>
+            </a>
+          </footer>
+        </div>
+      </article>
+    </section>
+  )}
 
   <!-- Latest stories grid -->
-  <section class="section-visha container-visha" aria-labelledby="latest-heading">
+  <section class="section-visha container-visha pt-4" aria-labelledby="latest-heading">
     <h2 id="latest-heading" class="font-display text-[1.25rem] font-bold flex items-center gap-2 text-charcoal dark:text-alabaster mb-8">
       <span class="material-symbols-outlined text-garnet">auto_awesome</span>
       Latest Stories
     </h2>
-    <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
 
-      <article class="card-brutalist flex flex-col overflow-hidden">
-        <div class="relative aspect-square overflow-hidden border-b-2 border-charcoal dark:border-warm-dusk">
-          <div class="absolute inset-0 bg-cover bg-center transition-transform duration-500 hover:scale-[1.04]"
-            style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDuFfF6kCtk0imm5wS2u1kkKrw7okew5LyYZQMIL3netV50EKxsdcTIbZDy3VTq_9EHW8z0nGqhmtXVSbUnaDuQZ913afYbbKlPiRx6XYKOTgiCfwGBy-ZDZuNj-uKrtSnvzB3VzmpgtRPii89n4hsJPlYPkxjkUNLPMTM_4wa7rvfwFMPul5dEdsTSeeOHWscOIlu2AtG70lKHXyoT6CoZlODevQrpG23G81fZc5UGiRvnekIJBe-53hLe1bXSUH2BfxyYtcR8uuw")'></div>
-          <span class="absolute top-3 left-3 bg-garnet text-white border-2 border-mahogany px-2 py-0.5 text-[11px] font-bold uppercase tracking-[0.07em]">Vintage</span>
-        </div>
-        <div class="p-5 flex-1 flex flex-col gap-2.5">
-          <h3 class="font-display text-[1.0625rem] font-bold text-charcoal dark:text-alabaster leading-[1.25]">How to Spot Vintage Gems in Gikomba</h3>
-          <p class="text-[0.8125rem] text-ink-muted dark:text-ink-muted-dark leading-[1.65] flex-1">The ultimate guide to navigating East Africa's largest open-air market for high-end labels and unique 90s finds.</p>
-          <footer class="flex items-center justify-between mt-auto pt-3 border-t border-charcoal/10 dark:border-alabaster/10">
-            <time class="text-xs text-ink-muted dark:text-ink-muted-dark" datetime="2023-10-10">Oct 10, 2023</time>
-            <a href="#" class="text-[0.8125rem] font-bold text-garnet inline-flex items-center gap-1 transition-[gap] duration-150 hover:gap-2">Read story <span class="material-symbols-outlined" style="font-size:15px">north_east</span></a>
-          </footer>
-        </div>
-      </article>
+    <!-- Empty State -->
+    <div id="no-results" class="hidden text-center py-16 border-2 border-dashed border-charcoal/20 dark:border-alabaster/20 card-brutalist p-8 my-8">
+      <span class="material-symbols-outlined text-4xl text-garnet mb-3">search_off</span>
+      <h3 class="font-display font-bold text-xl mb-2 text-charcoal dark:text-alabaster">No stories found</h3>
+      <p class="text-ink-muted dark:text-ink-muted-dark max-w-md mx-auto">We couldn't find any articles matching your search query. Try clearing filters or searching for something else!</p>
+      <button id="clear-search-btn" class="btn-ghost mt-6 text-sm">Clear Search & Filters</button>
+    </div>
 
-      <article class="card-brutalist flex flex-col overflow-hidden">
-        <div class="relative aspect-square overflow-hidden border-b-2 border-charcoal dark:border-warm-dusk">
-          <div class="absolute inset-0 bg-cover bg-center transition-transform duration-500 hover:scale-[1.04]"
-            style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDkk77Cd7sm6GaxfJBrehekp7H7wQFIRMfGgtt9lAu2Le4TYBOBDEdGK29jXEgw4zDgL0xC83FjoomwuYiwlhxFmm5TzSmKdNM9zpjYZMfWGXwNzBujHP-Sey2X7RTmEkGTeLq8BUiXgxxUsheBU-9rv9QMBsRkPHLO6v3X4tHReoaoDvVoT1YSDhuJnDXwL-GQvo3Cwj7oGSwfRdV40RKa_ov2YeSyVLnnnzJgKXCXYyRNnxslrCS9e3wSZCpiBuiSncnT-gVsMuo")'></div>
-          <span class="absolute top-3 left-3 bg-garnet text-white border-2 border-mahogany px-2 py-0.5 text-[11px] font-bold uppercase tracking-[0.07em]">Sustainability</span>
-        </div>
-        <div class="p-5 flex-1 flex flex-col gap-2.5">
-          <h3 class="font-display text-[1.0625rem] font-bold text-charcoal dark:text-alabaster leading-[1.25]">Sustainable Fashion in Nairobi</h3>
-          <p class="text-[0.8125rem] text-ink-muted dark:text-ink-muted-dark leading-[1.65] flex-1">Meet the local designers transforming recycled materials into runway-ready couture, leading the slow fashion movement.</p>
-          <footer class="flex items-center justify-between mt-auto pt-3 border-t border-charcoal/10 dark:border-alabaster/10">
-            <time class="text-xs text-ink-muted dark:text-ink-muted-dark" datetime="2023-10-08">Oct 8, 2023</time>
-            <a href="#" class="text-[0.8125rem] font-bold text-garnet inline-flex items-center gap-1 transition-[gap] duration-150 hover:gap-2">Read story <span class="material-symbols-outlined" style="font-size:15px">north_east</span></a>
-          </footer>
-        </div>
-      </article>
-
-      <article class="card-brutalist flex flex-col overflow-hidden">
-        <div class="relative aspect-square overflow-hidden border-b-2 border-charcoal dark:border-warm-dusk">
-          <div class="absolute inset-0 bg-cover bg-center transition-transform duration-500 hover:scale-[1.04]"
-            style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuD-Yxup1LA46Tbqgcxq4luOkaSjTtvgNRN9-Qzqf-NZ4x8JNBPt-IQc7xj5XyjpguBzkiAAV0Qawlv4BniC6LAPfjqwUqLs5J2_2VW6vY0MCz_iuEJALfe-jGSnJqSjyYjEHIRMaY8vA8UXele0jBI9Tl8Swp4a5I-FtEt5iuB6TU9D5HHOGCaAeEPf2WFyOcsHha4s1IZYr0BIgGWJ-RnlbEj6CUCrYMeDyyvSa1krnQFIO2aAAVzpbhZzcK1n0U_yonSdyabZ1-o")'></div>
-          <span class="absolute top-3 left-3 bg-garnet text-white border-2 border-mahogany px-2 py-0.5 text-[11px] font-bold uppercase tracking-[0.07em]">Local Labels</span>
-        </div>
-        <div class="p-5 flex-1 flex flex-col gap-2.5">
-          <h3 class="font-display text-[1.0625rem] font-bold text-charcoal dark:text-alabaster leading-[1.25]">The Modern Maasai: Reimagined Patterns</h3>
-          <p class="text-[0.8125rem] text-ink-muted dark:text-ink-muted-dark leading-[1.65] flex-1">How traditional shuka patterns are finding their way into high-fashion menswear and luxury accessories.</p>
-          <footer class="flex items-center justify-between mt-auto pt-3 border-t border-charcoal/10 dark:border-alabaster/10">
-            <time class="text-xs text-ink-muted dark:text-ink-muted-dark" datetime="2023-10-05">Oct 5, 2023</time>
-            <a href="#" class="text-[0.8125rem] font-bold text-garnet inline-flex items-center gap-1 transition-[gap] duration-150 hover:gap-2">Read story <span class="material-symbols-outlined" style="font-size:15px">north_east</span></a>
-          </footer>
-        </div>
-      </article>
-
+    <div id="posts-grid" class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      {sortedPosts.map((post, index) => {
+        const postTags = post.data.tags || [];
+        const titleLower = post.data.title.toLowerCase();
+        const descLower = (post.data.description || "").toLowerCase();
+        const authorLower = (post.data.author || "").toLowerCase();
+        const searchString = `${titleLower} ${descLower} ${authorLower} ${postTags.join(" ").toLowerCase()}`;
+        
+        return (
+          <article 
+            class="blog-post-card card-brutalist flex flex-col overflow-hidden" 
+            data-search-content={searchString}
+            data-tags={JSON.stringify(postTags)}
+            data-is-featured={index === 0 ? "true" : "false"}
+            style={index === 0 ? "display: none;" : ""}
+          >
+            <div class="relative aspect-square overflow-hidden border-b-2 border-charcoal dark:border-warm-dusk">
+              <div class="absolute inset-0 bg-cover bg-center transition-transform duration-500 hover:scale-[1.04]"
+                style={`background-image: url("${getPostImage(postTags)}")`}></div>
+              {postTags.length > 0 && (
+                <span class="absolute top-3 left-3 bg-garnet text-white border-2 border-mahogany px-2 py-0.5 text-[11px] font-bold uppercase tracking-[0.07em]">
+                  {postTags[0]}
+                </span>
+              )}
+            </div>
+            <div class="p-5 flex-1 flex flex-col gap-2.5">
+              <h3 class="font-display text-[1.0625rem] font-bold text-charcoal dark:text-alabaster leading-[1.25] hover:text-garnet dark:hover:text-garnet-soft transition-colors">
+                <a href={`/blog/${post.id}`}>
+                  {post.data.title}
+                </a>
+              </h3>
+              <p class="text-[0.8125rem] text-ink-muted dark:text-ink-muted-dark leading-[1.65] flex-1 line-clamp-3">
+                {post.data.description || 'Read the full story on Kenyan fashion and vintage culture.'}
+              </p>
+              <footer class="flex items-center justify-between mt-auto pt-3 border-t border-charcoal/10 dark:border-alabaster/10">
+                <time class="text-xs text-ink-muted dark:text-ink-muted-dark" datetime={post.data.pubDate.toISOString()}>
+                  {post.data.pubDate.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}
+                </time>
+                <a href={`/blog/${post.id}`} class="text-[0.8125rem] font-bold text-garnet inline-flex items-center gap-1 transition-[gap] duration-150 hover:gap-2 dark:text-garnet-soft">
+                  Read story 
+                  <span class="material-symbols-outlined" style="font-size:15px">north_east</span>
+                </a>
+              </footer>
+            </div>
+          </article>
+        );
+      })}
     </div>
   </section>
 
@@ -134,6 +203,7 @@ import Layout from '../layouts/Layout.astro';
 </Layout>
 
 <script>
+  // Newsletter subscription
   function handleNewsletter(e: Event) {
     e.preventDefault();
     const form = e.target as HTMLElement;
@@ -143,6 +213,119 @@ import Layout from '../layouts/Layout.astro';
     success.style.display = 'flex';
   }
   (window as any).handleNewsletter = handleNewsletter;
+
+  // Search & Filter functionality
+  let activeTag = 'all';
+  let searchQuery = '';
+
+  const searchInput = document.getElementById('blog-search') as HTMLInputElement | null;
+  const tagButtons = document.querySelectorAll('.tag-filter-btn');
+  const postCards = document.querySelectorAll('.blog-post-card');
+  const noResultsDiv = document.getElementById('no-results');
+  const postsGrid = document.getElementById('posts-grid');
+  const clearBtn = document.getElementById('clear-search-btn');
+  const featuredSection = document.getElementById('featured-section');
+
+  function updateFilters() {
+    let visibleCount = 0;
+    const isFiltering = searchQuery !== '' || activeTag !== 'all';
+
+    // Show/hide featured post section on top
+    if (featuredSection) {
+      if (isFiltering) {
+        featuredSection.style.display = 'none';
+      } else {
+        featuredSection.style.display = 'block';
+      }
+    }
+
+    postCards.forEach((card) => {
+      const element = card as HTMLElement;
+      const searchContent = element.dataset.searchContent || '';
+      const tags = JSON.parse(element.dataset.tags || '[]');
+      const isFeatured = element.dataset.isFeatured === 'true';
+
+      const matchesSearch = searchContent.includes(searchQuery);
+      const matchesTag = activeTag === 'all' || tags.includes(activeTag);
+
+      // If not filtering, we hide the featured article from the grid list.
+      // If filtering, we display it if it matches the search/tag criteria.
+      const shouldShow = matchesSearch && matchesTag && (isFiltering || !isFeatured);
+
+      if (shouldShow) {
+        element.style.setProperty('display', 'flex', 'important');
+        visibleCount++;
+      } else {
+        element.style.setProperty('display', 'none', 'important');
+      }
+    });
+
+    if (visibleCount === 0) {
+      noResultsDiv?.classList.remove('hidden');
+      postsGrid?.classList.add('hidden');
+    } else {
+      noResultsDiv?.classList.add('hidden');
+      postsGrid?.classList.remove('hidden');
+    }
+  }
+
+  // Search input listener
+  searchInput?.addEventListener('input', (e) => {
+    searchQuery = (e.target as HTMLInputElement).value.toLowerCase().trim();
+    updateFilters();
+  });
+
+  // Tag button listeners
+  tagButtons.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const tag = (btn as HTMLElement).dataset.tag || 'all';
+
+      // Update button styles to reflect selection state
+      tagButtons.forEach((b) => {
+        // Reset to inactive styles
+        b.classList.remove('bg-garnet', 'text-white', 'border-charcoal', 'shadow-[2px_2px_0_#28231E]');
+        b.classList.add('bg-white', 'text-charcoal', 'border-charcoal/20');
+        
+        // Dark mode inactive reset
+        b.classList.remove('dark:bg-garnet-soft', 'dark:text-alabaster', 'dark:border-alabaster', 'dark:shadow-[2px_2px_0_#E6E1DE]');
+        b.classList.add('dark:bg-card-dark', 'dark:text-alabaster', 'dark:border-warm-dusk');
+      });
+
+      // Apply active styles to clicked button
+      activeTag = tag;
+      btn.classList.remove('bg-white', 'text-charcoal', 'border-charcoal/20');
+      btn.classList.add('bg-garnet', 'text-white', 'border-charcoal', 'shadow-[2px_2px_0_#28231E]');
+      
+      btn.classList.remove('dark:bg-card-dark', 'dark:border-warm-dusk');
+      btn.classList.add('dark:bg-garnet-soft', 'dark:text-alabaster', 'dark:border-alabaster', 'dark:shadow-[2px_2px_0_#E6E1DE]');
+
+      updateFilters();
+    });
+  });
+
+  // Clear button listener
+  clearBtn?.addEventListener('click', () => {
+    if (searchInput) searchInput.value = '';
+    searchQuery = '';
+    activeTag = 'all';
+
+    tagButtons.forEach((b) => {
+      b.classList.remove('bg-garnet', 'text-white', 'border-charcoal', 'shadow-[2px_2px_0_#28231E]');
+      b.classList.add('bg-white', 'text-charcoal', 'border-charcoal/20');
+      b.classList.remove('dark:bg-garnet-soft', 'dark:text-alabaster', 'dark:border-alabaster', 'dark:shadow-[2px_2px_0_#E6E1DE]');
+      b.classList.add('dark:bg-card-dark', 'dark:text-alabaster', 'dark:border-warm-dusk');
+    });
+
+    const allBtn = document.querySelector('.tag-filter-btn[data-tag="all"]');
+    if (allBtn) {
+      allBtn.classList.remove('bg-white', 'text-charcoal', 'border-charcoal/20');
+      allBtn.classList.add('bg-garnet', 'text-white', 'border-charcoal', 'shadow-[2px_2px_0_#28231E]');
+      allBtn.classList.remove('dark:bg-card-dark', 'dark:border-warm-dusk');
+      allBtn.classList.add('dark:bg-garnet-soft', 'dark:text-alabaster', 'dark:border-alabaster', 'dark:shadow-[2px_2px_0_#E6E1DE]');
+    }
+
+    updateFilters();
+  });
 </script>
 
 <style>
