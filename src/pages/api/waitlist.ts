@@ -8,8 +8,10 @@ export const POST: APIRoute = async ({ request }) => {
     const body = await request.json();
     const { email, name, whatsapp_number } = body;
 
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
     // email format validation
-    if (!email || !email.includes("@")) {
+    if (!email || !emailRegex.test(email)) {
       return new Response(
         JSON.stringify({ message: "Missing or invalid email address." }),
         { status: 400, headers: { "Content-Type": "application/json" } },
