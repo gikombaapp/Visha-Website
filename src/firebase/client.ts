@@ -1,7 +1,7 @@
 import { initializeApp } from "firebase/app";
 
 const firebaseConfig = {
-  apiKey: import.meta.env.FIREBASE_API_KEY,
+  apiKey: import.meta.env.PUBLIC_FIREBASE_API_KEY,
   authDomain: "visha-app-291ec.firebaseapp.com",
   projectId: "visha-app-291ec",
   storageBucket: "visha-app-291ec.firebasestorage.app",
