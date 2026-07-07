@@ -74,30 +74,6 @@ const {
 </div>
 
 <script>
-  import { initializeApp } from 'firebase/app';
-  import {
-    getFirestore,
-    collection,
-    addDoc,
-    serverTimestamp,
-    getDocs,
-    query,
-    where
-  } from 'firebase/firestore';
-
-  const firebaseConfig = {
-    apiKey: "AIzaSyBaRwqAsM52JM-itALada0fK5AESWbwrNY",
-    authDomain: "visha-app-291ec.firebaseapp.com",
-    projectId: "visha-app-291ec",
-    storageBucket: "visha-app-291ec.firebasestorage.app",
-    messagingSenderId: "6236911241",
-    appId: "1:6236911241:web:ab43630faef3e04eaaf858",
-    measurementId: "G-6SWFPN9BH6"
-  };
-
-  const app = initializeApp(firebaseConfig);
-  const db = getFirestore(app);
-
   document.querySelectorAll('[data-waitlist-id]').forEach((wrap) => {
     const id = (wrap as HTMLElement).dataset.waitlistId!;
     const form = wrap.querySelector('form')!;
@@ -116,7 +92,7 @@ const {
     };
 
     const showError = (msg: string) => {
-      error.textContent = msg;
+      error.innerHTML = `<span class="material-symbols-outlined">error</span> ${msg}`;
       error.classList.remove('hidden');
     };
 
@@ -151,38 +127,32 @@ const {
       btn.textContent = 'Joining...';
 
       try {
-        // check duplicates
-        const [emailSnap, phoneSnap] = await Promise.all([
-          getDocs(query(collection(db, 'waitlist'), where('email', '==', email))),
-          getDocs(query(collection(db, 'waitlist'), where('phone', '==', phone)))
-        ]);
-
-        if (!emailSnap.empty) {
-          resetBtn();
-          showError('This email is already on the waitlist!');
-          return;
-        }
-
-        if (!phoneSnap.empty) {
-          resetBtn();
-          showError('This phone number is already on the waitlist!');
-          return;
-        }
-
-        // save to Firestore
-        await addDoc(collection(db, 'waitlist'), {
-          name,
-          email,
-          phone,
-          joinedAt: serverTimestamp(),
-          source: id,
+        const response = await fetch('/api/waitlist', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            name,
+            email,
+            whatsapp_number: phone,
+            source: id
+          })
         });
+
+        const data = await response.json();
+
+        if (!response.ok) {
+          resetBtn();
+          showError(data.message || 'Something went wrong. Please try again.');
+          return;
+        }
 
         form.classList.add('hidden');
         success.classList.remove('hidden');
 
       } catch (err) {
-        console.error('Firestore error:', err);
+        console.error('Waitlist API error:', err);
         resetBtn();
         showError('Something went wrong. Please try again.');
       }
