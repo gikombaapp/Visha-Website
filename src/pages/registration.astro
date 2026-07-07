@@ -87,20 +87,8 @@ import Layout from '../layouts/Layout.astro';
               </div>
             </div>
 
-            <div class="flex flex-col gap-1.5">
-              <label for="style" class="text-[11px] font-extrabold uppercase tracking-widest text-charcoal dark:text-alabaster">Your Style</label>
-              <div class="relative">
-                <span class="material-symbols-outlined absolute left-3.5 top-1/2 -translate-y-1/2 text-ink-muted pointer-events-none" style="font-size:16px">style</span>
-                <select id="style" name="style" class="input-brutalist pl-11 pr-11 appearance-none cursor-pointer">
-                  <option value="" disabled selected>Select your vibe</option>
-                  <option value="minimal">Minimalist &amp; Clean</option>
-                  <option value="streetwear">Streetwear &amp; Bold</option>
-                  <option value="luxury">Luxury &amp; Classic</option>
-                  <option value="vibrant">Vibrant &amp; Artistic</option>
-                </select>
-                <span class="material-symbols-outlined absolute right-3.5 top-1/2 -translate-y-1/2 text-ink-muted pointer-events-none" style="font-size:16px">expand_more</span>
-              </div>
-            </div>
+
+            <div id="form-error" class="hidden text-sm text-red-600 dark:text-red-400 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 px-4 py-3 rounded-sm -mb-1" role="alert"></div>
 
             <button type="submit" class="btn-primary w-full justify-center mt-2 text-[0.9375rem] py-4">
               Secure My Spot
@@ -133,11 +121,59 @@ import Layout from '../layouts/Layout.astro';
 </Layout>
 
 <script>
-  document.getElementById('reg-form')?.addEventListener('submit', (e) => {
+  const form = document.getElementById('reg-form') as HTMLFormElement | null;
+  const submitBtn = form?.querySelector('button[type="submit"]') as HTMLButtonElement | null;
+  const errorBanner = document.getElementById('form-error') as HTMLElement | null;
+
+  form?.addEventListener('submit', async (e) => {
     e.preventDefault();
-    document.getElementById('form-container')!.classList.add('hidden');
-    const msg = document.getElementById('success-msg')!;
-    msg.classList.remove('hidden');
-    msg.style.display = 'flex';
+
+    // Clear previous errors
+    if (errorBanner) {
+      errorBanner.textContent = '';
+      errorBanner.classList.add('hidden');
+    }
+
+    const data = new FormData(form);
+    const payload = {
+      name: (data.get('fullName') as string)?.trim(),
+      email: (data.get('email') as string)?.trim(),
+      whatsapp_number: (data.get('phone') as string)?.trim(),
+    };
+
+    // Loading state
+    if (submitBtn) {
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = '<span class="material-symbols-outlined animate-spin" style="font-size:18px">progress_activity</span> Submitting…';
+    }
+
+    try {
+      const res = await fetch('/api/waitlist', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+      });
+
+      const json = await res.json();
+
+      if (res.ok) {
+        document.getElementById('form-container')!.classList.add('hidden');
+        const msg = document.getElementById('success-msg')!;
+        msg.classList.remove('hidden');
+        msg.style.display = 'flex';
+      } else {
+        throw new Error(json?.message ?? 'Something went wrong. Please try again.');
+      }
+    } catch (err: any) {
+      if (errorBanner) {
+        errorBanner.textContent = err?.message ?? 'Something went wrong. Please try again.';
+        errorBanner.classList.remove('hidden');
+      }
+      // Restore button
+      if (submitBtn) {
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = 'Secure My Spot <span class="material-symbols-outlined" style="font-size:18px">arrow_forward</span>';
+      }
+    }
   });
 </script>
