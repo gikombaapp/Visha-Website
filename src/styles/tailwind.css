@@ -5,28 +5,28 @@
 
 @theme {
   /* ── Updated brand palette ── */
-  --color-garnet:        #7D39EB;   /* Primary brand (violet), CTAs */
-  --color-mahogany:      #5A1FB8;   /* Hover states, shadow offsets */
-  --color-garnet-soft:   #C6FF33;
-  --color-lime:          #C6FF33;   /* Secondary accent */
-  --color-lime-dark:     #A8DB1A;
+  --color-garnet: #7D39EB; /* Primary brand (violet), CTAs */
+  --color-mahogany: #5A1FB8; /* Hover states, shadow offsets */
+  --color-garnet-soft: #C6FF33;
+  --color-lime: #C6FF33; /* Secondary accent */
+  --color-lime-dark: #A8DB1A;
 
-  --color-charcoal:      #000000;   /* Carbon Black — headings, borders, dark surfaces */
-  --color-warm-dusk:     #1A1A1A;   /* Dark card bg, muted borders */
+  --color-charcoal: #000000; /* Carbon Black — headings, borders, dark surfaces */
+  --color-warm-dusk: #1A1A1A; /* Dark card bg, muted borders */
 
-  --color-alabaster:     #F0F0F0;   /* Light surfaces, backgrounds */
-  --color-alabaster-dark:#D9D9D9;
+  --color-alabaster: #F0F0F0; /* Light surfaces, backgrounds */
+  --color-alabaster-dark: #D9D9D9;
 
-  --color-parchment:     #FFFFFF;   /* Off-white, card backgrounds */
-  --color-white:         #FFFFFF;
+  --color-parchment: #FFFFFF; /* Off-white, card backgrounds */
+  --color-white: #ffffff;
 
   /* Semantic */
-  --color-ink-muted:     #666666;
-  --color-ink-muted-dark:#A0A0A0;
-  --color-card-dark:     #0D0D0D;
+  --color-ink-muted: #666666;
+  --color-ink-muted-dark: #A0A0A0;
+  --color-card-dark: #0D0D0D;
 
-  --font-display: 'Syne', sans-serif;
-  --font-body:    'DM Sans', sans-serif;
+  --font-display: "Syne", sans-serif;
+  --font-body: "DM Sans", sans-serif;
 }
 
 @layer base {
@@ -42,13 +42,24 @@
     -moz-osx-font-smoothing: grayscale;
   }
 
-  h1, h2, h3, h4, h5, h6 {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     font-family: var(--font-display);
     line-height: 1.05;
   }
 
-  a { color: inherit; text-decoration: none; }
-  img { display: block; max-width: 100%; }
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+  img {
+    display: block;
+    max-width: 100%;
+  }
 
   :focus-visible {
     outline: 2px solid #7D39EB;
@@ -56,7 +67,11 @@
   }
 
   .material-symbols-outlined {
-    font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    font-variation-settings:
+      "FILL" 0,
+      "wght" 400,
+      "GRAD" 0,
+      "opsz" 24;
     vertical-align: middle;
     line-height: 1;
     user-select: none;
@@ -127,9 +142,15 @@
     @apply inline-block font-display font-bold text-[11px] uppercase tracking-widest
            px-3 py-1 border-2 border-charcoal;
   }
-  .tag-garnet    { @apply bg-garnet text-white border-mahogany; }
-  .tag-alabaster { @apply bg-alabaster text-charcoal; }
-  .tag-charcoal  { @apply bg-charcoal text-alabaster; }
+  .tag-garnet {
+    @apply bg-garnet text-white border-mahogany;
+  }
+  .tag-alabaster {
+    @apply bg-alabaster text-charcoal;
+  }
+  .tag-charcoal {
+    @apply bg-charcoal text-alabaster;
+  }
 
   /* ── Form input ── */
   .input-brutalist {
@@ -156,7 +177,7 @@
     @apply bg-charcoal border-[3px] border-charcoal shadow-[8px_8px_0_#C6FF33] relative overflow-hidden;
   }
   .phone-mockup::before {
-    content: '';
+    content: "";
     @apply absolute top-0 left-1/2 -translate-x-1/2 w-[38%] h-[18px] bg-charcoal rounded-b-[10px] z-10;
   }
 
@@ -164,9 +185,15 @@
   .icon-box {
     @apply w-11 h-11 border-2 border-charcoal flex items-center justify-center shrink-0;
   }
-  .icon-box--garnet    { @apply bg-garnet text-white border-mahogany; }
-  .icon-box--charcoal  { @apply bg-charcoal text-alabaster; }
-  .icon-box--alabaster { @apply bg-alabaster text-charcoal; }
+  .icon-box--garnet {
+    @apply bg-garnet text-white border-mahogany;
+  }
+  .icon-box--charcoal {
+    @apply bg-charcoal text-alabaster;
+  }
+  .icon-box--alabaster {
+    @apply bg-alabaster text-charcoal;
+  }
 }
 
 @layer utilities {
@@ -175,11 +202,15 @@
     clip: rect(0, 0, 0, 0);
   }
   .text-shadow {
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
   }
 }
 
 @keyframes marquee {
-  from { transform: translateX(0); }
-  to   { transform: translateX(-50%); }
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
 }
