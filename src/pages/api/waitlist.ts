@@ -6,7 +6,7 @@ import { FieldValue } from "firebase-admin/firestore";
 export const POST: APIRoute = async ({ request }) => {
   try {
     const body = await request.json();
-    const { email, name, whatsapp_number } = body;
+    const { email, name, whatsapp_number, source } = body;
 
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -26,12 +26,36 @@ export const POST: APIRoute = async ({ request }) => {
       );
     }
 
-    const docRef = await db.collection("Waitlist").add({
+    // Check duplicate email
+    const emailSnap = await db.collection("Waitlist").where("email", "==", email).get();
+    if (!emailSnap.empty) {
+      return new Response(
+        JSON.stringify({ message: "This email is already on the waitlist!" }),
+        { status: 400, headers: { "Content-Type": "application/json" } },
+      );
+    }
+
+    // Check duplicate phone number
+    const phoneSnap = await db.collection("Waitlist").where("whatsapp_number", "==", whatsapp_number).get();
+    if (!phoneSnap.empty) {
+      return new Response(
+        JSON.stringify({ message: "This phone number is already on the waitlist!" }),
+        { status: 400, headers: { "Content-Type": "application/json" } },
+      );
+    }
+
+    const docData: Record<string, any> = {
       email: email,
       name: name || "",
       whatsapp_number: whatsapp_number,
       subscribedAt: FieldValue.serverTimestamp(),
-    });
+    };
+
+    if (source) {
+      docData.source = source;
+    }
+
+    const docRef = await db.collection("Waitlist").add(docData);
 
     return new Response(
       JSON.stringify({
