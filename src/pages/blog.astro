@@ -14,7 +14,7 @@ const getSlugFromId = (id: string) => id.replace(/\.mdx?$/, '');
 const allTags = Array.from(new Set(blogEntries.flatMap(post => post.data.tags || []))).filter(Boolean);
 
 // Fallback image when no thumbnail is set in frontmatter
-const FALLBACK_IMAGE = "/Images/IMG_4277.webp";
+const FALLBACK_IMAGE = "/images/IMG_4277.webp";
 
 function getPostImage(thumbnail?: string) {
   return thumbnail || FALLBACK_IMAGE;

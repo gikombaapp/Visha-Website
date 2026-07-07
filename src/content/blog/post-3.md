@@ -4,7 +4,7 @@ pubDate: 2026-05-01
 description: "The environmental impact of fast fashion and how thrifting offers a sustainable alternative."
 author: "Visha Team"
 tags: ["sustainability", "thrift", "environment"]
-thumbnail: "/Images/OIP-3077839320.webp"
+thumbnail: "/images/OIP-3077839320.webp"
 ---
 
 Fast fashion is one of the largest polluters globally. Thrifting extends the life of clothing and reduces waste.
