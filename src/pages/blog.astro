@@ -7,6 +7,9 @@ import Layout from '../layouts/Layout.astro';
 const blogEntries = await getCollection('blog');
 const sortedPosts = blogEntries.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 
+// Helper function to turn a Content Layer entry ID into a clean URL slug
+const getSlugFromId = (id: string) => id.replace(/\.mdx?$/, '');
+
 // Extract all unique tags
 const allTags = Array.from(new Set(blogEntries.flatMap(post => post.data.tags || []))).filter(Boolean);
 
@@ -89,7 +92,7 @@ function getPostImage(tags: string[] = []) {
             <span class="tag tag-charcoal self-start uppercase">{sortedPosts[0].data.tags[0]}</span>
           )}
           <h2 class="text-[clamp(1.5rem,3vw,2rem)] font-extrabold text-charcoal dark:text-alabaster leading-[1.15]">
-            <a href={`/blog/${sortedPosts[0].id}`} class="hover:underline">
+            <a href={`/blog/${getSlugFromId(sortedPosts[0].id)}`} class="hover:underline">
               {sortedPosts[0].data.title}
             </a>
           </h2>
@@ -107,7 +110,7 @@ function getPostImage(tags: string[] = []) {
                 &middot; {Math.max(1, Math.round(sortedPosts[0].body ? sortedPosts[0].body.split(/\s+/).length / 200 : 1))} min read
               </time>
             </div>
-            <a href={`/blog/${sortedPosts[0].id}`} class="btn-primary ml-auto text-xs">
+            <a href={`/blog/${getSlugFromId(sortedPosts[0].id)}`} class="btn-primary ml-auto text-xs">
               Read Story
               <span class="material-symbols-outlined" style="font-size:16px">arrow_forward</span>
             </a>
@@ -159,7 +162,7 @@ function getPostImage(tags: string[] = []) {
             </div>
             <div class="p-5 flex-1 flex flex-col gap-2.5">
               <h3 class="font-display text-[1.0625rem] font-bold text-charcoal dark:text-alabaster leading-[1.25] hover:text-garnet dark:hover:text-garnet-soft transition-colors">
-                <a href={`/blog/${post.id}`}>
+                <a href={`/blog/${getSlugFromId(post.id)}`}>
                   {post.data.title}
                 </a>
               </h3>
@@ -170,7 +173,7 @@ function getPostImage(tags: string[] = []) {
                 <time class="text-xs text-ink-muted dark:text-ink-muted-dark" datetime={post.data.pubDate.toISOString()}>
                   {post.data.pubDate.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}
                 </time>
-                <a href={`/blog/${post.id}`} class="text-[0.8125rem] font-bold text-garnet inline-flex items-center gap-1 transition-[gap] duration-150 hover:gap-2 dark:text-garnet-soft">
+                <a href={`/blog/${getSlugFromId(post.id)}`} class="text-[0.8125rem] font-bold text-garnet inline-flex items-center gap-1 transition-[gap] duration-150 hover:gap-2 dark:text-garnet-soft">
                   Read story 
                   <span class="material-symbols-outlined" style="font-size:15px">north_east</span>
                 </a>

@@ -1,18 +1,29 @@
 ---
 // src/pages/blog/[...slug].astro
+export const prerender = true;
+
 import { getCollection, render } from 'astro:content';
 import Layout from "../../layouts/Layout.astro"
 
 export async function getStaticPaths() {
   const blogEntries = await getCollection('blog');
   
-  return blogEntries.map(entry => ({
-    params: { slug: entry.id }, 
-    props: { entry },
-  }));
+  return blogEntries.map(entry => {
+    const cleanSlug = entry.id.replace(/\.mdx?$/, '');
+    return {
+      params: { slug: cleanSlug === 'index' ? undefined : cleanSlug }, 
+      props: { entry },
+    };
+  });
 }
 
 const { entry } = Astro.props;
+
+// Safe fallback just in case an invalid route hits the template
+if (!entry) {
+  return Astro.redirect('/404');
+}
+
 const { Content } = await render(entry);
 
 // Fetch other blog posts for suggestions
