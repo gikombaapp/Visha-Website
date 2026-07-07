@@ -13,22 +13,11 @@ const getSlugFromId = (id: string) => id.replace(/\.mdx?$/, '');
 // Extract all unique tags
 const allTags = Array.from(new Set(blogEntries.flatMap(post => post.data.tags || []))).filter(Boolean);
 
-// Curated image mapper for tags
-function getPostImage(tags: string[] = []) {
-  const tagString = tags.join(' ').toLowerCase();
-  if (tagString.includes('streetwear') || tagString.includes('street style') || tagString.includes('fashion')) {
-    return "https://lh3.googleusercontent.com/aida-public/AB6AXuDoYBiRzrotXyoGqnzmkWO5mJSkvsVeV1wbmZk79_x8gLvxKyUjxG0BZYbsTcJUCP-sVPhklqmr309M0e6ZxzGeS5n52mS8yHAKzos1SkYfRww5aMCkw9COILddSNT4vkQBpFahkjKj5kuhjeq5m3i0euUL5ydL9fD15k6Alf9zTn4eToJ2xAjJIEOpdtVGT47HzKj1l1jhZ0Y1jaXmVHLU5zXKuC2hvnkYvqDOQynmkvGveD69G0N-dWQzL53Am4h5w3L2Eb9HMc8";
-  }
-  if (tagString.includes('vintage') || tagString.includes('denim')) {
-    return "https://lh3.googleusercontent.com/aida-public/AB6AXuDuFfF6kCtk0imm5wS2u1kkKrw7okew5LyYZQMIL3netV50EKxsdcTIbZDy3VTq_9EHW8z0nGqhmtXVSbUnaDuQZ913afYbbKlPiRx6XYKOTgiCfwGBy-ZDZuNj-uKrtSnvzB3VzmpgtRPii89n4hsJPlYPkxjkUNLPMTM_4wa7rvfwFMPul5dEdsTSeeOHWscOIlu2AtG70lKHXyoT6CoZlODevQrpG23G81fZc5UGiRvnekIJBe-53hLe1bXSUH2BfxyYtcR8uuw";
-  }
-  if (tagString.includes('sustainability') || tagString.includes('sustainable') || tagString.includes('thrift') || tagString.includes('environment')) {
-    return "https://lh3.googleusercontent.com/aida-public/AB6AXuDkk77Cd7sm6GaxfJBrehekp7H7wQFIRMfGgtt9lAu2Le4TYBOBDEdGK29jXEgw4zDgL0xC83FjoomwuYiwlhxFmm5TzSmKdNM9zpjYZMfWGXwNzBujHP-Sey2X7RTmEkGTeLq8BUiXgxxUsheBU-9rv9QMBsRkPHLO6v3X4tHReoaoDvVoT1YSDhuJnDXwL-GQvo3Cwj7oGSwfRdV40RKa_ov2YeSyVLnnnzJgKXCXYyRNnxslrCS9e3wSZCpiBuiSncnT-gVsMuo";
-  }
-  if (tagString.includes('maasai') || tagString.includes('pattern') || tagString.includes('local') || tagString.includes('labels')) {
-    return "https://lh3.googleusercontent.com/aida-public/AB6AXuD-Yxup1LA46Tbqgcxq4luOkaSjTtvgNRN9-Qzqf-NZ4x8JNBPt-IQc7xj5XyjpguBzkiAAV0Qawlv4BniC6LAPfjqwUqLs5J2_2VW6vY0MCz_iuEJALfe-jGSnJqSjyYjEHIRMaY8vA8UXele0jBI9Tl8Swp4a5I-FtEt5iuB6TU9D5HHOGCaAeEPf2WFyOcsHha4s1IZYr0BIgGWJ-RnlbEj6CUCrYMeDyyvSa1krnQFIO2aAAVzpbhZzcK1n0U_yonSdyabZ1-o";
-  }
-  return "https://lh3.googleusercontent.com/aida-public/AB6AXuDoYBiRzrotXyoGqnzmkWO5mJSkvsVeV1wbmZk79_x8gLvxKyUjxG0BZYbsTcJUCP-sVPhklqmr309M0e6ZxzGeS5n52mS8yHAKzos1SkYfRww5aMCkw9COILddSNT4vkQBpFahkjKj5kuhjeq5m3i0euUL5ydL9fD15k6Alf9zTn4eToJ2xAjJIEOpdtVGT47HzKj1l1jhZ0Y1jaXmVHLU5zXKuC2hvnkYvqDOQynmkvGveD69G0N-dWQzL53Am4h5w3L2Eb9HMc8";
+// Fallback image when no thumbnail is set in frontmatter
+const FALLBACK_IMAGE = "/Images/IMG_4277.webp";
+
+function getPostImage(thumbnail?: string) {
+  return thumbnail || FALLBACK_IMAGE;
 }
 ---
 
@@ -83,7 +72,7 @@ function getPostImage(tags: string[] = []) {
       <article class="card-brutalist grid overflow-hidden md:grid-cols-2">
         <div
           class="aspect-[4/3] bg-cover bg-center border-b-2 border-charcoal md:border-b-0 md:border-r-2 dark:border-warm-dusk"
-          style={`background-image: url("${getPostImage(sortedPosts[0].data.tags)}")`}
+          style={`background-image: url("${getPostImage(sortedPosts[0].data.thumbnail)}")`}
           role="img" 
           aria-label={sortedPosts[0].data.title}
         ></div>
@@ -153,7 +142,7 @@ function getPostImage(tags: string[] = []) {
           >
             <div class="relative aspect-square overflow-hidden border-b-2 border-charcoal dark:border-warm-dusk">
               <div class="absolute inset-0 bg-cover bg-center transition-transform duration-500 hover:scale-[1.04]"
-                style={`background-image: url("${getPostImage(postTags)}")`}></div>
+                style={`background-image: url("${getPostImage(post.data.thumbnail)}")`}></div>
               {postTags.length > 0 && (
                 <span class="absolute top-3 left-3 bg-garnet text-white border-2 border-mahogany px-2 py-0.5 text-[11px] font-bold uppercase tracking-[0.07em]">
                   {postTags[0]}
